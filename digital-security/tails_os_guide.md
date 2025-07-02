@@ -13,11 +13,11 @@ Use this chart to help you decide if Tails is the right tool for what you need t
 
 ```mermaid
 graph TD
-    A[Start: I have a task to do] --> B{"Is this task sensitive? (e.g., researching opponents, communicating with a journalist)"};
-    B -->|No| C[Use your regular computer or phone.];
+    A["Start: I have a task to do"] --> B{"Is this task sensitive? (e.g., researching opponents, communicating with a journalist)"};
+    B -->|No| C["Use your regular computer or phone."];
     B -->|Yes| D{"Do I need to hide the *fact* that I did this from someone with access to this computer?"};
-    D -->|Yes, absolutely| E[**Use Tails.** It leaves no trace on the machine.];
-    D -->|No, not a concern| F{"Do I need to hide my online identity/location (IP address)?"};
-    F -->|Yes| G[**Use Tails.** It forces all traffic through Tor.];
-    F -->|No| H[Consider using Tor Browser on your regular OS. It's less secure than Tails but still anonymizes your browsing.];
+    D -->|"Yes, absolutely"| E["**Use Tails.** It leaves no trace on the machine."];
+    D -->|"No, not a concern"| F{"Do I need to hide my online identity/location (IP address)?"};
+    F -->|Yes| G["**Use Tails.** It forces all traffic through Tor."];
+    F -->|No| H["Consider using Tor Browser on your regular OS. It's less secure than Tails but still anonymizes your browsing."];
 ```
