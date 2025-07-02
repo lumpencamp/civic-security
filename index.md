@@ -6,28 +6,28 @@ Welcome to the expanded Civic Security Guide. This is a comprehensive, community
 
 ## Table of Contents
 
-### **I. Strategic Guides**
+### I. Strategic Guides
 *   [**Combating Government Surveillance**](./strategic-guides/combating_surveillance.md): A high-level strategy for resilience.
 
-### **II. Hardened Operating Systems**
-*   [**GrapheneOS Guide**](./hardened-os/GrapheneOS_Guide.md): The ultimate in mobile security.
-*   [**CalyxOS Guide**](./hardened-os/CalyxOS_Guide.md): A balance of privacy and usability.
+### II. Hardened Operating Systems
+*   [**GrapheneOS Guide**](./hardened-os/GrapheneOS_Guide.md): The ultimate in mobile security, for Google Pixel devices.
+*   [**CalyxOS Guide**](./hardened-os/CalyxOS_Guide.md): A balance of privacy and usability for Pixels, Fairphones, and Motorolas.
 
-### **III. Privacy Networks & Tools**
-*   [**Tor Guide**](./privacy-networks/Tor_Guide.md): Anonymous web browsing.
-*   [**Mullvad VPN Guide**](./privacy-networks/Mullvad_VPN_Guide.md): A trusted VPN for privacy.
-*   [**NYM VPN Guide**](./privacy-networks/NYM_VPN_Guide.md): A next-generation mixnet.
+### III. Privacy Networks & Tools
+*   [**Tor Guide**](./privacy-networks/Tor_Guide.md): Anonymous web browsing for everyone.
+*   [**Mullvad VPN Guide**](./privacy-networks/Mullvad_VPN_Guide.md): A trusted, no-logs VPN for enhancing your privacy.
+*   [**NYM VPN Guide**](./privacy-networks/NYM_VPN_Guide.md): A next-generation mixnet for advanced traffic analysis resistance.
 
-### **IV. Secure Protocols & Applications**
-*   [**Device Encryption Guide**](./secure-protocols/device_encryption.md): Protecting your data at rest.
-*   [**Secure File Transfer**](./secure-protocols/secure_file_transfer.md): Using OnionShare and SecureDrop.
-*   [**Signal Alternatives**](./secure-protocols/signal_alternatives.md): Guides for Session and Briar.
+### IV. Secure Protocols & Applications
+*   [**Device Encryption Guide**](./secure-protocols/device_encryption.md): Protecting your data if your device is lost or seized.
+*   [**Secure File Transfer**](./secure-protocols/secure_file_transfer.md): Using OnionShare and understanding SecureDrop.
+*   [**Signal Alternatives**](./secure-protocols/signal_alternatives.md): Guides for Session and Briar for phone-number-free and offline messaging.
 
-### **V. Core Digital & Physical Security**
-*   [**Core OPSEC Principles**](./digital-security/opsec_principles_guide.md)
-*   [**Threat Modeling for Activists**](./digital-security/threat_modeling_guide.md)
-*   [**Signal Messenger Guide**](./digital-security/signal_guide.md)
-*   [**Tails OS Guide**](./digital-security/tails_os_guide.md)
-*   [**Expanded Protest Checklist**](./physical-security/protest_checklist.md)
-*   [**Countersurveillance Basics**](./physical-security/countersurveillance.md)
-*   [**Know Your Rights (Chicago Focus)**](./legal-rights/know_your_rights.md)
+### V. Core Digital & Physical Security
+*   [**Core OPSEC Principles**](./digital-security/opsec_principles_guide.md): The foundational mindset for security.
+*   [**Threat Modeling for Activists**](./digital-security/threat_modeling_guide.md): Understanding your specific risks.
+*   [**Signal Messenger Guide**](./digital-security/signal_guide.md): Best practices for the most common secure messenger.
+*   [**Tails OS Guide**](./digital-security/tails_os_guide.md): An anonymous OS that leaves no trace on the computer.
+*   [**Expanded Protest Checklist**](./physical-security/protest_checklist.md): Comprehensive preparation for direct action.
+*   [**Countersurveillance Basics**](./physical-security/countersurveillance.md): Practical awareness and mitigation techniques.
+*   [**Know Your Rights (Chicago Focus)**](./legal-rights/know_your_rights.md): A detailed guide to police interactions.

@@ -49,3 +49,18 @@ Installing GrapheneOS is a technical process, but the developers have made it as
 ---
 
 By choosing GrapheneOS, you are taking a significant step towards reclaiming your digital privacy and securing your mobile communications. It represents the gold standard for users who cannot afford to compromise on security.
+
+---
+
+### **Supported Devices**
+
+GrapheneOS has very strict hardware security requirements. As a result, it **only officially supports Google Pixel phones**.
+
+As of mid-2025, this generally includes:
+*   Pixel 8, Pixel 8 Pro, Pixel 8a
+*   Pixel 7, Pixel 7 Pro, Pixel 7a
+*   Pixel 6, Pixel 6 Pro, Pixel 6a
+*   Pixel 5, Pixel 5a
+*   Pixel 4, Pixel 4 XL, Pixel 4a
+
+*Always check the official [GrapheneOS releases page](https://grapheneos.org/releases) for the most current list before purchasing a device.*
