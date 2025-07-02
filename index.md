@@ -8,6 +8,7 @@ Welcome to the expanded Civic Security Guide. This is a comprehensive, community
 
 ### I. Strategic Guides
 *   [**Combating Government Surveillance**](./strategic-guides/combating_surveillance.md): A high-level strategy for resilience.
+*   [**Chicago Surveillance Deep Dive**](./strategic-guides/chicago_surveillance.md): A detailed look at the tools used in Chicago.
 
 ### II. Hardened Operating Systems
 *   [**GrapheneOS Guide**](./hardened-os/GrapheneOS_Guide.md): The ultimate in mobile security, for Google Pixel devices.
