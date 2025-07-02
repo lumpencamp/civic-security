@@ -1,52 +1,21 @@
-# Comprehensive Protest Security Guide
+# The Civic Security Guide
 
-## Digital Security
-- [Signal Setup](digital/signal.md)
-- [Tails OS Guide](digital/tails.md)
-- [Device Encryption](digital/encryption.md)
+Welcome to the Civic Security Guide, a comprehensive resource for activists, protesters, and community organizers. This guide provides practical information on digital security, physical safety, and legal rights to help you operate safely and effectively.
 
-## Physical Safety
-- [Protest Checklist](physical/checklist.md)
-- [Countersurveillance](physical/countersurveillance.md)
+## Table of Contents
 
-## Chicago Resources
-- [Legal Contacts](chicago/legal.md)
-- [Training Calendar](chicago/training.md)
-# Signal Secure Messaging - Complete Guide
+### Digital Security
+*   [**Signal Messenger**](./digital-security/signal.md): Secure communication essentials.
+*   [**Tails OS**](./digital-security/tails-os.md): An anonymous and secure operating system.
+*   [**Device Encryption**](./digital-security/device-encryption.md): Protecting your data at rest.
 
-## Installation:
-1. **Android**:
-   - Download from signal.org/android/apk
-   - Verify APK signature:
-     ```bash
-     apksigner verify --print-certs signal.apk
-     ```
-   - Expected fingerprint: 29:F3:4E:5F:...
+### Physical Security
+*   [**Protest Checklist**](./physical-security/protest-checklist.md): What to bring and what to leave behind.
+*   [**Countersurveillance Basics**](./physical-security/countersurveillance.md): Awareness and mitigation techniques.
 
-## Critical Settings:
-- Registration Lock (prevents SIM swapping)
-- Disable SMS/MMS fallback
-- Screen Lock with timeout (1 minute recommended)
-# Device Encryption Guide\n\n## Cross-Platform Instructions:\n- **Windows**: Use BitLocker to encrypt drives. Command: manage-bde -on C:\n- **macOS**: Enable FileVault via System Preferences > Security & Privacy.\n- **Linux**: Use LUKS for disk encryption. Example: cryptsetup luksFormat /dev/sda1\n- **Troubleshooting**: Verify encryption status and handle errors as per best practices.\n
-# Tails OS Comprehensive Guide\n\n## Installation and Setup:\n- Download from tails.boum.org\n- Verify ISO with GPG: gpg --verify Tails.iso\n- Boot from USB and configure persistent storage.\n\n## Advanced Usage:\n- Tor configuration for anonymity.\n- Secure deletion tools.\n- Troubleshooting common issues.\n
-# Pre-Event Preparation Checklist
+### Chicago Resources
+*   [**Legal & Medical Support**](./chicago-resources/legal-support.md): Key contacts for support in Chicago.
 
-## Essential Items:
-- [ ] Fully charged burner phone
-- [ ] Water bottle (sealed)
-- [ ] Medical ID bracelet
-- [ ] Cash ($50-100 in small bills)
+### Legal Rights
+*   [**Know Your Rights**](./legal-rights/know-your-rights.md): A guide to your rights during protests and police interactions.
 
-## Digital Preparation:
-1. Remove fingerprint/Face ID
-2. Disable location services
-3. Install ACLU Mobile Justice app
-# Chicago Legal Support
-
-## Immediate Assistance:
-- National Lawyers Guild: 312-913-0039
-- ACLU Illinois: 312-201-9740
-
-## Know Your Rights:
-1. You can film police in public spaces
-2. You can remain silent (say "I invoke my right to remain silent")
