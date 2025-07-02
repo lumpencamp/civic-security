@@ -7,6 +7,7 @@ Welcome to the expanded Civic Security Guide. This is a comprehensive, community
 ## Table of Contents
 
 ### I. Strategic Guides
+*   [**The Activist's Guide to Counter-Surveillance**](./strategic-guides/countering_surveillance_guide.md): A layered defense strategy.
 *   [**Combating Government Surveillance**](./strategic-guides/combating_surveillance.md): A high-level strategy for resilience.
 *   [**Chicago Surveillance Deep Dive**](./strategic-guides/chicago_surveillance.md): A detailed look at the tools used in Chicago.
 
