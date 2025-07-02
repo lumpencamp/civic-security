@@ -58,3 +58,16 @@ As of mid-2025, this includes:
 *   **Motorola:** Select models like the Moto G34, G42, G54.
 
 *The list changes frequently. Always check the official [CalyxOS device support page](https://calyxos.org/docs/guide/device-support/) for the most current list and support timeline.*
+
+---
+
+### **Supported Devices**
+
+CalyxOS supports a wider range of devices than GrapheneOS, prioritizing models that allow for bootloader relocking.
+
+As of mid-2025, this includes:
+*   **Google Pixel:** Pixel 4 through Pixel 8 series.
+*   **Fairphone:** Fairphone 4 and Fairphone 5.
+*   **Motorola:** Select models like the Moto G34, G42, G54.
+
+*The list changes frequently. Always check the official [CalyxOS device support page](https://calyxos.org/docs/guide/device-support/) for the most current list and support timeline.*
