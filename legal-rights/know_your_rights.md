@@ -75,28 +75,28 @@ This flowchart helps you decide what to do when you are stopped by police.
 
 ```mermaid
 graph TD
-    A[Police approach and question you] --> B{Ask: "Am I free to leave?"};
+    A[Police approach and question you] --> B{"Ask: 'Am I free to leave?'"};
 
     B -- Yes --> C[Calmly walk away];
-    B -- No / They ignore you --> D{You are being detained};
+    B -- "No / They ignore you" --> D{You are being detained};
 
-    D --> E[Say: "I am going to remain silent."];
-    E --> F[Say: "I want a lawyer."];
-    F --> G{Do they ask to search you?};
+    D --> E["Say: 'I am going to remain silent.'"];
+    E --> F["Say: 'I want a lawyer.'"];
+    F --> G{"Do they ask to search you?"};
 
-    G -- Yes --> H[Say: "I do not consent to a search."];
-    H --> I{Do they search anyway?};
-    I -- Yes --> J[Do not physically resist. Repeat "I do not consent."];
+    G -- Yes --> H["Say: 'I do not consent to a search.'"];
+    H --> I{"Do they search anyway?"};
+    I -- Yes --> J["Do not physically resist. Repeat 'I do not consent.'"];
     I -- No --> K[Continue to remain silent];
 
     G -- No --> K;
 
-    J --> L[Wait for your lawyer. Do not answer questions.];
+    J --> L["Wait for your lawyer. Do not answer questions."];
     K --> L;
 
     subgraph Legend
         direction LR
-        M(Your Action) -- Dashed Line --> N(Police Action/Response)
+        M(Your Action) -- "Dashed Line" --> N(Police Action/Response)
         O{Decision Point}
     end
 
