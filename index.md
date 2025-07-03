@@ -33,3 +33,6 @@ Welcome to the expanded Civic Security Guide. This is a comprehensive, community
 *   [**Expanded Protest Checklist**](./physical-security/protest_checklist.md): Comprehensive preparation for direct action.
 *   [**Countersurveillance Basics**](./physical-security/countersurveillance.md): Practical awareness and mitigation techniques.
 *   [**Know Your Rights (Chicago Focus)**](./legal-rights/know_your_rights.md): A detailed guide to police interactions.
+
+### **VI. Advanced Communication**
+*   [**Advanced Guide to Protest Communications**](./communication-guides/protest_comms_guide.md): A detailed guide on methods, equipment, and best practices.
