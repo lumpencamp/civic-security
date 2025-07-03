@@ -38,3 +38,4 @@ Welcome to the expanded Civic Security Guide. This is a comprehensive, community
 ### **VI. Advanced Communication**
 *   [**Advanced Guide to Protest Communications**](./communication-guides/protest_comms_guide.md): A detailed guide on methods, equipment, and best practices.
 *   [**Advanced Hardware Guide**](./communication-guides/advanced_hardware_guide.md): A deep dive into burner phones, mesh networks, and DIY setups.
+*   [**The Complete Guide to Burner Phones & SIMs**](./communication-guides/burner_phone_guide.md): A step-by-step guide to anonymous acquisition and use.
