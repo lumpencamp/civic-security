@@ -14,6 +14,7 @@ Welcome to the expanded Civic Security Guide. This is a comprehensive, community
 ### II. Hardened Operating Systems
 *   [**GrapheneOS Guide**](./hardened-os/GrapheneOS_Guide.md): The ultimate in mobile security, for Google Pixel devices.
 *   [**CalyxOS Guide**](./hardened-os/CalyxOS_Guide.md): A balance of privacy and usability for Pixels, Fairphones, and Motorolas.
+*   [**Qubes OS Guide**](./hardened-os/qubes_os_guide.md): The ultimate in desktop security through compartmentalization.
 
 ### III. Privacy Networks & Tools
 *   [**Tor Guide**](./privacy-networks/Tor_Guide.md): Anonymous web browsing for everyone.
