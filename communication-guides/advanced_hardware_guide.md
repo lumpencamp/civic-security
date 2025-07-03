@@ -69,4 +69,104 @@ This project is for experts comfortable with hardware, Linux, and networking. It
     2.  Install the stack into the rugged enclosure, ensuring weatherproof seals for the antenna and any power cables.
     3.  Install Raspberry Pi OS and the necessary drivers and software for the HaLow HAT, provided by the manufacturer (e.g., ALFA Network, AsiaRF).
     4.  Configure two or more of these units to create an ad-hoc network. This will involve setting up static IP addresses and configuring the HaLow interface.
-    5.  Develop or deploy simple, lightweight messaging or data transfer applications (e.g., using netcat, socat, or custom Python scripts) to communicate between the nodes over the private HaLow network.
+    5.  Develop or deploy simple, lightweight messaging or data transfer applications to communicate between the nodes over the private HaLow network.
+
+#### **Antenna Selection (900MHz Band)**
+
+Choosing the right antenna is critical for maximizing the performance of your Wi-Fi HaLow link. The antenna system determines the range, reliability, and coverage pattern of your network. The recommended HaLow modules (ALFA Network AHPI7292SA and AsiaRF MM610X-H06) use a standard connector type, making antenna selection straightforward.
+
+**Antenna Connector Type:**
+
+The **ALFA Network AHPI7292SA** and the **AsiaRF MM610X-H06** both feature a **SMA-Female** connector. Therefore, you will need to purchase antennas equipped with a **SMA-Male** connector.
+
+*Note: The base model ALFA Network AHPI7292S uses a smaller U.FL connector. To use the SMA antennas recommended below with this model, you will need a pigtail adapter cable (U.FL to SMA-Female).*
+
+**Understanding Gain (dBi):**
+
+Antenna gain, measured in decibels isotropic (dBi), indicates how well the antenna converts input power into radio waves in a specific direction. A higher dBi value means the signal is more focused, leading to longer range but in a narrower beam. There is always a trade-off between gain and coverage area.
+
+*   **Low Gain (2-5 dBi):** Wider, less-focused signal (like a floodlight). Good for general coverage and mobile nodes.
+*   **High Gain (9+ dBi):** Narrower, focused signal (like a spotlight). Excellent for long-distance, fixed links.
+
+**Omnidirectional Antennas (For Base Stations & Mobile Nodes):**
+
+These antennas radiate signal in a 360-degree horizontal pattern, ideal for situations where you need to connect with multiple devices in any direction, such as a central base station or a moving vehicle.
+
+1.  **L-com HG905RD-SM (5 dBi):** A high-quality, flexible "rubber duck" style antenna. Its moderate gain provides a significant range boost over stock antennas while maintaining a wide coverage pattern. The tilt-and-swivel base is useful for optimizing signal orientation.
+2.  **NOYITO 915MHz 5dBi Omni Antenna:** A cost-effective and widely available option. It provides similar gain to the L-com model and is a solid choice for general-purpose use.
+
+**Directional Ant antennas (For Point-to-Point Links):**
+
+Directional antennas, like Yagis or Panels, focus all their power in a single direction. They are essential for creating stable, long-distance links between two fixed points, such as connecting two buildings.
+
+1.  **L-com HG909Y-SM (9 dBi):** A compact and high-performance Yagi antenna. It provides excellent gain for medium-to-long range links while being relatively easy to mount and aim.
+2.  **Proxicast 9/11 dBi LPDA Yagi:** A versatile Log-Periodic Dipole Array (LPDA) Yagi that covers the 900MHz band. This type of antenna offers very consistent performance across its frequency range and is excellent for rejecting interference from outside its main beam.
+
+#### **Software Stack & Applications**
+
+Once the hardware is assembled and the HaLow link is established, the system functions as a standard IP network. You can use familiar networking tools and protocols to transmit data. Here’s how to build out the software stack.
+
+**Base Layer: OS & Drivers**
+
+As a foundation, your Raspberry Pi must be running **Raspberry Pi OS**. On top of this, you must install the specific kernel modules and drivers provided by the HaLow HAT manufacturer (e.g., ALFA Network or AsiaRF). These drivers create the wireless network interface (e.g., `wlan1`) that the rest of the software will use. After configuration (typically setting a static IP in an ad-hoc network), this interface will behave like a standard Ethernet connection.
+
+**Transport Layer: Simple & Robust Data Pipes**
+
+For simple, raw data transmission, classic Linux command-line tools are extremely effective and lightweight.
+
+*   **Example: `netcat` (nc) for a one-way chat**
+    `netcat` is the Swiss-army knife of networking. It's perfect for quick tests and simple data streams.
+
+    On the **Listening Node** (IP: 192.168.100.1):
+    ```bash
+    # Listen for a connection on port 1234 and print any data received
+    nc -l -p 1234
+    ```
+
+    On the **Sending Node**:
+    ```bash
+    # Connect to the listener on port 1234. Type a message and press Enter to send.
+    nc 192.168.100.1 1234
+    ```
+
+*   **Example: `socat` for a resilient, bidirectional link**
+    `socat` is a more advanced version of `netcat`. It can create a more stable, bidirectional link that automatically tries to reconnect if the connection drops—a useful feature for a wireless link.
+
+    On **Node 1** (IP: 192.168.100.1):
+    ```bash
+    # Listen on port 5000 and fork a new process for each connection, allowing bidirectional communication
+    socat TCP4-LISTEN:5000,fork,reuseaddr STDIO
+    ```
+
+    On **Node 2** (IP: 192.168.100.2):
+    ```bash
+    # Connect to Node 1 on port 5000. The 'retry' and 'forever' options ensure it keeps trying to connect.
+    socat TCP4:192.168.100.1:5000,retry,forever STDIO
+    ```
+    Now, anything typed on one terminal will appear on the other, and vice-versa.
+
+**Application Layer: Lightweight Messaging**
+
+While `socat` is great, a dedicated chat application can offer a better user experience. `ncat`, a modern version of `netcat` included with the Nmap suite, has a built-in chat mode.
+
+*   **Example: `ncat` for a terminal chat room**
+
+    First, install Nmap: `sudo apt-get update && sudo apt-get install nmap`
+
+    On the **Host/Server Node** (IP: 192.168.100.1):
+    ```bash
+    # Start a chat server on port 31337, allowing up to 5 users. --chat handles multiple clients.
+    ncat -l --chat -p 31337 --max-conns 5
+    ```
+
+    On any **Client Node**:
+    ```bash
+    # Connect to the chat server. Add a username for clarity.
+    ncat 192.168.100.1 31337 --user "Node2"
+    ```
+
+**Advanced Option: Decentralized Mesh over HaLow**
+
+It is feasible to run a higher-level mesh protocol *over* the base HaLow ad-hoc network. This allows you to connect more than two nodes and have data automatically routed between them, even if they can't all see each other directly. A prime candidate for this is **Meshtastic**.
+
+*   **Concept:** Meshtastic has an experimental **IP Tunnel** feature. Normally, Meshtastic uses LoRa radios. However, you can configure it to use an existing IP network (like the one your HaLow link provides) as its transport layer. Each node runs the Meshtastic daemon, which creates a virtual TUN network interface. The daemons on each node then communicate with each other over the HaLow Wi-Fi link, automatically routing IP packets between any device connected to the mesh. This effectively creates a resilient, multi-hop IP network on top of your long-range HaLow backbone.
