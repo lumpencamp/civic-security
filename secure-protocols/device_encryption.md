@@ -1,20 +1,44 @@
-# Guide: Device Encryption (Cross-Platform)
+# The Ultimate Device Encryption Guide
 
-Full-disk encryption is one of the most critical security features you can enable. It scrambles all the data on your device, making it unreadable without your passcode. If your device is lost, stolen, or seized, encryption is your last and best line of defense.
+This guide provides a practical approach to device encryption, covering the 'why' and the 'how' to protect your data at rest.
 
-### **Windows (BitLocker)**
-1.  **Check for it:** Search for "BitLocker" in the Start Menu. If you have Windows Pro, Enterprise, or Education, it's built-in.
-2.  **Enable:** Open "Manage BitLocker." Select the drive you want to encrypt (usually C:) and click "Turn on BitLocker."
-3.  **Save Your Key:** **THIS IS CRITICAL.** You will be given a recovery key. Save it somewhere safe, completely separate from your computer. A password manager or a printed copy in a secure location are good options. Without this key, you could lose all your data.
-4.  **Encrypt:** Choose to encrypt the entire drive and select "New encryption mode." The process can take several hours.
+---
 
-### **macOS (FileVault)**
-1.  **Enable:** Go to System Settings > Privacy & Security > FileVault. Click "Turn On."
-2.  **Save Your Key:** You will be given a recovery key. Store it safely, separate from your Mac.
-3.  **Verify:** Once enabled, the setting will show "FileVault is turned on for disk [Your Disk Name]."
+## 1. The 'Why': Understanding Threat Models for Encryption
 
-### **iOS (iPhone/iPad)**
-Encryption is **enabled by default** as long as you have a passcode set. Go to Settings > Face ID & Passcode (or Touch ID & Passcode). If you have a passcode, scroll to the very bottom. You should see the message: "Data protection is enabled."
+Device encryption protects **data at rest** (data on your drive when the device is off) from physical threats like theft or seizure. It does **not** protect against malware on a running system or social engineering.
 
-### **Android**
-Modern Android devices are also **encrypted by default** as long as you have a secure screen lock (PIN, pattern, or password). You can verify this by going to Settings > Security > Advanced settings > Encryption & credentials. It should say "Encrypted."
+---
+
+## 2. Full-Disk Encryption (FDE) vs. File-Based Encryption
+
+*   **Full-Disk Encryption (FDE):** Encrypts the entire operating system. This is your essential first line of defense. Examples include BitLocker (Windows), FileVault (macOS), and LUKS (Linux). **Action: Enable FDE on all your devices now.**
+
+*   **File-Based/Container Encryption:** Creates an encrypted 'virtual disk' to store your most sensitive files. This provides a second layer of protection even when your computer is on and unlocked. The gold-standard tool for this is **VeraCrypt**.
+
+---
+
+## 3. A Detailed Guide to VeraCrypt
+
+### Step-by-Step: Creating a Standard Encrypted Container
+
+1.  **Install VeraCrypt** from `https://www.veracrypt.fr`.
+2.  **Create Volume:** Launch VeraCrypt, click `Create Volume`, and choose `Create an encrypted file container` -> `Standard VeraCrypt volume`.
+3.  **Select File Location:** Choose a location and give your container an innocuous name (e.g., `notes.dat`).
+4.  **Encryption Options:** Use the defaults: `AES` and `SHA-512`.
+5.  **Set Volume Size:** Specify the size you need (e.g., 10 GB).
+6.  **Set Password:** Use a long, unique passphrase of 20+ characters. **There is no recovery if you forget it.**
+7.  **Format:** Move your mouse randomly in the window to generate strong cryptographic keys, then click `Format`.
+
+### How to Use Your Volume
+
+1.  Open VeraCrypt, select a drive letter (e.g., `G:`), select your container file, and click `Mount`.
+2.  Enter your password. The drive will appear in your file explorer.
+3.  When finished, select the drive in VeraCrypt and click `Dismount`.
+
+### Advanced: Plausible Deniability with a Hidden Volume
+
+A hidden volume is a secret volume created inside the free space of a standard 'outer' volume, protected by a different password. This allows you to reveal the outer password under coercion without exposing your most sensitive data.
+
+1.  **Creation:** When creating a volume, select `Hidden VeraCrypt volume`. You will first provide the password for the outer volume, then go through the creation process again for the hidden volume with a **different password**.
+2.  **Critical OPSEC:** After creating a hidden volume, **never write new files to the outer volume**. To protect against this, when mounting the outer volume, use the `Mount Options` to `Protect hidden volume when mounting outer volume` by providing the hidden volume's password.

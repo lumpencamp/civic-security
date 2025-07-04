@@ -1,9 +1,25 @@
-# Guide: Signal Alternatives
+# A Guide to Signal Alternatives: Session & Briar
 
-### **Session**
-*   **Key Feature:** No phone number required for signup. Session is decentralized and routes messages through an onion routing network similar to Tor, providing strong anonymity.
-*   **Best For:** Communicating when you need to protect your identity and do not want to tie your account to a real-world phone number.
+Signal is excellent, but specialized situations demand specialized tools. This guide covers two alternatives for high-stakes scenarios.
 
-### **Briar**
-*   **Key Feature:** Peer-to-peer encrypted messaging that works without the internet. It can sync directly between devices using Bluetooth or local Wi-Fi.
-*   **Best For:** Communicating during internet shutdowns, protests, or in areas with no connectivity. It's a resilient tool for direct, local communication.
+*   **Session**: Use when your primary threat is **anonymity** (hiding your identity).
+*   **Briar**: Use when your primary threat is **network failure** (internet/cell shutdown).
+
+---
+
+## 1. Session: The Anonymous Messenger
+
+*   **Core Technology:** Uses a decentralized onion routing network (similar to Tor) to hide your IP address. It does **not** require a phone number, using a randomly generated Session ID instead.
+*   **Setup & OPSEC:**
+    1.  Create your ID. **Securely back up your recovery phrase offline.** Losing this phrase means losing your account forever.
+    2.  Be aware of the trade-offs: messages are slower than Signal, but provide a much higher degree of anonymity.
+
+---
+
+## 2. Briar: The Resilient Messenger
+
+*   **Core Technology:** A peer-to-peer messenger with no central server. It can sync messages directly between phones using **Bluetooth or local Wi-Fi**, bypassing the internet entirely.
+*   **Setup & OPSEC:**
+    1.  Create your account and set a strong password. **There is no password recovery.**
+    2.  **Add contacts in person by scanning QR codes.** This is the most secure method and is core to Briar's security model.
+    3.  Use the 'Blogs' and 'Forums' features for secure one-to-many communication within your trusted, offline group.
