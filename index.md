@@ -1,6 +1,6 @@
 # Lumpen Guide to Civic Security
 
-Welcome to the Civic Security Guide. This is a comprehensive, community-sourced resource providing detailed, practical information on digital security, physical safety, and legal rights.
+Welcome to the Lumpen Guide to Civic Security. This is a comprehensive, community-sourced resource providing detailed, practical information on digital security, physical safety, and legal rights.
 
 ---
 
