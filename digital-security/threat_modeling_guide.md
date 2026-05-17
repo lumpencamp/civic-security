@@ -87,3 +87,5 @@ Copy this template and fill it out for yourself or your group. Be honest and rea
 *   **To protect [Asset 2], I will:** _________________ (e.g., Only share the location one hour before the event via secure channels).
 *   **To protect [Asset 3], I will:** _________________ (e.g., Use a pseudonym online, use a VPN, and scrub my photos of metadata before posting).
 
+
+_Last Updated: 2024_

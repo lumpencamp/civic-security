@@ -20,7 +20,7 @@ This checklist is designed to help you prepare for, navigate, and safely conclud
 *   [ ] **Know Your Goal:** Understand the purpose of the protest and the plan for the day. What are you trying to achieve?
 *   [ ] **Form an Affinity Group:** If possible, go with a small group of trusted friends (an "affinity group"). You can look out for each other, make decisions together, and provide support if someone is arrested.
 *   [ ] **Designate a Jail Support Contact:** Choose one person who is NOT attending the protest to be your jail support contact. Give them the full names and birth dates of everyone in your affinity group. They will be your point of contact to arrange legal help and bail if you are arrested.
-*   [ ] **Write Down Key Phone Numbers:** Do not rely on your phone's contact list. Write down the following numbers on your arm or a piece of paper in permanent marker:
+*   [ ] **Write Down Key Phone Numbers:** Do not rely on your phone's contact list. Write down the following numbers **directly on your skin** (e.g., forearm or thigh) in permanent marker. Paper can be confiscated by police or lost; your skin cannot:
     *   Your jail support contact.
     *   **National Lawyers Guild (NLG) Chicago Hotline: (872) 465-4244**
     *   **First Defense Legal Aid (FDLA) 24/7 Hotline: (800) 529-7374**
@@ -49,8 +49,14 @@ This checklist is designed to help you prepare for, navigate, and safely conclud
 *   [ ] **Snacks:** High-energy snacks like granola bars.
 *   [ ] **Personal First-Aid Kit:** Include bandages, antiseptic wipes, and any personal medications (e.g., inhaler). 
 *   [ ] **Liquid Antacid & Water Solution:** A 50/50 mix of liquid antacid (like Maalox) and water in a spray bottle can be used to flush eyes exposed to pepper spray. Label it clearly.
-*   [ ] **Cash:** For food, transport, or payphones. 
+*   [ ] **Cash:** For food, transport, or payphones. ATMs may be empty or out of reach, and card transactions track your location.
 *   [ ] **ID (Optional but Recommended):** In Illinois, you are not required to carry ID, but not having it can complicate and prolong the arrest process. If you bring it, keep it separate from your wallet.
+*   [ ] **Faraday Bag (Optional but highly recommended):** If bringing a phone, put it in a Faraday bag when not actively using it. This physically blocks all cellular, Wi-Fi, and GPS signals, completely preventing tracking via Stingrays.
+
+#### **What NOT to Bring**
+
+*   **Weapons of any kind:** This includes anything that could be *construed* as a weapon (e.g., heavy flagpoles, certain tools). It escalates the situation and increases legal risk exponentially.
+*   **Laser Pointers:** While sometimes used to blind cameras, pointing a laser at aircraft or police officers is often charged as a severe felony. The legal risk rarely outweighs the tactical benefit.
 
 ---
 
@@ -82,3 +88,5 @@ This checklist is designed to help you prepare for, navigate, and safely conclud
 *   [ ] **Vary Your Routes:** In the days following a high-profile action, avoid taking the same route to and from home, work, or school.
 *   [ ] **Pay Attention:** Be aware of unfamiliar vehicles parked on your street for long periods or individuals you don't recognize who appear to be observing your home.
 *   [ ] **Digital Check-Up:** Be cautious of suspicious emails or social media messages (phishing attempts) you may receive after the protest.
+
+_Last Updated: 2024_

@@ -108,3 +108,5 @@ Chicago's surveillance infrastructure is vast and complex. However, by understan
 *   **Demand transparency:** The public has a right to know how surveillance technologies are being used and what impact they are having on our communities.
 *   **Support legislation:** There are a number of bills that have been introduced in the Illinois legislature that would strengthen privacy protections and increase police accountability.
 *   **Build power:** The most effective way to challenge the surveillance state is to build a broad-based movement for social and racial justice.
+
+_Last Updated: 2024_

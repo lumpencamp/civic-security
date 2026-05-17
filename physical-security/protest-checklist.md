@@ -13,3 +13,5 @@
 - Unnecessary electronics.
 - Jewelry or anything that can be grabbed.
 - Contact lenses (wear glasses instead; chemicals can get trapped under lenses).
+
+_Last Updated: 2024_

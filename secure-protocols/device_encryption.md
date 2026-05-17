@@ -51,3 +51,5 @@ A hidden volume is a secret volume created inside the free space of a standard '
 
 1.  **Creation:** When creating a volume, select `Hidden VeraCrypt volume`. You will first provide the password for the outer volume, then go through the creation process again for the hidden volume with a **different password**.
 2.  **Critical OPSEC:** After creating a hidden volume, **never write new files to the outer volume**. To protect against this, when mounting the outer volume, use the `Mount Options` to `Protect hidden volume when mounting outer volume` by providing the hidden volume's password.
+
+_Last Updated: 2024_

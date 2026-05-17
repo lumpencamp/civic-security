@@ -47,3 +47,5 @@ Sharing files securely is a critical task for activists. Whether you are sending
     *   After uploading, the system will generate a **unique, secret codename**. This is your only key to the submission. **Memorize it or write it down on a piece of paper you can keep securely offline.** Do NOT save it on any computer.
 6.  **Check for Replies:**
     *   Wait several days. Then, using the **exact same secure method** (Tails OS, public Wi-Fi), navigate back to the SecureDrop address and log in with your secret codename. This will allow you to see if the journalist has left you a message.
+
+_Last Updated: 2024_

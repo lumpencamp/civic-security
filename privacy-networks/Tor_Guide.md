@@ -26,6 +26,19 @@ This is how Tor works. Your internet traffic is wrapped in multiple layers of en
 
 This multi-layered, randomized path makes it extremely difficult for anyone to trace your internet activity back to you.
 
+```mermaid
+graph TD
+    A[You (Tor Browser)] -->|Encrypted| B(Entry Node)
+    B -->|Encrypted| C(Middle Node)
+    C -->|Encrypted| D(Exit Node)
+    D -->|Decrypted or HTTPS| E{Website}
+    style A fill:#4CAF50,color:white
+    style B fill:#2196F3,color:white
+    style C fill:#2196F3,color:white
+    style D fill:#F44336,color:white
+    style E fill:#9E9E9E,color:white
+```
+
 ## When Should You Use the Tor Browser?
 
 *   **To Protect Your Identity:** When you need to research sensitive topics without linking that activity to your real-world identity.
@@ -44,6 +57,23 @@ Understanding Tor's limitations is essential for using it safely.
 
 4.  **It Doesn't Protect Your Entire Computer:** The Tor Browser only protects the traffic that goes through the browser itself. It does not anonymize the activity of other applications on your computer.
 
+## Tor vs. VPN: What's the Difference?
+
+Activists often confuse VPNs and Tor. They serve entirely different purposes:
+
+*   **VPN (Virtual Private Network):** Shifts trust from your Internet Service Provider (ISP) to the VPN company. It hides your traffic from your local network and ISP, and changes your IP address. **A VPN does NOT make you anonymous.** If law enforcement subpoenas a VPN (and the VPN logs data), your identity is compromised. Use a VPN for general privacy, torrenting, or accessing geo-blocked content.
+*   **Tor Browser:** Designed specifically for **anonymity**. The multi-layered encryption (onion routing) makes it incredibly difficult for *anyone* (including the nodes in the Tor network) to link your traffic back to your identity. Use Tor for high-risk research, communicating with journalists, or whistleblowing.
+
+## What if Tor is Blocked? (Using Bridges)
+
+In some countries or on highly restrictive networks (like corporate or university Wi-Fi), the public Tor network might be blocked.
+
+To bypass this censorship, Tor uses **Bridges**. Bridges are unlisted Tor entry nodes that are much harder for censors to identify and block.
+
+*   **How to use:** When you open the Tor Browser and it fails to connect, go to the Tor Network Settings. Select "Use a bridge" and choose one of the built-in bridges (like `obfs4`), or request a new bridge directly from the Tor Project within the settings.
+
 ---
 
 The Tor Browser is a cornerstone of digital privacy. By understanding how it works and its limitations, you can use it effectively to protect your identity and explore the internet with confidence.
+
+_Last Updated: 2024_

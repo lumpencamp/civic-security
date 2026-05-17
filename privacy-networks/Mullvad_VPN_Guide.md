@@ -1,5 +1,11 @@
 # A Guide to Mullvad VPN: Hardening Your Internet Connection
 
+## Tor vs. VPN: A Critical Distinction
+
+**A VPN is NOT for anonymity.** A VPN shifts trust from your Internet Service Provider (ISP) to the VPN company. It hides your traffic from your local network and changes your IP address, but the VPN provider *could* log your activity.
+
+If your threat model requires true anonymity (e.g., whistleblowing against a state actor), **use the Tor Browser, not a VPN.** Use Mullvad for general privacy, securing your connection on public Wi-Fi, and bypassing basic geo-restrictions.
+
 ## What is a VPN and Why Mullvad?
 
 A Virtual Private Network (VPN) creates a secure, encrypted "tunnel" for your internet traffic. When you use a VPN, your traffic is routed through one of the VPN provider's servers before it goes to the website you're visiting. This does two important things:
@@ -8,6 +14,8 @@ A Virtual Private Network (VPN) creates a secure, encrypted "tunnel" for your in
 2.  **It encrypts your traffic:** It prevents your Internet Service Provider (ISP) from seeing what you're doing online.
 
 Mullvad is widely regarded as one of the best VPNs for privacy-conscious users. They have a strict no-logging policy, allow for anonymous account creation (no email required), and are pioneers in security and transparency.
+
+**Proven No-Logs Policy (The 2023 Raid):** In April 2023, Swedish police raided Mullvad's headquarters with a search warrant to seize customer data. Because Mullvad genuinely keeps no logs, the police left completely empty-handed. This is the ultimate real-world stress test of a VPN's privacy claims.
 
 ## Setting Up Mullvad for Maximum Security
 
@@ -53,3 +61,5 @@ Once you're connected with Lockdown mode enabled, you can verify everything is w
 ---
 
 By using Mullvad with Lockdown mode enabled, you create a powerful defense for your everyday internet activity. You ensure that your data is encrypted and your identity is protected, even if the connection is unstable.
+
+_Last Updated: 2024_

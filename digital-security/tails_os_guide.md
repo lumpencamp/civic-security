@@ -93,3 +93,5 @@ Using Tails is not a magic bullet. Your behavior matters.
 *   **Tails Won't Boot:** The most common issue is **Secure Boot**. This is a feature on modern computers that prevents unauthorized operating systems from loading. You will need to enter your computer's BIOS/UEFI settings (usually by pressing F2 or Del on startup) and **disable Secure Boot**.
 *   **Cannot Connect to Tor:** If you are on a network that censors Tor (like a public library or a restrictive country), you may need to use a **Tor Bridge**. On the Tails Welcome Screen, you can configure Tor to use a bridge to connect.
 *   **Persistent Volume Issues:** If you forget your passphrase, your data is gone forever. There is no recovery. Write your passphrase down and store it in a secure, offline location.
+
+_Last Updated: 2024_

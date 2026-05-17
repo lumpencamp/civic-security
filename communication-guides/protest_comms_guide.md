@@ -66,3 +66,5 @@ Effective and secure communication is the nervous system of any successful prote
 *   **Establish a Comms Team:**
     *   For larger actions, designate a small, trusted team to handle communications. This team is responsible for monitoring all channels, relaying information, and maintaining the security of the network.
     *   This centralizes information flow and reduces the chance of conflicting or confusing messages.
+
+_Last Updated: 2024_

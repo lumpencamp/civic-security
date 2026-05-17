@@ -75,3 +75,5 @@ When the operation is over or if you suspect the phone has been compromised, you
     *   Remove the battery.
     *   Use a hammer or other heavy object to physically destroy the phone, focusing on crushing the main circuit board. For extreme security, you can also use a drill to destroy the memory chips.
     *   Discard the destroyed components in separate, public locations.
+
+_Last Updated: 2024_

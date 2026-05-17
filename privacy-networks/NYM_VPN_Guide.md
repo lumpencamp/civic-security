@@ -55,3 +55,5 @@ While anyone can benefit from enhanced privacy, the NYM network is particularly 
 ---
 
 NYM represents a paradigm shift in digital privacy. By focusing on metadata, it addresses a fundamental weakness in our current internet infrastructure, offering a more robust and resilient way to communicate and browse freely.
+
+_Last Updated: 2024_

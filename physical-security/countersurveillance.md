@@ -52,3 +52,5 @@ If you suspect you are being followed, your goal is to confirm your suspicion an
 *   **Enter and Exit:** Go into a large public building with multiple exits, like a department store, library, or shopping mall. Wait a few minutes and leave through a different exit. 
 *   **Blend In:** The goal is to be the "gray man"—someone who doesn't draw attention. Dress in a way that is common for the area you are in. Avoid loud or distinctive clothing.
 *   **Trust Your Gut:** If a situation feels wrong, it probably is. Remove yourself from the situation and get to a place of safety.
+
+_Last Updated: 2024_
