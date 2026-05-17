@@ -173,4 +173,4 @@ Surveillance thrives in secrecy. The most powerful countermeasure is to drag it 
     *   **Legislative Advocacy:** Campaign for local ordinances that ban or restrict the use of technologies like facial recognition.
     *   **Build Coalitions:** Work with other groups (immigrant rights, racial justice, housing advocates) to build a broad coalition against mass surveillance. When surveillance becomes politically costly, its expansion is slowed.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

@@ -33,4 +33,4 @@ Operational Security (OPSEC) isn't just about tools or software; it's a way of t
 *   **Example 2: Communication History**
     *   Regularly delete old communications. Use features like disappearing messages in apps like Signal. Don't keep chat histories, files, or meeting notes for longer than they are actively needed. Once a task is done, purge the related data.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

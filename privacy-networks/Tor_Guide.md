@@ -76,4 +76,4 @@ To bypass this censorship, Tor uses **Bridges**. Bridges are unlisted Tor entry 
 
 The Tor Browser is a cornerstone of digital privacy. By understanding how it works and its limitations, you can use it effectively to protect your identity and explore the internet with confidence.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

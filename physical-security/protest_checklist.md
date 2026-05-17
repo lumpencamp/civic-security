@@ -89,4 +89,4 @@ This checklist is designed to help you prepare for, navigate, and safely conclud
 *   [ ] **Pay Attention:** Be aware of unfamiliar vehicles parked on your street for long periods or individuals you don't recognize who appear to be observing your home.
 *   [ ] **Digital Check-Up:** Be cautious of suspicious emails or social media messages (phishing attempts) you may receive after the protest.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

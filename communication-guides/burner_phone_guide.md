@@ -27,7 +27,7 @@ This is the most important phase. A mistake here will compromise the entire effo
 
 *   **Cash is King:** You will need cash to purchase both the phone and the SIM card. Do not use a credit or debit card. Get the cash from an ATM well in advance of your purchase.
 *   **Leave Your Personal Phone Behind:** Do not bring your personal smartphone with you when you go to buy the burner. This prevents location data from your personal device from being correlated with the time and place of the burner purchase.
-*   **Dress Inconspicuously:** Blend in with the crowd. Avoid wearing anything that makes you stand out.
+*   **Dress Inconspicuously:** Blend in with the crowd. Avoid wearing anything that makes you stand out. **Be aware of CCTV.** If a high-level adversary investigates the burner number, they will track the purchase time/location and pull the store's security camera footage. Wear a mask (COVID-style) and a hat to obscure your face from cameras.
 
 #### **Step 2: Purchase the Phone**
 
@@ -42,7 +42,8 @@ This is the most important phase. A mistake here will compromise the entire effo
 
 *   **Where to Buy:** You can often buy this at the same time as the phone. Look for prepaid SIM card kits from Mobile Virtual Network Operators (MVNOs).
     *   **Recommended Brands:** Tracfone, Mint Mobile, H2O Wireless, Simple Mobile. These are sold in most large retail and convenience stores.
-*   **The Transaction:** Again, **pay with cash**. The SIM card kit will come with instructions for activation.
+*   **The Transaction:** Again, **pay with cash**.
+*   **A Modern Warning on IDs:** In many countries (and increasingly in some US jurisdictions), buying or activating a prepaid SIM card legally requires showing a government-issued ID. If an ID is required, the phone is **no longer a burner**. It is permanently linked to you. You must seek out SIMs that can be activated online anonymously using cash-bought top-up cards.
 
 ---
 
@@ -76,4 +77,4 @@ When the operation is over or if you suspect the phone has been compromised, you
     *   Use a hammer or other heavy object to physically destroy the phone, focusing on crushing the main circuit board. For extreme security, you can also use a drill to destroy the memory chips.
     *   Discard the destroyed components in separate, public locations.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

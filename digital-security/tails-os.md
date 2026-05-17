@@ -8,4 +8,4 @@ Tails is a portable operating system that protects against surveillance and cens
 3.  **Boot from USB:** Restart your computer and boot from the USB drive instead of your main OS.
 4.  **Persistent Storage (Optional):** You can create an encrypted persistent volume on the USB to save files, settings, and software across reboots.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

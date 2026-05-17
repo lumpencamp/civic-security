@@ -62,4 +62,4 @@ Once you're connected with Lockdown mode enabled, you can verify everything is w
 
 By using Mullvad with Lockdown mode enabled, you create a powerful defense for your everyday internet activity. You ensure that your data is encrypted and your identity is protected, even if the connection is unstable.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

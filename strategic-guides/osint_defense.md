@@ -33,4 +33,4 @@ Create strict firewalls between different areas of your life.
 *   **Use Dedicated Emails:** Have one email address for banking/bills, a separate one for personal friends, and a completely different, pseudonymous email (e.g., ProtonMail) for activist work.
 *   **Virtual Phone Numbers:** Do not give out your real cell phone number for activism. Use VoIP services like Google Voice (requires a Google account) or more private alternatives like MySudo or a dedicated burner SIM for organizing.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

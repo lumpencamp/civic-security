@@ -45,4 +45,4 @@ Signal is excellent, but specialized situations demand specialized tools. This g
     2.  Matrix supports strong End-to-End Encryption (E2EE), but you must manually verify devices to ensure chats remain secure.
     3.  It is heavily favored by activist groups for massive, organized group chats (similar to Slack or Discord) but with encryption and decentralization.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

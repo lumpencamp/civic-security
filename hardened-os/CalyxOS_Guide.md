@@ -12,11 +12,11 @@ CalyxOS is a privacy-focused mobile operating system based on the Android Open S
 
 CalyxOS supports a wider range of devices than GrapheneOS, prioritizing models that allow for bootloader relocking.
 
-As of 2024, this includes:
+As of 2026, this includes:
 *   **Google Pixel:** Pixel 4 through Pixel 8 series.
 *   **Fairphone:** Fairphone 4 and Fairphone 5.
 *   **Motorola:** Select models like the Moto G34, G42, G54.
 
 *The list changes frequently. Always check the official [CalyxOS device support page](https://calyxos.org/docs/guide/device-support/) for the most current list and support timeline.*
 
-_Last Updated: 2024_
+_Last Updated: 2026_

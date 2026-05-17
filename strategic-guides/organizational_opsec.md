@@ -34,4 +34,4 @@ Security culture is a set of shared customs and behaviors that members of a grou
 *   **Don't Ask Questions:** If someone is doing something sensitive, don't ask them for details unless you have a "need to know."
 *   **Consent to Risk:** Ensure everyone involved in an action clearly understands the legal and physical risks beforehand.
 
-_Last Updated: 2024_
+_Last Updated: 2026_
