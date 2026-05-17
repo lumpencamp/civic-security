@@ -34,4 +34,4 @@ For online purchases where cash isn't an option (like paying for secure web host
 
 *   **Warning:** Many online services are cracking down on prepaid cards and may reject them.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

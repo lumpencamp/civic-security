@@ -109,4 +109,4 @@ Chicago's surveillance infrastructure is vast and complex. However, by understan
 *   **Support legislation:** There are a number of bills that have been introduced in the Illinois legislature that would strengthen privacy protections and increase police accountability.
 *   **Build power:** The most effective way to challenge the surveillance state is to build a broad-based movement for social and racial justice.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

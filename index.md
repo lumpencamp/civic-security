@@ -40,9 +40,10 @@ Welcome to the Lumpen Guide to Civic Security. This is a comprehensive, communit
 
 ### V. Physical Security, Footprints, & Legal Rights
 *   [**Expanded Protest Checklist**](./physical-security/protest_checklist.md): Comprehensive preparation for direct action.
+*   [**Detecting Physical Trackers (AirTags)**](./physical-security/bluetooth_trackers.md): Defending against unwanted Bluetooth tracking.
 *   [**Mental Security & Digital Trauma**](./physical-security/mental_security.md): Managing burnout and online harassment.
 *   [**Countersurveillance Basics**](./physical-security/countersurveillance.md): Practical awareness and mitigation techniques.
 *   [**OSINT Defense**](./strategic-guides/osint_defense.md): Reducing your digital footprint to prevent doxing.
 *   [**Know Your Rights (Chicago Focus)**](./legal-rights/know_your_rights.md): A detailed guide to police interactions.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

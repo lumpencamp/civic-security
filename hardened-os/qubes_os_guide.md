@@ -173,4 +173,4 @@ The Qubes Update tool will now securely and sequentially:
 
 After the process completes, you must **reboot any running App Qubes** for the updates to take effect. This single process ensures that the foundational software for all your compartments is patched and secure.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

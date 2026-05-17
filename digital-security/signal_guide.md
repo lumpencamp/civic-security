@@ -153,4 +153,4 @@ graph TD
     K --> L[Ready: Start a Secure Chat!];
 ```
 
-_Last Updated: 2024_
+_Last Updated: 2026_

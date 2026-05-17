@@ -26,4 +26,4 @@ The expectation of 24/7 availability is a major vulnerability. Organizers who ar
 *   **Rotate Roles:** High-stress roles (like jail support or media point) should be rotated regularly. No one person should hold these responsibilities indefinitely.
 *   **Celebrate Rest:** Treat rest as a tactical necessity. A burnt-out activist is an ineffective activist and a liability to the group's OPSEC.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

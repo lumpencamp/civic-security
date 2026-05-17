@@ -4,4 +4,4 @@
 - **You do not have to consent to a search** of yourself or your belongings. Police may pat you down for weapons if they have a reason to believe you are armed and dangerous, but they cannot go through your pockets without consent or a warrant.
 - **You have the right to film police** in public spaces as long as you are not interfering with their duties.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

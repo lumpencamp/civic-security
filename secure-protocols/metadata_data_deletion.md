@@ -35,4 +35,4 @@ If you need to ensure a specific file is destroyed while the computer is still i
 *   **Desktop:** Use **BleachBit**. It can overwrite free space on a hard drive with random data, making recovery impossible.
 *   **Note on SSDs:** Solid State Drives (SSDs) handle data differently than old magnetic hard drives. Repeatedly overwriting specific files on an SSD is unreliable and degrades the drive. Relying on Full-Disk Encryption is the safest approach for modern hardware.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

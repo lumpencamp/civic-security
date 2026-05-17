@@ -66,4 +66,4 @@ This guide is a transcription of content from a protest zine. It details a range
 *   **Bury Yourself:** Bury yourself up to the neck to protest delays in government action.
 *   **Dance:** Use coordinated dance routines (like "Gangnam Style") to protest for unpaid wages.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

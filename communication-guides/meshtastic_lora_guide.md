@@ -88,4 +88,4 @@ Once two or more devices are configured with the same secure channel settings, y
 *   **Physical Security:** Be aware that your device is transmitting radio signals. While the content is encrypted, a sophisticated adversary with direction-finding equipment could potentially locate a transmitting device. Keep transmissions short and move locations if you are at high risk.
 *   **Limit Node Information:** In the app settings, you can change the name of your node. Avoid using your real name or any identifying information.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

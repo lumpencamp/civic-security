@@ -88,4 +88,4 @@ Copy this template and fill it out for yourself or your group. Be honest and rea
 *   **To protect [Asset 3], I will:** _________________ (e.g., Use a pseudonym online, use a VPN, and scrub my photos of metadata before posting).
 
 
-_Last Updated: 2024_
+_Last Updated: 2026_

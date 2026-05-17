@@ -66,4 +66,4 @@ In Illinois, you have a clear, legally protected right to record on-duty police 
 2.  **Make Your Phone Call:** You have the right to a phone call. Your first call should be to a lawyer. If you don't have one, call the **FDLA hotline (800-529-7374)**. If you can't reach them, call your designated jail support contact.
 3.  **Do Not Talk:** Do not discuss your case with police, detectives, or cellmates. Wait for your lawyer.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

@@ -26,4 +26,4 @@ If your group needs to write a document or build a spreadsheet together in real-
 
 *   **CryptPad.fr (Highly Recommended):** CryptPad is a fully E2EE alternative to Google Workspace. It offers collaborative rich text documents, spreadsheets, and presentation slides. Because it is E2EE, the server administrators cannot read your documents. You can use the main CryptPad.fr instance, or a tech-savvy organization can self-host their own instance.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

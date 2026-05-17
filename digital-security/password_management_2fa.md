@@ -31,4 +31,4 @@ Even the strongest password can be stolen via phishing (fake websites) or keylog
 2.  **Authenticator Apps (Good):** Apps like **Aegis** (Android) or **Raivo OTP** (iOS) that generate temporary 6-digit codes. Much safer than SMS. Avoid Google Authenticator as it lacks proper backup features and is closed-source.
 3.  **SMS / Text Messages (DANGEROUS):** Using text messages for 2FA is fundamentally insecure. Hackers or state actors can easily intercept SMS messages or perform a "SIM swap" attack (convincing your phone carrier to transfer your number to their SIM card). **Never use SMS 2FA if other options are available.**
 
-_Last Updated: 2024_
+_Last Updated: 2026_

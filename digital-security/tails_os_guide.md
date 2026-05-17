@@ -94,4 +94,4 @@ Using Tails is not a magic bullet. Your behavior matters.
 *   **Cannot Connect to Tor:** If you are on a network that censors Tor (like a public library or a restrictive country), you may need to use a **Tor Bridge**. On the Tails Welcome Screen, you can configure Tor to use a bridge to connect.
 *   **Persistent Volume Issues:** If you forget your passphrase, your data is gone forever. There is no recovery. Write your passphrase down and store it in a secure, offline location.
 
-_Last Updated: 2024_
+_Last Updated: 2026_

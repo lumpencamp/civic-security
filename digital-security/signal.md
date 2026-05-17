@@ -8,4 +8,4 @@
 3.  **Disappearing Messages:** Set messages to auto-delete after a certain time for sensitive conversations. (Inside a chat > Chat Settings > Disappearing Messages)
 4.  **Turn off Link Previews:** Prevent Signal from fetching a preview of links you send. (Settings > Privacy > Generate link previews)
 
-_Last Updated: 2024_
+_Last Updated: 2026_

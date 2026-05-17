@@ -4,7 +4,19 @@ Sharing files securely is a critical task for activists. Whether you are sending
 
 ---
 
-### **Method 1: OnionShare (For Direct, Peer-to-Peer Sharing)**
+### **Method 1: Local, Offline Sharing (For Protests & Crowds)**
+
+**Use Case:** You are at a protest or action. Cell service is jammed, shut down, or you suspect police are using Stingrays (IMSI catchers) to monitor the network. You need to quickly share a photo, video, or document with an affinity group member standing next to you.
+
+**How it Works:** You use tools that rely on local device-to-device connections (Bluetooth or creating a temporary Wi-Fi hotspot) to transfer the file without ever touching the internet.
+
+*   **LocalSend (Highly Recommended):** LocalSend is a free, open-source app available for iOS, Android, macOS, Windows, and Linux. It requires no internet connection and no account. Both devices must be on the same local Wi-Fi network (one device can create a mobile hotspot, and the other connects to it, without cellular data turned on). It is fast and secure.
+*   **Briar:** While primarily a messaging app, Briar can also transfer files peer-to-peer over Bluetooth. It is slower than LocalSend but requires no Wi-Fi setup.
+*   **A Warning on AirDrop / Nearby Share:** Apple's AirDrop and Android's Nearby Share are convenient but have known privacy flaws (they broadcast device names and sometimes phone numbers/Apple IDs to nearby scanners). If you use them, set them to "Contacts Only" and turn them completely off immediately after the transfer is complete. Never leave them on "Everyone."
+
+---
+
+### **Method 2: OnionShare (For Direct, Peer-to-Peer Sharing Over the Internet)**
 
 **Use Case:** You need to send a file directly to a specific person you trust. You want the transfer to be secure, anonymous, and leave no trace on a third-party server (like Google Drive or Dropbox).
 
@@ -29,7 +41,7 @@ Sharing files securely is a critical task for activists. Whether you are sending
 
 ---
 
-### **Method 2: SecureDrop (For Anonymous Whistleblowing)**
+### **Method 3: SecureDrop (For Anonymous Whistleblowing)**
 
 **Use Case:** You are a source who needs to anonymously submit sensitive documents to a media organization or NGO without revealing your identity.
 
@@ -48,4 +60,4 @@ Sharing files securely is a critical task for activists. Whether you are sending
 6.  **Check for Replies:**
     *   Wait several days. Then, using the **exact same secure method** (Tails OS, public Wi-Fi), navigate back to the SecureDrop address and log in with your secret codename. This will allow you to see if the journalist has left you a message.
 
-_Last Updated: 2024_
+_Last Updated: 2026_
