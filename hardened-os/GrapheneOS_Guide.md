@@ -13,11 +13,12 @@ GrapheneOS is a private and secure mobile operating system with great functional
 GrapheneOS has very strict hardware security requirements. As a result, it **only officially supports Google Pixel phones**.
 
 As of 2026, this generally includes:
+*   Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, Pixel 10a
+*   Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a
 *   Pixel 8, Pixel 8 Pro, Pixel 8a
 *   Pixel 7, Pixel 7 Pro, Pixel 7a
 *   Pixel 6, Pixel 6 Pro, Pixel 6a
-*   Pixel 5, Pixel 5a
-*   Pixel 4, Pixel 4 XL, Pixel 4a
+*   Pixel Fold, Pixel Tablet
 
 *Always check the official [GrapheneOS releases page](https://grapheneos.org/releases) for the most current list before purchasing a device.*
 
