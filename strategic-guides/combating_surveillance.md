@@ -76,3 +76,5 @@ Beyond technology, it's crucial to understand the legal tactics used to obscure 
 ## Conclusion: A Strategic Approach to Security
 
 The goal of this guide is not to induce fear, but to foster a strategic mindset. You cannot stop bulk collection, but you can encrypt your communications to make the collected data useless. You may not know if a Stingray is active, but you can choose to leave your phone at home. By understanding these surveillance techniques, you can move from a reactive to a proactive security posture. Adopting privacy-preserving tools and practices is a fundamental and necessary act of digital self-defense for modern activism.
+
+_Last Updated: 2024_

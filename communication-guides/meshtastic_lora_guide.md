@@ -87,3 +87,5 @@ Once two or more devices are configured with the same secure channel settings, y
 *   **Disable GPS When Not Needed:** Your location is sensitive data. In the app's device settings, you can disable the GPS module or reduce how often it broadcasts your location to save power and protect your privacy.
 *   **Physical Security:** Be aware that your device is transmitting radio signals. While the content is encrypted, a sophisticated adversary with direction-finding equipment could potentially locate a transmitting device. Keep transmissions short and move locations if you are at high risk.
 *   **Limit Node Information:** In the app settings, you can change the name of your node. Avoid using your real name or any identifying information.
+
+_Last Updated: 2024_

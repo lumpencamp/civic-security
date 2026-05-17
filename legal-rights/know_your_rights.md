@@ -55,8 +55,15 @@ In Illinois, you have a clear, legally protected right to record on-duty police 
 
 *   **Best Practices:** Film from a safe distance, do not interfere with the officers' movements, and narrate what you are seeing (date, time, location, badge numbers).
 
+### **Special Situations: Device Unlocking & Borders**
+
+*   **Never Unlock Your Phone:** Even if the police have a warrant to seize your phone, **a warrant does not compel you to provide the password.** State clearly, "I do not consent to a search of my device, and I will not provide my password." Let them take the physical device, but do not unlock it for them.
+*   **Border Crossings (and Airports):** The 4th Amendment is heavily diluted at international borders. Customs agents (CBP) have broad authority to search electronic devices without a warrant. If you are traveling internationally, the safest approach is to use a clean "burner" device or thoroughly wipe your electronics before crossing, restoring your data from a secure cloud backup later.
+
 ### **After an Arrest in Chicago**
 
 1.  **Invoke Your Rights:** Immediately say, "I am going to remain silent. I want a lawyer."
 2.  **Make Your Phone Call:** You have the right to a phone call. Your first call should be to a lawyer. If you don't have one, call the **FDLA hotline (800-529-7374)**. If you can't reach them, call your designated jail support contact.
 3.  **Do Not Talk:** Do not discuss your case with police, detectives, or cellmates. Wait for your lawyer.
+
+_Last Updated: 2024_

@@ -1,5 +1,10 @@
 # A Practical, Security-Focused Guide to Qubes OS
 
+## A Note on Desktop OS Choices
+
+*   **For Beginners (Linux Mint / Ubuntu):** If you are currently using Windows or macOS and want a significant privacy upgrade without a steep learning curve, start by switching to a user-friendly Linux distribution like **Linux Mint** or **Ubuntu**. They are much less invasive than commercial operating systems.
+*   **For High Security (Qubes & Tails):** If your threat model involves state-level adversaries or advanced surveillance, use Qubes OS (for daily, compartmentalized work) or Tails OS (for temporary, anonymous tasks).
+
 This guide is for technically competent users who are new to the Qubes OS paradigm. It provides a comprehensive overview of its philosophy, core concepts, and practical, secure workflows.
 
 ---
@@ -167,3 +172,5 @@ The Qubes Update tool will now securely and sequentially:
 *   Shut down the TemplateVM when it's finished.
 
 After the process completes, you must **reboot any running App Qubes** for the updates to take effect. This single process ensures that the foundational software for all your compartments is patched and secure.
+
+_Last Updated: 2024_

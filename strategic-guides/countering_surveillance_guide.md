@@ -2,6 +2,27 @@
 
 This guide provides a layered defense strategy for activists to protect their privacy, security, and ability to organize against government and municipal surveillance. These are not theoretical concepts; they are practical, actionable steps to create a safer environment for dissent.
 
+```mermaid
+mindmap
+  root((Counter-Surveillance Layered Defense))
+    Individual Digital Defense
+      Full-Disk Encryption
+      Strong Passcodes
+      Signal & Tor
+      Hardened OS
+    Group OPSEC
+      Need-to-Know
+      Secure Planning
+      Data Minimization
+    Technical Countermeasures
+      Faraday Bags vs Stingrays
+      Face Coverings vs Facial Recognition
+      Public Transit vs ALPRs
+    Legal & Strategic
+      FOIA Requests
+      Public Advocacy
+```
+
 ---
 
 ## Layer 1: Individual Digital Defense (The Foundation)
@@ -96,6 +117,24 @@ Facial recognition is used to identify protesters from photos and videos, often 
     *   **Action:** Wear effective face coverings. A combination of a well-fitting mask, sunglasses, and a hat/hood is highly effective. Certain makeup patterns (like CV Dazzle) can also work but are less subtle.
 *   **Protect Others:** Do not post identifiable photos or videos of other protesters online without their explicit, enthusiastic consent. Blurring faces before posting is a good practice.
 
+### Countering Automated License Plate Readers (ALPRs)
+
+ALPRs are cameras mounted on police cars, streetlights, and tow trucks that constantly scan and record license plates, creating a massive database of vehicle movements.
+
+*   **Action:** Avoid driving directly to sensitive locations or protests. Park several blocks away in a busy commercial area, or better yet, use public transportation or ride a bicycle to the final destination.
+
+### Countering Drones and Aerial Surveillance
+
+Police increasingly use drones and helicopters to monitor crowds, track movement, and identify organizers from above.
+
+*   **Action:** Use umbrellas or wide-brimmed hats to obscure faces from overhead cameras. Stay within large crowds or under physical cover (trees, awnings) when possible to disrupt tracking.
+
+### Countering DNA and Biometric Harvesting
+
+Law enforcement increasingly relies on commercial DNA databases (like those used by 23andMe or Ancestry) and physical evidence left at scenes to identify individuals.
+
+*   **Action:** Never use commercial DNA testing services. At protests or sensitive meetings, take your trash with you. Do not leave behind water bottles, cigarette butts, or anything else that could carry your DNA.
+
 ### Countering Data Brokers & Social Media Scraping
 
 Police purchase data from brokers who scrape your information from social media and other public sources to build a profile on you.
@@ -133,3 +172,5 @@ Surveillance thrives in secrecy. The most powerful countermeasure is to drag it 
     *   **Community Awareness:** Organize community meetings to educate your neighbors about local surveillance.
     *   **Legislative Advocacy:** Campaign for local ordinances that ban or restrict the use of technologies like facial recognition.
     *   **Build Coalitions:** Work with other groups (immigrant rights, racial justice, housing advocates) to build a broad coalition against mass surveillance. When surveillance becomes politically costly, its expansion is slowed.
+
+_Last Updated: 2024_

@@ -6,3 +6,5 @@
 
 **Medical Support:**
 - Look for designated street medics at events. They often wear red crosses or other identifiers.
+
+_Last Updated: 2024_

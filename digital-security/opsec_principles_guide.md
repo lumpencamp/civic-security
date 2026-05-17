@@ -32,3 +32,5 @@ Operational Security (OPSEC) isn't just about tools or software; it's a way of t
     *   When creating a sign-up form for new volunteers, only ask for what is essential. Do you really need their real name or home address? A contact email or a Signal number is likely sufficient and less risky.
 *   **Example 2: Communication History**
     *   Regularly delete old communications. Use features like disappearing messages in apps like Signal. Don't keep chat histories, files, or meeting notes for longer than they are actively needed. Once a task is done, purge the related data.
+
+_Last Updated: 2024_

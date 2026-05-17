@@ -75,7 +75,23 @@ To maximize your security, enable these settings on your mobile device. You can 
     1.  Go to **Settings > Chats**.
     2.  Toggle **Generate link previews** to OFF.
 
-### 5. Sealed Sender
+### 5. Hide Your Phone Number (Signal Usernames)
+
+*   **What it does:** Signal now allows you to hide your phone number from people you chat with by creating a unique "Username." This is a massive security upgrade for activists, preventing doxing or targeted surveillance based on your real phone number.
+*   **How to enable:**
+    1.  Go to **Settings > Profile** and create a **Username** (e.g., `activist_name.01`).
+    2.  Go to **Settings > Privacy > Phone Number**.
+    3.  Set **Who can see my phone number** to **Nobody**.
+    4.  Set **Who can find me by number** to **Nobody** (this forces people to use your exact Username or a QR code to connect with you).
+
+### 6. Default Disappearing Messages
+
+*   **What it does:** Automatically applies a disappearing message timer to *all new chats* you start. This ensures you never forget to enable it.
+*   **How to enable:**
+    1.  Go to **Settings > Privacy > Default timer for new chats**.
+    2.  Set it to your preferred duration (e.g., `1 week` or `4 weeks`).
+
+### 7. Sealed Sender
 
 *   **What it does:** This is an advanced feature that is on by default. It hides who is sending a message from Signal's servers. The server knows where to deliver a message, but not who sent it, protecting your metadata.
 *   **How to check/enable:**
@@ -130,8 +146,11 @@ graph TD
     E -- Yes --> F[Scan QR Code on Desktop];
     E -- No --> G[Go to Privacy Settings];
     F --> G;
-    G --> H[Enable Screen Lock];
-    H --> I[Enable Screen Security];
-    I --> J[Disable Link Previews];
-    J --> K[Ready: Start a Secure Chat!];
+    G --> H[Create Username & Hide Phone Number];
+    H --> I[Enable Screen Lock & Security];
+    I --> J[Set Default Disappearing Messages];
+    J --> K[Disable Link Previews];
+    K --> L[Ready: Start a Secure Chat!];
 ```
+
+_Last Updated: 2024_
