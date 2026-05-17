@@ -28,10 +28,10 @@ This multi-layered, randomized path makes it extremely difficult for anyone to t
 
 ```mermaid
 graph TD
-    A[You (Tor Browser)] -->|Encrypted| B(Entry Node)
-    B -->|Encrypted| C(Middle Node)
-    C -->|Encrypted| D(Exit Node)
-    D -->|Decrypted or HTTPS| E{Website}
+    A["You (Tor Browser)"] -->|Encrypted| B("Entry Node")
+    B -->|Encrypted| C("Middle Node")
+    C -->|Encrypted| D("Exit Node")
+    D -->|Decrypted or HTTPS| E{"Website"}
     style A fill:#4CAF50,color:white
     style B fill:#2196F3,color:white
     style C fill:#2196F3,color:white
