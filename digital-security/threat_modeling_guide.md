@@ -1,91 +1,85 @@
-# A Practical Guide to Threat Modeling for Activists
+# Advanced Threat Modeling for Civic Organizations
 
-## Introduction: Proactive Self-Defense
+*Status: Level 2 Directive | Audience: Operations Planners and Security Teams*
 
-Threat modeling is the process of thinking systematically about what you need to protect and who you need to protect it from. For activists, it's not about paranoia; it's about proactive self-defense. It helps you identify potential threats to your work, your safety, and your community, allowing you to make informed decisions about which security measures are right for you. This guide will walk you through the basic steps to create your own threat model.
-
-## Core Concepts Explained Simply
-
-To build a threat model, you need to answer a few key questions. Let's break them down.
-
-### 1. What are your ASSETS?
-
-**Assets** are the things you need to protect. They can be digital or physical. Think about what would cause harm if it were exposed, stolen, or destroyed.
-
-*   **Your Identity & Anonymity:** Who you are.
-*   **Your Location:** Where you are, where you live, or where you meet.
-*   **Your Communications:** Emails, text messages, phone calls.
-*   **Your Data & Files:** Research, plans, documents, photos.
-*   **Your Contacts:** The list of people you work with and trust.
-*   **Your Equipment:** Laptops, phones, cameras.
-*   **Your Reputation:** Your credibility and public image.
-
-### 2. Who are your ADVERSARIES?
-
-**Adversaries** are the individuals or groups who might want to harm your assets. Be realistic about who has the motivation to target you.
-
-*   **State Actors:** Law enforcement, intelligence agencies.
-*   **Counter-Protesters or Opposing Groups:** Groups with conflicting goals.
-*   **Online Harassers & Trolls:** Individuals who attack you online.
-*   **Malicious Hackers (Black Hats):** Individuals trying to break into your accounts for various reasons.
-*   **Insiders:** Someone within your group who may not have good intentions.
-
-### 3. What are their CAPABILITIES?
-
-**Capabilities** are what your adversaries can realistically do. A random online troll has very different capabilities than a government agency.
-
-*   **Online Surveillance:** Monitor social media, read public posts, track connections.
-*   **Physical Surveillance:** Follow you, watch meeting spots.
-*   **Technical Attacks:** Phishing (fake emails to steal passwords), hacking into accounts, deploying malware.
-*   **Legal Action:** Subpoenas, arrests, lawsuits.
-*   **Information Operations:** Spreading disinformation to damage your reputation.
-*   **Resource-Intensive Operations:** For state actors, this could include things like mobile phone tracking or obtaining data from tech companies.
-
-### 4. What are the RISKS?
-
-**Risks** are the potential negative consequences if an adversary successfully compromises one of your assets. This is where you connect assets to adversaries.
-
-*   **Risk:** An online harasser discovers your home address (Asset: Location). **Harm:** Physical danger, intimidation of you or your family.
-*   **Risk:** Law enforcement reads your unencrypted plans (Asset: Data). **Harm:** Disruption of activities, potential arrests.
-*   **Risk:** A hacker takes over your social media account (Asset: Reputation/Equipment). **Harm:** Spreading false information, loss of credibility, alienating supporters.
+Threat modeling is not paranoia; it is the calculated, objective assessment of your operational environment. This framework adapts corporate security methodologies (STRIDE and PASTA) into an actionable, quantitative model specifically for non-state actors, activists, and civic organizations.
 
 ---
 
-## Your Threat Modeling Worksheet
+## 1. Adversary Profiling (The Threat Tiers)
 
-Copy this template and fill it out for yourself or your group. Be honest and realistic. Your threat model can change over time, so revisit it periodically.
+To defend effectively, you must understand your adversary's capabilities, budget, and legal authorizations. Do not prepare for a T4 adversary if your actual threat is T1; doing so will cause operational paralysis.
 
-### Step 1: Identify Your Assets
-*What do I/we need to protect? (List at least 3)*
+*   **T1: The Noise (Doxxers, Trolls, Counter-Protestors)**
+    *   **Capabilities:** Open-Source Intelligence (OSINT), social engineering, physical harassment at public events, denial-of-service (reporting accounts).
+    *   **Limitations:** No legal authority, minimal funding, low technical sophistication.
+*   **T2: Local Enforcement (Police, Regional Fusion Centers)**
+    *   **Capabilities:** Arrest authority, physical surveillance, Cell-Site Simulators (Stingrays), ALPRs (License Plate Readers), facial recognition databases, access to data brokers, subpoena power for domestic tech companies.
+    *   **Limitations:** Bureaucratic friction, geographic boundaries, budget constraints.
+*   **T3: Corporate Intelligence (Private Security, Pinkertons)**
+    *   **Capabilities:** Deep financial resources, infiltration/informants, advanced OSINT tools, litigation/lawsuits (SLAPPs), hiring off-duty law enforcement.
+    *   **Limitations:** No direct arrest authority, subject to civil liability, highly sensitive to bad PR.
+*   **T4: State-Level Intelligence (Federal Agencies, Three-Letter Entities)**
+    *   **Capabilities:** Unlimited budget, zero-day device exploits (Pegasus), national dragnet surveillance, NSA/FISA intelligence sharing, border search authority, covert black-bag operations.
+    *   **Limitations:** High threshold for deployment. Unless you are involved in massive critical infrastructure disruption or designated as a national security threat, you are unlikely to face dedicated T4 targeting.
 
-*   **Asset 1:** _________________ (e.g., My private list of contacts)
-*   **Asset 2:** _________________ (e.g., The location of our next meeting)
-*   **Asset 3:** _________________ (e.g., My personal anonymity online)
+---
 
-### Step 2: Identify Your Adversaries
-*Who might try to target my/our assets?*
+## 2. The 5x5 Risk Assessment Matrix
 
-*   **Adversary 1:** _________________ (e.g., Online trolls)
-*   **Adversary 2:** _________________ (e.g., Local law enforcement)
-*   **Adversary 3:** _________________ (e.g., A counter-protest group)
+Risk is calculated using two variables: **Likelihood** (How probable is the attack?) and **Impact** (How devastating is the consequence?).
 
-### Step 3: Assess Risks & Capabilities
-*For each asset, consider the adversaries and what could happen. Fill out the table below.*
+*   **Likelihood (1-5):** 1 = Rare, 3 = Possible, 5 = Almost Certain.
+*   **Impact (1-5):** 1 = Minor inconvenience, 3 = Operation disrupted/Short-term detention, 5 = Critical organizational failure/Long-term imprisonment/Loss of life.
 
-| Asset                      | Adversary                  | What can they do? (Capability)                               | What is the harm? (Risk)                               | How likely is it? (Low/Medium/High) |
-| -------------------------- | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------ | ----------------------------------- |
-| *Example: My anonymity*    | *Online harassers*         | *Doxing (publishing my private info)*                        | *Threats to my safety, job loss*                       | *High*                              |
-| *Example: Meeting location*| *Counter-protesters*       | *Physical surveillance, showing up to disrupt*               | *Disruption of event, potential for violence*          | *Medium*                            |
-|                            |                            |                                                              |                                                        |                                     |
-|                            |                            |                                                              |                                                        |                                     |
-|                            |                            |                                                              |                                                        |                                     |
+**Risk Score = Likelihood × Impact**
 
-### Step 4: Decide on Mitigations
-*Now that you understand the risks, what concrete steps will you take to protect your assets?*
+| Likelihood \ Impact | 1 (Minor) | 2 (Moderate) | 3 (Significant) | 4 (Severe) | 5 (Critical) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **5 (Certain)** | 5 (Low) | 10 (Med) | 15 (High) | 20 (Extreme) | **25 (ABORT)** |
+| **4 (Likely)** | 4 (Low) | 8 (Med) | 12 (High) | 16 (Extreme) | 20 (Extreme) |
+| **3 (Possible)** | 3 (Low) | 6 (Med) | 9 (Med) | 12 (High) | 15 (High) |
+| **2 (Unlikely)** | 2 (Low) | 4 (Low) | 6 (Med) | 8 (Med) | 10 (Med) |
+| **1 (Rare)** | 1 (Low) | 2 (Low) | 3 (Low) | 4 (Low) | 5 (Low) |
 
-*   **To protect [Asset 1], I will:** _________________ (e.g., Use an encrypted messaging app like Signal and avoid cloud backups of chats).
-*   **To protect [Asset 2], I will:** _________________ (e.g., Only share the location one hour before the event via secure channels).
-*   **To protect [Asset 3], I will:** _________________ (e.g., Use a pseudonym online, use a VPN, and scrub my photos of metadata before posting).
+### Hard Thresholds (The Go/No-Go Rule)
+*   **Score 1-8 (Acceptable):** Proceed with standard OPSEC.
+*   **Score 9-14 (Elevated):** Proceed with heightened countermeasures. Restrict "need-to-know" access.
+*   **Score 15-20 (Critical):** Operation is on hold until mitigations reduce the score below 15.
+*   **Score 21-25 (ABORT):** Mandatory operational abort. The environment is too hostile.
 
+---
+
+## 3. Threat Modeling Template (STRIDE for Activists)
+
+Use this template to quantify your vulnerabilities before any major operation.
+
+### Phase 1: Asset Identification
+*List what you must protect.*
+*   **Asset 1:** (e.g., The identity of the whistleblower)
+*   **Asset 2:** (e.g., The physical location of our secure server)
+*   **Asset 3:** (e.g., Our encrypted communication channels)
+
+### Phase 2: Adversary Mapping
+*Identify who wants to compromise those assets.*
+*   **Target Adversary:** (e.g., T2 - Local Fusion Center)
+*   **Their Goal:** (e.g., Identify the organizers and seize communication logs)
+
+### Phase 3: Vulnerability Assessment & Mitigation
+*Map the attack vectors and calculate the risk using the 5x5 Matrix.*
+
+| Asset | Attack Vector (How will they get it?) | Base Likelihood | Base Impact | Base Risk Score | Mitigation Strategy (What will we do?) | New Likelihood | New Impact | Adjusted Risk Score |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Identity of Source** | T3 Adversary uses subpoenas on our Google Workspace. | 4 | 5 | **20 (EXTREME)** | Migrate source communication to Signal; store files on E2EE CryptPad. | 1 | 5 | **5 (LOW)** |
+| **Protest Route** | T1 Trolls infiltrate public Telegram group to dox attendees. | 5 | 3 | **15 (HIGH)** | Vetting protocol for group entry; move sensitive comms to private Matrix server. | 2 | 2 | **4 (LOW)** |
+| **Devices** | T2 Police seize phones during mass arrest. | 4 | 4 | **16 (EXTREME)** | Enforce burner phone protocol; use Faraday bags; 12-character alphanumeric passcodes. | 4 | 1 | **4 (LOW)** |
+
+### Phase 4: Operational Go/No-Go Checklist
+*   [ ] Have all assets been identified?
+*   [ ] Is the primary adversary tier correctly classified?
+*   [ ] Have all adjusted risk scores been brought below the 15-point threshold?
+*   [ ] Are all participating nodes trained on the mitigation strategies?
+
+If any box is unchecked, the operation is a **No-Go**.
 
 _Last Updated: 2026_

@@ -1,90 +1,97 @@
-# Una guía práctica para modelar amenazas para activistas
+# Modelado avanzado de amenazas para organizaciones cívicas
 
-## Introducción: Autodefensa proactiva
+*Estado: Directiva de Nivel 2 | Público: planificadores de operaciones y equipos de seguridad*
 
-El modelado de amenazas es el proceso de pensar sistemáticamente sobre lo que necesita proteger y de quién debe protegerlo. Para los activistas, no se trata de paranoia; se trata de autodefensa proactiva. Le ayuda a identificar amenazas potenciales a su trabajo, su seguridad y su comunidad, permitiéndole tomar decisiones informadas sobre qué medidas de seguridad son adecuadas para usted. Esta guía le guiará por los pasos básicos para crear su propio modelo de amenaza.
-
-## Conceptos básicos explicados de forma sencilla
-
-Para construir un modelo de amenazas, es necesario responder algunas preguntas clave. Analicémoslos.
-
-### 1. ¿Cuáles son sus ACTIVOS?
-
-**Activos** son las cosas que necesitas proteger. Pueden ser digitales o físicos. Piense en lo que causaría daño si fuera expuesto, robado o destruido.
-
-* **Tu identidad y anonimato:** Quién eres.
-* **Tu ubicación:** Dónde estás, dónde vives o dónde te encuentras.
-* **Tus comunicaciones:** Correos electrónicos, mensajes de texto, llamadas telefónicas.
-* **Tus datos y archivos:** Investigaciones, planos, documentos, fotografías.
-* **Tus contactos:** La lista de personas con las que trabajas y en las que confías.
-* **Su equipo:** Computadoras portátiles, teléfonos, cámaras.
-* **Tu Reputación:** Tu credibilidad e imagen pública.
-
-### 2. ¿Quiénes son tus ADVERSARIOS?
-
-**Los adversarios** son los individuos o grupos que podrían querer dañar sus activos. Sea realista acerca de quién tiene la motivación para apuntar a usted.
-
-* **Actores estatales:** Aplicación de la ley, agencias de inteligencia.
-* **Contramanifestantes o grupos opuestos:** Grupos con objetivos contradictorios.
-* **Acosadores y trolls en línea:** Individuos que lo atacan en línea.
-* **Hackers maliciosos (Sombreros Negros):** Individuos que intentan ingresar a sus cuentas por diversos motivos.
-* **Iniciados:** Alguien dentro de tu grupo que puede no tener buenas intenciones.
-
-### 3. ¿Cuáles son sus CAPACIDADES?
-
-**Capacidades** son lo que tus adversarios pueden hacer de manera realista. Un troll en línea aleatorio tiene capacidades muy diferentes a las de una agencia gubernamental.
-
-* **Vigilancia en línea:** Monitoree las redes sociales, lea publicaciones públicas, rastree conexiones.
-* **Vigilancia física:** Seguirte, vigilar los puntos de encuentro.
-* **Ataques técnicos:** Phishing (correos electrónicos falsos para robar contraseñas), piratería de cuentas, implementación de malware.
-* **Acción Legal:** Citaciones, arrestos, demandas.
-* **Operaciones de información:** Difundir desinformación para dañar su reputación.
-* **Operaciones que requieren un uso intensivo de recursos:** Para los actores estatales, esto podría incluir cosas como el seguimiento de teléfonos móviles o la obtención de datos de empresas de tecnología.
-
-### 4. ¿Cuáles son los RIESGOS?
-
-**Riesgos** son las posibles consecuencias negativas si un adversario compromete con éxito uno de sus activos. Aquí es donde conectas los activos con los adversarios.
-
-* **Riesgo:** Un acosador en línea descubre la dirección de su casa (Activo: Ubicación). **Daño:** Peligro físico, intimidación hacia usted o su familia.
-* **Riesgo:** Las fuerzas del orden leen sus planes no cifrados (Activo: Datos). **Daño:** Interrupción de actividades, posibles arrestos.
-* **Riesgo:** Un hacker se apodera de su cuenta de redes sociales (Activo: Reputación/Equipo). **Daño:** Difusión de información falsa, pérdida de credibilidad, alienación de seguidores.
+El modelado de amenazas no es paranoia; es la evaluación calculada y objetiva de su entorno operativo. Este marco adapta las metodologías de seguridad corporativa (STRIDE y PASTA) en un modelo cuantitativo procesable específicamente para actores no estatales, activistas y organizaciones cívicas.
 
 ---
 
-## Su hoja de trabajo de modelado de amenazas
+## 1. Perfiles del adversario (los niveles de amenaza)
 
-Copie esta plantilla y complétela para usted o su grupo. Sea honesto y realista. Su modelo de amenaza puede cambiar con el tiempo, así que revíselo periódicamente.
+Para defenderse eficazmente, debe comprender las capacidades, el presupuesto y las autorizaciones legales de su adversario. No te prepares para un adversario T4 si tu amenaza real es T1; hacerlo provocará una parálisis operativa.
 
-### Paso 1: Identifique sus activos
-*¿Qué necesito/necesitamos proteger? (Enumere al menos 3)*
+* **T1: El ruido (Doxxers, Trolls, Contramanifestantes)**
+    * **Capacidades:** Inteligencia de fuentes abiertas (OSINT), ingeniería social, acoso físico en eventos públicos, denegación de servicio (reporte de cuentas).
+    * **Limitaciones:** Sin autoridad legal, financiamiento mínimo, baja sofisticación técnica.
+* **T2: Aplicación de la ley local (Policía, Centros Regionales de Fusión)**
+    * **Capacidades:** Autoridad de arresto, vigilancia física, simuladores de sitios celulares (Stingrays), ALPR (lectores de matrículas), bases de datos de reconocimiento facial, acceso a corredores de datos, poder de citación para empresas tecnológicas nacionales.
+    * **Limitaciones:** Fricción burocrática, fronteras geográficas, restricciones presupuestarias.
+* **T3: Inteligencia Corporativa (Seguridad Privada, Pinkertons)**
+    * **Capacidades:** Grandes recursos financieros, infiltración/informantes, herramientas OSINT avanzadas, litigios/demandas (SLAPP), contratación de agentes del orden fuera de servicio.
+    * **Limitaciones:** Sin autoridad de arresto directo, sujeto a responsabilidad civil, muy sensible a las malas relaciones públicas.
+* **T4: Inteligencia a nivel estatal (agencias federales, entidades de tres letras)**
+    * **Capacidades:** Presupuesto ilimitado, exploits de dispositivos de día cero (Pegasus), vigilancia nacional de arrastre, intercambio de inteligencia de la NSA/FISA, autoridad de búsqueda fronteriza, operaciones encubiertas encubiertas.
+    * **Limitaciones:** Alto umbral de despliegue. A menos que esté involucrado en una interrupción masiva de la infraestructura crítica o sea designado como una amenaza a la seguridad nacional, es poco probable que enfrente un objetivo T4 dedicado.
 
-* **Activo 1:** _________________ (p. ej., Mi lista privada de contactos)
-* **Activo 2:** _________________ (por ejemplo, el lugar de nuestra próxima reunión)
-* **Activo 3:** _________________ (p. ej., Mi anonimato personal en línea)
+---
 
-### Paso 2: Identifique a sus adversarios
-*¿Quién podría intentar atacar mis/nuestros activos?*
+## 2. La Matriz de Evaluación de Riesgos 5x5
 
-* **Adversario 1:** _________________ (p. ej., trolls en línea)
-* **Adversario 2:** _________________ (p. ej., autoridades locales)
-* **Adversario 3:** _________________ (por ejemplo, un grupo de contraprotesta)
+El riesgo se calcula utilizando dos variables: **Probabilidad** (¿Qué tan probable es el ataque?) e **Impacto** (¿Qué tan devastadora es la consecuencia?).
 
-### Paso 3: Evaluar riesgos y capacidades
-*Para cada activo, considere los adversarios y lo que podría pasar. Complete la siguiente tabla.*
+* **Probabilidad (1-5):** 1 = Raro, 3 = Posible, 5 = Casi seguro.
+* **Impacto (1-5):** 1 = Inconvenientes menores, 3 = Operación interrumpida/Detención a corto plazo, 5 = Fallo organizacional crítico/Encarcelamiento a largo plazo/Pérdida de vidas.
 
-| Activo | Adversario | ¿Qué pueden hacer? (Capacidad) | ¿Cuál es el daño? (Riesgo) | ¿Qué tan probable es? (Bajo/Medio/Alto) |
-| -------------------------- | -------------------------- | ------------------------------------------------------ | ------------------------------------------------------ | ----------------------------------- |
-| *Ejemplo: Mi anonimato* | *Acosadores en línea* | *Doxing (publicando mi información privada)* | *Amenazas a mi seguridad, pérdida de empleo* | *Alto* |
-| *Ejemplo: Lugar de reunión*| *Contramanifestantes* | *Vigilancia física, apareciendo para interrumpir* | *Interrupción del evento, potencial de violencia* | *Medio* |
-|                            |                            |                                                              |                                                        |                                     |
-|                            |                            |                                                              |                                                        |                                     |
-|                            |                            |                                                              |                                                        |                                     |
+**Puntuación de riesgo = Probabilidad × Impacto**
 
-### Paso 4: Decidir las mitigaciones
-*Ahora que comprende los riesgos, ¿qué medidas concretas tomará para proteger sus activos?*
+| Probabilidad \ Impacto | 1 (menor) | 2 (moderado) | 3 (significativo) | 4 (grave) | 5 (crítico) |
 
-* **Para proteger [Activo 1], haré:** _________________ (por ejemplo, usaré una aplicación de mensajería cifrada como Signal y evitaré las copias de seguridad de los chats en la nube).
-* **Para proteger [Activo 2], haré:** _________________ (por ejemplo, compartiré la ubicación solo una hora antes del evento a través de canales seguros).
-* **Para proteger [Activo 3], haré:** _________________ (por ejemplo, usaré un seudónimo en línea, usaré una VPN y eliminaré los metadatos de mis fotos antes de publicarlas).
+|:---|:---|:---|:---|:---|:---|
+
+| **5 (Cierto)** | 5 (bajo) | 10 (med.) | 15 (alto) | 20 (extremo) | **25 (ABORTAR)** |
+
+| **4 (Probable)** | 4 (bajo) | 8 (médico) | 12 (alto) | 16 (extremo) | 20 (extremo) |
+
+| **3 (Posible)** | 3 (bajo) | 6 (med.) | 9 (med.) | 12 (alto) | 15 (alto) |
+
+| **2 (Improbable)** | 2 (bajo) | 4 (bajo) | 6 (med.) | 8 (médico) | 10 (med.) |
+
+| **1 (raro)** | 1 (bajo) | 2 (bajo) | 3 (bajo) | 4 (bajo) | 5 (bajo) |
+
+
+### Umbrales estrictos (la regla de ir/no ir)
+* **Puntuación 1-8 (Aceptable):** Proceder con OPSEC estándar.
+* **Puntuación 9-14 (elevada):** Proceder con contramedidas intensificadas. Restrinja el acceso "necesario saber".
+* **Puntuación 15-20 (Crítico):** La operación está en espera hasta que las mitigaciones reduzcan la puntuación por debajo de 15.
+* **Puntuación 21-25 (ABORTAR):** Aborto operativo obligatorio. El ambiente es demasiado hostil.
+
+---
+
+## 3. Plantilla de modelado de amenazas (STRIDE para activistas)
+
+Utilice esta plantilla para cuantificar sus vulnerabilidades antes de cualquier operación importante.
+
+### Fase 1: Identificación de activos
+*Enumere lo que debe proteger.*
+* **Activo 1:** (p. ej., la identidad del denunciante)
+* **Activo 2:** (p. ej., la ubicación física de nuestro servidor seguro)
+* **Activo 3:** (p. ej., nuestros canales de comunicación cifrados)
+
+### Fase 2: Mapeo del adversario
+*Identificar quién quiere comprometer esos activos.*
+* **Adversario objetivo:** (p. ej., T2 - Centro de fusión local)
+* **Su objetivo:** (p. ej., identificar a los organizadores y aprovechar los registros de comunicación)
+
+### Fase 3: Evaluación y mitigación de vulnerabilidades
+*Mapea los vectores de ataque y calcula el riesgo usando la Matriz 5x5.*
+
+| Activo | Vector de ataque (¿Cómo lo conseguirán?) | Probabilidad básica | Impacto básico | Puntuación de riesgo base | Estrategia de Mitigación (¿Qué haremos?) | Nueva probabilidad | Nuevo impacto | Puntuación de riesgo ajustada |
+
+|:---|:---|:---|:---|:---|:---| :--- | :--- | :--- |
+
+| **Identidad de la fuente** | T3 Adversary utiliza citaciones en nuestro Google Workspace. | 4 | 5 | **20 (EXTREMO)** | Migrar la comunicación de origen a Signal; almacene archivos en E2EE CryptPad. | 1 | 5 | **5 (BAJO)** |
+
+| **Ruta de protesta** | Los T1 Trolls se infiltran en un grupo público de Telegram para engañar a los asistentes. | 5 | 3 | **15 (ALTO)** | Protocolo de investigación para el ingreso al grupo; mueva las comunicaciones confidenciales al servidor Matrix privado. | 2 | 2 | **4 (BAJO)** |
+
+| **Dispositivos** | La policía T2 confisca teléfonos durante un arresto masivo. | 4 | 4 | **16 (EXTREMO)** | Hacer cumplir el protocolo telefónico desechable; utilizar bolsas de Faraday; Códigos de acceso alfanuméricos de 12 caracteres. | 4 | 1 | **4 (BAJO)** |
+
+
+### Fase 4: Lista de verificación operativa de ir/no ir
+* [ ] ¿Se han identificado todos los activos?
+* [ ] ¿Está clasificado correctamente el nivel de adversario principal?
+* [ ] ¿Se han colocado todas las puntuaciones de riesgo ajustadas por debajo del umbral de 15 puntos?
+* [ ] ¿Están todos los nodos participantes capacitados en las estrategias de mitigación?
+
+Si alguna casilla no está marcada, la operación es **No-Go**.
 
 _Última actualización: 2026_
