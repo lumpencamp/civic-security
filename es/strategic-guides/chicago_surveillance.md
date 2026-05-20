@@ -23,23 +23,24 @@ La **Ley de escuchas ilegales de Illinois** es una ley de "consentimiento de dos
 
 * **Consejos prácticos:** Al grabar a la policía, es importante hacerlo abiertamente y no interferir con sus funciones.Si bien usted tiene derecho a grabar, la policía aún puede intentar intimidarlo o arrestarlo.Es importante conocer sus derechos y tener un plan en caso de encontrarse con la policía.
 
-## 2. Tecnología ShotSpotter
+## 2. El fin de ShotSpotter y la futura vigilancia acústica
 
-ShotSpotter es un sistema acústico de detección de disparos que utiliza una red de micrófonos para detectar y localizar disparos.El sistema está diseñado para alertar a la policía sobre tiroteos en tiempo real, incluso si nadie llama al 911.
+**Actualización (2026):** Chicago desmanteló oficialmente su controvertido sistema de detección de disparos ShotSpotter el 23 de septiembre de 2024, luego de que el alcalde Brandon Johnson decidiera no renovar el contrato de 50 millones de dólares. El sistema se encuentra actualmente fuera de línea y los sensores han sido desmantelados en toda la ciudad.
 
-### Cobertura y controversia
+### El legado de ShotSpotter
 
-ShotSpotter se ha implementado en varios vecindarios de Chicago, principalmente en los lados sur y oeste.Sin embargo, la tecnología es muy controvertida por varias razones:
+Históricamente, ShotSpotter fue un sistema de detección acústica implementado principalmente en los lados sur y oeste. Finalmente fue eliminado después de años de organización activista que destacó sus fallas:
 
-* **Precisión:** Los estudios han demostrado que ShotSpotter tiene una alta tasa de falsos positivos, lo que significa que a menudo alerta a la policía sobre sonidos que no son disparos.Esto puede dar lugar a despliegues policiales innecesarios y potencialmente peligrosos.
-* **Sesgo racial:** La colocación de sensores ShotSpotter en vecindarios predominantemente negros y morenos ha dado lugar a acusaciones de prejuicio racial y vigilancia excesiva.
-* **Uso como prueba:** El uso de datos de ShotSpotter como prueba en los tribunales también es controvertido, ya que se ha puesto en duda la precisión y confiabilidad del sistema.
+*   **Falsas alertas:** El sistema tenía tasas notoriamente altas de falsos positivos, lo que condujo directamente a prácticas inconstitucionales de detención y registro por parte de la policía que respondía a disparos inexistentes.
+*   **Sesgo racial:** Su despliegue desproporcionado en vecindarios de personas negras y latinas causó una vigilancia excesiva severa.
+*   **Impacto de la eliminación:** Contradiciendo las advertencias policiales de que la eliminación aumentaría la violencia, los datos de la Universidad de Chicago mostraron una caída del 17.8% en los delitos violentos y una disminución del 37.5% en los homicidios en las antiguas zonas de ShotSpotter durante la primera mitad de 2025.
 
-### Implicaciones legales: Ley de escuchas ilegales de Illinois
+### Panorama actual y programas piloto
 
-Si bien la Ley de escuchas ilegales se aplica principalmente a las conversaciones, el uso de ShotSpotter plantea dudas sobre la expectativa razonable de privacidad en los espacios públicos.El seguimiento constante de los sonidos en un barrio podría verse como una forma de vigilancia masiva.
+Si bien ShotSpotter ya no está, la vigilancia automatizada no ha desaparecido. A partir de mayo de 2026, el concejo municipal está revisando una Solicitud de Información (RFI) para encontrar tecnologías de reemplazo.
 
-* **Consejos prácticos:** Los activistas pueden utilizar el debate público en torno a ShotSpotter para abogar por una mayor transparencia y responsabilidad en el uso de la tecnología de vigilancia.Esto incluye exigir datos sobre la precisión del sistema y su impacto en las comunidades de color.
+*   **Piloto de Alarm.com:** A principios de 2025, comenzó un programa piloto de seis meses en el Distrito 15 utilizando un nuevo sistema de Alarm.com (Shooter Detection Systems). A diferencia de ShotSpotter, este nuevo sistema utiliza una combinación de **cámaras infrarrojas y sensores acústicos** en un intento de reducir los falsos positivos.
+*   **Consejo práctico:** Los activistas deben permanecer vigilantes. La transición lejos de ShotSpotter es una gran victoria, pero la introducción de redes de cámaras infrarrojas presenta nuevas preocupaciones de privacidad con respecto a la vigilancia visual persistente. Los organizadores deben exigir total transparencia sobre la retención de datos de cualquier sistema nuevo implementado.
 
 ## 3. Reconocimiento facial
 
