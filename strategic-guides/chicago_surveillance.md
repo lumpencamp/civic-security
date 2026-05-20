@@ -23,23 +23,24 @@ The **Illinois Eavesdropping Law** is a "two-party consent" law, meaning it is g
 
 *   **Practical Advice:** When recording police, it is important to do so openly and to not interfere with their duties. While you have the right to record, police may still try to intimidate or arrest you. It is important to know your rights and to have a plan in place in case of an encounter with law enforcement.
 
-## 2. ShotSpotter Technology
+## 2. The End of ShotSpotter & Future Acoustic Surveillance
 
-ShotSpotter is an acoustic gunshot detection system that uses a network of microphones to detect and locate gunfire. The system is designed to alert police to shootings in real-time, even if no one calls 911.
+**Update (2026):** Chicago officially decommissioned its controversial ShotSpotter gunshot detection system on September 23, 2024, after Mayor Brandon Johnson declined to renew the $50 million contract. The system is currently offline, and sensors have been dismantled across the city.
 
-### Coverage and Controversy
+### The Legacy of ShotSpotter
 
-ShotSpotter has been deployed in several Chicago neighborhoods, primarily on the South and West Sides. However, the technology is highly controversial for several reasons:
+Historically, ShotSpotter was an acoustic detection system deployed primarily on the South and West Sides. It was ultimately removed after years of activist organizing highlighting its flaws:
 
-*   **Accuracy:** Studies have shown that ShotSpotter has a high rate of false positives, meaning it often alerts police to sounds that are not gunfire. This can lead to unnecessary and potentially dangerous police deployments.
-*   **Racial Bias:** The placement of ShotSpotter sensors in predominantly Black and Brown neighborhoods has led to accusations of racial bias and over-policing.
-*   **Use as Evidence:** The use of ShotSpotter data as evidence in court is also controversial, as the system's accuracy and reliability have been called into question.
+*   **False Alerts:** The system had notoriously high rates of false positives, which led directly to unconstitutional stop-and-frisk practices by police responding to non-existent gunshots.
+*   **Racial Bias:** Its disproportionate deployment in Black and Latinx neighborhoods caused severe over-policing.
+*   **Impact of Removal:** Contradicting police warnings that removal would increase violence, data from the University of Chicago showed a 17.8% drop in violent crime and a 37.5% decrease in homicides in former ShotSpotter zones during the first half of 2025.
 
-### Legal Implications: Illinois Eavesdropping Law
+### Current Landscape & Pilot Programs
 
-While the Eavesdropping Law primarily applies to conversations, the use of ShotSpotter raises questions about the reasonable expectation of privacy in public spaces. The constant monitoring of sounds in a neighborhood could be seen as a form of mass surveillance.
+While ShotSpotter is gone, automated surveillance is not. As of May 2026, the city council is reviewing a Request for Information (RFI) to find replacement technologies.
 
-*   **Practical Advice:** Activists can use the public debate around ShotSpotter to advocate for greater transparency and accountability in the use of surveillance technology. This includes demanding data on the system's accuracy and its impact on communities of color.
+*   **Alarm.com Pilot:** In early 2025, a six-month pilot program began in the 15th Ward utilizing a new system by Alarm.com (Shooter Detection Systems). Unlike ShotSpotter, this new system uses a combination of **infrared cameras and acoustic sensors** in an attempt to reduce false positives.
+*   **Practical Advice:** Activists must remain vigilant. The transition away from ShotSpotter is a major victory, but the introduction of infrared camera networks introduces new privacy concerns regarding persistent visual surveillance. Organizers should demand full transparency on data retention for any new system implemented.
 
 ## 3. Facial Recognition
 
