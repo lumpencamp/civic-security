@@ -33,19 +33,12 @@ El riesgo se calcula utilizando dos variables: **Probabilidad** (¿Qué tan prob
 * **Impacto (1-5):** 1 = Inconvenientes menores, 3 = Operación interrumpida/Detención a corto plazo, 5 = Fallo organizacional crítico/Encarcelamiento a largo plazo/Pérdida de vidas.
 
 **Puntuación de riesgo = Probabilidad × Impacto**
-
 | Probabilidad \ Impacto | 1 (menor) | 2 (moderado) | 3 (significativo) | 4 (grave) | 5 (crítico) |
-
 |:---|:---|:---|:---|:---|:---|
-
 | **5 (Cierto)** | 5 (bajo) | 10 (med.) | 15 (alto) | 20 (extremo) | **25 (ABORTAR)** |
-
 | **4 (Probable)** | 4 (bajo) | 8 (médico) | 12 (alto) | 16 (extremo) | 20 (extremo) |
-
 | **3 (Posible)** | 3 (bajo) | 6 (med.) | 9 (med.) | 12 (alto) | 15 (alto) |
-
 | **2 (Improbable)** | 2 (bajo) | 4 (bajo) | 6 (med.) | 8 (médico) | 10 (med.) |
-
 | **1 (raro)** | 1 (bajo) | 2 (bajo) | 3 (bajo) | 4 (bajo) | 5 (bajo) |
 
 
@@ -74,15 +67,10 @@ Utilice esta plantilla para cuantificar sus vulnerabilidades antes de cualquier 
 
 ### Fase 3: Evaluación y mitigación de vulnerabilidades
 *Mapea los vectores de ataque y calcula el riesgo usando la Matriz 5x5.*
-
 | Activo | Vector de ataque (¿Cómo lo conseguirán?) | Probabilidad básica | Impacto básico | Puntuación de riesgo base | Estrategia de Mitigación (¿Qué haremos?) | Nueva probabilidad | Nuevo impacto | Puntuación de riesgo ajustada |
-
 |:---|:---|:---|:---|:---|:---| :--- | :--- | :--- |
-
 | **Identidad de la fuente** | T3 Adversary utiliza citaciones en nuestro Google Workspace. | 4 | 5 | **20 (EXTREMO)** | Migrar la comunicación de origen a Signal; almacene archivos en E2EE CryptPad. | 1 | 5 | **5 (BAJO)** |
-
 | **Ruta de protesta** | Los T1 Trolls se infiltran en un grupo público de Telegram para engañar a los asistentes. | 5 | 3 | **15 (ALTO)** | Protocolo de investigación para el ingreso al grupo; mueva las comunicaciones confidenciales al servidor Matrix privado. | 2 | 2 | **4 (BAJO)** |
-
 | **Dispositivos** | La policía T2 confisca teléfonos durante un arresto masivo. | 4 | 4 | **16 (EXTREMO)** | Hacer cumplir el protocolo telefónico desechable; utilizar bolsas de Faraday; Códigos de acceso alfanuméricos de 12 caracteres. | 4 | 1 | **4 (BAJO)** |
 
 
