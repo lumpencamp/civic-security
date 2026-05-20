@@ -1,176 +1,84 @@
-# La guía del activista para la contravigilancia
+# La guía del activista para la contravigilancia: convergencia físico-digital
 
-Esta guía proporciona una estrategia de defensa en capas para que los activistas protejan su privacidad, seguridad y capacidad de organizarse contra la vigilancia gubernamental y municipal.Estos no son conceptos teóricos;son pasos prácticos y viables para crear un entorno más seguro para la disidencia.
+*Estado: Manual de campo | Público: Organizadores, Equipos de Acción Directa, Nodos de Alto Riesgo*
+
+La contravigilancia no consiste en luchar contra el adversario; es el arte estratégico de detectar su presencia y romper su línea de visión *sin* hacerles saber que lo has hecho. Exhibir abiertamente una conciencia de contravigilancia (por ejemplo, mirar fijamente a una cola, giros repentinos en U, conducción errática) aumenta el nivel de amenaza y lo marca como un objetivo sofisticado.
+
+Este manual dicta los protocolos para la detección pasiva y la evasión segura en dominios físicos y de RF (radiofrecuencia).
 
 ```mermaid
 mindmap
-  root((Counter-Surveillance Layered Defense))
-    Individual Digital Defense
-      Full-Disk Encryption
-      Strong Passcodes
-      Signal & Tor
-      Hardened OS
-    Group OPSEC
-      Need-to-Know
-      Secure Planning
-      Data Minimization
-    Technical Countermeasures
-      Faraday Bags vs Stingrays
-      Face Coverings vs Facial Recognition
-      Public Transit vs ALPRs
-    Legal & Strategic
-      FOIA Requests
-      Public Advocacy
+  root((Defensa en capas de contravigilancia))
+    Detección Física
+      Bucle Temporizado
+      Puntos de Cuello de Botella
+      Paradas de Cobertura
+    Detección Digital
+      Escaneo de Balizas RF
+      Firmas de Stingray
+      Rastreo de Bluetooth
+    Evasión
+      Desconexión Natural
+      Intercambio de Desechable
+      Trampas de Tránsito
 ```
 
 ---
 
-## Capa 1: Defensa Digital Individual (La Fundación)
+## 1. Detección física: el arte del 'bucle cronometrado'
 
-Su seguridad personal es la base de la seguridad de su grupo.Si la vida digital de una persona se ve comprometida, puede exponer toda la red.Trate estos pasos como obligatorios.
+Debe asumir que lo están siguiendo durante operaciones delicadas. Su objetivo es obligar al equipo de vigilancia a revelarse creando restricciones geográficas antinaturales.
 
-### Línea de base segura: su armadura digital
+### El método del bucle cronometrado
+Nunca viaje directamente desde el punto A (casa segura) al punto B (reunión operativa). Implementar un bucle de análisis de ruta.
+1. **Establezca un punto de estrangulamiento:** Seleccione una ruta de transporte que obligue a todo el tráfico a pasar por un cuello de botella específico e inevitable (por ejemplo, un puente largo, un túnel, una calle residencial tranquila sin desvíos inmediatos).
+2. **El primer paso:** Transitar por el punto de estrangulamiento. Registre mentalmente (o use una grabadora de voz discreta) las descripciones de los tres vehículos directamente detrás de usted y de los peatones que merodean en la salida.
+3. **El bucle:** Ejecute un bucle grande y de apariencia natural. Vaya a una cafetería, explore una librería durante 20 minutos (una **Parada de portada**) y luego regrese al punto de estrangulamiento desde un ángulo diferente.
+4. **El segundo paso:** Transita exactamente por el mismo punto de estrangulamiento.
+5. **Evaluación:** Si alguno de los vehículos o peatones del Primer Paso está presente durante el Segundo Paso, se encuentra bajo vigilancia activa. *No reacciones.*
 
-1. **Cifrado de disco completo (FDE):** Esto hace que los datos de su computadora sean ilegibles sin su contraseña.Si su dispositivo es confiscado, sus datos permanecen seguros.Los sistemas operativos modernos (Windows, macOS, Linux) y los teléfonos inteligentes lo tienen integrado.**Acción:** Asegúrese de que FDE esté habilitado en todos sus dispositivos (portátiles y teléfonos).Por lo general, está activado de forma predeterminada, pero verifíquelo en su configuración de seguridad.
-
-2. **Códigos de acceso seguros, no datos biométricos:** Las autoridades policiales pueden exigir legalmente su huella digital o su rostro en muchas jurisdicciones.Una contraseña segura no puede hacerlo.
-* **Acción:** Utilice una contraseña larga y única (al menos 12 caracteres con números, símbolos y mayúsculas y minúsculas) para su teléfono y computadora.Desactive el desbloqueo facial y de huellas dactilares, especialmente cuando se dirija a una protesta.
-
-3. **Actualizaciones periódicas de software:** Las actualizaciones no son sólo para nuevas funciones;contienen parches críticos para las vulnerabilidades de seguridad que explotan los gobiernos y los piratas informáticos.
-* **Acción:** Habilite las actualizaciones automáticas en todos sus dispositivos y aplicaciones.No los retrases.
-
-### Seguridad en las comunicaciones: hable libremente
-
-1. **Signal para todas las comunicaciones confidenciales:** Signal utiliza cifrado de extremo a extremo, lo que significa que solo usted y el destinatario pueden leer sus mensajes.Su proveedor de telecomunicaciones, el gobierno e incluso la propia Signal no pueden acceder a su contenido.
-* **Acción:** Mandato Signal para todos los chats grupales y conversaciones confidenciales uno a uno.Configure los mensajes para que desaparezcan de forma predeterminada (por ejemplo, después de una semana) para minimizar el rastro de datos.
-
-2. **Verifique los números de seguridad:** Este paso garantiza que está hablando con la persona adecuada y no con un impostor o un ataque de intermediario.
-* **Cómo hacerlo:** En un chat de Signal, toca el nombre de la persona en la parte superior y luego "Ver número de seguridad".Compara este número con tu contacto en persona o mediante otro canal seguro (como una videollamada en Signal).Si coinciden, márquelo como verificado.
-
-### Anonimato: cuando necesitas desaparecer
-
-1. **Navegador Tor para investigación:** Al investigar temas delicados, Tor oculta su dirección IP, evitando que los sitios web y los observadores de la red sepan quién es usted y desde dónde se conecta.
-* **Cuándo usarlo:** Use Tor para investigar grupos de oposición, acceder a sitios web bloqueados o cualquier actividad en línea que no desee vincular a su identidad real.
-* **Acción:** Descargue y use Tor Browser desde el sitio web oficial: `torproject.org`.
-
-2. **SO Tails para actividades de alto riesgo:** Tails es un sistema operativo completo que se ejecuta desde una memoria USB.Fuerza todo tu tráfico de Internet a través de Tor y no deja rastro en la computadora en la que lo usas.
-* **Cuándo usarlo:** Utilice Tails para tareas de alto riesgo, como filtrar documentos a un periodista o comunicarse como denunciante.
-* **Acción:** Esta es una herramienta avanzada.Si tu trabajo implica un alto riesgo personal, investiga y aprende a utilizar Tails OS correctamente.
-
-### Seguridad móvil: fortaleciendo su dispositivo más vulnerable
-
-Su teléfono inteligente es un dispositivo de seguimiento.Para un activismo serio, es necesario tomar medidas serias.
-
-* **GrapheneOS o CalyxOS:** Estas son versiones de Android con privacidad reforzada que le brindan control granular sobre su dispositivo, limitan el seguimiento y lo protegen de la vigilancia móvil sofisticada.
-* **Acción:** Si eres un organizador clave o enfrentas un riesgo significativo, adquirir un teléfono Google Pixel e instalar GrapheneOS o CalyxOS es una de las medidas defensivas más poderosas que puedes tomar.Esta es una defensa principal contra las vulnerabilidades móviles y el seguimiento de la ubicación.
+### Reconocer la dinámica del equipo
+La vigilancia profesional (T3/T4) nunca es de un solo coche. Es una "caja flotante".
+* **El vehículo de comando:** Permanece paralelo y recorre una cuadra.
+* **El seguidor:** Se queda atrás y frecuentemente pasa el liderazgo a otro vehículo para evitar ser detectado.
+* **El ojo:** Un peatón o ciclista estacionado en su destino incluso antes de llegar.
 
 ---
 
-## Capa 2: Seguridad operativa grupal (OPSEC)
+## 2. Detección digital: identificación del seguimiento de RF activo
 
-OPSEC es la práctica de proteger los planes y actividades de su grupo.Es una forma de pensar, no sólo una herramienta.
+La vigilancia moderna depende en gran medida de la radiofrecuencia (RF). Si no pueden verte físicamente, están rastreando tus emisiones digitales.
 
-### El principio de necesidad de saber
+### Detección de monitoreo de multitudes por Wi-Fi / Bluetooth
+La policía local (T2) despliega rastreadores de RF móviles en las zonas de protesta para recolectar direcciones MAC de todos los dispositivos en el área, mapear a la multitud e identificar a los organizadores.
+* **Protocolo:** Antes de ingresar a una zona operativa, coloque su dispositivo principal en modo avión. **Lo más importante es que también debes desactivar manualmente Wi-Fi y Bluetooth.** El modo avión en los teléfonos inteligentes modernos *no* desactiva automáticamente las balizas Bluetooth en segundo plano (como la red "Find My" de Apple), que continúan transmitiendo la firma única de tu dispositivo a los escáneres.
 
-Limitar la difusión de información.Cuantas menos personas conozcan un detalle, menor será el riesgo de que se filtre, ya sea accidentalmente o a través de un informante.
-
-* **Acción:** Antes de compartir cualquier dato (quién, qué, cuándo, dónde, por qué), pregúntese: "¿Esta persona *necesita* absolutamente saber esto para que la acción tenga éxito?"Si la respuesta es no, no la compartas.
-
-### Protocolo de planificación segura
-
-Cómo planificas es tan importante como lo que planificas.La planificación insegura es un regalo para su oposición.
-
-* **Plataformas prohibidas:** NUNCA planifique acciones en Facebook (grupos públicos o privados), Instagram, mensajes directos de Twitter, SMS/mensajes de texto o correo electrónico estándar.Estas plataformas son monitoreadas de forma rutinaria.
-* **Métodos seguros:**
-1. **En persona:** El método más seguro, siempre que pueda asegurarse de que la ubicación sea privada y que los asistentes hayan dejado sus teléfonos.
-2. **Chats grupales cifrados:** Utilice Signal para toda la planificación digital.
-3. **Documentos anónimos:** Utilice herramientas como CryptPad o Etherpad (alojadas en un servidor confiable) para documentos de planificación colaborativa en lugar de Google Docs.
-
-### Minimización de datos
-
-No cree datos que puedan usarse en su contra.Si no existe, no se puede robar, filtrar ni citar.
-
-* **Acción:**
-* **Sin listas de miembros:** No cree ni almacene listas centralizadas de miembros o seguidores.
-* **No se permiten actas de reuniones con nombres:** Si debe tomar notas, concéntrese en los elementos de acción, no en quién dijo qué.
-* **Borrar datos:** Elimina periódicamente historiales de chat y documentos antiguos que ya no sean necesarios.
+### Identificación de IMSI-Catchers (rayas)
+Las mantarrayas imitan las torres de telefonía móvil, lo que obliga a su teléfono a conectarse a ellas para recopilar su número IMSI y rastrear su ubicación.
+* **Firmas de un ataque:**
+    *   Sudden, unexplained drop from 5G/4G down to 2G (EDGE) networks. (Stingrays often force phones onto older, unencrypted 2G protocols to intercept data).
+    *   Unusually rapid battery drain.
+    *   Failure of calls/texts to transmit despite showing "full bars" of signal.
+* **Contramedida:** En Android (específicamente en sistemas operativos reforzados como GrapheneOS), navegue hasta Configuración de red y **Desactive 2G**. Esto anula los ataques de degradación más comunes. Si sospecha que hay un Stingray activo, apague el dispositivo por completo y colóquelo en una bolsa de Faraday.
 
 ---
 
-## Capa 3: Contramedidas técnicas directas
+## 3. Evasión: El protocolo de ruptura segura
 
-Estas son medidas activas para derrotar tecnologías de vigilancia específicas que pueda encontrar.
+Si confirmas la vigilancia, tu objetivo es "romper la cola" de forma natural. Debes proporcionarle al equipo de vigilancia una razón plausible e inocente para perderte.
 
-### Contrarrestar las mantarrayas (IMSI-Catchers)
+### Desconexión natural
+* **No:** Correr, conducir de forma errática o enfrentarse a la vigilancia.
+* **Sí:** Ingrese a un entorno muy concurrido y con múltiples salidas (un gran almacén, una estación de metro concurrida, el vestíbulo de un hotel denso).
+* **La trampa del metro:** Ingresa a una estación de metro. Espere en el andén hasta que se cierren las puertas del tren. Sube al tren en el último segundo posible. Si el agente de vigilancia intenta seguirlo, debe correr hacia las puertas (revelándose) o quedarse atrás. Si se quedan atrás, asumirán que usted simplemente tomó el tren, no que los estaba evadiendo.
 
-Las mantarrayas son torres de telefonía celular falsas utilizadas por la policía para rastrear los teléfonos de todas las personas en un área determinada.Son una herramienta de vigilancia.
+### El intercambio de quemadores (pausa digital)
+Si debe romper la vigilancia digital (por ejemplo, están rastreando la ubicación de su teléfono):
+1. Ingrese una "Parada de cobertura" (por ejemplo, el baño de un centro comercial o una cafetería llena de gente).
+2. Apague su dispositivo principal. Retire la batería si es posible o colóquela inmediatamente en una bolsa de Faraday.
+3. Encienda un dispositivo quemador desvinculado y preconfigurado.
+4. Salga de Cover Stop usando una salida diferente. El seguimiento digital del adversario permanecerá congelado en Cover Stop.
 
-* **Mejor defensa:** La defensa más efectiva es negarle tu señal.
-* **Acción:** Cuando estés cerca de una protesta o de un lugar sensible, apaga tu teléfono por completo **apagado**.Si debe tenerlo activado para comunicarse, use el **Modo avión** siempre que no lo esté usando activamente.Wi-Fi y Bluetooth también deben estar apagados.
-* **Defensa avanzada:** GrapheneOS proporciona controles de seguridad de red mejorados, incluida la capacidad de desactivar la conectividad 2G, lo que puede ayudar a mitigar algunos ataques de Stingray.
-
-### Contrarrestar el reconocimiento facial
-
-El reconocimiento facial se utiliza para identificar a los manifestantes a partir de fotografías y vídeos, a menudo mucho después de un evento.
-
-* **Romper el algoritmo:** Su objetivo es ocultar las características clave que utilizan los algoritmos para la identificación (ojos, nariz, boca, mandíbula).
-* **Acción:** Use protectores faciales eficaces.Una combinación de una máscara que se ajuste bien, gafas de sol y un sombrero o capucha es muy eficaz.Ciertos patrones de maquillaje (como CV Dazzle) también pueden funcionar, pero son menos sutiles.
-* **Proteja a otros:** No publique en línea fotografías o videos identificables de otros manifestantes sin su consentimiento explícito y entusiasta.Desenfocar las caras antes de publicar es una buena práctica.
-
-### Contrarrestar los lectores automatizados de matrículas (ALPR)
-
-Los ALPR son cámaras montadas en coches de policía, farolas y grúas que escanean y registran constantemente las matrículas, creando una base de datos masiva de los movimientos de los vehículos.
-
-* **Acción:** Evite conducir directamente a lugares sensibles o protestas.Estaciona a varias cuadras en una zona comercial concurrida, o mejor aún, utiliza el transporte público o anda en bicicleta hasta el destino final.
-
-### Contrarrestar los drones y la vigilancia aérea
-
-La policía utiliza cada vez más drones y helicópteros para monitorear multitudes, rastrear movimientos e identificar a los organizadores desde arriba.
-
-* **Acción:** Utilice paraguas o sombreros de ala ancha para ocultar los rostros de las cámaras aéreas.Manténgase entre grandes multitudes o bajo una cobertura física (árboles, toldos) cuando sea posible para interrumpir el seguimiento.
-
-### Contrarrestando el ADN y la recolección biométrica
-
-Las fuerzas del orden dependen cada vez más de bases de datos comerciales de ADN (como las utilizadas por 23andMe o Ancestry) y de pruebas físicas dejadas en los lugares de los hechos para identificar a las personas.
-
-* **Acción:** Nunca utilice servicios comerciales de pruebas de ADN.En protestas o reuniones delicadas, lleva tu basura contigo.No dejes botellas de agua, colillas de cigarrillos ni cualquier otra cosa que pueda contener tu ADN.
-
-### Contrarrestar a los corredores de datos y el scraping de redes sociales
-
-La policía compra datos de intermediarios que extraen su información de las redes sociales y otras fuentes públicas para crear un perfil sobre usted.
-
-* **Acción:**
-1. **Bloquear perfiles:** Configure todos sus perfiles de redes sociales (Facebook, Instagram, Twitter, etc.) como **privados**.
-2. **Utilice seudónimos:** Cuando sea posible, no utilice su nombre real en cuentas públicas.
-3. **Revisar y eliminar:** Revisa periódicamente tus publicaciones, fotos y listas de amigos/seguidores antiguos.Elimine todo lo que revele información personal o conexiones confidenciales.Elimina a las personas que no conoces o en las que no confías.
-
----
-
-## Capa 4: Defensa legal y estratégica
-
-La tecnología por sí sola no es suficiente.Utilice la ley y la presión pública como poderosos escudos y espadas.
-
-### Usando la ley como escudo
-
-Utilice de forma proactiva las leyes existentes para proteger sus derechos y generar costos para la vigilancia.
-
-* **Ejemplo: BIPA (Ley de Privacidad de la Información Biométrica) de Illinois:** Esta ley requiere el consentimiento antes de que una empresa privada pueda recopilar sus datos biométricos (como un escaneo facial).
-* **Acción:** Negarse pública y explícitamente a dar consentimiento para la recopilación biométrica en eventos o en los espacios donde se utilice.Apoyar y publicitar demandas contra empresas que violen estas leyes.Esto crea un elemento de disuasión legal y financiero.
-
-### Ley de Libertad de Información (FOIA)
-
-FOIA es una ley que le otorga derecho a acceder a información del gobierno federal.La mayoría de los estados tienen leyes de registros públicos similares para agencias estatales y locales.
-
-* **Para qué sirve:** Puede usarlo para descubrir qué tecnología de vigilancia ha comprado su departamento de policía local, cómo la están usando y qué políticas tienen (o no tienen).
-* **Acción:** Aprenda los conceptos básicos para presentar una solicitud de registros públicos en su estado.Organizaciones como ACLU y MuckRock tienen plantillas y guías.La presentación de solicitudes puede exponer los programas de vigilancia al escrutinio público.
-
-### Defensa pública: la contravigilancia definitiva
-
-La vigilancia prospera en el secreto.La contramedida más poderosa es arrastrarlo hacia la luz.
-
-* **Acción:**
-* **Conciencia comunitaria:** Organice reuniones comunitarias para educar a sus vecinos sobre la vigilancia local.
-* **Abogacía legislativa:** Campaña a favor de ordenanzas locales que prohíban o restrinjan el uso de tecnologías como el reconocimiento facial.
-* **Crear coaliciones:** Trabajar con otros grupos (derechos de los inmigrantes, justicia racial, defensores de la vivienda) para construir una coalición amplia contra la vigilancia masiva.Cuando la vigilancia se vuelve políticamente costosa, su expansión se frena.
+**Directiva:** La operación de contravigilancia más exitosa es aquella en la que el adversario regresa a la base creyendo que eres simplemente un objetivo aburrido y poco interesante que fue de compras y se fue a casa.
 
 _Última actualización: 2026_
