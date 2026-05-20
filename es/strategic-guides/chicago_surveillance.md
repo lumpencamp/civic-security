@@ -1,113 +1,47 @@
-# Una guía para activistas sobre la vigilancia policial en Chicago
+# Análisis profundo de la vigilancia de Chicago: un estudio de amenazas localizadas
 
-Esta guía proporciona una descripción detallada de las tecnologías de vigilancia utilizadas por las fuerzas del orden en Chicago.Su objetivo es ser un recurso para que activistas, periodistas y el público comprendan la infraestructura de vigilancia de la ciudad y sus implicaciones legales.
+*Estado: Análisis Regional Nivel 3 | Audiencia: Organizadores de Chicagoland y Equipos de Acción Directa*
 
-## 1. Red CCTV: Operación Escudo Virtual y Proyecto Escudo
+Podría decirse que Chicago es la ciudad más vigilada de Estados Unidos. El Departamento de Policía de Chicago (CPD) ha creado una vasta red integrada de sistemas de monitoreo acústico, visual y celular diseñados para rastrear el movimiento y la asociación en todo el condado de Cook. Este informe detalla la mecánica exacta de la red municipal y cómo mitigar la exposición.
 
-La red CCTV de Chicago es una de las más extensas del mundo.Se trata de una combinación de cámaras públicas y privadas integradas en un único sistema gestionado por la Oficina de Comunicaciones y Manejo de Emergencias (OEMC).
+---
 
-* **Operación Escudo Virtual:** Esta es la red de la ciudad de miles de cámaras de propiedad pública, ubicadas estratégicamente por toda la ciudad.
-* **Project Shield (Iniciativa de cámaras del sector privado):** Este programa permite a empresas y organizaciones privadas vincular sus sistemas de cámaras a la red de OEMC.Esta asociación público-privada amplía drásticamente las capacidades de vigilancia de la ciudad, dando a las fuerzas del orden acceso a una amplia red de cámaras que no poseen ni controlan directamente.
+## 1. Los centros nerviosos: centros de apoyo a las decisiones estratégicas (SDSC)
 
-### Cómo se usa
+**La amenaza:** Los SDSC son centros de inteligencia localizados y de alta tecnología desplegados en casi todos los distritos de CPD. Funcionan como centros de fusión en tiempo real, ingiriendo datos de miles de fuentes y enviándolos directamente a unidades de patrulla y equipos tácticos.
+**La Mecánica:** Las SDSC integran la plataforma Genetec Citigraf. Este software obtiene transmisiones en vivo de cámaras POD, cámaras de seguridad privadas, ALPR y llamadas al 911, utilizando análisis predictivos para mapear el "riesgo de delito" y coordinar una respuesta rápida.
+**Mitigación:** No se puede "piratear" digitalmente un SDSC. La mitigación requiere reconocer que *cualquier* punto de datos generado en público se fusiona y analiza instantáneamente. No confíe en "perderse entre la multitud". Suponga que su línea de tiempo de movimiento se está modelando activamente si se encuentra cerca de un sitio operativo.
 
-La red de cámaras integrada se utiliza para diversos fines, entre ellos:
+## 2. La cuadrícula visual: cámaras POD y Genetec Clearview AI
 
-* **Monitoreo en tiempo real:** El OEMC puede monitorear los eventos a medida que se desarrollan, desde protestas hasta festivales callejeros.
-* **Investigaciones criminales:** Las imágenes de la red se utilizan para identificar sospechosos y reunir pruebas.
-* **Gestión del tráfico:** Las cámaras también se utilizan para monitorear el flujo del tráfico y responder a accidentes.
+**La amenaza:** Los dispositivos de observación policial (POD), conocidos localmente como "cámaras de luz azul", están en todas partes. Hay más de 30.000 cámaras de propiedad pública y privada conectadas a la red CPD.
+**La mecánica:** Estas cámaras no se limitan a grabar; están cada vez más integrados con sistemas de reconocimiento facial como Clearview AI, que puede asignar un rostro capturado con una cámara POD a perfiles de redes sociales y bases de datos estatales.
+**Mitigación:**
+* **Físico:** CV Dazzle y el maquillaje asimétrico son en gran medida ineficaces contra la IA moderna. Las mascarillas faciales estilo N95 de alta calidad combinadas con gafas de sol polarizadas y sombreros de perfil bajo son la única defensa confiable contra el mapeo facial.
+* **Comportamiento:** No mires las cajas de luz azul. No monte ni desenmascare directamente debajo de ubicaciones POD conocidas. Utilice herramientas como el "Mapa de cámara POD de Chicago" (mantenido por activistas locales) para planificar rutas que minimicen la exposición.
 
-### Implicaciones legales: Ley de escuchas ilegales de Illinois
+## 3. Vigilancia acústica: la era posterior al ShotSpotter
 
-La **Ley de escuchas ilegales de Illinois** es una ley de "consentimiento de dos partes", lo que significa que generalmente es ilegal grabar una conversación privada sin el consentimiento de todas las partes.Sin embargo, la ley fue modificada para permitir la grabación en público de los agentes de policía en servicio.Se trata de una protección fundamental para los activistas que desean documentar la actividad policial, incluido el uso de la tecnología de vigilancia.
+**La amenaza (histórica y actual):** En septiembre de 2024, Chicago desmanteló el controvertido conjunto acústico ShotSpotter de 50 millones de dólares. Sin embargo, la vigilancia acústica no ha terminado.
+**La mecánica:** A partir de 2025, CPD está poniendo a prueba los sistemas de detección de tiradores de Alarm.com en el distrito 15. Este sistema fusiona sensores acústicos con **cámaras infrarrojas** para reducir la notoria tasa de falsos positivos de los sistemas más antiguos.
+**Mitigación:** La introducción de infrarrojos significa que las operaciones nocturnas ya no están protegidas por la oscuridad en las zonas piloto. Se requiere máscara térmica (ponchos especializados forrados de mylar) si se intenta moverse sin ser detectado a través del Distrito 15 o áreas donde se expande el piloto.
 
-* **Consejos prácticos:** Al grabar a la policía, es importante hacerlo abiertamente y no interferir con sus funciones.Si bien usted tiene derecho a grabar, la policía aún puede intentar intimidarlo o arrestarlo.Es importante conocer sus derechos y tener un plan en caso de encontrarse con la policía.
+## 4. Seguimiento de vehículos: la red ALPR
 
-## 2. El fin de ShotSpotter y la futura vigilancia acústica
+**La amenaza:** Los lectores automáticos de matrículas (ALPR, por sus siglas en inglés) están montados en patrullas CPD, barrenderos, grúas y postes estacionarios en toda la ciudad.
+**La mecánica:** Estas cámaras escanean constantemente placas, registran la hora, la fecha y las coordenadas GPS en bases de datos a las que puede acceder el CPD y las agencias federales. Crean un historial masivo y con capacidad de búsqueda de los movimientos de su vehículo.
+**Mitigación:**
+* **Tránsito operativo:** No conduzca un vehículo registrado con su nombre verdadero o el de una organización activista conocida directamente a una acción.
+* **Distanciamiento de estacionamiento:** Estacione al menos a una milla de distancia de la ubicación objetivo en una estructura de estacionamiento comercial densa (lo que confunde a los algoritmos ALPR estacionarios) y recorra la última milla en bicicleta o en la CTA.
+* **Pases de tránsito:** Compre tarjetas CTA Ventra con **solo efectivo**. El uso de una tarjeta de crédito vincula sus movimientos de tránsito directamente con su identidad financiera.
 
-**Actualización (2026):** Chicago desmanteló oficialmente su controvertido sistema de detección de disparos ShotSpotter el 23 de septiembre de 2024, luego de que el alcalde Brandon Johnson decidiera no renovar el contrato de 50 millones de dólares. El sistema se encuentra actualmente fuera de línea y los sensores han sido desmantelados en toda la ciudad.
+## 5. Intercepción celular: despliegue de granizo y mantarraya
 
-### El legado de ShotSpotter
-
-Históricamente, ShotSpotter fue un sistema de detección acústica implementado principalmente en los lados sur y oeste. Finalmente fue eliminado después de años de organización activista que destacó sus fallas:
-
-*   **Falsas alertas:** El sistema tenía tasas notoriamente altas de falsos positivos, lo que condujo directamente a prácticas inconstitucionales de detención y registro por parte de la policía que respondía a disparos inexistentes.
-*   **Sesgo racial:** Su despliegue desproporcionado en vecindarios de personas negras y latinas causó una vigilancia excesiva severa.
-*   **Impacto de la eliminación:** Contradiciendo las advertencias policiales de que la eliminación aumentaría la violencia, los datos de la Universidad de Chicago mostraron una caída del 17.8% en los delitos violentos y una disminución del 37.5% en los homicidios en las antiguas zonas de ShotSpotter durante la primera mitad de 2025.
-
-### Panorama actual y programas piloto
-
-Si bien ShotSpotter ya no está, la vigilancia automatizada no ha desaparecido. A partir de mayo de 2026, el concejo municipal está revisando una Solicitud de Información (RFI) para encontrar tecnologías de reemplazo.
-
-*   **Piloto de Alarm.com:** A principios de 2025, comenzó un programa piloto de seis meses en el Distrito 15 utilizando un nuevo sistema de Alarm.com (Shooter Detection Systems). A diferencia de ShotSpotter, este nuevo sistema utiliza una combinación de **cámaras infrarrojas y sensores acústicos** en un intento de reducir los falsos positivos.
-*   **Consejo práctico:** Los activistas deben permanecer vigilantes. La transición lejos de ShotSpotter es una gran victoria, pero la introducción de redes de cámaras infrarrojas presenta nuevas preocupaciones de privacidad con respecto a la vigilancia visual persistente. Los organizadores deben exigir total transparencia sobre la retención de datos de cualquier sistema nuevo implementado.
-
-## 3. Reconocimiento facial
-
-El Departamento de Policía de Chicago (CPD) utiliza tecnología de reconocimiento facial para identificar personas comparando imágenes de diversas fuentes con una base de datos de rostros conocidos.
-
-### Cómo se usa
-
-El CPD utiliza el reconocimiento facial de diversas formas, entre ellas:
-
-* **Identificación de sospechosos:** La tecnología se utiliza para comparar imágenes de cámaras de CCTV, redes sociales y otras fuentes con una base de datos de fotografías policiales y otras imágenes.
-* **Generación de pistas:** El reconocimiento facial se puede utilizar para identificar posibles testigos o asociados de un sospechoso.
-
-### Bases de datos y tecnología
-
-El CPD ha utilizado una variedad de tecnologías de reconocimiento facial, incluida la controvertida **Clearview AI**, que extrae imágenes de las redes sociales y otros sitios web públicos.Esta práctica ha generado serias preocupaciones sobre la privacidad, ya que permite a las autoridades crear una base de datos masiva de rostros sin el consentimiento de las personas fotografiadas.
-
-### Implicaciones legales: Ley de Privacidad de la Información Biométrica (BIPA)
-
-La **Ley de Privacidad de la Información Biométrica de Illinois (BIPA)** es una de las leyes de privacidad biométrica más estrictas del país.Requiere que las entidades privadas obtengan consentimiento informado antes de recopilar, utilizar o almacenar información biométrica, incluidos los escaneos faciales.Si bien BIPA no se aplica directamente a la aplicación de la ley, puede usarse para responsabilizar a empresas privadas como Clearview AI por su papel en la vigilancia gubernamental.
-
-* **Consejos prácticos:** BIPA proporciona una poderosa herramienta para que los activistas desafíen el uso de la tecnología de reconocimiento facial.Al presentar demandas contra las empresas privadas que proporcionan esta tecnología a las fuerzas del orden, los activistas pueden alterar el complejo industrial de vigilancia y proteger la privacidad de todos los habitantes de Illinois.
-
-## 4. Base de datos CLEAR y vigilancia predictiva
-
-El CPD utiliza una variedad de herramientas basadas en datos para predecir dónde es probable que ocurra un delito y quién puede estar involucrado.Si bien el término específico "CLEAR" no siempre se utiliza, el concepto de una base de datos consolidada para vigilancia policial predictiva es una realidad en Chicago.
-
-### Qué es y cómo se utiliza
-
-Estos sistemas, como la ahora desaparecida "Lista de Asuntos Estratégicos", utilizan datos históricos sobre arrestos, afiliaciones a pandillas y otros factores para asignar a los individuos una puntuación de riesgo.Esta información luego se utiliza para seleccionar personas y someterlas a un mayor escrutinio policial.
-
-### Implicaciones legales
-
-La actuación policial predictiva plantea serias preocupaciones sobre el debido proceso, la igualdad de protección y la presunción de inocencia.Al centrarse en personas en función de sus asociaciones y actividades pasadas, estos sistemas pueden crear una profecía autocumplida, lo que lleva a un aumento de los arrestos y encarcelamientos en comunidades que ya están excesivamente vigiladas.
-
-* **Consejos prácticos:** Los activistas pueden desafiar el uso de la vigilancia policial predictiva exigiendo transparencia en cómo se utilizan estos sistemas y abogando por políticas que inviertan en las comunidades en lugar de en más vigilancia.
-
-## 5. Simuladores de sitios celulares (rayas)
-
-Los simuladores de sitios celulares, también conocidos como Stingrays, son dispositivos que imitan las torres de telefonía celular para engañar a los teléfonos en un área determinada para que se conecten a ellas.Esto permite a las fuerzas del orden rastrear la ubicación de los teléfonos y, en algunos casos, interceptar las comunicaciones.
-
-### Cómo se usan
-
-El CPD tiene un largo y reservado historial en el uso de mantarrayas.Estos dispositivos se pueden utilizar para rastrear la ubicación del teléfono de un sospechoso conocido o para identificar todos los teléfonos en un área particular, como en una protesta.
-
-### Implicaciones legales
-
-El uso de Stingrays plantea serias preocupaciones sobre la Cuarta Enmienda, ya que permite a las autoridades realizar una búsqueda general de todos los teléfonos en un área determinada sin una orden judicial.El secreto que rodea el uso de esta tecnología también dificulta que el público responsabilice a la policía.
-
-* **Consejos prácticos:** Los activistas pueden trabajar para exponer el uso de mantarrayas presentando solicitudes bajo la Ley de Libertad de Información (FOIA) y apoyando legislación que requeriría una orden judicial para su uso.
-
-## 6. Ley de Protección de la Privacidad del Hogar (PHPA)
-
-La **Ley de Protección de la Privacidad del Hogar de Illinois (PHPA)** es una ley estatal que exige que las autoridades obtengan una orden judicial antes de acceder a los datos de los dispositivos inteligentes de un hogar.Esto incluye dispositivos como parlantes inteligentes, televisores inteligentes y cámaras de seguridad para el hogar.
-
-### Cómo protege contra la vigilancia
-
-La PHPA proporciona una capa importante de protección contra la vigilancia gubernamental en el hogar.Al exigir una orden judicial, la ley garantiza que las autoridades no puedan acceder a las grandes cantidades de datos recopilados por dispositivos inteligentes sin una causa probable.
-
-* **Consejos prácticos:** Si bien PHPA proporciona protecciones importantes, sigue siendo importante tener en cuenta los datos que recopilan los dispositivos inteligentes.Los activistas deberían tomar medidas para proteger sus redes domésticas y limitar la cantidad de datos que se comparten con empresas de terceros.
-
-## Conclusión y consejos prácticos para activistas
-
-La infraestructura de vigilancia de Chicago es vasta y compleja.Sin embargo, al comprender las tecnologías que se utilizan y los marcos legales que las rigen, los activistas pueden trabajar para proteger su privacidad y hacer que las autoridades rindan cuentas.Aquí hay algunas conclusiones clave:
-
-* **Conozca sus derechos:** Tiene derecho a grabar a la policía en público y tiene derecho a estar libre de registros e incautaciones irrazonables.
-* **Exigir transparencia:** El público tiene derecho a saber cómo se utilizan las tecnologías de vigilancia y qué impacto están teniendo en nuestras comunidades.
-* **Legislación de apoyo:** Hay una serie de proyectos de ley que se han presentado en la legislatura de Illinois que fortalecerían las protecciones de la privacidad y aumentarían la responsabilidad policial.
-* **Desarrollar poder:** La forma más efectiva de desafiar el estado de vigilancia es construir un movimiento de base amplia por la justicia social y racial.
+**La amenaza:** Las unidades tácticas del CPD y los socios federales despliegan activamente receptores IMSI encubiertos (comúnmente conocidos como Stingrays o unidades Hailstorm mejoradas) durante protestas a gran escala.
+**La mecánica:** Estos dispositivos, a menudo montados en camionetas o aviones pequeños sin identificación, imitan torres de telefonía celular legítimas. Su teléfono se conecta a ellos, lo que permite al operador recopilar su IMSI (identidad del dispositivo), mapear su ubicación exacta y potencialmente interceptar SMS/llamadas no cifradas. A menudo obligan a las conexiones 4G/5G a protocolos 2G no cifrados.
+**Mitigación:**
+* **The Baseline:** Apaga tu teléfono personal y déjalo en casa. Utilice un teléfono desechable comprado en efectivo para comunicaciones operativas.
+* **El bloque técnico:** En dispositivos GrapheneOS o CalyxOS, navegue hasta Configuración de red y **Desactivar conexiones 2G**. Esto anula los ataques de degradación más comunes utilizados por los modelos Stingray más antiguos.
+* **El respaldo de Faraday:** Si sospecha que hay un receptor IMSI activo en el área (por ejemplo, descarga masiva y repentina de la batería o caída de la red EDGE), apague el dispositivo y colóquelo en una bolsa Faraday con protección RF. No confíes únicamente en el modo Avión.
 
 _Última actualización: 2026_
