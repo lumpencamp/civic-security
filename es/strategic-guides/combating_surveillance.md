@@ -1,80 +1,50 @@
-# Una guía práctica para combatir la vigilancia gubernamental
+# Lucha contra la vigilancia estatal: estrategia de defensa institucional
 
-**Para el activista no técnico**
+*Estado: Directiva de Nivel 3 | Público: miembros de la junta directiva, organizadores principales, equipos legales*
 
----
+La defensa contra la vigilancia a nivel estatal (por ejemplo, la recopilación de metadatos al estilo PRISM de la NSA, los centros de fusión federales, la recopilación masiva de datos por parte de intermediarios) requiere más que aplicaciones de chat cifradas. Requiere incorporar resistencia criptográfica y firewalls legales directamente en la infraestructura de su organización.
 
-## Introducción: Por qué es importante esta guía
-
-En la era digital, el activismo depende en gran medida de la tecnología para la organización, la comunicación y la divulgación.Sin embargo, las agencias gubernamentales pueden utilizar estas mismas herramientas para la vigilancia.Comprender el panorama de la vigilancia moderna no se trata de paranoia;se trata de seguridad estratégica.Esta guía está diseñada para desmitificar las técnicas principales utilizadas por los actores a nivel estatal y brindarle una comprensión fundamental sobre cómo protegerse a sí mismo, a su comunidad y a su trabajo.El principio básico es simple: el conocimiento le permite tomar decisiones informadas sobre su seguridad.
+Cuando te enfrentas a un adversario con recursos infinitos, tu objetivo principal es **privarlo de metadatos** y **convertir el proceso legal en un arma** para ganar tiempo.
 
 ---
 
-## Parte 1: Recopilación masiva de datos: The Dragnet
+## 1. Arquitectura de conocimiento cero (ZKA)
 
-El concepto fundamental de la vigilancia moderna es "recolectarlo todo".Las agencias gubernamentales operan bajo el supuesto de que la mayoría de las comunicaciones digitales no cifradas se recopilan y almacenan de forma predeterminada.Esto se logra mediante programas masivos y automatizados que forman una amplia red.
+La vigilancia estatal se basa en obligar a los proveedores de servicios a entregar sus datos. Si el proveedor no posee las claves para descifrar sus datos, la citación es inútil.
 
-### Programa PRISMA
+* **Restricción operativa:** La organización no utilizará ningún servicio digital que contenga las claves de descifrado de sus datos.
+* **Implementación:**
+    * **Almacenamiento en la nube:** Abandone Google Workspace y Microsoft 365 inmediatamente. Transfiera todos los documentos organizativos a proveedores de cifrado de extremo a extremo (E2EE) (por ejemplo, Tresorit, Proton Drive o CryptPad autohospedado).
+    * **Trabajo colaborativo:** Utilice CryptPad para editar documentos en vivo. Los operadores del servidor no pueden leer las pulsaciones de teclas.
+    * **Comunicaciones:** Transfiera todas las comunicaciones internas a un servidor Matrix autohospedado (con E2EE estrictamente aplicado) o SimpleX para eliminar directorios de metadatos centrales.
 
-* **Qué es:** Un programa de vigilancia clandestino en el que la NSA obliga a las principales empresas de tecnología estadounidenses (como Google, Facebook, Apple, Microsoft) a proporcionarles datos de los usuarios.
-* **Cómo funciona:** El gobierno utiliza una orden legal secreta para obligar a una empresa a entregar todos los datos que tiene sobre una persona.La empresa tiene prohibido legalmente comunicar al usuario su solicitud.
-* **Datos recopilados:** Correos electrónicos, chats, fotos, videos, documentos almacenados, información de inicio de sesión y actividad en las redes sociales.
-* **Defensa estratégica:** Utilice servicios de **cifrado de extremo a extremo (E2EE)** como Signal.Con E2EE, sus datos están codificados en su dispositivo y solo el destinatario puede descifrarlos.Incluso si la empresa entrega los datos, están en un formato ilegible.
+## 2. Políticas de Datos Efímeros (PDE)
 
-### Colección ascendente
+Los datos que no existen no pueden confiscarse, citarse ni filtrarse. Conservar las comunicaciones históricas es una amenaza existencial para las organizaciones cívicas.
 
-* **Qué es:** Un programa de la NSA que intercepta datos directamente de la infraestructura física de Internet: los enormes cables de fibra óptica que forman la "columna vertebral" de Internet.
-* **Cómo funciona:** La NSA coloca "intervenciones" en estos cables, a menudo con la cooperación de compañías de telecomunicaciones (como AT&T y Verizon), lo que les permite copiar y filtrar enormes volúmenes de tráfico de Internet a su paso.
-* **Datos recopilados:** El contenido de correos electrónicos no cifrados, actividad de navegación web, chats y más de millones de personas.
-* **Defensa estratégica:**
-* **Usa HTTPS:** Busca siempre el icono del candado en tu navegador.Esto cifra su conexión a un sitio web.
-* **Utilice E2EE:** Al igual que con PRISM, E2EE protege el contenido de sus comunicaciones mientras viaja por Internet.
-* **Utilice una VPN o Tor confiable:** Estas herramientas dirigen su tráfico a través de túneles cifrados, lo que hace que sea mucho más difícil interceptar y analizar sus datos.
+* **Restricción operativa:** Todas las comunicaciones operativas y los registros no esenciales están sujetos a una destrucción estricta y automatizada.
+* **Implementación:**
+    * **Mensajes temporales:** Los chats grupales de Signal y Matrix deben tener un temporizador de vencimiento codificado (máximo 7 días). Sin excepciones por "conveniencia".
+    * **La purga de 30 días:** Los registros financieros necesarios para el cumplimiento tributario se compartimentan y cifran fuera de línea. Todos los demás documentos logísticos, de planificación o de mapeo deben borrarse de forma segura (usando herramientas como BleachBit o MAT2) dentro de los 30 días posteriores a la conclusión de la operación.
+    * **Sin listas centralizadas:** La organización no mantendrá una lista digital maestra de voluntarios, miembros o donantes. Las listas se segmentan y se mantienen en almacenamiento físico cifrado y aislado (por ejemplo, volumen persistente de Tails OS).
 
----
+## 3. Verificación estructural criptográfica
 
-## Parte 2: Vigilancia dirigida: el microscopio
+La infiltración de informantes estatales es una certeza estadística durante un período de tiempo suficientemente largo. Su red debe asumir que los nodos internos están comprometidos.
 
-Si bien la recopilación masiva es una red de control, las agencias también utilizan herramientas específicas para acercarse a individuos y grupos.
+* **Restricción operativa:** La verificación de identidad debe ser criptográfica, no solo visual o conductual.
+* **Implementación:**
+    * **Fiestas de firma de claves:** Los miembros principales deben reunirse físicamente para verificar y firmar las claves PGP de los demás o verificar los números de seguridad de Matrix/Signal mediante el escaneo de códigos QR físicos.
+    * **Verificación fuera de banda:** Si se emite una directiva operativa de forma digital, se debe verificar a través de un canal secundario fuera de banda (por ejemplo, verificar un mensaje de Matrix a través de una entrega física preestablecida o una llamada VoIP cifrada) antes de la ejecución.
 
-### Simuladores de sitios celulares (rayas/atrapa IMSI)
+## 4. Cortafuegos legales y estructuración de estatutos
 
-* **Qué son:** Una torre de telefonía celular falsa, llevada físicamente a un área objetivo (como una protesta), que engaña a todos los teléfonos cercanos para que se conecten a ella.
-* **Cómo funcionan:** Stingray transmite una señal más fuerte que las torres de telefonía móvil legítimas, lo que obliga a los teléfonos a conectarse.Esta posición de "hombre en el medio" le permite interceptar las señales de su teléfono.
-* **Datos interceptados:** la identificación única de su teléfono (IMSI), su ubicación precisa, metadatos de llamadas/mensajes de texto y, a veces, el contenido de llamadas y mensajes de texto no cifrados.
-* **Defensa estratégica:** **Limite la conexión celular de su teléfono.** Apague su teléfono o póngalo en modo avión en lugares sensibles.Para comunicarse, utilice aplicaciones E2EE a través de una red Wi-Fi confiable en lugar de llamadas y SMS tradicionales.
+Su estatuto organizacional debe actuar como un escudo legal, impidiendo legalmente que cualquier miembro cumpla unilateralmente con demandas sin orden judicial.
 
-### Monitoreo de redes sociales
-
-* **Cómo funciona:** Las autoridades policiales utilizan software automatizado para escanear constantemente las plataformas de redes sociales públicas (Facebook, Twitter, etc.).Analizan millones de publicaciones en tiempo real y pueden utilizar cuentas encubiertas para acceder a grupos privados.
-* **Lo que buscan:** Mapear redes de activistas, identificar organizadores clave, monitorear el sentimiento público y rastrear planes de protesta.
-* **Defensa estratégica:** Practique una **cuidadosa higiene y compartimentación digital.** Suponga que todo lo público está monitoreado.Mueva la planificación confidencial a canales privados E2EE (como los chats grupales de Signal).Considere la posibilidad de utilizar seudónimos para las cuentas públicas de activistas.
-
-### El papel de los intermediarios de datos
-
-* **Qué son:** Empresas cuyo negocio es recopilar su información personal de miles de fuentes (aplicaciones, rastreadores en línea, historial de tarjetas de crédito) y venderla.
-* **Cómo los usan las agencias:** Las agencias gubernamentales pueden simplemente comprar vastos conjuntos de datos sobre personas de estos corredores, incluido el historial de ubicación preciso, los hábitos de navegación y las afiliaciones políticas.Esto a menudo se ve como una "laguna jurídica" para eludir la necesidad de una orden judicial.
-* **Defensa estratégica:** **Minimiza tu huella digital.** Desactiva el seguimiento de ubicación y otros permisos para aplicaciones que no los necesitan.Utilice navegadores centrados en la privacidad (como Firefox con uBlock Origin) y motores de búsqueda (como DuckDuckGo) para bloquear rastreadores.
-
----
-
-## Parte 3: Técnicas de investigación: ocultar el rastro
-
-Más allá de la tecnología, es crucial comprender las tácticas legales utilizadas para ocultar cómo se lleva a cabo la vigilancia.
-
-### Construcción paralela
-
-* **Qué es:** Una práctica en la que las autoridades utilizan una fuente secreta de información (como una intervención telefónica sin orden judicial) para iniciar una investigación y luego construyen un segundo caso "paralelo" utilizando métodos convencionales para ocultar la fuente original.
-* **Cómo funciona (una analogía):** La policía recibe un aviso secreto de que un automóvil contiene pruebas.No pueden usar ese consejo en la corte.Entonces, siguen el auto, esperan a que se pase un semáforo en rojo y usan esa infracción de tránsito como razón oficial para detenerse y registrar el auto, "encontrando" la evidencia que ya sabían que estaba allí.El consejo secreto nunca se menciona.
-* **Por qué es un problema:** Oculta la verdad al sistema legal.Impide que un acusado cuestione la legalidad de la vigilancia original, blanqueando efectivamente pruebas potencialmente ilegales.
-* **Defensa estratégica:** Esto es difícil de contrarrestar directamente.Las estrategias son:
-* **Descubrimiento legal agresivo:** Los abogados defensores deben ser implacables para obligar a la fiscalía a revelar cada detalle sobre cómo comenzó una investigación, buscando inconsistencias.
-* **Conciencia pública y promoción:** Los activistas deben crear conciencia pública sobre esta práctica para crear presión política para la reforma y una mayor transparencia en la vigilancia.
-
----
-
-## Conclusión: un enfoque estratégico para la seguridad
-
-El objetivo de esta guía no es inducir miedo, sino fomentar una mentalidad estratégica.No puede detener la recopilación masiva, pero puede cifrar sus comunicaciones para que los datos recopilados sean inútiles.Es posible que no sepas si un Stingray está activo, pero puedes optar por dejar tu teléfono en casa.Al comprender estas técnicas de vigilancia, podrá pasar de una postura de seguridad reactiva a una proactiva.Adoptar herramientas y prácticas que preserven la privacidad es un acto fundamental y necesario de autodefensa digital para el activismo moderno.
+* **Restricción operativa:** Ningún miembro individual posee la autoridad o la capacidad técnica para descifrar toda la bóveda de datos de la organización.
+* **Implementación:**
+    * **Gestión de claves distribuidas (Shamir Secret Sharing):** Utilice el intercambio de secretos criptográficos para dividir la clave de descifrado maestra para los archivos sin conexión de la organización entre cinco miembros principales. Para acceder a los datos es necesario que tres de los cinco miembros combinen sus claves. Esto evita que el Estado obligue en secreto a un solo individuo a través de una Carta de Seguridad Nacional (NSL) o una orden de silencio.
+    * **El canario de orden judicial:** La organización debe publicar mensualmente un "Warrant Canary" (una declaración firmada criptográficamente afirmando que la organización *no* ha recibido ninguna citación secreta o NSL). Si el canario no se actualiza según lo programado, todos los miembros deben asumir inmediatamente que la organización está comprometida y ejecutar el Protocolo de conocimiento cero.
+    * **Representación legal contratada:** Contrate a un abogado de libertades civiles (por ejemplo, EFF o un equivalente regional). La orden permanente para todos los miembros con respecto a cualquier interacción con la inteligencia federal o las fuerzas del orden es: *"No doy mi consentimiento para registros, no responderé preguntas e invoco mi derecho a consultar a mi abogado".*
 
 _Última actualización: 2026_
