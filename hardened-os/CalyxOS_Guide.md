@@ -1,14 +1,59 @@
-# Guide: CalyxOS
+# Guide: CalyxOS Post-Installation Hardening
 
-CalyxOS is a privacy-focused mobile operating system based on the Android Open Source Project (AOSP). It is designed to be a more user-friendly alternative to GrapheneOS, while still providing a high level of privacy and security.
+*Status: Mobile Privacy Engineering | Audience: Privacy-Conscious Activists*
 
-**Threat Model:** CalyxOS is slightly less strict on security hardening than GrapheneOS, but excels in usability. It is ideal for the average activist who wants to stop pervasive commercial tracking and "de-Google" their life without sacrificing the convenience of standard apps.
+CalyxOS offers a vital bridge between absolute security (GrapheneOS) and daily usability. It is designed to strip away pervasive corporate surveillance while maintaining compatibility with necessary applications. However, to maximize its potential, you must actively configure its built-in privacy tools.
 
-**How it Works:**
-*   **microG:** CalyxOS includes microG, a free and open-source implementation of Google Play Services. This allows users to run many apps that rely on Google services without having to install the official, privacy-invasive Google Play Services.
-*   **Privacy by Default:** CalyxOS includes the Datura firewall and bundles a suite of privacy-focused apps that can be installed offline during setup.
-    *   *2026 App Updates:* Recent updates have replaced old tools with modern alternatives, such as **Tor VPN** (replacing Orbot), **CoMaps** (replacing Organic Maps), and **F-Droid Basic**.
-    *   *Note:* As of the Android 16 release cycle, **CalyxVPN** and the **Panic Button** features have been temporarily removed while they undergo redevelopment and infrastructure upgrades.
+This manual details the granular configuration required to harden CalyxOS against both corporate data harvesting and localized surveillance.
+
+---
+
+## 1. Datura Firewall: Default-Deny Networking
+
+The Datura Firewall is CalyxOS's most powerful built-in tool. By default, apps will attempt to connect to the internet to harvest analytics, download ads, and report your IP address. Your stance must be **Default-Deny**.
+
+### Granular App Configuration
+You must manually whitelist network access for applications.
+
+1.  Navigate to **Settings** > **Network and internet** > **Datura Firewall**.
+2.  **The Default Stance:** Disable "Background data" globally for all non-essential applications.
+3.  **Per-App Configuration:** For apps like a camera, calculator, or offline document reader (e.g., CryptPad offline), disable **all** network access (Wi-Fi, Mobile Data, and VPN). An offline tool has no legitimate reason to communicate with a remote server.
+4.  **Network Isolation:** If an app requires internet access, but you only want it to sync when you are secure, restrict it to "Wi-Fi Only" (preventing it from using cellular data while you are in transit) or "VPN Only" (ensuring it cannot leak your true IP address if the VPN drops).
+
+---
+
+## 2. MicroG Configuration and Risk Mitigation
+
+MicroG is the open-source replacement for Google Play Services. It allows push notifications and location services to function without giving Google deep system privileges. However, MicroG still talks to Google's servers. You must configure it to minimize this telemetry.
+
+### The Risks of MicroG
+When MicroG is fully enabled, your device registers a unique identifier with Google to receive Cloud Messaging (push notifications). This creates a metadata trail connecting your IP address to your device.
+
+### Hardening the Configuration
+1.  Open the **MicroG Settings** app.
+2.  **Device Registration:** Disable this unless absolutely necessary. If disabled, apps cannot use Google's servers for push notifications. (Note: Secure apps like Signal use their own WebSocket connections and *do not* need MicroG to receive messages).
+3.  **Cloud Messaging:** If you *must* use a proprietary app that requires push notifications (e.g., a specific secure email client or banking app), enable Cloud Messaging.
+    *   *Mitigation:* Tap the three dots (menu) in Cloud Messaging and go to **Advanced**. Increase the "Ping interval" to reduce how often your device talks to the server.
+4.  **Google SafetyNet:** Ensure this is **Disabled**. It is a remote attestation service that sends device hardware profiles to Google.
+5.  **Location Modules:** Disable the "Google Location Service" backend. Rely solely on Mozilla Location Service (MLS) or DejaVu for privacy-respecting, offline Wi-Fi/Cell-tower location lookups.
+
+---
+
+## 3. The Panic Button: Emergency Deployment Workflow
+
+*(Note: While temporarily disabled in early Android 16 test builds, the Panic Button remains a core feature of the stable CalyxOS architecture).*
+
+The Panic Button is a "dead man's switch" designed to rapidly secure your device during physical apprehension or imminent threat.
+
+### Deployment Workflow
+You must configure the Panic Button *before* an action. Do not wait until you are detained.
+
+1.  Open the **Panic Button** app from the app drawer.
+2.  **Set the Trigger:** Configure the trigger mechanism (e.g., rapidly pressing the power button 5 times, or pressing a specific volume button combination).
+3.  **Map the Actions:** Select exactly what the Panic Button will do when triggered.
+    *   *T2 Threat Level (Protest/Crowd Control):* Map the button to **Uninstall Specific Apps** (e.g., instantly wipe Signal, Element, or your password manager) and **Hide Selected Apps**.
+    *   *T3/T4 Threat Level (Targeted Seizure):* Map the button to **Send Emergency SMS** (notifying your jail support contact with your coordinates) followed immediately by a **Device Shutdown**.
+4.  **Why Shutdown?** A complete device shutdown forces the phone back into the highly secure Before-First-Unlock (BFU) state, encrypting your data keys and locking out forensic extraction tools like Cellebrite.
 
 ### **Supported Devices**
 
