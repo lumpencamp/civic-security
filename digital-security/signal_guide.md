@@ -1,156 +1,62 @@
-# Signal: A Detailed Security Guide for Activists
+# Signal: Cryptographic Hardening and Operational Security
 
-## Introduction
+*Status: Software Audit & Hardening Manual | Audience: Activists, Sources, and Organizers*
 
-Signal is a free, open-source messaging application that uses end-to-end encryption to secure your communications. For activists, this means that your messages, calls, and file transfers are protected from being intercepted by third parties like corporations, governments, or hackers. Unlike other popular messaging apps, Signal is designed from the ground up with privacy and security as its core mission, making it an essential tool for organizing, coordinating, and communicating safely.
+Signal is the gold standard for end-to-end encrypted messaging. However, its default configuration is optimized for user convenience, not for surviving targeted state-level surveillance or physical device capture. As a cryptographic software auditor, I must emphasize that Signal's encryption only protects data *in transit*. Once data arrives on a device, it relies entirely on the device's local security.
 
----
-
-## Step-by-Step Setup
-
-### On Mobile (Android/iOS)
-
-1.  **Download Signal:**
-    *   **Android:** Go to the Google Play Store and search for "Signal".
-    *   **iOS:** Go to the Apple App Store and search for "Signal".
-    *   **Important:** Only download Signal from the official app stores to ensure you are getting the legitimate application.
-
-2.  **Install and Register:**
-    *   Open the app after it has finished installing.
-    *   Signal will ask for your phone number to register. You will receive a verification code via SMS to confirm your number.
-    *   **Note:** While Signal needs a phone number to register, this number is not visible to everyone you talk to (see Sealed Sender section).
-
-3.  **Create Your Profile:**
-    *   Set up your profile name and picture. You can use a pseudonym or any name you are comfortable with.
-
-4.  **Set Your PIN:**
-    *   Signal will prompt you to create a **Registration Lock PIN**. This is crucial. It prevents others from registering your phone number on a different device. **Do not forget this PIN!** Write it down and store it somewhere safe and offline.
-
-### On Desktop (Windows/Mac/Linux)
-
-1.  **Download Signal Desktop:**
-    *   Go to the official Signal website: `https://signal.org/download/`.
-    *   Download the correct version for your operating system.
-
-2.  **Link to Your Mobile Device:**
-    *   Install and open the Signal Desktop app.
-    *   It will show you a QR code.
-    *   On your phone, go to Signal **Settings > Linked Devices** and tap the `+` icon.
-    *   Use your phone to scan the QR code on your desktop screen.
-    *   Your devices are now linked, and your messages will be synchronized.
+This guide details the strict cryptographic account locking required for high-risk operations.
 
 ---
 
-## Advanced Privacy Settings
+## 1. Mandatory Account Locking (Registration & PINs)
 
-To maximize your security, enable these settings on your mobile device. You can find them under **Signal Settings > Privacy**.
+The most common attack against Signal users is not breaking the encryption; it is hijacking the account by taking over the underlying phone number (via SIM swapping or SS7 attacks) and re-registering Signal on an adversary's device.
 
-### 1. Registration Lock
+### The Registration Lock
+You must physically bind your Signal account to a cryptographic PIN, severing the reliance on SMS verification.
 
-*   **What it does:** Prevents someone else from re-registering your phone number with Signal on a new device. It locks your account to your PIN.
-*   **How to enable:**
-    1.  Go to **Settings > Account**.
-    2.  Toggle **Registration Lock** to ON.
-    3.  You will be prompted to confirm your PIN.
+1.  Navigate to **Settings** > **Account** > **Registration Lock**.
+2.  Toggle **ON**.
+3.  *The Mechanism:* If an adversary steals your phone number and attempts to register Signal, they will be blocked without your custom PIN. After 7 days of inactivity, the lock expires, but by then, you will have realized your number is compromised.
 
-### 2. Screen Lock
+### Custom Alphanumeric PIN Configuration
+Do not use a 4-digit PIN. It is trivial to brute-force if an adversary captures the hash.
 
-*   **What it does:** Requires your phone's passcode, fingerprint, or Face ID to open the Signal app.
-*   **How to enable:**
-    1.  Go to **Settings > Privacy**.
-    2.  Toggle **Screen Lock** to ON.
-    3.  Set the **Screen Lock timeout** to a short duration, like `1 Minute`.
+1.  Navigate to **Settings** > **Account** > **Change your PIN**.
+2.  Select **Create Alphanumeric PIN**.
+3.  Input a robust, random passphrase (minimum 12 characters, stored in an offline password manager like KeePassXC).
 
-### 3. Screen Security
+## 2. Safety Number Verification (Mitigating MitM Attacks)
 
-*   **What it does:** Prevents Signal's content from appearing in your phone's app switcher or from being captured in screenshots on your own device.
-*   **How to enable:**
-    1.  Go to **Settings > Privacy**.
-    2.  Toggle **Screen Security** (Android) or **Enable Screen Security** (iOS) to ON.
+End-to-End Encryption is useless if you are encrypting your messages with an adversary's public key instead of your contact's. This is a Man-in-the-Middle (MitM) attack.
 
-### 4. Disabling Link Previews
+### Out-of-Band Verification Protocol
+You must verify the cryptographic "Safety Number" for every operational contact *before* sharing sensitive assets.
 
-*   **What it does:** When you send or receive a link, Signal normally contacts the website to generate a preview. Disabling this prevents Signal from making that extra network request, which could reveal your IP address to the website's server.
-*   **How to enable:**
-    1.  Go to **Settings > Chats**.
-    2.  Toggle **Generate link previews** to OFF.
+1.  Open the chat with your contact, tap their name, and select **View Safety Number**.
+2.  **The Golden Rule:** Never verify a safety number over Signal itself, and never verify it over an unencrypted channel like SMS.
+3.  **Out-of-Band Methods:**
+    *   *In-Person:* The absolute safest method. Physically scan the QR code on their device.
+    *   *Encrypted VoIP/Video:* If physical meeting is impossible, call them via an independent encrypted channel (e.g., Wire, Matrix, or PGP-encrypted email) and read the numbers aloud to confirm they match.
+4.  Once verified, tap the **Mark as Verified** toggle. If the number ever changes, Signal will throw a red warning banner. *Stop all communication immediately if this occurs.*
 
-### 5. Hide Your Phone Number (Signal Usernames)
+## 3. Data Minimization: Aggressive Disappearing Messages
 
-*   **What it does:** Signal now allows you to hide your phone number from people you chat with by creating a unique "Username." This is a massive security upgrade for activists, preventing doxing or targeted surveillance based on your real phone number.
-*   **How to enable:**
-    1.  Go to **Settings > Profile** and create a **Username** (e.g., `activist_name.01`).
-    2.  Go to **Settings > Privacy > Phone Number**.
-    3.  Set **Who can see my phone number** to **Nobody**.
-    4.  Set **Who can find me by number** to **Nobody** (this forces people to use your exact Username or a QR code to connect with you).
+If your device is seized while unlocked (AFU - After First Unlock), all decrypted messages are accessible. You must enforce aggressive data minimization.
 
-### 6. Default Disappearing Messages
+*   **The 5-Minute Rule:** For active, high-risk operational planning, set the disappearing message timer to **5 minutes or less**.
+*   **Implementation:** Navigate to **Settings** > **Privacy** > **Default timer for new chats**.
+*   *Operational Rationale:* Disappearing messages ensure that the "blast radius" of a compromised device is limited to a 5-minute window of conversation, rather than months of historical network mapping.
 
-*   **What it does:** Automatically applies a disappearing message timer to *all new chats* you start. This ensures you never forget to enable it.
-*   **How to enable:**
-    1.  Go to **Settings > Privacy > Default timer for new chats**.
-    2.  Set it to your preferred duration (e.g., `1 week` or `4 weeks`).
+## 4. The Vulnerability of Signal Desktop
 
-### 7. Sealed Sender
+Linking your mobile Signal account to a desktop application (Windows, macOS, or Linux) exponentially increases your attack surface.
 
-*   **What it does:** This is an advanced feature that is on by default. It hides who is sending a message from Signal's servers. The server knows where to deliver a message, but not who sent it, protecting your metadata.
-*   **How to check/enable:**
-    1.  Go to **Settings > Privacy > Advanced**.
-    2.  Ensure **Sealed Sender** is set to **Allow from everyone** for maximum privacy.
+### The SQLite Database Risk
+Signal Desktop does not utilize the hardware-backed keystores (like Titan M) available on modern smartphones.
 
----
-
-## Secure Group Chat Best Practices
-
-### 1. Verify Members' Safety Numbers
-
-*   **Why it's important:** Each one-on-one chat has a unique "safety number". Verifying this number confirms you are talking to the right person and that your connection is not being intercepted (a "man-in-the-middle" attack).
-*   **How to do it:**
-    1.  In a chat, tap the person's name at the top.
-    2.  Select **Verify Safety Number**.
-    3.  You will see a QR code and a long string of numbers.
-    4.  The most secure way is to meet in person and scan each other's QR codes. If you can't meet, compare the numbers over a different secure channel (like another encrypted call).
-
-### 2. Use Disappearing Messages Effectively
-
-*   **Why it's important:** Automatically deletes messages after a set time, reducing the amount of sensitive information stored on devices. If a device is seized or compromised, old conversations are already gone.
-*   **How to use it:**
-    1.  In a group chat, tap the group name at the top.
-    2.  Select **Disappearing Messages**.
-    3.  Choose a duration that fits your group's needs (e.g., `1 day` or `1 week`). A shorter duration is generally safer.
-
-### 3. Set Appropriate Group Permissions
-
-*   **Why it's important:** Prevents unauthorized people from being added to the group or the group's purpose being changed without consensus.
-*   **How to set it:**
-    1.  In a group chat, tap the group name > **Group Settings**.
-    2.  Set **Who can add members** to **Only admins**.
-    3.  Set **Who can edit group info** to **Only admins**.
-
-### 4. Clear Group Purpose and Member Vetting
-
-*   **Trust is key:** Only add people to a group who are trusted by the existing members.
-*   **Establish rules:** Have a clear understanding of the group's purpose. What information is okay to share? What is not?
-*   **One person, one device:** Encourage members to only use Signal on one primary device if possible to reduce the risk of a compromised linked device.
-
----
-
-## Setup Process Flowchart
-
-```mermaid
-graph TD
-    A[Start: Download Signal] --> B{Register with Phone Number};
-    B --> C[Create Profile: Name & Picture];
-    C --> D[**Crucial: Set Registration Lock PIN**];
-    D --> E{Link Desktop App?};
-    E -- Yes --> F[Scan QR Code on Desktop];
-    E -- No --> G[Go to Privacy Settings];
-    F --> G;
-    G --> H[Create Username & Hide Phone Number];
-    H --> I[Enable Screen Lock & Security];
-    I --> J[Set Default Disappearing Messages];
-    J --> K[Disable Link Previews];
-    K --> L[Ready: Start a Secure Chat!];
-```
+1.  **Local Storage:** Signal Desktop stores all messages locally in an SQLite database file.
+2.  **The Extraction Threat:** On Windows and macOS, the key used to encrypt this local database is often stored in the OS's standard credential manager (Keychain/Credential Manager). If an adversary gains local execution privileges on your computer via malware, or seizes the laptop while powered on, they can trivially extract the encryption key and dump the entire unencrypted SQLite database of your communications.
+3.  **The Mandate:** **Do not use Signal Desktop for high-risk operations.** If you must use a desktop for secure communication, utilize a decentralized protocol like Matrix running within an isolated, compartmentalized virtual machine (e.g., Qubes OS `work` domain).
 
 _Last Updated: 2026_
