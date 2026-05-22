@@ -1,97 +1,50 @@
-# Una guía completa del sistema operativo Tails
+# Tails OS: operaciones amnésicas y seguridad de la memoria volátil
 
-Tails (The Amnesic Incognito Live System) es un sistema operativo gratuito centrado en la seguridad que puedes iniciar en casi cualquier computadora desde una memoria USB. Está diseñado para proteger tu privacidad y anonimato forzando todas tus conexiones a Internet a través de la red Tor y sin dejar rastro en la computadora que utilizas.
+*Estado: Manual de contramedidas forenses | Público: denunciantes e investigadores de alto riesgo*
 
-**Caso de uso:** Tails es la herramienta adecuada cuando necesitas realizar una tarea delicada (como investigar a un oponente, comunicarte con un periodista o administrar cuentas anónimas) sin dejar una huella digital en la computadora o la red.
+Tails (The Amnesic Incognito Live System) no es un conductor diario; es un entorno de despliegue táctico. Como ingeniero de sistemas Linux e investigador forense, debo enfatizar que su principal utilidad no es sólo el cifrado: es **amnesia**. No deja rastro en la máquina host.
 
----
-
-### **Sección 1: Adquirir Tails de forma segura**
-
-Asegurarse de que su copia de Tails sea genuina y no esté alterada es el primer paso más importante.
-
-#### **Paso 1: Descargar Tails**
-
-* Navegue al sitio web oficial de Tails: **`https://tails.net`**
-* Vaya a la sección "Instalar" y descargue la imagen USB (archivo `.img`).
-
-#### **Paso 2: Verifique su descarga (PASO CRÍTICO)**
-
-La verificación garantiza que el archivo que descargaste sea el archivo auténtico de los desarrolladores de Tails y que no esté dañado ni reemplazado por una versión maliciosa. Utilizará PGP (Pretty Good Privacy) para esto.
-
-1. **Instala GnuPG:** Si no lo tienes, instala una herramienta PGP. Para Linux, es `sudo apt-get install gnupg`. Para macOS, utilice `brew install gnupg`. Para Windows, utilice `Gpg4win`.
-2. **Descargue la clave de firma de Tails:** Esta es una clave especial utilizada por los desarrolladores de Tails para firmar sus lanzamientos. Puedes descargarlo desde el sitio web de Tails o ejecutando:
-    ```bash
-    wget https://tails.net/tails-signing.key
-    ```
-3. **Importar la clave:** Importe la clave a su conjunto de claves PGP:
-    ```bash
-    gpg --import tails-signing.key
-    ```
-4. **Descargue el archivo de firma:** En la página de descarga de Tails, habrá un archivo `.sig` correspondiente para su descarga. Descargue este archivo en el mismo directorio que su archivo `.img`.
-5. **Verificar:** Abra su terminal, navegue hasta su directorio de descargas y ejecute el comando de verificación:
-    ```bash
-    gpg --verify tails-amd64-X.XX.img.sig tails-amd64-X.XX.img
-    ```
-    *(Reemplace `X.XX` con el número de versión que descargó)*
-
-    You are looking for the output **"Good signature from..."**. This confirms your download is authentic. Ignore any warnings about "trust."
+Esta guía detalla las limitaciones operativas exactas y la auditoría de hardware necesarias para implementar Tails de forma segura.
 
 ---
 
-### **Sección 2: Creación del USB de arranque**
+## 1. Auditoría de la computadora host (seguridad BIOS/UEFI)
 
-#### **Método 1: balenaEtcher (recomendado para la mayoría de los usuarios)**
+Tails se ejecuta completamente en RAM. Sin embargo, antes de que se cargue, el firmware de la computadora host controla el proceso de inicio. Debe asegurarse de que el hardware del host no comprometa el entorno en vivo.
 
-`balenaEtcher` es una herramienta gráfica que funciona en Windows, macOS y Linux. Es el método más fácil y seguro.
+### Endurecimiento de la secuencia de arranque
+1. **Ingrese UEFI/BIOS:** Encienda la máquina host y presione repetidamente la tecla de configuración (generalmente F2, F12, Eliminar o Esc).
+2. **Desactivar el arranque seguro:** Si bien está diseñado para detener el malware, el arranque seguro a menudo bloquea los USB de Linux activos. Desactívelo temporalmente para la operación.
+3. **Desactivar el arranque rápido:** el arranque rápido omite las comprobaciones de inicialización del hardware y puede interferir con la detección de USB. Desactívelo.
+4. **Contraseña de administrador:** Establezca una contraseña de administrador BIOS/UEFI. Esto evita que un adversario altere la secuencia de inicio para iniciar desde un USB malicioso antes de que se cargue Tails si la máquina se deja desatendida.
 
-1. Descargue e instale Etcher desde `https://www.balena.io/etcher/`.
-2. Abra Grabador.
-3. Seleccione el archivo `.img` de Tails que descargó.
-4. Seleccione su unidad USB de destino (al menos 8 GB). **Asegúrese absolutamente de haber seleccionado la unidad correcta, ya que esto borrará todos los datos que contiene.**
-5. Haga clic en "¡Flash!"
+## 2. Ataques de arranque en frío y mitigación de RAM
 
-#### **Método 2: Comando `dd` (Avanzado - Linux y macOS)**
+Cuando apaga una computadora, los datos almacenados en la RAM (memoria de acceso aleatorio) no desaparecen instantáneamente. Los investigadores forenses pueden realizar un "ataque de arranque en frío" congelando los módulos de RAM (usando aire comprimido o nitrógeno líquido), transfiriéndolos a una máquina especializada y extrayendo las claves de cifrado antes de que se degraden.
 
-Esta herramienta de línea de comandos es poderosa pero peligrosa si se usa incorrectamente. Puede borrar fácilmente el disco equivocado.
+### Protocolo de apagado
+Tails está diseñado para sobrescribir la mayor parte de la RAM durante el proceso de apagado, pero debes activarlo correctamente.
+* **No realice un reinicio completo:** Nunca mantenga presionado simplemente el botón de encendido. Esto deja la RAM intacta.
+* **El Apagado Seguro:** Siempre apaga Tails a través del menú del sistema.
+* **La extracción de emergencia:** Si se ve físicamente comprometido durante una operación, extraiga rápidamente la memoria USB de la computadora. Tails está diseñado para detectar instantáneamente la eliminación, activar un borrado de memoria de emergencia y apagarse.
 
-1. **Identifique su unidad USB:** Conecte su USB. Abra una terminal y ejecute `lsblk` (Linux) o `diskutil list` (macOS) para identificar el nombre del dispositivo (por ejemplo, `/dev/sdb`, `/dev/disk2`).
-2. **Desmonte la unidad:** Asegúrese de que la unidad no esté montada. Utilice `umount /dev/sdX*` o `diskutil unmountDisk /dev/diskX`.
-3. **Escribe la imagen:** Usa el comando `dd`. La sintaxis es:
-    ```bash
-    # ADVERTENCIA: Este comando es destructivo. Vuelva a verificar el nombre de su dispositivo.
-    sudo dd if=/ruta/a/tu/tails.img of=/dev/sdX bs=4M status=progress
-    ```
-    *(Reemplace `/path/to/your/tails.img` con la ruta real y `/dev/sdX` con el nombre de su dispositivo USB)*
+## 3. Almacenamiento persistente LUKS: configuración y riesgos
 
----
+Un sistema amnésico lo olvida todo. Si debe guardar archivos entre sesiones, debe configurar un volumen de almacenamiento persistente. Esto introduce un riesgo enorme: si se ve comprometido, el volumen contiene un historial inalterable de sus operaciones.
 
-### **Sección 3: Primer arranque y configuración**
+### Configuración segura
+1. Abra **Aplicaciones** > **Tails** > **Almacenamiento persistente**.
+2. Tails utiliza LUKS (Configuración de clave unificada de Linux) para el cifrado.
+3. **Entropía de frase de contraseña:** El volumen debe estar protegido con una frase de contraseña de no menos de 6 palabras aleatorias (diceware).
+4. *Advertencia forense:* El recuento de iteraciones LUKS predeterminado en versiones anteriores era susceptible a la fuerza bruta de la GPU. Asegúrese de estar ejecutando la última versión de Tails, que utiliza la derivación de claves Argon2id, lo que aumenta exponencialmente el tiempo necesario para los ataques de fuerza bruta.
 
-1. **Arranque desde USB:** Conecte el USB de Tails a la computadora que desea usar. Reinicie la computadora y acceda al menú de inicio (generalmente presionando F2, F10, F12 o Esc durante el inicio). Seleccione la unidad USB desde la que iniciar.
-2. **Pantalla de bienvenida:** En la pantalla de bienvenida de Tails, puedes configurar el idioma y la distribución del teclado.
-3. **Cree almacenamiento persistente cifrado (altamente recomendado):**
-    * **Qué es:** Una sección cifrada en su unidad USB donde puede guardar archivos, marcadores del navegador, claves PGP y algunas configuraciones. Estos datos están protegidos por una contraseña y persisten entre reinicios.
-    * **Cómo crear:** En la pantalla de bienvenida, antes de iniciar Tails, vaya a Aplicaciones -> Tails -> Configurar volumen persistente. Siga las instrucciones que aparecen en pantalla para crear el volumen y elija una frase de contraseña segura. Sólo harás esto una vez.
-4. **Iniciando Tails:** Después de su primer inicio, se le pedirá que ingrese su frase de contraseña de Almacenamiento Persistente para desbloquearla cada vez que inicie Tails.
+## 4. Evitar la trampa de la "construcción de puentes"
 
----
+La forma más común en que los activistas comprometen una sesión de Tails es a través de un cruce de comportamiento: creando un "puente" entre su identidad amnésica y su verdadera identidad.
 
-### **Sección 4: Seguridad operativa (OPSEC) dentro de Tails**
-
-Usar Tails no es una solución mágica. Tu comportamiento importa.
-
-* **No inicies sesión en cuentas personales:** No inicies sesión en tus cuentas personales de Google, Facebook u otras cuentas dentro de Tails. Esto vincularía su sesión anónima directamente con su identidad real.
-* **Utilice el Navegador Tor:** Toda su navegación web debe realizarse a través del Navegador Tor incluido. No intente instalar otros navegadores.
-* **Tenga cuidado con los documentos:** Los documentos pueden contener metadatos que pueden identificarlo (por ejemplo, nombre del autor, detalles de la computadora). Utilice la herramienta "Limpiador de metadatos" incluida en Tails antes de compartir cualquier documento.
-* **No maximizar Windows:** El navegador Tor se abre en un tamaño estándar. Maximizarlo puede permitir que los sitios web tomen huellas digitales de la resolución de su pantalla, una forma potencial de anonimizarlo.
-
----
-
-### **Sección 5: Solución de problemas comunes**
-
-* **Tails no arranca:** El problema más común es el **Arranque seguro**. Esta es una característica de las computadoras modernas que evita que se carguen sistemas operativos no autorizados. Deberá ingresar la configuración BIOS/UEFI de su computadora (generalmente presionando F2 o Supr al inicio) y **deshabilitar el arranque seguro**.
-* **No puedo conectarme a Tor:** Si estás en una red que censura Tor (como una biblioteca pública o un país restrictivo), es posible que necesites usar un **Puente Tor**. En la pantalla de bienvenida de Tails, puedes configurar Tor para que use un puente para conectarse.
-* **Problemas de volumen persistentes:** Si olvida su frase de contraseña, sus datos desaparecerán para siempre. No hay recuperación. Escriba su frase de contraseña y guárdela en una ubicación segura y fuera de línea.
+### Restricciones operativas
+* **Nunca te conectes al Wi-Fi doméstico:** Tails dirige todo el tráfico a través de Tor, pero tu ISP y el nodo de entrada de Tor seguirán viendo que se estableció una conexión Tor desde la dirección IP de tu hogar en un momento específico. Si estás subiendo documentos filtrados, un adversario puede correlacionar el tiempo de carga con el tiempo de conexión Tor en tu residencia. **Utilice siempre Wi-Fi público y que no sea de confianza para las operaciones de Tails.**
+* **La regla de la sesión única:** Nunca inicies sesión en una cuenta personal (por ejemplo, tu Gmail real) y una cuenta operativa (por ejemplo, tu ProtonMail anónimo) durante la misma sesión de Tails. Incluso a través de Tor, los nodos de salida o las técnicas avanzadas de toma de huellas digitales pueden vincular las dos sesiones, quemando por completo su alias operativo.
+* **Suplantación de hardware:** Tails falsifica automáticamente la dirección MAC de tu tarjeta de red para ocultar tu identidad de hardware del enrutador Wi-Fi público. **No desactive esta función** en la pantalla de bienvenida a menos que se requiera explícitamente para conectarse a un portal cautivo.
 
 _Última actualización: 2026_
