@@ -47,13 +47,13 @@ Sus claves PGP maestras, semillas de criptomonedas y bases de datos de contrase�
 Debido a que el hipervisor aísla completamente sus dominios, no puede arrastrar y soltar archivos ni utilizar un portapapeles compartido estándar. Esto evita que el malware migre lateralmente a través de su sistema.
 
 * **Protocolo del portapapeles:** Para copiar una contraseña desde su `bóveda` a un navegador web en `personal`:
-    1.  Highlight the text in `vault` and press `Ctrl+C`.
-    2.  Press `Ctrl+Shift+C` to instruct the hypervisor to securely move the data to the global clipboard.
-    3.  Select the `personal` VM window and press `Ctrl+Shift+V` to pull the data from the global clipboard.
-    4.  Press `Ctrl+V` to paste the text into the browser.
+    1.  Resalta el texto en `vault` y presiona `Ctrl+C`.
+    2.  Presione `Ctrl+Shift+C` para indicarle al hipervisor que mueva los datos de forma segura al portapapeles global.
+    3.  Seleccione la ventana de VM `personal` y presione `Ctrl+Shift+V` para extraer los datos del portapapeles global.
+    4.  Presione `Ctrl+V` para pegar el texto en el navegador.
 * **Protocolo de transferencia de archivos:** Para mover un documento cifrado de `work` a `sys-whonix` para su transmisión:
-    1.  Open Dom0 terminal or use the GUI file manager.
-    2.  Execute: `qvm-copy-to-vm [DestinationVM] [filename]` (e.g., `qvm-copy-to-vm anon-whonix manifest.pdf`).
-    3.  The hypervisor will intercept the file, prompt you for explicit authorization, and securely inject it into the `QubesIncoming` directory of the target VM.
+    1.  Abra la terminal Dom0 o utilice el administrador de archivos GUI.
+    2.  Ejecute: `qvm-copy-to-vm [DestinationVM] [filename]` (p. ej., `qvm-copy-to-vm anon-whonix manifest.pdf`).
+    3.  El hipervisor interceptará el archivo, le solicitará autorización explícita y lo inyectará de forma segura en el directorio `QubesIncoming` de la máquina virtual de destino.
 
 _Última actualización: 2026_

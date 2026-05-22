@@ -36,8 +36,8 @@ Debe verificar el "Número de seguridad" criptográfico de cada contacto operati
 1. Abra el chat con su contacto, toque su nombre y seleccione **Ver número de seguridad**.
 2. **La regla de oro:** Nunca verifiques un número de seguridad a través de Signal y nunca lo verifiques a través de un canal no cifrado como SMS.
 3. **Métodos fuera de banda:**
-    *   *In-Person:* The absolute safest method. Physically scan the QR code on their device.
-    *   *Encrypted VoIP/Video:* If physical meeting is impossible, call them via an independent encrypted channel (e.g., Wire, Matrix, or PGP-encrypted email) and read the numbers aloud to confirm they match.
+    * *En persona:* El método absolutamente más seguro. Escanee físicamente el código QR en su dispositivo.
+    * *VoIP/Vídeo cifrado:* Si la reunión física es imposible, llámelos a través de un canal cifrado independiente (por ejemplo, Wire, Matrix o correo electrónico cifrado con PGP) y lea los números en voz alta para confirmar que coinciden.
 4. Una vez verificado, toque el botón **Marcar como verificado**. Si el número alguna vez cambia, Signal mostrará una pancarta roja de advertencia. *Detenga toda comunicación inmediatamente si esto ocurre.*
 
 ## 3. Minimización de datos: mensajes agresivos que desaparecen
