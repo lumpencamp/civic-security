@@ -1,10 +1,14 @@
-# A Detailed Guide to Secure File Transfer
+# Secure File Transfer: Exfiltration and Ingestion Infrastructure
 
-Sharing files securely is a critical task for activists. Whether you are sending research to a collaborator or leaking documents to a journalist, you must protect the contents of the file and the identities of both the sender and the receiver. This guide covers two powerful, gold-standard tools for different scenarios.
+*Status: Infrastructure Administrative Manual | Audience: Source Handlers, Journalists, and Technical Operators*
+
+The exfiltration and ingestion of highly sensitive documents (leaks, evidence, raw footage) is the most perilous phase of any operation. Standard cloud services (Google Drive, Dropbox) are completely compromised by centralized metadata logging and subpoena compliance.
+
+As an infrastructure engineer, I mandate that all file transfers occur over decentralized or physically isolated architectures designed to eliminate IP footprints and sender/receiver correlation.
 
 ---
 
-### **Method 1: Local, Offline Sharing (For Protests & Crowds)**
+## 1. Local, Offline Sharing (For Protests & Crowds)
 
 **Use Case:** You are at a protest or action. Cell service is jammed, shut down, or you suspect police are using Stingrays (IMSI catchers) to monitor the network. You need to quickly share a photo, video, or document with an affinity group member standing next to you.
 
@@ -16,48 +20,42 @@ Sharing files securely is a critical task for activists. Whether you are sending
 
 ---
 
-### **Method 2: OnionShare (For Direct, Peer-to-Peer Sharing Over the Internet)**
+## 2. OnionShare: Ephemeral P2P Routing
 
-**Use Case:** You need to send a file directly to a specific person you trust. You want the transfer to be secure, anonymous, and leave no trace on a third-party server (like Google Drive or Dropbox).
+**Use Case:** Direct, one-to-one transfer across geographic distances where neither party wishes to reveal their IP address, and no intermediary server is trusted.
 
-**How it Works:** OnionShare temporarily turns your computer into a secure, anonymous web server using the Tor network. The file is transferred directly from your machine to the recipient's, encrypted and anonymized by Tor. Once the transfer is complete, the server disappears.
+**The Mechanics:** OnionShare temporarily spins up a localized web server on your machine and binds it to a Tor V3 Onion Service. The file never leaves your computer until the recipient downloads it directly via the Tor network.
 
-#### **Step-by-Step Instructions:**
-
-1.  **Install Prerequisites:** You must have the **Tor Browser** installed and running for OnionShare to connect to the Tor network. Download it from `torproject.org`.
-2.  **Install OnionShare:** Download the official OnionShare application from `onionshare.org`.
-3.  **Start the Share:**
-    *   Open OnionShare and navigate to the "Share Files" tab.
-    *   Drag and drop the file(s) you wish to share into the window.
-    *   Uncheck the box "Stop sharing after files have been sent (uncheck to allow downloading multiple times)" if you want the link to be single-use. This is highly recommended.
-    *   Click **"Start Sharing."**
-4.  **Share the Secret Address:**
-    *   OnionShare will generate a unique `.onion` address and a private key (password).
-    *   **This is the most critical step.** You must transmit this address and key to your recipient through a secure, end-to-end encrypted channel, such as **Signal** or **Session**. Do NOT send this link via email or regular text message.
-5.  **Recipient Downloads the File:**
-    *   The recipient opens their Tor Browser and navigates to the `.onion` address you provided.
-    *   They will be prompted for the private key to access the download page.
-    *   Once they download the file, the share automatically stops (if you left the default setting checked), and the link becomes invalid.
+### Operational Execution
+1.  **Deployment:** Open OnionShare and select **Share Files**. Load the operational assets.
+2.  **Configuration:** Ensure **Stop sharing after files have been sent** is checked. This ensures the service self-destructs the moment the transfer is complete, preventing replay or discovery attacks.
+3.  **Address Generation:** OnionShare will generate a randomized `.onion` address and an authentication private key.
+4.  **Out-of-Band (OOB) Verification:** The `.onion` link and password must **never** be sent over the same channel that negotiated the transfer. If you agreed to the transfer via Signal, send the OnionShare link via a PGP-encrypted email or a secure Matrix channel. This prevents an adversary compromising one channel from intercepting both the intent and the payload.
+5.  **Termination:** Once the recipient confirms receipt, shut down OnionShare. The `.onion` address ceases to exist.
 
 ---
 
-### **Method 3: SecureDrop (For Anonymous Whistleblowing)**
+## 3. SecureDrop: Institutional Ingestion Architecture
 
-**Use Case:** You are a source who needs to anonymously submit sensitive documents to a media organization or NGO without revealing your identity.
+**Use Case:** An organization (NGO, newsroom, civic defense group) needs a persistent, highly secure method to receive anonymous leaks without compromising the source or infecting the organization's internal network.
 
-**How it Works:** SecureDrop is a system used by journalists to receive files from anonymous sources. The entire process is designed to protect the source's identity. You do not run SecureDrop; you use the one provided by the organization.
+**The Mechanics:** SecureDrop is not a single app; it is a complex, hardware-isolated network architecture running over Tor. It physically separates the network ingestion phase from the viewing phase to defeat zero-day malware embedded in submitted documents.
 
-#### **Step-by-Step Instructions:**
+### The Four-Tier Hardware Isolation Rule
 
-1.  **DO NOT USE YOUR OWN COMPUTER OR HOME NETWORK.** This is non-negotiable for high-risk submissions. Go to a location with public Wi-Fi that is not associated with you (e.g., a library or coffee shop far from your home or work).
-2.  **Use the Tails Operating System:** For maximum security, you should use the Tails OS, which runs from a USB stick and forces all connections through Tor, leaving no trace on the machine. See our Tails OS guide for more information.
-3.  **Find the SecureDrop Address:** From a regular browser on a safe device, find the organization's official SecureDrop `.onion` address. They will list this on their public website. Write it down carefully.
-4.  **Connect and Upload:**
-    *   On your Tails OS machine at the public Wi-Fi location, open the Tor Browser and navigate to the `.onion` address you wrote down.
-    *   Follow the on-screen instructions to upload your files.
-5.  **Receive Your Codename:**
-    *   After uploading, the system will generate a **unique, secret codename**. This is your only key to the submission. **Memorize it or write it down on a piece of paper you can keep securely offline.** Do NOT save it on any computer.
-6.  **Check for Replies:**
-    *   Wait several days. Then, using the **exact same secure method** (Tails OS, public Wi-Fi), navigate back to the SecureDrop address and log in with your secret codename. This will allow you to see if the journalist has left you a message.
+To safely ingest anonymous files, the organization must deploy the following physical architecture:
+
+1.  **The Application Server (The Landing Page):**
+    *   *Function:* This server faces the Tor network. It hosts the `.onion` site where the source uploads the document. It generates a unique cryptographic "codename" for the source to allow for secure two-way communication.
+    *   *Security:* It immediately encrypts incoming documents with the organization's public PGP key. It does not possess the private key to decrypt them.
+2.  **The Monitor Server:**
+    *   *Function:* Continuously monitors the Application Server for intrusion attempts or unusual behavior.
+3.  **The Secure Viewing Station (SVS) - [Air-Gapped]:**
+    *   *Function:* This is a dedicated, physically air-gapped laptop running Tails OS from a read-only USB drive. It possesses the private PGP key necessary to decrypt the documents. It **never** connects to the internet.
+    *   *Protocol:* A technical operator downloads the encrypted files from the Application Server onto an encrypted "Transfer USB." They physically carry the Transfer USB to the SVS. The files are decrypted and viewed on the SVS. If the files contain zero-day malware designed to phone home or exfiltrate data, it fails because the SVS has no network hardware.
+4.  **The Export Station:**
+    *   *Function:* If a document is verified as safe and necessary for publication, it is heavily scrubbed of metadata (using tools like MAT2 or Dangerzone) on the SVS, moved to a clean Export USB, and transferred to a standard operational machine.
+
+*Directive: Bypassing the air-gap protocol by downloading and decrypting SecureDrop submissions on an internet-connected workstation is a terminal violation of organizational security.*
 
 _Last Updated: 2026_
