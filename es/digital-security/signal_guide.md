@@ -1,156 +1,62 @@
-# Signal: una guía de seguridad detallada para activistas
+# Signal: Endurecimiento criptográfico y seguridad operativa
 
-## Introducción
+*Estado: Manual de refuerzo y auditoría de software | Público: activistas, fuentes y organizadores*
 
-Signal es una aplicación de mensajería gratuita y de código abierto que utiliza cifrado de extremo a extremo para proteger sus comunicaciones. Para los activistas, esto significa que sus mensajes, llamadas y transferencias de archivos están protegidos contra ser interceptados por terceros como corporaciones, gobiernos o piratas informáticos. A diferencia de otras aplicaciones de mensajería populares, Signal está diseñada desde cero con la privacidad y la seguridad como su misión principal, lo que la convierte en una herramienta esencial para organizar, coordinar y comunicarse de forma segura.
+Signal es el estándar de oro para la mensajería cifrada de un extremo a otro. Sin embargo, su configuración predeterminada está optimizada para la comodidad del usuario, no para sobrevivir a la vigilancia a nivel estatal o a la captura de dispositivos físicos. Como auditor de software criptográfico, debo enfatizar que el cifrado de Signal solo protege los datos *en tránsito*. Una vez que los datos llegan a un dispositivo, dependen completamente de la seguridad local del dispositivo.
 
----
-
-## Configuración paso a paso
-
-### En dispositivos móviles (Android/iOS)
-
-1. **Señal de descarga:**
-    * **Android:** Vaya a Google Play Store y busque "Signal".
-    * **iOS:** Vaya a la App Store de Apple y busque "Signal".
-    * **Importante:** Descargue Signal únicamente desde las tiendas de aplicaciones oficiales para asegurarse de que está obteniendo la aplicación legítima.
-
-2. **Instalar y registrar:**
-    * Abra la aplicación una vez que haya terminado de instalarse.
-    * Signal te pedirá tu número de teléfono para registrarte. Recibirás un código de verificación por SMS para confirmar tu número.
-    * **Nota:** Si bien Signal necesita un número de teléfono para registrarse, este número no es visible para todas las personas con las que habla (consulte la sección Remitente sellado).
-
-3. **Crea tu perfil:**
-    * Configure su nombre e imagen de perfil. Puede utilizar un seudónimo o cualquier nombre con el que se sienta cómodo.
-
-4. **Establezca su PIN:**
-    * Signal te pedirá que crees un **PIN de bloqueo de registro**. Esto es crucial. Evita que otros registren su número de teléfono en un dispositivo diferente. **¡No olvides este PIN!** Anótalo y guárdalo en un lugar seguro y sin conexión.
-
-### En el escritorio (Windows/Mac/Linux)
-
-1. **Descargar Signal Desktop:**
-    * Vaya al sitio web oficial de Signal: `https://signal.org/download/`.
-    * Descargue la versión correcta para su sistema operativo.
-
-2. **Enlace a su dispositivo móvil:**
-    * Instale y abra la aplicación Signal Desktop.
-    * Te mostrará un código QR.
-    * En tu teléfono, ve a Signal **Configuración > Dispositivos vinculados** y toca el ícono `+`.
-    * Utilice su teléfono para escanear el código QR en la pantalla de su escritorio.
-    * Tus dispositivos ahora están vinculados y tus mensajes se sincronizarán.
+Esta guía detalla el estricto bloqueo criptográfico de cuentas requerido para operaciones de alto riesgo.
 
 ---
 
-## Configuración de privacidad avanzada
+## 1. Bloqueo de cuenta obligatorio (registro y PIN)
 
-Para maximizar su seguridad, habilite estas configuraciones en su dispositivo móvil. Puede encontrarlos en **Configuración de señal > Privacidad**.
+El ataque más común contra los usuarios de Signal no es romper el cifrado; está secuestrando la cuenta tomando el número de teléfono subyacente (mediante intercambio de SIM o ataques SS7) y volviendo a registrar Signal en el dispositivo de un adversario.
 
-### 1. Bloqueo de registro
+### El bloqueo de registro
+Debe vincular físicamente su cuenta de Signal a un PIN criptográfico, eliminando la dependencia de la verificación por SMS.
 
-* **Qué hace:** Evita que otra persona vuelva a registrar tu número de teléfono con Signal en un dispositivo nuevo. Bloquea su cuenta con su PIN.
-* **Cómo habilitar:**
-    1. Vaya a **Configuración > Cuenta**.
-    2. Active **Bloqueo de registro**.
-    3. Se le pedirá que confirme su PIN.
+1. Vaya a **Configuración** > **Cuenta** > **Bloqueo de registro**.
+2. Active **ON**.
+3. *El mecanismo:* Si un adversario roba su número de teléfono e intenta registrar Signal, será bloqueado sin su PIN personalizado. Después de 7 días de inactividad, el bloqueo expira, pero para entonces te habrás dado cuenta de que tu número está comprometido.
 
-### 2. Bloqueo de pantalla
+### Configuración de PIN alfanumérico personalizado
+No utilice un PIN de 4 dígitos. Es trivial aplicar fuerza bruta si un adversario captura el hash.
 
-* **Qué hace:** Requiere el código de acceso, la huella digital o el Face ID de tu teléfono para abrir la aplicación Signal.
-* **Cómo habilitar:**
-    1. Vaya a **Configuración > Privacidad**.
-    2. Active **Bloqueo de pantalla**.
-    3. Establezca el **Tiempo de espera de bloqueo de pantalla** en una duración corta, como "1 minuto".
+1. Vaya a **Configuración** > **Cuenta** > **Cambiar su PIN**.
+2. Seleccione **Crear PIN alfanumérico**.
+3. Ingrese una frase de contraseña aleatoria y sólida (mínimo 12 caracteres, almacenada en un administrador de contraseñas fuera de línea como KeePassXC).
 
-### 3. Seguridad de pantalla
+## 2. Verificación del número de seguridad (mitigación de ataques MitM)
 
-* **Qué hace:** Evita que el contenido de Signal aparezca en el selector de aplicaciones de tu teléfono o que se capture en capturas de pantalla en tu propio dispositivo.
-* **Cómo habilitar:**
-    1. Vaya a **Configuración > Privacidad**.
-    2. Active **Seguridad de pantalla** (Android) o **Activar seguridad de pantalla** (iOS).
+El cifrado de extremo a extremo es inútil si cifra sus mensajes con la clave pública de un adversario en lugar de la de su contacto. Este es un ataque Man-in-the-Middle (MitM).
 
-### 4. Deshabilitar las vistas previas de enlaces
+### Protocolo de verificación fuera de banda
+Debe verificar el "Número de seguridad" criptográfico de cada contacto operativo *antes* de compartir activos confidenciales.
 
-* **Qué hace:** Cuando envías o recibes un enlace, Signal normalmente se comunica con el sitio web para generar una vista previa. Deshabilitar esto evita que Signal realice esa solicitud de red adicional, lo que podría revelar su dirección IP al servidor del sitio web.
-* **Cómo habilitar:**
-    1. Vaya a **Configuración > Chats**.
-    2. Desactive **Generar vistas previas de enlaces**.
+1. Abra el chat con su contacto, toque su nombre y seleccione **Ver número de seguridad**.
+2. **La regla de oro:** Nunca verifiques un número de seguridad a través de Signal y nunca lo verifiques a través de un canal no cifrado como SMS.
+3. **Métodos fuera de banda:**
+    *   *In-Person:* The absolute safest method. Physically scan the QR code on their device.
+    *   *Encrypted VoIP/Video:* If physical meeting is impossible, call them via an independent encrypted channel (e.g., Wire, Matrix, or PGP-encrypted email) and read the numbers aloud to confirm they match.
+4. Una vez verificado, toque el botón **Marcar como verificado**. Si el número alguna vez cambia, Signal mostrará una pancarta roja de advertencia. *Detenga toda comunicación inmediatamente si esto ocurre.*
 
-### 5. Oculte su número de teléfono (nombres de usuario de Signal)
+## 3. Minimización de datos: mensajes agresivos que desaparecen
 
-* **Qué hace:** Signal ahora te permite ocultar tu número de teléfono a las personas con las que chateas creando un "nombre de usuario" único. Esta es una mejora de seguridad masiva para los activistas, que previene el doxing o la vigilancia dirigida basada en su número de teléfono real.
-* **Cómo habilitar:**
-    1. Vaya a **Configuración > Perfil** y cree un **Nombre de usuario** (por ejemplo, `nombre_activista.01`).
-    2. Vaya a **Configuración > Privacidad > Número de teléfono**.
-    3. Configure **Quién puede ver mi número de teléfono** en **Nadie**.
-    4. Establezca **Quién puede encontrarme por número** en **Nadie** (esto obliga a las personas a usar su nombre de usuario exacto o un código QR para conectarse con usted).
+Si su dispositivo es incautado mientras está desbloqueado (AFU - Después del primer desbloqueo), se podrá acceder a todos los mensajes descifrados. Debe aplicar una minimización agresiva de los datos.
 
-### 6. Mensajes que desaparecen predeterminados
+* **La regla de los 5 minutos:** Para una planificación operativa activa y de alto riesgo, configure el temporizador de mensajes que desaparecen en **5 minutos o menos**.
+* **Implementación:** Vaya a **Configuración** > **Privacidad** > **Temporizador predeterminado para nuevos chats**.
+* *Justificación operativa:* Los mensajes que desaparecen garantizan que el "radio de explosión" de un dispositivo comprometido se limite a una ventana de conversación de 5 minutos, en lugar de meses de mapeo histórico de la red.
 
-* **Qué hace:** Aplica automáticamente un temporizador de mensajes que desaparecen a *todos los chats nuevos* que inicies. Esto garantiza que nunca olvidará habilitarlo.
-* **Cómo habilitar:**
-    1. Vaya a **Configuración > Privacidad > Temporizador predeterminado para chats nuevos**.
-    2. Configúrelo según la duración que prefiera (por ejemplo, "1 semana" o "4 semanas").
+## 4. La vulnerabilidad de Signal Desktop
 
-### 7. Remitente sellado
+Vincular su cuenta de Signal móvil a una aplicación de escritorio (Windows, macOS o Linux) aumenta exponencialmente su superficie de ataque.
 
-* **Qué hace:** Esta es una función avanzada que está activada de forma predeterminada. Oculta quién envía un mensaje desde los servidores de Signal. El servidor sabe dónde entregar un mensaje, pero no quién lo envió, protegiendo sus metadatos.
-* **Cómo comprobar/habilitar:**
-    1. Vaya a **Configuración > Privacidad > Avanzado**.
-    2. Asegúrese de que **Remitente sellado** esté configurado en **Permitir a todos** para obtener la máxima privacidad.
+### El riesgo de la base de datos SQLite
+Signal Desktop no utiliza los almacenes de claves respaldados por hardware (como Titan M) disponibles en los teléfonos inteligentes modernos.
 
----
-
-## Mejores prácticas de chat grupal seguro
-
-### 1. Verificar los números de seguridad de los miembros
-
-* **Por qué es importante:** Cada chat individual tiene un "número de seguridad" único. Verificar este número confirma que estás hablando con la persona adecuada y que tu conexión no está siendo interceptada (un ataque de "intermediario").
-* **Cómo hacerlo:**
-    1. En un chat, toca el nombre de la persona en la parte superior.
-    2. Seleccione **Verificar número de seguridad**.
-    3. Verás un código QR y una larga cadena de números.
-    4. La forma más segura es reunirse en persona y escanear los códigos QR de cada uno. Si no pueden reunirse, compare los números a través de un canal seguro diferente (como otra llamada cifrada).
-
-### 2. Utilice mensajes que desaparecen de forma eficaz
-
-* **Por qué es importante:** Elimina mensajes automáticamente después de un tiempo determinado, lo que reduce la cantidad de información confidencial almacenada en los dispositivos. Si un dispositivo es incautado o comprometido, las conversaciones antiguas ya desaparecerán.
-* **Cómo usarlo:**
-    1. En un chat grupal, toque el nombre del grupo en la parte superior.
-    2. Seleccione **Mensajes que desaparecen**.
-    3. Elija una duración que se ajuste a las necesidades de su grupo (por ejemplo, "1 día" o "1 semana"). Una duración más corta es generalmente más segura.
-
-### 3. Establecer permisos de grupo adecuados
-
-* **Por qué es importante:** Evita que se agreguen personas no autorizadas al grupo o que se cambie el propósito del grupo sin consenso.
-* **Cómo configurarlo:**
-    1. En un chat grupal, toque el nombre del grupo > **Configuración del grupo**.
-    2. Establezca **Quién puede agregar miembros** en **Solo administradores**.
-    3. Establezca **Quién puede editar la información del grupo** en **Solo administradores**.
-
-### 4. Propósito claro del grupo y verificación de antecedentes de los miembros
-
-* **La confianza es clave:** Agregue únicamente personas a un grupo en las que confíen los miembros existentes.
-* **Establecer reglas:** Tener una comprensión clara del propósito del grupo. ¿Qué información está bien compartir? ¿Qué no lo es?
-* **Una persona, un dispositivo:** Aliente a los miembros a usar Signal solo en un dispositivo principal si es posible para reducir el riesgo de que un dispositivo vinculado esté comprometido.
-
----
-
-## Diagrama de flujo del proceso de configuración
-
-```mermaid
-graph TD
-    A[Start: Download Signal] --> B{Register with Phone Number};
-    B --> C[Create Profile: Name & Picture];
-    C --> D[**Crucial: Set Registration Lock PIN**];
-    D --> E{Link Desktop App?};
-    E -- Yes --> F[Scan QR Code on Desktop];
-    E -- No --> G[Go to Privacy Settings];
-    F --> G;
-    G --> H[Create Username & Hide Phone Number];
-    H --> I[Enable Screen Lock & Security];
-    I --> J[Set Default Disappearing Messages];
-    J --> K[Disable Link Previews];
-    K --> L[Ready: Start a Secure Chat!];
-```
+1. **Almacenamiento local:** Signal Desktop almacena todos los mensajes localmente en un archivo de base de datos SQLite.
+2. **La amenaza de extracción:** En Windows y macOS, la clave utilizada para cifrar esta base de datos local a menudo se almacena en el administrador de credenciales estándar del sistema operativo (Llavero/Administrador de credenciales). Si un adversario obtiene privilegios de ejecución local en su computadora a través de malware, o se apodera de la computadora portátil mientras está encendida, puede extraer trivialmente la clave de cifrado y volcar toda la base de datos SQLite no cifrada de sus comunicaciones.
+3. **El mandato:** **No use Signal Desktop para operaciones de alto riesgo.** Si debe usar una computadora de escritorio para una comunicación segura, utilice un protocolo descentralizado como Matrix que se ejecuta dentro de una máquina virtual aislada y compartimentada (por ejemplo, dominio de "trabajo" del sistema operativo Qubes).
 
 _Última actualización: 2026_
