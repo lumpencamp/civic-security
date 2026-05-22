@@ -1,80 +1,54 @@
-# The Complete Guide to Burner Phones & SIMs
+# The Complete Guide to Burner Phones & SIMs: Ephemeral Endpoints
 
-This guide provides a detailed, step-by-step methodology for acquiring and using a 'burner' phone and SIM card for anonymous communication. Following these steps is critical to ensure the device is not linked to your real identity.
+*Status: Undercover Operations Blueprint | Audience: High-Risk Organizers and Sources*
 
----
+A "burner phone" is not a specific type of hardware; it is a strict operational methodology. The moment a piece of hardware or a phone number is cryptographically or physically linked to your true identity, it ceases to be a burner.
 
-### **1. The 'Why': Understanding the Threat Model**
-
-A burner phone's primary purpose is to **break the link between your identity and your communications**. It is not a magic tool that makes you invisible.
-
-**What a Burner Phone Protects Against:**
-*   **Identity Correlation:** Prevents law enforcement or adversaries from easily connecting a specific phone number or device (via its IMEI) to your real name, credit card, or home address.
-*   **Network Analysis:** Makes it harder to map out your social network by analyzing who you call and text from your personal number.
-
-**What a Burner Phone Does NOT Protect Against:**
-*   **Interception:** Standard calls and SMS text messages are **not encrypted** and can be easily intercepted by law enforcement with a warrant or by sophisticated adversaries.
-*   **Location Tracking:** While the phone is on, it is constantly connecting to cell towers, revealing its approximate location. This is why usage discipline is critical.
-*   **Sophisticated Mobile Exploits:** A simple feature phone has a much smaller attack surface than a smartphone, but it is not immune to advanced exploits.
+As a privacy consultant and operations expert, I must emphasize: acquiring and operating an ephemeral endpoint without leaving a corporate, financial, or geographic paper trail is extremely difficult. A single mistake permanently burns the device.
 
 ---
 
-### **2. The Acquisition: The Anonymity Foundation**
+## 1. The Acquisition Protocol (Breaking the Paper Trail)
 
-This is the most important phase. A mistake here will compromise the entire effort.
+Do not buy a burner phone on your way home from work. The purchase must be an isolated, premeditated event.
 
-#### **Step 1: Prepare for the Purchase**
+### Hardware and SIM Sourcing
+*   **The Hardware:** Buy a cheap, unlocked Android device (like a Moto G) or a basic feature phone. Do not buy a high-end flagship.
+*   **The SIM:** Buy a prepaid SIM card (e.g., Mint Mobile, Tracfone). **Crucial 2026 Warning:** Avoid jurisdictions that require a government-issued ID to activate prepaid SIMs. If an ID is scanned, the phone is permanently linked to you.
 
-*   **Cash is King:** You will need cash to purchase both the phone and the SIM card. Do not use a credit or debit card. Get the cash from an ATM well in advance of your purchase.
-*   **Leave Your Personal Phone Behind:** Do not bring your personal smartphone with you when you go to buy the burner. This prevents location data from your personal device from being correlated with the time and place of the burner purchase.
-*   **Dress Inconspicuously:** Blend in with the crowd. Avoid wearing anything that makes you stand out. **Be aware of CCTV.** If a high-level adversary investigates the burner number, they will track the purchase time/location and pull the store's security camera footage. Wear a mask (COVID-style) and a hat to obscure your face from cameras.
+### Operational Security During Purchase
+1.  **Disparate Timing & Locations:** Buy the hardware and the SIM card at different stores, on different days, located in different zip codes. Do not buy them together.
+2.  **Cash Only:** Withdraw cash from an ATM several days prior. Do not use ATMs near the purchase location.
+3.  **ALPR & Transit Evasion:** Do not drive a vehicle registered to your true name to the store. ALPR (Automated License Plate Readers) will log your vehicle in the parking lot. Take public transit or walk.
+4.  **CCTV Awareness:** Large retail stores (Target, Walmart) have high-density 4K CCTV systems covering the electronics aisles and registers. Wear a high-quality N95 mask and a hat to obscure facial recognition mapping. Do not look directly at the dome cameras.
+5.  **Leave Your Personal Phone Behind:** This is non-negotiable. If you carry your powered-on personal smartphone while purchasing the burner, the telecom provider's cell tower logs will definitively prove that *your* phone was standing directly in front of the cash register at the exact timestamp the burner was purchased.
 
-#### **Step 2: Purchase the Phone**
+## 2. The Absolute Hazard: Co-Location Tracking
 
-*   **Where to Buy:** Go to a large, busy retail store like Walmart, Target, or Best Buy. These stores have high foot traffic and handle many anonymous cash transactions, making your purchase unremarkable.
-*   **What to Buy:** Choose a simple, non-smart **feature phone**. These are often sold in prepaid packages.
-    *   **Recommended Models:**
-        *   **Nokia 110 4G:** A classic, durable phone with excellent battery life.
-        *   **CAT S22 Flip:** A ruggedized flip phone that can run a basic version of Android, allowing for the installation of Signal if needed, but still maintaining a low profile.
-*   **The Transaction:** Pay with cash. Do not sign up for any store loyalty programs or provide any personal information.
+The most common operational failure is **Co-Location**.
 
-#### **Step 3: Purchase the SIM Card**
+*   **The Threat:** If your Burner Phone and your Personal Phone are ever powered on at the same time in the same location (e.g., your house, your car, your pocket), the telecom provider's data will permanently stitch the two identities together. The adversary simply runs a query: *"Which personal cell phone is always located within 10 meters of this burner phone at 2:00 AM?"*
+*   **The Rule:** Your burner phone must **never** be powered on at your residence or workplace. It must **never** travel in the same vehicle as your personal phone.
+*   **Storage:** When not in active operational use, power down the burner, remove the battery (if possible), and store it in an RF-shielded Faraday bag.
 
-*   **Where to Buy:** You can often buy this at the same time as the phone. Look for prepaid SIM card kits from Mobile Virtual Network Operators (MVNOs).
-    *   **Recommended Brands:** Tracfone, Mint Mobile, H2O Wireless, Simple Mobile. These are sold in most large retail and convenience stores.
-*   **The Transaction:** Again, **pay with cash**.
-*   **A Modern Warning on IDs:** In many countries (and increasingly in some US jurisdictions), buying or activating a prepaid SIM card legally requires showing a government-issued ID. If an ID is required, the phone is **no longer a burner**. It is permanently linked to you. You must seek out SIMs that can be activated online anonymously using cash-bought top-up cards.
+## 3. Safe Activation Sequence
 
----
+Do not activate the phone at home.
 
-### **3. The Setup & Usage: Maintaining Anonymity**
+1.  **The Location:** Travel to a dense, public area with free Wi-Fi (e.g., a large coffee shop or library) miles away from your home or normal operational zones.
+2.  **The Network:** Do not connect to the cellular network yet. Turn the phone on, leave the SIM card *out*, and connect to the public Wi-Fi.
+3.  **The Tunnel:** Use the public Wi-Fi to route through a multi-hop VPN or the Tor network.
+4.  **Registration:** Insert the SIM card and complete the online registration via the Tor browser/VPN. If the provider requires a name, use a generated alias. If they require a zip code, use the zip code of a random commercial district in a different state.
+5.  **Fund Reloads:** Always fund the phone using cash-purchased top-up cards. Never link a credit card.
 
-#### **Step 1: First Power-On and Activation**
+## 4. Device Cycling and Permanent Disposal
 
-*   **Location is Key:** Do NOT turn the phone on for the first time at your home, workplace, or any location frequently associated with you. Go to a public area several miles away that you do not normally visit.
-*   **Activation:** Follow the instructions in the SIM card kit to activate the service. This can usually be done from the phone itself or by calling a toll-free number. If it requires an online activation, use a public computer (e.g., at a library) and the Tor Browser. Do NOT use your home internet.
+A burner phone has a finite operational lifespan. The longer you use it, the larger the metadata trail (the "pattern of life") grows.
 
-#### **Step 2: Usage Discipline**
-
-*   **The Golden Rule: NO PERSONAL DATA.**
-    *   Do not log into any personal accounts (Google, Apple, social media).
-    *   Do not import your contacts. Manually type in the numbers you need for your specific purpose.
-    *   Do not use your real name or any identifiable information in any profiles or settings.
-*   **Single-Purpose Device:** Dedicate the burner to a single, specific purpose or operation. Do not mix your activism calls with personal calls to family.
-*   **Power Down:** When not in use, **turn the phone completely off**. If possible, **remove the battery**. This prevents the device from connecting to cell towers and revealing its location.
-*   **Travel Separately:** Never carry your personal phone and your burner phone together when both are turned on. This would immediately link the two devices and, by extension, link the burner to your identity.
-
----
-
-### **4. The Disposal: Completing the Lifecycle**
-
-When the operation is over or if you suspect the phone has been compromised, you must securely dispose of it.
-
-1.  **Deactivate Service:** Stop paying for the prepaid plan. The number will eventually be deactivated.
-2.  **Destroy the SIM Card:** Remove the SIM card from the phone. Use scissors to cut the chip into multiple pieces. Discard the pieces in different public trash cans.
-3.  **Destroy the Phone:** The goal is to make the internal storage unrecoverable.
-    *   Remove the battery.
-    *   Use a hammer or other heavy object to physically destroy the phone, focusing on crushing the main circuit board. For extreme security, you can also use a drill to destroy the memory chips.
-    *   Discard the destroyed components in separate, public locations.
+*   **Cycling:** High-risk operations require cycling (replacing) the burner phone and SIM every 30 to 90 days.
+*   **Digital Forensic Stitching:** Do not transfer contacts, accounts, or SD cards from an old burner to a new burner. If an adversary captures the new phone, they can use forensic stitching to link it back to the history of the old phone.
+*   **Permanent Disposal:** When a burner is retired, it must be destroyed, not just turned off.
+    *   *The SIM:* Cut the SIM card chip into quarters using heavy shears. Disperse the pieces in separate public trash bins.
+    *   *The Hardware:* Remove the battery. Physically destroy the motherboard (specifically the flash memory chips) using a hammer or drill. Discard the destroyed chassis in an industrial dumpster far from your operational zone.
 
 _Last Updated: 2026_
