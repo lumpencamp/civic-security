@@ -1,55 +1,56 @@
-# The Complete Guide to Device Encryption
+# Device Encryption: Cryptographic Defense of Data-at-Rest
 
-This guide covers the 'why' and 'how' of device encryption, from the essential full-disk encryption on your main devices to advanced, file-based encryption for your most sensitive data.
+*Status: Storage Cryptography Manual | Audience: Source Handlers and High-Risk Data Custodians*
 
----
+If a physical device is seized while powered off, Full Disk Encryption (FDE) is your only line of defense. As a cryptographic software engineer, I must clarify that encryption algorithms are rarely "broken." The failure point is almost always weak key generation (passphrase entropy) or flawed implementation.
 
-## Part 1: Full-Disk Encryption (FDE) - The Essential First Layer
-
-Full-Disk Encryption (FDE) encrypts the entire operating system drive. It is your non-negotiable first line of defense against physical theft or seizure. When your device is off, all your data is protected.
-
-### **Windows: BitLocker**
-
-1.  **Check Your Version:** BitLocker is available on Windows Pro, Enterprise, and Education editions.
-2.  **Enable:** Go to Control Panel > System and Security > BitLocker Drive Encryption. Click "Turn on BitLocker" for your C: drive.
-3.  **Save Your Recovery Key:** This is CRITICAL. You will be prompted to save a recovery key. **Save this key somewhere safe and separate from the computer itself.** A password manager, a printed copy in a safe, or a secure cloud storage account are good options. Losing this key and your password means losing your data forever.
-
-### **macOS: FileVault**
-
-1.  **Enable:** Go to System Settings > Privacy & Security > FileVault. Click "Turn On..."
-2.  **Recovery Key:** You will be given the option to use your iCloud account or create a local recovery key. For maximum security, **choose to create a local recovery key** and store it securely offline, just like the BitLocker key.
-
-### **iOS & Android**
-
-Modern smartphones (iOS and Android) have device encryption enabled by default. Your primary protection is a **strong, alphanumeric passcode**. Do not rely solely on biometrics (Face ID, fingerprint), as they can sometimes be legally compelled. A strong passcode is your best defense.
+This guide details the deployment of FDE and deniable encryption architectures required to withstand targeted forensic extraction and GPU-accelerated brute-forcing.
 
 ---
 
-## Part 2: VeraCrypt - Advanced Container-Based Encryption
+## 1. Cryptographic Primitives and Entropy Requirements
 
-For your most sensitive files, you need a second layer of protection. VeraCrypt allows you to create a password-protected, encrypted 'virtual disk' (a container) that is only accessible when you mount it.
+Do not rely on default settings without understanding the math protecting your data.
 
-### **Step-by-Step: Creating a Standard Encrypted Container**
+### Recommended Primitives
+When configuring encryption software (like VeraCrypt or LUKS), you will be prompted to select algorithms.
+*   **Encryption Algorithm:** Use **AES-256**. It is the global standard, heavily audited, and hardware-accelerated on modern CPUs (AES-NI), providing fast read/write speeds without compromising security. The cipher mode should be **XTS** (XEX-based tweaked-codebook mode with ciphertext stealing), which is specifically designed to resist manipulation attacks on block storage.
+*   **Hash Algorithm:** Use **SHA-512** or **Whirlpool**. This is used for Key Derivation (turning your password into the actual mathematical key).
 
-1.  **Install VeraCrypt** from `https://www.veracrypt.fr`.
-2.  **Create Volume:** Launch VeraCrypt, click `Create Volume`, and choose `Create an encrypted file container` -> `Standard VeraCrypt volume`.
-3.  **Select File Location:** Choose a location and give your container an innocuous name (e.g., `research.dat`).
-4.  **Encryption Options:** Use the defaults: `AES` and `SHA-512`.
-5.  **Set Volume Size:** Specify the size you need (e.g., 10 GB).
-6.  **Set Password:** Use a long, unique passphrase of 20+ characters. **There is no recovery if you forget it.**
-7.  **Format:** Move your mouse randomly in the window to generate strong cryptographic keys, then click `Format`.
+### Passphrase Entropy Against GPU Brute-Forcing
+Forensic adversaries (T3/T4) use massive clusters of GPUs to guess passphrases at a rate of millions per second.
+*   **The Mandate:** Your passphrase must possess sufficient entropy (randomness) to make brute-forcing mathematically impossible before the heat death of the universe.
+*   **Implementation:** Use a **Diceware** passphrase consisting of a minimum of **6 completely random words** (e.g., `correct horse battery staple...`). This generates over 77 bits of entropy, which is secure against all known conventional brute-force capabilities. Do *not* use a complex, memorized password containing substitutions (e.g., `P@ssw0rd!123`); cracking dictionaries defeat these instantly.
 
-### **How to Use Your VeraCrypt Volume**
+## 2. Full Disk Encryption (FDE) Deployments
 
-1.  Open VeraCrypt, select a drive letter (e.g., `G:`), select your container file, and click `Mount`.
-2.  Enter your password. The drive will appear in your file explorer.
-3.  When finished, select the drive in VeraCrypt and click `Dismount`. The drive disappears, and your data is secure.
+FDE encrypts every sector of your drive, including the swap space and temporary files, which often contain fragments of unencrypted sensitive data.
 
-### **Advanced: Plausible Deniability with a Hidden Volume**
+### Linux (LUKS)
+*   **Implementation:** Linux Unified Key Setup (LUKS) is the standard for Linux distributions. During the installation of a secure Linux OS (like Debian, Ubuntu, or Qubes OS), you will be prompted to encrypt the installation.
+*   **Security Standard:** Ensure the installer uses LUKS2. LUKS2 utilizes the Argon2id Key Derivation Function (KDF). Argon2id is specifically designed to be memory-hard, exponentially increasing the financial cost and time required for an adversary to brute-force your passphrase using GPUs or ASICs.
 
-A hidden volume is a secret volume created inside the free space of a standard 'outer' volume, protected by a different password. This allows you to reveal the outer password under coercion without exposing your most sensitive data.
+### Cross-Platform (VeraCrypt)
+For external hard drives, USB thumb drives, or creating encrypted containers on Windows/macOS, use **VeraCrypt** (the audited, open-source successor to TrueCrypt).
 
-1.  **Creation:** When creating a volume, select `Hidden VeraCrypt volume`. You will first provide the password for the outer volume, then go through the creation process again for the hidden volume with a **different password**.
-2.  **Critical OPSEC:** After creating a hidden volume, **never write new files to the outer volume**. To protect against this, when mounting the outer volume, use the `Mount Options` to `Protect hidden volume when mounting outer volume` by providing the hidden volume's password.
+## 3. Deniable Encryption: The VeraCrypt Hidden Volume
+
+If you face physical coercion or legal compulsion (a court order demanding your passphrase), standard FDE fails because you are forced to surrender the key. Deniable encryption solves this by creating two volumes in the same space: an Outer Volume and a Hidden Volume.
+
+### The Mechanics of Plausible Deniability
+VeraCrypt creates an Outer Volume filled with decoy data. Inside the seemingly random "free space" of that Outer Volume, it builds a Hidden Volume. There is no cryptographic signature proving the Hidden Volume exists.
+
+If forced to surrender a passphrase, you provide the passphrase for the Outer Volume. The adversary decrypts the drive, finds the decoy data, and has no mathematical proof that secondary data is hidden inside.
+
+### Configuration Protocol
+1.  Open VeraCrypt and select **Create Volume**.
+2.  Choose **Create a hidden VeraCrypt volume**.
+3.  **Create the Outer Volume:**
+    *   Set the Outer Volume passphrase.
+    *   Mount it and fill it with plausible decoy data (e.g., tax documents, benign personal photos). The decoy data *must* look realistic.
+4.  **Create the Hidden Volume:**
+    *   VeraCrypt will now prompt you to create the Hidden Volume within the free space of the Outer Volume.
+    *   Set a completely different, highly secure Diceware passphrase for the Hidden Volume.
+5.  **Behavioral Constraint (CRITICAL):** When you mount the Outer Volume to add more decoy data, you *must* select "Protect hidden volume" in the mount options and enter the Hidden Volume's password. If you fail to do this, adding data to the Outer Volume will overwrite and permanently destroy the Hidden Volume.
 
 _Last Updated: 2026_
