@@ -1,91 +1,52 @@
-# Una guía detallada de las radios Meshtastic y LoRa
+# Meshtastic y LoRa: comunicaciones descentralizadas fuera de la red
 
-Esta guía proporciona una descripción general completa de Meshtastic, una poderosa tecnología para crear redes de comunicación privadas, cifradas y fuera de la red. Es ideal para equipos que necesitan mantenerse en contacto cuando el servicio celular no está disponible, no es confiable o no es seguro.
+*Estado: Manual de implementación e ingeniería de RF | Público: arquitectos de redes y equipos de comunicaciones tácticas*
 
----
+Cuando los actores estatales desactivan las redes celulares (o se debe asumir que toda la infraestructura de telecomunicaciones está comprometida), las operaciones requieren una capa de comunicación secundaria y descentralizada. LoRa (largo alcance) es un protocolo de radio de potencia ultrabaja y ancho de banda bajo que opera en la banda ISM (por ejemplo, 915 MHz en EE. UU.). Combinado con el firmware Meshtastic de código abierto, permite la implementación de una red de malla de mensajería de texto punto a punto totalmente cifrada y completamente desacoplada de los ISP corporativos.
 
-### **1. Comprender la tecnología**
-
-Es importante comprender las dos partes que hacen que este sistema funcione: LoRa y Meshtastic.
-
-* **LoRa (largo alcance):** Esta es la tecnología de radio subyacente. LoRa permite enviar pequeños paquetes de datos a distancias muy largas (muchos kilómetros en buenas condiciones) utilizando muy poca energía. Piense en ello como la capa física, como las torres de telefonía celular y las ondas de radio de la red celular, pero en una escala personal mucho más pequeña.
-
-* **Meshtastic:** Este es el software y protocolo de código abierto que se ejecuta sobre el hardware LoRa. Meshtastic toma la capacidad de datos sin procesar de LoRa y la convierte en una red de malla inteligente y fácil de usar. Sus características clave son:
-    * **Malla descentralizada:** Cada dispositivo de la red puede transmitir mensajes a todos los demás dispositivos. Esto amplía el alcance de la red mucho más allá de lo que podría lograr una sola radio.
-    * **Cifrado de extremo a extremo:** Todos los mensajes están cifrados con AES-256. Solo los dispositivos que tengan la clave de canal correcta y previamente compartida pueden leer los mensajes.
-    * **GPS y uso compartido de ubicación:** La mayoría de los dispositivos Meshtastic incluyen un módulo GPS, que le permite compartir de forma segura su ubicación con otros miembros confiables de su malla.
-
-### **2. ¿Por qué utilizar Meshtastic para el activismo?**
-
-* **Independencia:** Funciona cuando las redes celulares y Wi-Fi están apagadas o sobrecargadas.
-* **Privacidad:** La naturaleza cifrada y descentralizada hace que sea mucho más difícil de monitorear que el tráfico celular estándar.
-* **Bajo costo:** El hardware es económico y no hay tarifas de suscripción.
-* **Bajo consumo:** Los dispositivos a menudo pueden funcionar durante días con una sola carga de batería.
-
-**Lo que NO es:** Meshtastic es una red de bajo ancho de banda. Es excelente para mensajes de texto y datos de ubicación, pero **no** puede usarse para llamadas de voz, enviar imágenes o navegar por Internet.
+Esta guía detalla la implementación técnica y las vulnerabilidades SIGINT de una malla LoRa táctica.
 
 ---
 
-### **3. Selección de hardware**
+## 1. Selección de hardware y actualización del firmware
 
-Docenas de dispositivos son compatibles con Meshtastic, pero algunos son muy populares, cuentan con buen soporte y funcionan muy bien desde el primer momento.
+Confíe en el hardware creado en torno al moderno transceptor LoRa Semtech SX1262. Los chips más antiguos (como el SX1276) tienen una sensibilidad inferior y un mayor consumo de energía.
 
-* **Heltec Wireless Stick Lite (V3):**
-    * **Pros:** Muy compacto, bajo consumo de energía, tiene una pequeña pantalla OLED para actualizaciones de estado. Excelente para un dispositivo de bolsillo.
-    * **Contras:** No incluye módulo GPS ni soporte de batería, por lo que requiere alimentación externa.
-    * **Perfecto para:** Un nodo básico y económico o un dispositivo secundario.
+* **Nodos recomendados:** LILYGO T-Echo o Heltec V3 (para operadores móviles); RAK Wireless WisBlock (para nodos repetidores estacionarios equipados con energía solar y de baja potencia).
+* **Implementación:** Actualice el último firmware estable de Meshtastic a través de `flasher.meshtastic.org`.
+* **Restricción operativa:** **No utilice la configuración predeterminada del canal "LongFast" para operaciones cívicas de alto riesgo.** El canal predeterminado es público, no cifrado y está muy congestionado.
 
-* **LILYGO T-Beam S3-Core:**
-    * **Pros:** Una solución todo en uno. Incluye un potente procesador, un módulo GPS, un soporte para batería (para una batería 18650) y, a menudo, una pantalla pequeña. Este es un dispositivo de caballo de batalla.
-    * **Contras:** Es más grande y utiliza más energía que el dispositivo Heltec.
-    * **Mejor para:** Un dispositivo principal para un usuario que necesita funciones de ubicación GPS y una fuente de energía autónoma.
+## 2. Configuración del canal criptográfico
 
-* **Kit de inicio RAK Wireless WisBlock Meshtastic:**
-    * **Pros:** Un sistema modular de alta calidad. El kit incluye una placa base, un módulo LoRa, un módulo GPS y una carcasa. El hardware RAK es conocido por su excelente rendimiento y confiabilidad.
-    * **Contras:** Puede ser un poco más caro y requiere un ensamblaje menor (unir módulos).
-    * **Ideal para:** Usuarios que desean un rendimiento de primer nivel y la flexibilidad para actualizar componentes más adelante.
+Para proteger la malla, debe establecer un canal cerrado y autenticado utilizando cifrado AES-256.
 
----
+1. **Generación de claves:** Usando la CLI Meshtastic o la aplicación móvil, cree un nuevo canal y configure el cifrado en **AES256**. El software generará una clave criptográfica de 256 bits.
+2. **Distribución fuera de banda (OOB):** *Nunca* transmita la URL de configuración del canal o el código QR a través del canal público LoRa o mediante SMS estándar. La clave debe distribuirse fuera de banda a través de Signal, chat Matrix cifrado o escaneo físico de códigos QR en persona.
+3. **Designación de función:** Configure los nodos móviles como "Cliente" o "ClienteMudo" (que no transmite su ubicación GPS a la malla). Configure nodos estacionarios elevados como "enrutador" para priorizar la retransmisión de paquetes.
 
-### **4. Guía de configuración paso a paso**
+## 3. Optimización de parámetros de RF (urbano versus rural)
 
-Configurar su primer dispositivo Meshtastic es sorprendentemente fácil.
+LoRa se basa en la modulación Chirp Spread Spectrum (CSS). Debe ajustar el factor de dispersión (SF) y el ancho de banda (BW) según su entorno operativo.
 
-**Paso 1: Actualice el firmware**
+### Operaciones urbanas densas (protestas/ciudades)
+En una ciudad, el rebote de la señal (desvanecimiento por trayectos múltiples) y el ruido de RF son altos, pero las distancias físicas entre los nodos suelen ser cortas.
+* **Configuración:** Utilice un factor de dispersión más bajo (SF 7 u 8) y un ancho de banda más alto (250 kHz o 500 kHz).
+* **Resultado:** Esto aumenta significativamente la velocidad de los datos y reduce el tiempo de uso (ahorrando batería y reduciendo la ventana de detección de RF), sacrificando un alcance extremo que es innecesario en multitudes densas.
+* **Límite de saltos:** Establece el máximo de saltos en **3**. En una densa multitud con cientos de nodos, un límite de saltos de 7 (el valor predeterminado) provocará una tormenta de transmisión que colapsará la red.
 
-La forma más sencilla de instalar el firmware Meshtastic en su dispositivo es con el flash web oficial.
+### Operaciones de campo abierto (rurales/de largo alcance)
+* **Configuración:** Utilice un factor de dispersión alto (SF 11 o 12) y un ancho de banda bajo (125 kHz).
+* **Resultado:** Esto maximiza la sensibilidad y el alcance (a menudo más de 10 millas en la línea de visión) pero reduce significativamente la velocidad de los datos. El tiempo aire por mensaje será largo.
+* **Límite de saltos:** Aumente a 5-7 para permitir que los paquetes atraviesen varias millas a través de nodos repetidores dispersos.
 
-1. **Conecte su dispositivo:** Conecte su nuevo dispositivo Meshtastic a su computadora usando un cable USB-C de calidad.
-2. **Abra Web Flasher:** Usando un navegador web moderno (como Chrome o Edge), navegue hasta **`flasher.meshtastic.org`**.
-3. **Seleccione su dispositivo:** Elija el modelo de su dispositivo de la lista desplegable.
-4. **Flash:** Haga clic en el botón "Flash" y siga las instrucciones en pantalla. El flash web instalará automáticamente la última versión estable del firmware Meshtastic en su dispositivo.
+## 4. Vulnerabilidades de SIGINT y búsqueda de dirección de radio (RDF)
 
-**Paso 2: Configura tu Mesh a través de la aplicación**
+Si bien Meshtastic cifra el *contenido* del mensaje, no puede ocultar las emisiones físicas de RF. Los adversarios estatales (T2/T4) utilizan equipos automatizados de radiogoniometría (RDF) (como antenas de "caza del zorro") para triangular la ubicación física de un nodo transmisor.
 
-La configuración se realiza mediante la aplicación Meshtastic de su teléfono inteligente, que se conecta a su dispositivo a través de Bluetooth.
-
-1. **Instale la aplicación:** Descargue la aplicación oficial Meshtastic de Google Play Store (Android) o Apple App Store (iOS).
-2. **Empareje su dispositivo:** Abra la aplicación y use la función de emparejamiento Bluetooth para conectarse a su hardware Meshtastic. Normalmente aparecerá como "Meshtastic_XXXX".
-3. **Establezca su región:** En la configuración de la aplicación, asegúrese de configurar la región LoRa correcta para su país (por ejemplo, EE. UU., UE, AU). Este es un requisito legal.
-4. **Configura tu canal:** Este es el paso más importante por seguridad.
-    * Navega a la pestaña "Canales".
-    * Eliminar el canal "Principal" predeterminado.
-    * Haga clic en el botón '+' para agregar un nuevo canal.
-    * Dale a tu canal un **nombre único** (por ejemplo, "RedTeamAlpha").
-    * Seleccione la configuración **"AES256 - SEGURO"**.
-    * Se generará una clave de cifrado aleatoria y segura. **Debes compartir de forma segura el nombre y la clave de este canal con todos los que necesiten estar en tu malla.** La forma más sencilla es utilizar la función para compartir códigos QR en la aplicación.
-
-**Paso 5: prueba tu malla**
-
-Una vez que dos o más dispositivos estén configurados con la misma configuración de canal seguro, ¡puede comenzar a enviar mensajes! Utilice la interfaz de texto de la aplicación para enviar mensajes. Los verá aparecer en los otros dispositivos y las pantallas del dispositivo mostrarán cuántos nodos están actualmente conectados a la malla.
-
----
-
-### **5. Mejores prácticas de seguridad operativa (OPSEC)**
-
-* **Utilice un canal seguro:** Utilice siempre la configuración de cifrado AES-256 y una clave segura generada aleatoriamente. Nunca utilice el canal público predeterminado para nada que no sea la prueba inicial.
-* **Desactive el GPS cuando no sea necesario:** Su ubicación son datos confidenciales. En la configuración del dispositivo de la aplicación, puedes desactivar el módulo GPS o reducir la frecuencia con la que transmite tu ubicación para ahorrar energía y proteger tu privacidad.
-* **Seguridad física:** Tenga en cuenta que su dispositivo está transmitiendo señales de radio. Si bien el contenido está cifrado, un adversario sofisticado con equipo de radiogoniometría podría localizar un dispositivo transmisor. Mantenga las transmisiones breves y cambie de ubicación si corre un alto riesgo.
-* **Limitar información del nodo:** En la configuración de la aplicación, puedes cambiar el nombre de tu nodo. Evite utilizar su nombre real o cualquier información de identificación.
+### Postura defensiva de RF
+1. **Reducir el tiempo de uso:** Cuanto más tiempo transmita un nodo, más fácil será triangular. La optimización urbana (bajo SF, alta velocidad) es fundamental para reducir la ventana de transmisión.
+2. **Enmascaramiento de antena:** No camines con una antena de alta ganancia de 15 cm sobresaliendo de tu mochila. Utilice antenas pequeñas y rechonchas o antenas de PCB planas montadas al ras del interior de una bolsa. Sacrificas el alcance por la ocultación física.
+3. **Antenas direccionales:** Si implementa un nodo de retransmisión estacionario (por ejemplo, en la ventana de un apartamento), no utilice una antena omnidireccional. Utilice una antena direccional Yagi o Moxon apuntada *lejos* de las áreas de concentración policial conocidas y hacia su zona operativa. Esto da forma a la columna de RF, reduciendo drásticamente la señal detectable desde detrás de la antena.
+4. **Desacople el operador:** No sostenga la radio mientras está en funcionamiento. Coloque el nodo Meshtastic en lo alto de un árbol o edificio y conéctese a él mediante Bluetooth desde su teléfono a una distancia de entre 30 y 50 pies. Si el nodo se triangula y toma RDF, el operador no es capturado físicamente con el hardware de transmisión.
 
 _Última actualización: 2026_
