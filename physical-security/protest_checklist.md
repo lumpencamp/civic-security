@@ -1,92 +1,58 @@
-# Expanded Protest Checklist: A Guide for Activists
+# Tactical Field Deployment Checklist
 
-This checklist is designed to help you prepare for, navigate, and safely conclude your participation in a protest or direct action. 
+*Status: Logistics & Field Readiness Manual | Audience: Direct Action Teams and Field Organizers*
 
----
+Physical safety and digital security are inextricably linked during a direct action event. A failure in one domain instantly compromises the other. As a tactical logistics coordinator, I mandate strict adherence to a chronological deployment schedule.
 
-### **1. Pre-Protest Preparation (The Week Before)**
-
-#### **Digital Security**
-
-*   [ ] **Back Up Your Phone:** Ensure all important data (photos, contacts, documents) is backed up to a secure cloud service or a personal computer. 
-*   [ ] **Enable Full-Disk Encryption:** Most modern smartphones (iOS, Android) have this enabled by default. Double-check your security settings. This makes it much harder for anyone to access your data if your phone is seized.
-*   [ ] **Set a Strong Passcode:** Use a long, alphanumeric passcode instead of a simple PIN, fingerprint, or face ID. Police may be able to legally compel you to use your biometrics (finger/face) to unlock a phone, but they cannot compel you to reveal a passcode.
-*   [ ] **Review Social Media Settings:** Set your accounts to private. Be mindful of what you post publicly about your intent to protest. 
-*   [ ] **Secure Your Communications:** Use end-to-end encrypted messaging apps like Signal for planning with other organizers. Avoid using SMS, Facebook Messenger, or other unencrypted platforms for sensitive conversations.
-*   [ ] **Install a Legal Support App:** Download the ACLU "Mobile Justice" app for your state. It allows you to record and automatically upload video of police encounters to the ACLU.
-
-#### **Physical & Group Preparation**
-
-*   [ ] **Know Your Goal:** Understand the purpose of the protest and the plan for the day. What are you trying to achieve?
-*   [ ] **Form an Affinity Group:** If possible, go with a small group of trusted friends (an "affinity group"). You can look out for each other, make decisions together, and provide support if someone is arrested.
-*   [ ] **Designate a Jail Support Contact:** Choose one person who is NOT attending the protest to be your jail support contact. Give them the full names and birth dates of everyone in your affinity group. They will be your point of contact to arrange legal help and bail if you are arrested.
-*   [ ] **Write Down Key Phone Numbers:** Do not rely on your phone's contact list. Write down the following numbers **directly on your skin** (e.g., forearm or thigh) in permanent marker. Paper can be confiscated by police or lost; your skin cannot:
-    *   Your jail support contact.
-    *   **National Lawyers Guild (NLG) Chicago Hotline: (872) 465-4244**
-    *   **First Defense Legal Aid (FDLA) 24/7 Hotline: (800) 529-7374**
-*   [ ] **Plan Your Route:** Know how you're getting to and from the protest. Have a backup plan. Be aware of your surroundings as you travel.
+This checklist ensures full alignment between your physical loadout and your digital security posture before, during, and after an operation.
 
 ---
 
-### **2. The Day of the Protest**
+## Phase 1: T-Minus 48 Hours (Preparation & Backup)
 
-#### **What to Wear**
+This phase establishes your baseline resilience. If you are detained, you must assume your primary device will be seized and subjected to forensic extraction.
 
-*   [ ] **Comfortable, Sturdy Shoes:** You will be on your feet for hours. Closed-toe shoes are essential.
-*   [ ] **Layers of Plain Clothing:** Wear non-descript clothing without logos or political messages (beyond the protest's core message, if desired). Layers allow you to adapt to changing weather and can be removed to change your appearance if needed.
-*   [ ] **Weather-Appropriate Gear:** Bring a hat, sunglasses, sunscreen, or a rain poncho as needed.
-*   [ ] **Face Covering:** A mask (like a disposable medical mask or a cloth mask), scarf, or bandana can help protect your identity from surveillance and protect you from airborne irritants.
+*   **Digital Preparation:**
+    *   [ ] **Full Data Backup:** Backup your primary phone to a secure, offline, encrypted external drive.
+    *   [ ] **Device Sanitization:** Delete all non-essential operational data, photos, and messages from your device. Empty the "Recently Deleted" folders.
+    *   [ ] **Biometric Lockdown:** Disable Fingerprint and Face ID unlock. Set a complex, alphanumeric passphrase (minimum 12 characters). Police can physically force a biometric unlock; they cannot legally force a passphrase without a warrant (and even then, you can refuse).
+    *   [ ] **Burner Procurement:** If required, purchase your operational burner phone and SIM using cash, adhering to strict ALPR/CCTV evasion protocols.
+*   **Physical & Legal Preparation:**
+    *   [ ] **Affinity Group Check-In:** Confirm the roles and emergency contacts of everyone in your immediate 4-6 person affinity group.
+    *   [ ] **Jail Support Designation:** Confirm your off-site Jail Support contact. They must have your full legal name, date of birth, and any critical medical requirements.
+    *   [ ] **Medical Identification:** Write critical medical information (allergies, blood type) and the National Lawyers Guild (NLG) hotline **directly on your skin** (e.g., forearm or thigh) in permanent marker. Paper can be confiscated; your skin cannot.
 
-#### **What NOT to Wear**
+## Phase 2: T-Minus 2 Hours (Staging & Device Lockdown)
 
-*   **Contact Lenses:** Chemical agents like pepper spray can get trapped under them, causing severe eye damage. Wear glasses instead.
-*   **Jewelry:** It can be grabbed or get caught on things.
-*   **Makeup or Oily Lotions:** These can trap chemical agents against your skin.
+This phase occurs at a secure staging area *before* transiting to the target zone.
 
-#### **What to Bring (Safety & First Aid)**
+*   **Physical Gear (PPE & Loadout):**
+    *   [ ] **Face Concealment:** N95 mask (highest efficacy against facial recognition mapping and chemical irritants) combined with polarized sunglasses and a low-profile, unbranded hat.
+    *   [ ] **Clothing:** Unbranded, layered clothing that can be easily removed to change your physical description post-event ("Black Bloc" style if appropriate to the action). Closed-toe, heavy-soled footwear.
+    *   [ ] **First Aid:** Carry a 50/50 mix of liquid antacid (Maalox) and water in a spray bottle to flush eyes exposed to chemical agents.
+    *   [ ] **Cash and ID:** Carry only the cash necessary for emergency transit. If carrying ID, keep it separate from your wallet.
+    *   [ ] **Contraband Check:** **No weapons.** Do not carry laser pointers (which carry severe felony charges if aimed at aircraft/police).
+*   **Technical Lockdown:**
+    *   [ ] **Personal Device Shutdown:** Power down your personal smartphone. Place it in an RF-shielded Faraday bag. It does not leave this bag until you return to a safe zone.
+    *   [ ] **Burner Activation:** Power on your operational burner phone.
+    *   [ ] **Disable RF Beacons:** Turn off Bluetooth and Wi-Fi scanning to prevent crowd-monitoring sniffers from logging your device's MAC address.
 
-*   [ ] **Water in a Plastic Bottle:** Stay hydrated. Avoid glass bottles.
-*   [ ] **Snacks:** High-energy snacks like granola bars.
-*   [ ] **Personal First-Aid Kit:** Include bandages, antiseptic wipes, and any personal medications (e.g., inhaler). 
-*   [ ] **Liquid Antacid & Water Solution:** A 50/50 mix of liquid antacid (like Maalox) and water in a spray bottle can be used to flush eyes exposed to pepper spray. Label it clearly.
-*   [ ] **Cash:** For food, transport, or payphones. ATMs may be empty or out of reach, and card transactions track your location.
-*   [ ] **ID (Optional but Recommended):** In Illinois, you are not required to carry ID, but not having it can complicate and prolong the arrest process. If you bring it, keep it separate from your wallet.
-*   [ ] **Faraday Bag (Optional but highly recommended):** If bringing a phone, put it in a Faraday bag when not actively using it. This physically blocks all cellular, Wi-Fi, and GPS signals, completely preventing tracking via Stingrays.
+## Phase 3: Active Event (Field Protocols)
 
-#### **What NOT to Bring**
+You are now in the operational zone. Situational awareness is paramount.
 
-*   **Weapons of any kind:** This includes anything that could be *construed* as a weapon (e.g., heavy flagpoles, certain tools). It escalates the situation and increases legal risk exponentially.
-*   **Laser Pointers:** While sometimes used to blind cameras, pointing a laser at aircraft or police officers is often charged as a severe felony. The legal risk rarely outweighs the tactical benefit.
+*   [ ] **The Buddy System:** Never break visual contact with your designated buddy. If the crowd surges or scatters, link arms.
+*   [ ] **Communications Discipline:** Utilize your established PACE plan. Do not send operational updates over open cellular channels. Use Signal/Session, or resort to coded brevity on unencrypted radios.
+*   [ ] **Situational Awareness (OODA Loop):** Observe, Orient, Decide, Act. Identify police staging areas, high-ground surveillance (POD cameras, drones), and the location of street medics and legal observers (usually in bright green hats).
+*   [ ] **Media Discipline:** Do not film the faces or distinct tattoos of other activists without their explicit consent. If filming police misconduct, narrate the time, location, and badge numbers clearly into the audio track.
 
----
+## Phase 4: Post-Event (De-escalation & Debrief)
 
-### **3. During the Protest**
+The operation is not over until every member of the affinity group is safely off the grid.
 
-*   [ ] **Stay with Your Group:** Keep your affinity group close. Use a buddy system.
-*   [ ] **Stay Aware:** Pay attention to your surroundings. Note the locations of street medics, legal observers (often in bright green hats), and police.
-*   [ ] **Stay Calm:** A calm and clear head is your best tool. 
-*   [ ] **Document:** If it is safe to do so, film police activity, especially arrests or use of force. Narrate what you are seeing, including badge numbers, street signs, and the time.
-
----
-
-### **4. Post-Protest Actions**
-
-#### **Immediate Actions**
-
-*   [ ] **Leave Safely:** Leave with your group or a buddy. Avoid leaving alone. Be aware that police may follow or monitor people leaving the area.
-*   [ ] **Change Your Appearance:** If you are concerned about being followed, consider removing an outer layer of clothing or changing your headwear to alter your appearance.
-*   [ ] **Power Off Your Phone:** Turn your phone off immediately after leaving the protest area and don't turn it back on until you are somewhere safe. This prevents location tracking.
-
-#### **Debriefing & Follow-Up**
-
-*   [ ] **Group Debrief:** Meet with your affinity group in a safe place. Discuss what happened, how everyone is feeling, and if anyone needs support.
-*   [ ] **Check on Arrestees:** If anyone from your group was arrested, your jail support contact should be working to locate them and secure legal help. Follow up and provide support.
-*   [ ] **Secure Your Data:** Once home, upload any photos or videos you took to a secure computer or cloud storage and then delete them from your phone.
-
-#### **Checking for Surveillance**
-
-*   [ ] **Vary Your Routes:** In the days following a high-profile action, avoid taking the same route to and from home, work, or school.
-*   [ ] **Pay Attention:** Be aware of unfamiliar vehicles parked on your street for long periods or individuals you don't recognize who appear to be observing your home.
-*   [ ] **Digital Check-Up:** Be cautious of suspicious emails or social media messages (phishing attempts) you may receive after the protest.
+*   [ ] **Safe Break:** Exit the target zone naturally. Do not run unless in immediate physical danger. Follow counter-surveillance "Timed Loop" protocols to ensure you are not being tailed by plainclothes officers or private intelligence (T3).
+*   [ ] **Appearance Alteration:** Once safely out of the immediate zone (e.g., inside a public restroom or transit station), remove your outer layer of clothing and your mask to break your visual description.
+*   [ ] **Digital Shutdown:** Power down the operational burner phone and place it in the Faraday bag *before* transiting back to your residence or safehouse. This prevents co-location tracking with your personal devices.
+*   [ ] **Debrief & Check-In:** Once physically secure, power on your personal device and contact Jail Support with a pre-arranged "All Clear" code phrase. Conduct a debrief with your affinity group to discuss what went right, what went wrong, and who might have been detained.
 
 _Last Updated: 2026_

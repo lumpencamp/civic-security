@@ -1,92 +1,58 @@
-# Lista de verificación ampliada para protestas: una guía para activistas
+# Lista de verificación de implementación de campo táctico
 
-Esta lista de verificación está diseñada para ayudarlo a prepararse, navegar y concluir de manera segura su participación en una protesta o acción directa.
+*Estado: Manual de logística y preparación de campo | Público: Equipos de Acción Directa y Organizadores de Campo*
 
----
+La seguridad física y la seguridad digital están inextricablemente vinculadas durante un evento de acción directa. Una falla en un dominio compromete instantáneamente el otro. Como coordinador de logística táctica, exijo cumplimiento estricto de un cronograma de despliegue cronológico.
 
-### **1. Preparación previa a la protesta (la semana anterior)**
-
-#### **Seguridad digital**
-
-* [ ] **Haga una copia de seguridad de su teléfono:** Asegúrese de que todos los datos importantes (fotos, contactos, documentos) estén respaldados en un servicio seguro en la nube o en una computadora personal.
-* [ ] **Habilitar cifrado de disco completo:** La mayoría de los teléfonos inteligentes modernos (iOS, Android) tienen esto habilitado de forma predeterminada. Vuelva a verificar su configuración de seguridad. Esto hace que sea mucho más difícil para cualquier persona acceder a sus datos si le confiscan el teléfono.
-* [ ] **Establezca un código de acceso seguro:** Utilice un código de acceso alfanumérico largo en lugar de un simple PIN, huella digital o identificación facial. Es posible que la policía pueda obligarte legalmente a utilizar tus datos biométricos (dedo/cara) para desbloquear un teléfono, pero no pueden obligarte a revelar una contraseña.
-* [ ] **Revisar la configuración de redes sociales:** Configure sus cuentas como privadas. Tenga en cuenta lo que publica públicamente sobre su intención de protestar.
-* [ ] **Asegure sus comunicaciones:** Utilice aplicaciones de mensajería cifradas de extremo a extremo como Signal para planificar con otros organizadores. Evite el uso de SMS, Facebook Messenger u otras plataformas no cifradas para conversaciones confidenciales.
-* [ ] **Instale una aplicación de soporte legal:** Descargue la aplicación "Mobile Justice" de la ACLU para su estado. Le permite grabar y cargar automáticamente videos de encuentros policiales a la ACLU.
-
-#### **Preparación física y grupal**
-
-* [ ] **Conozca su objetivo:** Comprenda el propósito de la protesta y el plan para el día. ¿Qué estás tratando de lograr?
-* [ ] **Forme un grupo de afinidad:** Si es posible, vaya con un grupo pequeño de amigos de confianza (un "grupo de afinidad"). Pueden cuidarse unos a otros, tomar decisiones juntos y brindar apoyo si arrestan a alguien.
-* [ ] **Designe un contacto de apoyo a la cárcel:** Elija una persona que NO asista a la protesta para que sea su contacto de apoyo a la cárcel. Bríndeles los nombres completos y las fechas de nacimiento de todos los miembros de su grupo de afinidad. Serán su punto de contacto para conseguir ayuda legal y libertad bajo fianza si lo arrestan.
-* [ ] **Anote números de teléfono clave:** No confíe en la lista de contactos de su teléfono. Escriba los siguientes números **directamente sobre su piel** (por ejemplo, antebrazo o muslo) con marcador permanente. La policía puede confiscar el papel o perderlo; tu piel no puede:
-    * Su contacto de soporte penitenciario.
-    * **Línea directa del Gremio Nacional de Abogados (NLG) de Chicago: (872) 465-4244**
-    * **Línea directa de Asistencia Legal de First Defense (FDLA) 24 horas al día, 7 días a la semana: (800) 529-7374**
-* [ ] **Planifique su ruta:** Sepa cómo llegará y regresará de la protesta. Tenga un plan de respaldo. Sea consciente de su entorno mientras viaja.
+Esta lista de verificación garantiza una alineación total entre su equipamiento físico y su postura de seguridad digital antes, durante y después de una operación.
 
 ---
 
-### **2. El día de la protesta**
+## Fase 1: T-Menos 48 horas (preparación y respaldo)
 
-#### **Qué ponerse**
+Esta fase establece su resiliencia básica. Si lo detienen, debe asumir que su dispositivo principal será confiscado y sometido a extracción forense.
 
-* [ ] **Zapatos cómodos y resistentes:** Estarás de pie durante horas. Los zapatos cerrados son esenciales.
-* [ ] **Capas de ropa sencilla:** Use ropa anodina sin logotipos ni mensajes políticos (más allá del mensaje central de la protesta, si lo desea). Las capas le permiten adaptarse al clima cambiante y se pueden quitar para cambiar su apariencia si es necesario.
-* [ ] **Equipo apropiado para el clima:** Traiga un sombrero, gafas de sol, protector solar o un poncho para la lluvia según sea necesario.
-* [ ] **Cubierta facial:** Una mascarilla (como una mascarilla médica desechable o una mascarilla de tela), una bufanda o un pañuelo pueden ayudar a proteger su identidad de la vigilancia y de irritantes en el aire.
+* **Preparación Digital:**
+    * [ ] **Copia de seguridad completa de datos:** Haga una copia de seguridad de su teléfono principal en una unidad externa cifrada, segura y fuera de línea.
+    * [ ] **Sanitización del dispositivo:** Elimine todos los datos operativos, fotos y mensajes no esenciales de su dispositivo. Vacía las carpetas "Eliminados recientemente".
+    * [ ] **Bloqueo biométrico:** Desactive el desbloqueo mediante huella digital y Face ID. Establezca una frase de contraseña alfanumérica compleja (mínimo 12 caracteres). La policía puede forzar físicamente un desbloqueo biométrico; legalmente no pueden forzar el uso de una frase de contraseña sin una orden judicial (e incluso entonces, usted puede negarse).
+    * [ ] **Adquisición de teléfono desechable:** Si es necesario, compre su teléfono y tarjeta SIM desechables operativos usando efectivo, cumpliendo estrictos protocolos de evasión de ALPR/CCTV.
+* **Preparación Física y Legal:**
+    * [ ] **Verificación del grupo de afinidad:** Confirme los roles y contactos de emergencia de todos los miembros de su grupo de afinidad inmediato de 4 a 6 personas.
+    * [ ] **Designación de apoyo en la cárcel:** Confirma tu contacto de apoyo carcelario externo. Deben tener su nombre legal completo, fecha de nacimiento y cualquier requisito médico crítico.
+    * [ ] **Identificación médica:** Escriba información médica crítica (alergias, tipo de sangre) y la línea directa del National Lawyers Guild (NLG) **directamente sobre su piel** (por ejemplo, en el antebrazo o el muslo) con un marcador permanente. El papel se puede confiscar; tu piel no puede.
 
-#### **Qué NO usar**
+## Fase 2: T-Menos 2 horas (puesta en escena y bloqueo del dispositivo)
 
-* **Lentes de contacto:** Los agentes químicos como el spray de pimienta pueden quedar atrapados debajo de ellos y causar daños oculares graves. En su lugar, use anteojos.
-* **Joyas:** Se pueden agarrar o quedar atrapadas en cosas.
-* **Maquillaje o lociones aceitosas:** Estos pueden atrapar agentes químicos en la piel.
+Esta fase ocurre en un área de preparación segura *antes* de transitar a la zona objetivo.
 
-#### **Qué llevar (seguridad y primeros auxilios)**
+* **Equipo físico (PPE y equipamiento):**
+    * [ ] **Ocultación facial:** Mascarilla N95 (máxima eficacia contra mapeo de reconocimiento facial e irritantes químicos) combinada con gafas de sol polarizadas y un sombrero de perfil bajo y sin marca.
+    * [ ] **Ropa:** Ropa en capas, sin marca, que se puede quitar fácilmente para cambiar su descripción física posterior al evento (estilo "Bloque Negro" si es apropiado para la acción). Calzado cerrado y de suela gruesa.
+    * [ ] **Primeros auxilios:** Lleve una mezcla 50/50 de antiácido líquido (Maalox) y agua en una botella rociadora para enjuagar los ojos expuestos a agentes químicos.
+    * [ ] **Efectivo y DNI:** Lleve consigo sólo el efectivo necesario para el tránsito de emergencia. Si lleva identificación, manténgala separada de su billetera.
+    * [ ] **Control de contrabando:** **Sin armas.** No lleve punteros láser (que conllevan cargos por delitos graves si apuntan a aviones/policía).
+* **Bloqueo técnico:**
+    * [ ] **Apagado del dispositivo personal:** Apaga tu teléfono inteligente personal. Colóquelo en una bolsa de Faraday protegida contra RF. No sale de esta bolsa hasta que regreses a una zona segura.
+    * [ ] **Activación del teléfono desechable:** Enciende tu teléfono operativo.
+    * [ ] **Desactivar balizas de RF:** Desactive el escaneo de Wi-Fi y Bluetooth para evitar que los rastreadores de monitoreo de multitudes registren la dirección MAC de su dispositivo.
 
-* [ ] **Agua en una botella de plástico:** Manténgase hidratado. Evite las botellas de vidrio.
-* [ ] **Refrigerios:** Refrigerios ricos en energía, como barras de granola.
-* [ ] **Botiquín personal de primeros auxilios:** Incluye vendajes, toallitas antisépticas y cualquier medicamento personal (p. ej., inhalador).
-* [ ] **Solución líquida de antiácido y agua:** Se puede usar una mezcla 50/50 de antiácido líquido (como Maalox) y agua en una botella con atomizador para enjuagar los ojos expuestos al spray de pimienta. Etiquételo claramente.
-* [ ] **Efectivo:** Para comida, transporte o teléfonos públicos. Los cajeros automáticos pueden estar vacíos o fuera de su alcance, y las transacciones con tarjeta rastrean su ubicación.
-* [ ] **ID (opcional pero recomendado):** En Illinois, no es necesario llevar una identificación, pero no tenerla puede complicar y prolongar el proceso de arresto. Si lo traes, mantenlo separado de tu billetera.
-* [ ] **Bolsa de Faraday (opcional pero muy recomendable):** Si traes un teléfono, colócalo en una bolsa de Faraday cuando no lo utilices activamente. Esto bloquea físicamente todas las señales celulares, Wi-Fi y GPS, impidiendo por completo el seguimiento a través de Stingrays.
+## Fase 3: Evento Activo (Protocolos de Campo)
 
-#### **Qué NO traer**
+Ahora estás en la zona operativa. La conciencia situacional es primordial.
 
-* **Armas de cualquier tipo:** Esto incluye cualquier cosa que pueda *considerarse* como un arma (por ejemplo, mástiles de banderas pesados, ciertas herramientas). Intensifica la situación y aumenta exponencialmente el riesgo legal.
-* **Puntero láser:** Aunque a veces se utiliza para cegar las cámaras, apuntar con un láser a aviones o agentes de policía a menudo se considera un delito grave. El riesgo legal rara vez supera el beneficio táctico.
+* [ ] **El sistema de amigos:** Nunca rompas el contacto visual con tu amigo designado. Si la multitud surge o se dispersa, únanse del brazo.
+* [ ] **Disciplina de comunicaciones:** Utilice su plan PACE establecido. No envíe actualizaciones operativas a través de canales celulares abiertos. Utilice Señal/Sesión o recurra a la brevedad codificada en radios no cifradas.
+* [ ] **Conciencia situacional (bucle OODA):** Observar, orientar, decidir, actuar. Identifique las áreas de concentración de la policía, la vigilancia en terreno elevado (cámaras POD, drones) y la ubicación de los médicos callejeros y los observadores legales (generalmente con sombreros de color verde brillante).
+* [ ] **Disciplina de los medios:** No filmar los rostros o los tatuajes distintivos de otros activistas sin su consentimiento explícito. Si filma una mala conducta policial, narre claramente la hora, el lugar y los números de placa en la pista de audio.
 
----
+## Fase 4: Post-evento (desescalada e informe)
 
-### **3. Durante la protesta**
+La operación no termina hasta que todos los miembros del grupo de afinidad estén a salvo fuera de la red.
 
-* [ ] **Quédate con tu grupo:** Mantén tu grupo de afinidad cerca. Utilice un sistema de compañeros.
-* [ ] **Manténgase alerta:** Preste atención a su entorno. Tenga en cuenta la ubicación de los médicos callejeros, los observadores legales (a menudo con sombreros de color verde brillante) y la policía.
-* [ ] **Mantén la calma:** Una cabeza tranquila y despejada es tu mejor herramienta.
-* [ ] **Documente:** Si es seguro hacerlo, filme la actividad policial, especialmente los arrestos o el uso de la fuerza. Narra lo que estás viendo, incluidos los números de placa, las señales de tráfico y la hora.
-
----
-
-### **4. Acciones posteriores a la protesta**
-
-#### **Acciones inmediatas**
-
-* [ ] **Salga con seguridad:** Salga con su grupo o con un amigo. Evite irse solo. Tenga en cuenta que la policía puede seguir o monitorear a las personas que salen del área.
-* [ ] **Cambia tu apariencia:** Si te preocupa que te sigan, considera quitarte una capa exterior de ropa o cambiarte la gorra para alterar tu apariencia.
-* [ ] **Apaga tu teléfono:** Apaga tu teléfono inmediatamente después de salir del área de protesta y no lo vuelvas a encender hasta que estés en un lugar seguro. Esto evita el seguimiento de la ubicación.
-
-#### **Informe y seguimiento**
-
-* [ ] **Informe del grupo:** Reúnase con su grupo de afinidad en un lugar seguro. Discuta lo que sucedió, cómo se sienten todos y si alguien necesita apoyo.
-* [ ] **Verifique a los arrestados:** Si alguien de su grupo fue arrestado, su contacto de soporte en la cárcel debería estar trabajando para localizarlo y obtener ayuda legal. Dar seguimiento y brindar apoyo.
-* [ ] **Asegure sus datos:** Una vez en casa, cargue las fotos o videos que tomó en una computadora segura o en un almacenamiento en la nube y luego elimínelos de su teléfono.
-
-#### **Comprobación de vigilancia**
-
-* [ ] **Varia tus rutas:** En los días posteriores a una acción de alto perfil, evita tomar la misma ruta hacia y desde casa, trabajo o escuela.
-* [ ] **Preste atención:** Esté atento a vehículos desconocidos estacionados en su calle durante períodos prolongados o a personas que no reconoce y que parecen estar observando su casa.
-* [ ] **Revisión digital:** Tenga cuidado con los correos electrónicos sospechosos o mensajes de redes sociales (intentos de phishing) que pueda recibir después de la protesta.
+* [ ] **Pausa segura:** Sal de la zona objetivo de forma natural. No corra a menos que esté en peligro físico inmediato. Siga los protocolos de contravigilancia "Timed Loop" para asegurarse de que no lo sigan agentes vestidos de civil o inteligencia privada (T3).
+* [ ] **Alteración de la apariencia:** Una vez que esté seguro fuera de la zona inmediata (por ejemplo, dentro de un baño público o una estación de tránsito), quítese la capa exterior de ropa y la mascarilla para romper su descripción visual.
+* [ ] **Apagado digital:** Apague el teléfono desechable operativo y colóquelo en la bolsa de Faraday *antes* de regresar a su residencia o casa segura. Esto evita el seguimiento de la coubicación con sus dispositivos personales.
+* [ ] **Informe y registro:** Una vez físicamente seguro, encienda su dispositivo personal y comuníquese con el soporte de la cárcel con una frase en código "Todo despejado" preestablecida. Realice una sesión informativa con su grupo de afinidad para analizar qué salió bien, qué salió mal y quién podría haber sido detenido.
 
 _Última actualización: 2026_
