@@ -1,59 +1,64 @@
-# Una guía para la red NYM: la próxima generación de privacidad
+# NYM Mixnet: Derrotando el análisis de tráfico global
 
-## ¿Qué es la Red NYM?
+*Estado: Manual de criptografía distribuida | Público: Operadores de alto riesgo y arquitectos de redes*
 
-La red NYM es una poderosa infraestructura de privacidad descentralizada diseñada para proteger contra la vigilancia masiva en un nivel fundamental.A diferencia de las herramientas tradicionales que solo ocultan el contenido de sus datos, NYM está diseñado para ocultar los *metadatos* de sus comunicaciones: quién, qué, cuándo y dónde de su actividad en línea.
+Las redes de anonimato estándar como Tor se basan en la ofuscación espacial (enrutar el tráfico a través de múltiples nodos geográficos). Sin embargo, Tor no ofusca *tiempo* o *volumen*. Si un Adversario Pasivo Global (GPA), como una agencia de inteligencia estatal, puede monitorear simultáneamente los puntos de entrada y salida de la red Tor, puede realizar un ataque de correlación de tiempo. Al hacer coincidir el tamaño exacto y el tiempo de un paquete que ingresa a la red con un paquete que sale de ella, pueden desanonimizar al usuario.
 
-Su tecnología principal es **mixnet**, que proporciona un nivel de privacidad que es teóricamente más fuerte que las VPN y la red Tor.
-
-## Cómo funciona una Mixnet: esconderse entre una multitud
-
-Para comprender una mixnet, primero veamos cómo funcionan otras herramientas:
-
-* **VPN:** Su tráfico pasa por un único servidor.El proveedor de VPN puede ver tu IP real y sabe dónde te estás conectando.Usted confía en que el proveedor no registrará esta información.
-* **Tor:** Su tráfico se enruta a través de tres servidores (nodos).Esto oculta su IP del destino final, pero un adversario poderoso que observa los puntos de entrada y salida de la red a veces puede correlacionar el tiempo de su tráfico para descubrir quién está hablando con quién.Esto se llama **análisis de tráfico**.
-
-La mixnet de NYM vence el análisis de tráfico con dos técnicas clave:
-
-1. **Cifrado por capas y reordenamiento de paquetes:** Al igual que Tor, sus datos se envuelven en capas de cifrado y se envían a través de múltiples nodos.Sin embargo, a diferencia de Tor, los nodos mixnet **retienen y reordenan deliberadamente los paquetes de datos** que reciben de muchos usuarios diferentes.Esto rompe la correlación temporal.Un observador no puede decir qué paquete que sale de un nodo corresponde a qué paquete entró.
-
-2. **Tráfico de cobertura:** La red mixta envía constantemente tráfico de "cobertura" falso e indistinguible.Esto crea un flujo constante de ruido, lo que hace increíblemente difícil para un observador saber si estás enviando activamente datos reales o si es sólo el ruido de fondo de la red.En realidad, te estás escondiendo entre una multitud generada digitalmente.
-
-|Característica |VPN estándar |Red Tor |Red mixta de NYM |
-|:--- |:--- |:--- |:--- |
-|**Oculta la dirección IP** |Sí |Sí |Sí |
-|**Cifra contenido** |Sí |Sí |Sí |
-|**Oculta metadatos (tiempo/patrón)** |No |Parcialmente |**Sí** |
-
-## Presentamos NymVPN
-
-NymVPN es la primera aplicación fácil de usar que hace que el poder de mixnet sea accesible para todos.Funciona como una VPN normal pero ofrece dos modos:
-
-* **Modo VPN de 2 saltos:** Este modo funciona como una VPN estándar de múltiples saltos y ofrece mejor privacidad que una VPN típica de un solo salto.
-* **Modo Mixnet:** Aquí es donde reside el verdadero poder.Cuando selecciona este modo, su tráfico se enruta a través de la red mixta NYM, lo que brinda la protección más sólida disponible contra el análisis de tráfico y la vigilancia de metadatos.
-
-## Una guía sencilla para utilizar NymVPN
-
-Comenzar a utilizar NymVPN está diseñado para ser sencillo:
-
-1. **Descargue la aplicación:** Visite el sitio web oficial de NYM ([nymtech.net](https://nymtech.net)) y descargue la aplicación NymVPN para su dispositivo (disponible para escritorio y móvil).
-
-2. **Instalar y ejecutar:** Instale la aplicación como cualquier otro programa.
-
-3. **Elija su modo:** Dentro de la aplicación, podrá seleccionar el nivel de protección que desee.Para máxima privacidad, seleccione la opción **Mixnet**.
-
-4. **Conectar:** Haga clic en el botón de conexión.Su tráfico de Internet ahora se dirige a través de la red NYM, protegiendo no sólo lo que está haciendo, sino también el patrón mismo de su vida en línea.
-
-## ¿Quién debería utilizar NYM?
-
-Si bien cualquiera puede beneficiarse de una mayor privacidad, la red NYM es particularmente crucial para:
-
-* **Usuarios de alto riesgo:** Periodistas, activistas y disidentes para quienes la filtración de metadatos podría tener graves consecuencias.
-* **Personas extremadamente conscientes de la privacidad:** Personas que comprenden las limitaciones de las VPN y Tor y requieren el siguiente nivel de protección.
-* **Preparando su privacidad para el futuro:** A medida que la tecnología de vigilancia (especialmente el análisis basado en IA) se vuelve más avanzada, proteger sus metadatos será cada vez más importante para todos.
+Como criptógrafo de sistemas distribuidos, presento **NYM Mixnet**, una arquitectura de próxima generación diseñada específicamente para derrotar los ataques de correlación de tiempo.
 
 ---
 
-NYM representa un cambio de paradigma en la privacidad digital.Al centrarse en los metadatos, aborda una debilidad fundamental de nuestra infraestructura de Internet actual, ofreciendo una forma más sólida y resistente de comunicarnos y navegar libremente.
+## 1. Tor/VPN versus arquitectura True Mixnet
+
+Debe comprender por qué NYM es un cambio de paradigma en la privacidad de la red.
+
+* **Circuitos estándar de 3 saltos (Tor/VPN):** Primero en entrar, primero en salir (FIFO). Los paquetes atraviesan los nodos lo más rápido posible. La principal defensa es el cifrado multicapa.
+* **The Mixnet (NYM):** NYM no solo cifra datos; muta activamente los metadatos (tiempo, volumen y orden) del tráfico mismo.
+
+### La mecánica de NYM
+NYM derrota al análisis de tráfico a través de tres innovaciones criptográficas centrales:
+
+1. **Formato de paquetes Sphinx:** Cada paquete enviado a través de NYM se rellena criptográficamente para que tenga exactamente el mismo tamaño. Un adversario que observe la red no puede diferenciar entre una descarga de imagen grande y un mensaje de texto pequeño porque todos los paquetes parecen idénticos.
+2. **Retrasos de tiempo variables:** Cuando un paquete ingresa a un "nodo mixto" de NYM, no se reenvía inmediatamente. El nodo retiene el paquete durante una fracción de segundo aleatoria y determinada criptográficamente.
+3. **Tráfico ficticio (tráfico de cobertura):** Si no envía datos, el cliente NYM genera automáticamente paquetes "ficticios" cifrados falsos y los envía a la red. Esto asegura que haya un flujo constante y constante de ruido.
+
+**El resultado:** Los paquetes ingresan a un nodo en un orden, se mezclan con tráfico ficticio, se retrasan aleatoriamente y salen en un orden completamente diferente. Un adversario pasivo global no puede correlacionar el tráfico de entrada y salida.
+
+---
+
+## 2. Implementación de CLI: demonio de cliente NYM
+
+Para operaciones tácticas, no confíe en una GUI. Debe inicializar el demonio del cliente NYM a través de la interfaz de línea de comandos (CLI) para garantizar un enrutamiento estricto y auditable.
+
+### Paso 1: Inicialización
+Descargue el binario `nym-client` precompilado para su arquitectura. Inicialice el cliente para generar su identidad criptográfica y archivos de configuración locales.
+
+```bash
+./nym-client init --id OpSec_Alpha
+```
+*Este comando genera una identificación local única (`OpSec_Alpha`) y proporciona sus claves criptográficas.*
+
+### Paso 2: ejecutar el demonio
+Inicie el demonio del cliente. Esto se conectará a la red NYM, descargará la topología de red actual y establecerá un puerto de escucha de proxy SOCKS5 o WebSocket local.
+
+```bash
+./nym-client run --id OpSec_Alpha
+```
+*El demonio generará una dirección de escucha, normalmente `127.0.0.1:1977`.*
+
+## 3. Tráfico de aplicaciones de enrutamiento
+
+Una vez que el demonio NYM esté activo, debe obligar a sus aplicaciones a enrutar su tráfico a través del proxy local.
+
+### Integración SOCKS5
+Si su aplicación admite la configuración de proxy SOCKS5 (por ejemplo, clientes de mensajería segura estándar, billeteras de criptomonedas o navegadores web):
+
+1. Abra la configuración de Red o Proxy de la aplicación.
+2. Establezca el Tipo de proxy en **SOCKS5**.
+3. Configure el Host/IP en `127.0.0.1`.
+4. Configure el Puerto en el puerto proporcionado por su demonio NYM (por ejemplo, `1977` o `9000` dependiendo de la iteración del cliente).
+5. *Crucial:* Asegúrese de que "Proxy DNS cuando se usa SOCKS v5" esté marcado para evitar fugas de DNS.
+
+**Advertencia operativa:** NYM es una red mixta asíncrona. Debido a que retrasa intencionalmente los paquetes para generar anonimato, se caracteriza por una **latencia muy alta**. Es completamente inadecuado para transmisión de video, VoIP o navegación web en vivo. NYM está diseñado para mensajería asincrónica y de alta seguridad (como puentes Matrix localizados) y transacciones de criptomonedas donde la privacidad supera con creces la velocidad.
 
 _Última actualización: 2026_
