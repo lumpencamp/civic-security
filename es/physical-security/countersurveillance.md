@@ -1,56 +1,56 @@
-# Conceptos básicos de contravigilancia: una guía para activistas
+# Conceptos básicos de contravigilancia: derrotar al seguimiento en tiempo real
 
-Esta guía proporciona una introducción básica a la contravigilancia para el activista cotidiano. El objetivo no es convertirte en un espía, sino aumentar tu conciencia y ayudarte a proteger tu privacidad y seguridad.
+*Estado: Guía Táctica de Seguridad Física | Público: Operativos de Campo y Equipos de Acción Directa*
 
----
+En los compromisos cívicos modernos, no sólo estás siendo observado por ojos humanos; usted está siendo rastreado por una red de vigilancia integrada y automatizada. Como especialista en seguridad física, debo enfatizar que la contravigilancia ya no se trata sólo de perder una cola, sino de cegar la red.
 
-### **1. La Fundación: Conciencia Situacional**
-
-La conciencia situacional es simplemente saber lo que sucede a tu alrededor. No se trata de ser paranoico; se trata de estar presente y observador. Una gran herramienta para practicar esto es el **OODA Loop**.
-
-#### **El bucle OODA: observar, orientar, decidir, actuar**
-
-Este es un marco mental simple para tomar decisiones efectivas rápidamente.
-
-* **Observa:** ¿Qué ves? Preste atención a las personas, los automóviles y el entorno general que lo rodea. Busque cosas que parezcan fuera de lugar o inusuales. Ésta es su línea de base: el estado normal de su entorno.
-* **Oriente:** ¿Cómo le encuentras sentido a lo que has observado? Este es el paso más importante. Estás poniendo tus observaciones en contexto según tu experiencia y conocimiento. ¿Esa persona está esperando un autobús o lleva 20 minutos parada en la esquina sin hacer nada? ¿Ese auto está estacionado legalmente o está en un lugar extraño con una vista clara de la entrada de su edificio?
-* **Decide:** Según tu orientación, ¿cuál es tu plan? Tu decisión podría ser simple: "Esa persona parece sospechosa, así que cruzaré la calle y caminaré por otro lado". O podría ser simplemente seguir observando: "Ese auto es inusual, anotaré su matrícula y veré si lo vuelvo a ver".
-* **Actúa:** Pon tu decisión en marcha. Cruza la calle, toma una ruta diferente o simplemente continúa tu camino con mayor conciencia. Después de actuar, comienza el ciclo nuevamente observando la nueva situación.
-
-Practicar el ciclo OODA te ayuda a pasar de ver el mundo pasivamente a observarlo activamente.
+Esta guía detalla la convergencia física y digital necesaria para mitigar la infraestructura de seguimiento en tiempo real en espacios públicos.
 
 ---
 
-### **2. Identificación de vigilancia potencial**
+## 1. Bloqueo inmediato del dispositivo (eliminación de datos biométricos)
 
-La vigilancia puede estar a cargo de agentes del orden, investigadores privados u opositores políticos. A continuación se muestran algunos indicadores potenciales. Recuerde, cualquiera de estas cosas por sí sola probablemente no sea vigilancia. Un patrón de ellos, sin embargo, podría serlo.
+Si se enfrenta a una detención inminente o ingresa a una zona de alta fricción, se debe bloquear el acceso biométrico de su dispositivo de inmediato. La policía puede forzar legalmente su huella digital o su rostro para desbloquear un dispositivo; no pueden forzar una frase de contraseña sin una orden judicial.
 
-#### **A pie**
+### El interruptor de apagado de hardware
+No busques a tientas en los menús de configuración. Utilice el interruptor de apagado de hardware para desactivar instantáneamente la biometría y obligar al dispositivo a solicitar un código de acceso.
 
-* **La misma persona, en diferentes lugares:** Ves a la misma persona de camino al trabajo, en la cafetería y luego cerca de tu casa.
-* **Individuos fuera de lugar:** Alguien vestido con ropa de negocios en un vecindario estudiantil, o alguien que simplemente no parece encajar en el entorno.
-* **Comunicación y coordinación:** Observas que dos o más personas no parecen estar juntas pero parecen comunicarse mediante gestos sutiles o auriculares.
-* **El "Para y sigue":** Alguien que comienza a caminar cuando tú lo haces, se detiene cuando tú lo haces y siempre parece mantener una distancia constante contigo.
+* **iOS (iPhone):** Mantenga presionado el **botón lateral + cualquiera de los botones de volumen** simultáneamente durante 3 segundos hasta que aparezca la pantalla "Deslizar para apagar". Toca "Cancelar". La biometría ahora está deshabilitada.
+* **Android (Pixel/Samsung):** Mantenga presionado el **Botón de encendido + Subir volumen** (o solo el botón de Encendido en modelos más antiguos) para abrir el menú de encendido. Toca **Bloquear**. (Debes habilitar esta opción previamente en *Configuración > Pantalla > Pantalla de bloqueo > Mostrar opción de bloqueo*).
 
-#### **En vehículos**
+## 2. La ilusión del modo avión
 
-* **Vehículos de apariencia común:** Los vehículos de vigilancia suelen ser modelos comunes y anodinos (como un Ford Taurus, Chevy Impala o una minivan) en colores neutros (negro, gris, azul oscuro). Están limpios y bien mantenidos, pero tienen ruedas de acero de aspecto económico en lugar de tapacubos.
-* **Estacionamiento inusual:** Un vehículo estacionado durante mucho tiempo en un lugar extraño, especialmente uno que ofrece una vista clara de la entrada o intersección de un edificio.
-* **Ventanas tintadas:** Las ventanas excesivamente oscuras o completamente polarizadas pueden ser una señal.
-* **Múltiples antenas:** Más antenas de las que necesita un automóvil estándar pueden indicar el equipo de comunicaciones en el interior.
-* **El mismo automóvil, diferentes lugares:** Ver el mismo vehículo varias veces en tu ruta, especialmente si tomas algunos giros inesperados.
+El error más peligroso en materia de seguridad operativa es que el "modo avión" impide el seguimiento. No es así.
 
----
+* **Triangulación de torres de telefonía celular:** Incluso en el modo avión, el procesador de banda base de su teléfono aún puede escuchar pasivamente las torres de telefonía celular y, en algunas jurisdicciones, los servicios de ubicación de emergencia del 911 permanecen activos, lo que permite al operador triangular su posición.
+* **La amenaza del rastreador de Wi-Fi/Bluetooth:** Los teléfonos inteligentes modernos utilizan el escaneo de Wi-Fi y Bluetooth en segundo plano para mejorar la precisión de la ubicación, incluso cuando esas funciones aparecen "desactivadas" en el menú desplegable de configuración rápida.
+* **La mitigación:** El modo avión es insuficiente para lograr un verdadero anonimato operativo. Si debe llevar un dispositivo, debe navegar manualmente a Configuración de ubicación y desactivar **Escaneo de Wi-Fi** y **Escaneo de Bluetooth**. Para tener absoluta certeza, el dispositivo debe apagarse y colocarse en una **bolsa de Faraday**.
 
-### **3. Tácticas de mitigación simples**
+## 3. Auditoría de la red de vigilancia
 
-Si sospecha que lo están siguiendo, su objetivo es confirmar su sospecha y luego llegar a un lugar público y seguro. **No te vayas a casa.**
+Antes y durante una operación, debe auditar activamente su entorno para identificar matrices de seguimiento automatizadas.
 
-* **Varia tus rutas:** Esta es la táctica más efectiva. No tome la misma ruta hacia y desde el trabajo, la escuela o el hogar todos los días. Esto hace que sea mucho más difícil para alguien predecir tus movimientos.
-* **Usa transporte público:** Súbete a un autobús o tren. Bájese una parada antes o después. Si te siguen, es probable que la persona tenga que salir contigo, lo que puede hacerla más obvia.
-* **La maniobra de la "Caja":** Haz cuatro giros consecutivos a la derecha (o izquierda). Si el mismo automóvil sigue detrás de usted después de haber dado un círculo completo, es probable que lo estén siguiendo.
-* **Entrar y salir:** Ingrese a un edificio público grande con múltiples salidas, como una tienda departamental, una biblioteca o un centro comercial. Espere unos minutos y salga por una salida diferente.
-* **Mezclarse:** El objetivo es ser el "hombre gris", alguien que no llama la atención. Vístase de una manera que sea común para el área en la que se encuentra. Evite la ropa llamativa o distintiva.
-* **Confía en tu instinto:** Si una situación te parece mal, probablemente lo sea. Aléjate de la situación y ve a un lugar seguro.
+### Detección de lectores automatizados de matrículas (ALPR)
+Los ALPR ingieren miles de placas por minuto, alimentando su ubicación a los centros de fusión regionales.
+* **Identificación:** Busque cámaras pequeñas y cuadradas con un anillo de flash infrarrojo prominente, a menudo montadas en pares con un ángulo hacia abajo. Están montados en postes de semáforos, cabinas de peaje y, cada vez más, en los maleteros o techos de vehículos municipales no identificados o camiones de repo privados.
+* **Mitigación:** No conduzca vehículos personales u organizacionales a las zonas operativas. Estacione significativamente fuera de la zona y transite la última milla a pie, en bicicleta o en transporte público pagado en efectivo.
+
+### Detección de matrices de reconocimiento facial
+El reconocimiento facial se implementa a través de cámaras POD fijas y unidades móviles.
+* **Identificación:** Cámaras domo PTZ (Pan-Tilt-Zoom) montadas en alto o remolques móviles con mástiles telescópicos para cámaras desplegados cerca de zonas de protesta.
+* **Mitigación:** Interrupción simétrica. El mapeo facial con IA se basa en la simetría de los ojos, la nariz y la mandíbula. Una **máscara N95** de alta calidad combinada con **gafas de sol polarizadas** (que bloquean el seguimiento ocular infrarrojo) y un sombrero de perfil bajo es la defensa más eficaz. La maquillaje "deslumbrante" está en gran medida obsoleta frente a los modelos modernos de aprendizaje profundo.
+
+## 4. Ocultamiento físico: romper el circuito de seguimiento
+
+Si sospecha que ha sido señalado por una unidad de vigilancia móvil o un circuito de seguimiento automatizado, debe romper la continuidad visual.
+
+### La táctica de la uniformidad (bloque negro)
+El método principal para romper un bucle de seguimiento es la uniformidad. Si 50 personas visten ropa negra idéntica y sin marca (sudaderas con capucha, pantalones, máscaras, gafas de sol), resulta matemáticamente imposible para un sistema automatizado o un operador humano mantener un seguimiento continuo de un solo objetivo cuando la multitud se mueve o cambia.
+
+### El cobertizo en capas
+Si debe transitar fuera de una zona caliente:
+1. Ingrese a un área de mucho tráfico con múltiples salidas o a un espacio sin cobertura de cámaras (por ejemplo, un baño público).
+2. Quítese la capa operativa exterior (por ejemplo, la sudadera con capucha negra y la máscara) para revelar ropa "civil" claramente diferente y de colores brillantes debajo.
+3. Salga del espacio por una puerta diferente, alterando fundamentalmente su perfil visual y rompiendo la pista continua establecida por el sistema de vigilancia.
 
 _Última actualización: 2026_
