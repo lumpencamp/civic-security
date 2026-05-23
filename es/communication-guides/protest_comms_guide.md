@@ -4,7 +4,7 @@
 
 Durante acciones cívicas de alta fricción, debes asumir que la red celular fallará. Ya sea debido a una congestión natural de multitudes, una limitación localizada intencional o el despliegue de bloqueadores de celulares/captadores IMSI por parte de actores estatales, su arquitectura de comunicación debe ser resiliente.
 
-Como instructor de defensa de inteligencia de señales tácticas (SIGINT), ordeno que ninguna operación comience sin una arquitectura de comunicaciones predefinida de varios niveles.
+Ninguna operación comience sin una arquitectura de comunicaciones predefinida de varios niveles.
 
 ---
 

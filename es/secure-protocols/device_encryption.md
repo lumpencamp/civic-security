@@ -2,7 +2,7 @@
 
 *Estado: Manual de criptografía de almacenamiento | Público: manejadores de fuentes y custodios de datos de alto riesgo*
 
-Si se incauta un dispositivo físico mientras está apagado, Full Disk Encryption (FDE) es su única línea de defensa. Como ingeniero de software criptográfico, debo aclarar que los algoritmos de cifrado rara vez se "rompen". El punto de falla casi siempre es una generación de claves débil (entropía de frase de contraseña) o una implementación defectuosa.
+Si se incauta un dispositivo físico mientras está apagado, Full Disk Encryption (FDE) es su única línea de defensa. Los algoritmos de cifrado rara vez se "rompen". El punto de falla casi siempre es una generación de claves débil (entropía de frase de contraseña) o una implementación defectuosa.
 
 Esta guía detalla la implementación de FDE y las arquitecturas de cifrado denegables necesarias para resistir la extracción forense dirigida y la fuerza bruta acelerada por GPU.
 

@@ -2,7 +2,7 @@
 
 *Status: Forensics Countermeasure Manual | Audience: Whistleblowers and High-Risk Researchers*
 
-Tails (The Amnesic Incognito Live System) is not a daily driver; it is a tactical deployment environment. As a Linux systems engineer and forensics investigator, I must emphasize that its primary utility is not just encryption—it is **amnesia**. It leaves zero trace on the host machine.
+Tails (The Amnesic Incognito Live System) is not a daily driver; it is a tactical deployment environment. Its primary utility is not just encryption—it is **amnesia**. It leaves zero trace on the host machine.
 
 This guide details the exact operational constraints and hardware auditing required to deploy Tails safely.
 

@@ -2,7 +2,7 @@
 
 *Status: Software Audit & Hardening Manual | Audience: Activists, Sources, and Organizers*
 
-Signal is the gold standard for end-to-end encrypted messaging. However, its default configuration is optimized for user convenience, not for surviving targeted state-level surveillance or physical device capture. As a cryptographic software auditor, I must emphasize that Signal's encryption only protects data *in transit*. Once data arrives on a device, it relies entirely on the device's local security.
+Signal is the gold standard for end-to-end encrypted messaging. However, its default configuration is optimized for user convenience, not for surviving targeted state-level surveillance or physical device capture. Signal's encryption only protects data *in transit*. Once data arrives on a device, it relies entirely on the device's local security.
 
 This guide details the strict cryptographic account locking required for high-risk operations.
 

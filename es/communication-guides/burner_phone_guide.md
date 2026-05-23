@@ -4,7 +4,7 @@
 
 Un "teléfono desechable" no es un tipo específico de hardware; es una estricta metodología operativa. En el momento en que una pieza de hardware o un número de teléfono se vincula criptográfica o físicamente a su verdadera identidad, deja de ser un quemador.
 
-Como consultor de privacidad y experto en operaciones, debo enfatizar: adquirir y operar un terminal efímero sin dejar un rastro documental corporativo, financiero o geográfico es extremadamente difícil. Un solo error quema permanentemente el dispositivo.
+Adquirir y operar un terminal efímero sin dejar un rastro documental corporativo, financiero o geográfico es extremadamente difícil. Un solo error quema permanentemente el dispositivo.
 
 ---
 

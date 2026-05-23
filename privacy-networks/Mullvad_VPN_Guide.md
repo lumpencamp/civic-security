@@ -2,7 +2,7 @@
 
 *Status: Network Security Hardening Manual | Audience: Activists and Privacy-Conscious Users*
 
-A VPN does not provide anonymity; it provides privacy by shifting trust from your Internet Service Provider (ISP) to the VPN company. As a network security engineer, I recommend Mullvad because it is one of the few commercial entities architected from the ground up to minimize data collection, allowing you to establish a truly private tunnel.
+A VPN does not provide anonymity; it provides privacy by shifting trust from your Internet Service Provider (ISP) to the VPN company. Mullvad is recommended because it is one of the few commercial entities architected from the ground up to minimize data collection, allowing you to establish a truly private tunnel.
 
 This manual details the technical configuration required to deploy Mullvad securely against ISP-level dragnet surveillance and traffic analysis.
 

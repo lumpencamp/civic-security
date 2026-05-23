@@ -4,7 +4,7 @@
 
 La exfiltración e ingestión de documentos altamente confidenciales (filtraciones, pruebas, imágenes sin editar) es la fase más peligrosa de cualquier operación. Los servicios en la nube estándar (Google Drive, Dropbox) están completamente comprometidos por el registro centralizado de metadatos y el cumplimiento de citaciones.
 
-Como ingeniero de infraestructura, exijo que todas las transferencias de archivos se realicen a través de arquitecturas descentralizadas o físicamente aisladas diseñadas para eliminar las huellas de IP y la correlación entre remitente y receptor.
+Todas las transferencias de archivos se realicen a través de arquitecturas descentralizadas o físicamente aisladas diseñadas para eliminar las huellas de IP y la correlación entre remitente y receptor.
 
 ---
 

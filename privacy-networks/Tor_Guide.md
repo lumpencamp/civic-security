@@ -2,7 +2,7 @@
 
 *Status: Anonymity Network Architecture | Audience: Whistleblowers, OSINT Researchers, and High-Risk Targets*
 
-The Tor Browser does not provide "privacy"—it provides **anonymity**. Privacy is deciding *what* you show the world; anonymity is ensuring the world does not know *who* you are. As a web security researcher, I must emphasize that while Tor's underlying onion routing is cryptographically robust, the majority of deanonymization attacks succeed because users make behavioral or configuration errors at the endpoints.
+The Tor Browser does not provide "privacy"—it provides **anonymity**. Privacy is deciding *what* you show the world; anonymity is ensuring the world does not know *who* you are. While Tor's underlying onion routing is cryptographically robust, the majority of deanonymization attacks succeed because users make behavioral or configuration errors at the endpoints.
 
 This guide details the strict deployment protocols required to survive Deep Packet Inspection (DPI) and advanced browser fingerprinting.
 

@@ -4,7 +4,7 @@
 
 The exfiltration and ingestion of highly sensitive documents (leaks, evidence, raw footage) is the most perilous phase of any operation. Standard cloud services (Google Drive, Dropbox) are completely compromised by centralized metadata logging and subpoena compliance.
 
-As an infrastructure engineer, I mandate that all file transfers occur over decentralized or physically isolated architectures designed to eliminate IP footprints and sender/receiver correlation.
+All file transfers occur over decentralized or physically isolated architectures designed to eliminate IP footprints and sender/receiver correlation.
 
 ---
 
