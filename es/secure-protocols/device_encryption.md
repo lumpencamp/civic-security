@@ -46,11 +46,11 @@ Si se ve obligado a entregar una frase de contraseña, usted proporciona la fras
 1. Abra VeraCrypt y seleccione **Crear volumen**.
 2. Elija **Crear un volumen VeraCrypt oculto**.
 3. **Crea el volumen exterior:**
-    *   Set the Outer Volume passphrase.
-    *   Mount it and fill it with plausible decoy data (e.g., tax documents, benign personal photos). The decoy data *must* look realistic.
+    * Establezca la frase de contraseña del Volumen Externo.
+    * Móntelo y llénelo con datos de señuelo plausibles (por ejemplo, documentos fiscales, fotografías personales benignas). Los datos del señuelo *deben* parecer realistas.
 4. **Crea el volumen oculto:**
-    *   VeraCrypt will now prompt you to create the Hidden Volume within the free space of the Outer Volume.
-    *   Set a completely different, highly secure Diceware passphrase for the Hidden Volume.
+    * VeraCrypt ahora le pedirá que cree el Volumen Oculto dentro del espacio libre del Volumen Externo.
+    * Establezca una frase de contraseña Diceware completamente diferente y de alta seguridad para el Volumen Oculto.
 5. **Restricción de comportamiento (CRÍTICA):** Cuando monta el volumen externo para agregar más datos señuelo, *debe* seleccionar "Proteger volumen oculto" en las opciones de montaje e ingresar la contraseña del volumen oculto. Si no hace esto, agregar datos al volumen externo sobrescribirá y destruirá permanentemente el volumen oculto.
 
 _Última actualización: 2026_

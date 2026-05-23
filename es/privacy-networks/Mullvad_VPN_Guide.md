@@ -1,65 +1,60 @@
-# Una guía para Mullvad VPN: fortaleciendo su conexión a Internet
+# Mullvad VPN: optimización comercial e implementación de Kill-Switch
 
-## Tor versus VPN: una distinción crítica
+*Estado: Manual de refuerzo de seguridad de red | Público: activistas y usuarios conscientes de la privacidad*
 
-**Una VPN NO es para el anonimato.** Una VPN transfiere la confianza de su proveedor de servicios de Internet (ISP) a la empresa de VPN.Oculta su tráfico de su red local y cambia su dirección IP, pero el proveedor de VPN *podría* registrar su actividad.
+Una VPN no proporciona anonimato; proporciona privacidad al transferir la confianza de su proveedor de servicios de Internet (ISP) a la empresa de VPN. Como ingeniero de seguridad de redes, recomiendo Mullvad porque es una de las pocas entidades comerciales diseñadas desde cero para minimizar la recopilación de datos, lo que le permite establecer un túnel verdaderamente privado.
 
-Si su modelo de amenaza requiere un verdadero anonimato (por ejemplo, denunciar irregularidades contra un actor estatal), **use el navegador Tor, no una VPN.** Utilice Mullvad para obtener privacidad general, proteger su conexión a Wi-Fi pública y evitar restricciones geográficas básicas.
+Este manual detalla la configuración técnica necesaria para implementar Mullvad de forma segura frente a la vigilancia de red y el análisis de tráfico a nivel de ISP.
 
-## ¿Qué es una VPN y por qué Mullvad?
-
-Una red privada virtual (VPN) crea un "túnel" seguro y cifrado para su tráfico de Internet.Cuando utiliza una VPN, su tráfico se enruta a través de uno de los servidores del proveedor de VPN antes de dirigirse al sitio web que está visitando.Esto hace dos cosas importantes:
-
-1. **Oculta tu dirección IP:** El sitio web ve la dirección IP del servidor VPN, no la real, protegiendo tu ubicación e identidad.
-2. **Cifra tu tráfico:** Evita que tu proveedor de servicios de Internet (ISP) vea lo que estás haciendo en línea.
-
-Mullvad es ampliamente considerada como una de las mejores VPN para usuarios preocupados por la privacidad.Tienen una política estricta de no registro, permiten la creación de cuentas anónimas (no se requiere correo electrónico) y son pioneros en seguridad y transparencia.
-
-**Política comprobada de no guardar registros (la redada de 2023):** En abril de 2023, la policía sueca allanó la sede de Mullvad con una orden de registro para confiscar los datos de los clientes.Como Mullvad realmente no lleva registros, la policía se fue con las manos completamente vacías.Esta es la prueba de estrés definitiva en el mundo real de las afirmaciones de privacidad de una VPN.
-
-## Configuración de Mullvad para máxima seguridad
-
-Una vez que haya descargado e instalado la aplicación Mullvad, siga estos pasos para habilitar sus funciones de seguridad más potentes.
-
-1. **Abra Configuración:** Haga clic en el ícono de ajustes (⚙️) en la esquina superior derecha de la aplicación.
-2. **Vaya a Configuración de VPN:** Seleccione "Configuración de VPN" en el menú de la izquierda.
-
-Ahora, configuremos las opciones cruciales:
-
-### Habilite el interruptor de apagado (modo de bloqueo)
-
-Esta es la configuración más importante.Un interruptor de apagado bloquea todo el tráfico de Internet si alguna vez se cae la conexión VPN.Esto evita que su dirección IP real se filtre accidentalmente.
-
-* **Busque "Modo de bloqueo" y actívelo.**
-
-Cuando el modo de bloqueo está habilitado, su computadora **no puede acceder a Internet en absoluto** a menos que esté conectada a un servidor Mullvad.Esta es la forma más potente de interruptor de emergencia.
-
-### Configurar los ajustes de DNS
-
-DNS (Sistema de nombres de dominio) es como la guía telefónica de Internet;traduce nombres de sitios web (como `google.com`) en direcciones IP.Es importante que estas solicitudes también se envíen a través del túnel VPN.
-
-* **Vaya a la configuración "Avanzada".**
-* **Asegúrese de que "Usar servidor DNS personalizado" esté desactivado.**
-
-Cuando esto está desactivado, Mullvad utiliza automáticamente sus propios servidores DNS privados que no registran, que es la opción más segura.
-
-## Entendiendo DAITA: Un escudo contra el análisis de tráfico
-
-En tu configuración, es posible que veas una opción para **DAITA**.Esto significa **Defensa contra el análisis de tráfico guiado por IA**.Esta es una característica experimental avanzada que va más allá de lo que ofrecen la mayoría de las VPN.
-
-* **Qué es:** Incluso cuando su tráfico está cifrado, un adversario sofisticado a veces puede analizar los *patrones* del tráfico (el tamaño y el tiempo de los paquetes de datos) para adivinar lo que está haciendo en línea.DAITA funciona añadiendo "ruido" a su tráfico: insertando paquetes de datos falsos y aleatorios.Esto hace que sea mucho más difícil para cualquiera analizar sus patrones de actividad.
-
-* **¿Deberías usarlo?** Para la mayoría de los usuarios, DAITA no es estrictamente necesario, pero proporciona una capa adicional de protección contra amenazas muy avanzadas.Puede habilitarlo conectándose a un servidor que lo admita (claramente marcado en la lista de servidores).
-
-## Cómo verificar que su VPN esté funcionando
-
-Una vez que esté conectado con el modo de bloqueo habilitado, puede verificar que todo esté funcionando correctamente:
-
-1. **Compruebe su IP:** Abra su navegador web y vaya a [mullvad.net/check](https://mullvad.net/check).El sitio debe mostrar que está conectado a Mullvad y que no hay fugas.
-2. **Pruebe el interruptor de apagado:** Mientras esté conectado, apague su Wi-Fi o desconecte su cable Ethernet.Intente visitar cualquier sitio web.Su navegador debería mostrar un error y no poder conectarse.Vuelva a conectar su Internet y la VPN debería restablecer automáticamente su conexión.
+*Para profundizar en las amenazas que plantea la vigilancia masiva, lea el [Manifiesto de Vigilancia Total de Mullvad (PDF)](https://mullvad.net/pdfs/Total_surveillance.pdf).*
 
 ---
 
-Al utilizar Mullvad con el modo Lockdown habilitado, crea una poderosa defensa para su actividad diaria en Internet.Te aseguras de que tus datos estén encriptados y tu identidad protegida, incluso si la conexión es inestable.
+## 1. Generación y financiación de cuentas anónimas
+
+La mayoría de los proveedores de VPN exigen su dirección de correo electrónico, nombre de facturación y tarjeta de crédito, vinculando inmediatamente su identidad real con su tráfico VPN.
+
+* **El sistema Mullvad:** Mullvad no requiere datos personales. Cuando te registras, el sistema genera un número de cuenta aleatorio de 16 dígitos. Ese número *es* tu cuenta. No hay contraseñas ni correos electrónicos para piratear o citar.
+* **Financiamiento (Protocolo OPSEC):**
+    * *Seguridad estándar:* Pague a través de una tarjeta de regalo prepaga anónima o Monero (XMR). No utilice Bitcoin, PayPal ni su tarjeta de crédito personal.
+    * *Máxima seguridad:* Escriba su número de cuenta de 16 dígitos en un papel, coloque efectivo físico en un sobre y envíelo por correo directamente a la sede de Mullvad en Suecia. Esto crea una desconexión completa entre su identidad financiera y su tráfico de red.
+
+## 2. Implementación de WireGuard y Kill-Switches
+
+OpenVPN es robusto, pero WireGuard es el estándar moderno: es más rápido, usa menos batería y tiene una superficie de ataque criptográfico significativamente menor.
+
+### Configuración del protocolo
+1. Abra la aplicación Mullvad. Vaya a **Configuración > Configuración de VPN**.
+2. Cambie el **Protocolo de túnel** de Automático a **WireGuard**.
+
+### El interruptor de apagado codificado (modo de bloqueo)
+Un interruptor de emergencia es inútil si sólo se activa *después* de que la aplicación VPN falla, permitiendo que su IP real se filtre durante varios segundos. Debe aplicar un interruptor de apagado completo a nivel del sistema operativo.
+
+* **Configuración de escritorio:** En Configuración de Mullvad, habilite **Modo de bloqueo**. Esto altera las reglas del firewall de su sistema para que su computadora *no pueda* conectarse a Internet a menos que el túnel Mullvad esté activo.
+* **Configuración de Android:**
+    1.  Go to your Android **Settings > Network & internet > VPN**.
+    2.  Tap the gear icon next to Mullvad VPN.
+    3.  Toggle **Always-on VPN** and **Block connections without VPN** to **ON**. This enforces a strict OS-level block against any non-tunneled traffic.
+
+## 3. Defensa de análisis de tráfico y enrutamiento de múltiples saltos
+
+Los adversarios avanzados monitorean el tamaño y el tiempo de los paquetes de datos que ingresan y salen de un servidor VPN, intentando correlacionar el tráfico e identificar al usuario (Análisis de tráfico).
+
+### Configuración de saltos múltiples
+Dirigir su tráfico a través de dos servidores VPN separados en diferentes jurisdicciones complica significativamente el análisis del tráfico.
+
+1. En la aplicación Mullvad, vaya a **Configuración > Configuración de VPN > Configuración de WireGuard**.
+2. Habilite **Habilitar saltos múltiples**.
+3. Elija un servidor de entrada (por ejemplo, en Suiza) y un servidor de salida (por ejemplo, en Islandia). Su tráfico se cifra dos veces: su ISP solo ve una conexión a Suiza y el sitio web de destino solo ve el tráfico que se origina en Islandia.
+
+*(Nota: el salto múltiple aumenta la latencia y reduce la velocidad. Úselo solo cuando sea necesario para una seguridad operativa elevada).*
+
+## 4. Integración del solucionador de DNS privado
+
+Su ISP monitorea cada sitio web que visita registrando sus solicitudes de DNS (Sistema de nombres de dominio). Al enrutar consultas de DNS a través de los solucionadores cifrados de Mullvad, ciega a su ISP.
+
+1. Navegue a **Configuración > Configuración de VPN > Filtrado DNS**.
+2. Habilite **Bloquear rastreadores**, **Bloquear anuncios** y **Bloquear malware**.
+3. **La ventaja:** Mullvad utiliza sus propios servidores DNS a través del túnel cifrado WireGuard. Esto evita que su ISP recopile su historial de navegación y bloquea las conexiones a listas de bloqueo y rastreadores de telemetría conocidos patrocinados por el estado a nivel de red, incluso antes de que lleguen a su navegador.
 
 _Última actualización: 2026_
