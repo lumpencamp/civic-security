@@ -2,7 +2,7 @@
 
 *Status: Storage Cryptography Manual | Audience: Source Handlers and High-Risk Data Custodians*
 
-If a physical device is seized while powered off, Full Disk Encryption (FDE) is your only line of defense. As a cryptographic software engineer, I must clarify that encryption algorithms are rarely "broken." The failure point is almost always weak key generation (passphrase entropy) or flawed implementation.
+If a physical device is seized while powered off, Full Disk Encryption (FDE) is your only line of defense. Encryption algorithms are rarely "broken." The failure point is almost always weak key generation (passphrase entropy) or flawed implementation.
 
 This guide details the deployment of FDE and deniable encryption architectures required to withstand targeted forensic extraction and GPU-accelerated brute-forcing.
 

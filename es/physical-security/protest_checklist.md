@@ -2,7 +2,7 @@
 
 *Estado: Manual de logística y preparación de campo | Público: Equipos de Acción Directa y Organizadores de Campo*
 
-La seguridad física y la seguridad digital están inextricablemente vinculadas durante un evento de acción directa. Una falla en un dominio compromete instantáneamente el otro. Como coordinador de logística táctica, exijo cumplimiento estricto de un cronograma de despliegue cronológico.
+La seguridad física y la seguridad digital están inextricablemente vinculadas durante un evento de acción directa. Una falla en un dominio compromete instantáneamente el otro. Es obligatorio el cumplimiento estricto de un cronograma de despliegue cronológico.
 
 Esta lista de verificación garantiza una alineación total entre su equipamiento físico y su postura de seguridad digital antes, durante y después de una operación.
 

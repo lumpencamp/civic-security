@@ -2,7 +2,7 @@
 
 *Estado: Manual de contramedidas forenses | Público: denunciantes e investigadores de alto riesgo*
 
-Tails (The Amnesic Incognito Live System) no es un conductor diario; es un entorno de despliegue táctico. Como ingeniero de sistemas Linux e investigador forense, debo enfatizar que su principal utilidad no es sólo el cifrado: es **amnesia**. No deja rastro en la máquina host.
+Tails (The Amnesic Incognito Live System) no es un conductor diario; es un entorno de despliegue táctico. Su principal utilidad no es sólo el cifrado: es **amnesia**. No deja rastro en la máquina host.
 
 Esta guía detalla las limitaciones operativas exactas y la auditoría de hardware necesarias para implementar Tails de forma segura.
 

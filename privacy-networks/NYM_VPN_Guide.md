@@ -4,7 +4,7 @@
 
 Standard anonymity networks like Tor rely on spatial obfuscation (routing traffic through multiple geographic nodes). However, Tor does not obfuscate *time* or *volume*. If a Global Passive Adversary (GPA)—like a state intelligence agency—can monitor both the entry and exit points of the Tor network simultaneously, they can perform a Timing-Correlation Attack. By matching the exact size and timing of a packet entering the network to a packet leaving it, they can deanonymize the user.
 
-As a distributed systems cryptographer, I present the **NYM Mixnet**, a next-generation architecture designed specifically to defeat timing-correlation attacks.
+The **NYM Mixnet** is a next-generation architecture designed specifically to defeat timing-correlation attacks.
 
 ---
 

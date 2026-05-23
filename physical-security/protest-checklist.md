@@ -2,7 +2,7 @@
 
 *Status: Logistics & Field Readiness Manual | Audience: Direct Action Teams and Field Organizers*
 
-Physical safety and digital security are inextricably linked during a direct action event. A failure in one domain instantly compromises the other. As a tactical logistics coordinator, I mandate strict adherence to a chronological deployment schedule.
+Physical safety and digital security are inextricably linked during a direct action event. A failure in one domain instantly compromises the other. Strict adherence to a chronological deployment schedule is mandated.
 
 This checklist ensures full alignment between your physical loadout and your digital security posture before, during, and after an operation.
 

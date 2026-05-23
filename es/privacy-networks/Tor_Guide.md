@@ -2,7 +2,7 @@
 
 *Estado: Arquitectura de red de anonimato | Público: denunciantes, investigadores de OSINT y objetivos de alto riesgo*
 
-El Navegador Tor no proporciona "privacidad", sino **anonimato**. La privacidad es decidir *qué* le muestras al mundo; El anonimato es garantizar que el mundo no sepa *quién* eres. Como investigador de seguridad web, debo enfatizar que si bien el enrutamiento cebolla subyacente de Tor es criptográficamente robusto, la mayoría de los ataques de desanonimización tienen éxito porque los usuarios cometen errores de comportamiento o de configuración en los puntos finales.
+El Navegador Tor no proporciona "privacidad", sino **anonimato**. La privacidad es decidir *qué* le muestras al mundo; El anonimato es garantizar que el mundo no sepa *quién* eres. Si bien el enrutamiento cebolla subyacente de Tor es criptográficamente robusto, la mayoría de los ataques de desanonimización tienen éxito porque los usuarios cometen errores de comportamiento o de configuración en los puntos finales.
 
 Esta guía detalla los estrictos protocolos de implementación necesarios para sobrevivir a la inspección profunda de paquetes (DPI) y a la toma de huellas digitales avanzada del navegador.
 

@@ -2,7 +2,7 @@
 
 *Status: Physical Security Tactical Guide | Audience: Field Operatives and Direct Action Teams*
 
-In modern civic engagements, you are not just being watched by human eyes; you are being tracked by an automated, integrated surveillance grid. As a physical security specialist, I must emphasize that countersurveillance is no longer just about losing a tail—it is about blinding the grid.
+In modern civic engagements, you are not just being watched by human eyes; you are being tracked by an automated, integrated surveillance grid. Countersurveillance is no longer just about losing a tail—it is about blinding the grid.
 
 This guide details the physical and digital convergence necessary to mitigate real-time tracking infrastructure in public spaces.
 

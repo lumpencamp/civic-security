@@ -4,7 +4,7 @@
 
 A "burner phone" is not a specific type of hardware; it is a strict operational methodology. The moment a piece of hardware or a phone number is cryptographically or physically linked to your true identity, it ceases to be a burner.
 
-As a privacy consultant and operations expert, I must emphasize: acquiring and operating an ephemeral endpoint without leaving a corporate, financial, or geographic paper trail is extremely difficult. A single mistake permanently burns the device.
+Acquiring and operating an ephemeral endpoint without leaving a corporate, financial, or geographic paper trail is extremely difficult. A single mistake permanently burns the device.
 
 ---
 

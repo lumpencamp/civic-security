@@ -2,7 +2,7 @@
 
 *Estado: Manual de refuerzo y auditoría de software | Público: activistas, fuentes y organizadores*
 
-Signal es el estándar de oro para la mensajería cifrada de un extremo a otro. Sin embargo, su configuración predeterminada está optimizada para la comodidad del usuario, no para sobrevivir a la vigilancia a nivel estatal o a la captura de dispositivos físicos. Como auditor de software criptográfico, debo enfatizar que el cifrado de Signal solo protege los datos *en tránsito*. Una vez que los datos llegan a un dispositivo, dependen completamente de la seguridad local del dispositivo.
+Signal es el estándar de oro para la mensajería cifrada de un extremo a otro. Sin embargo, su configuración predeterminada está optimizada para la comodidad del usuario, no para sobrevivir a la vigilancia a nivel estatal o a la captura de dispositivos físicos. El cifrado de Signal solo protege los datos *en tránsito*. Una vez que los datos llegan a un dispositivo, dependen completamente de la seguridad local del dispositivo.
 
 Esta guía detalla el estricto bloqueo criptográfico de cuentas requerido para operaciones de alto riesgo.
 

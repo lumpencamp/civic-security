@@ -4,7 +4,7 @@
 
 Las redes de anonimato estándar como Tor se basan en la ofuscación espacial (enrutar el tráfico a través de múltiples nodos geográficos). Sin embargo, Tor no ofusca *tiempo* o *volumen*. Si un Adversario Pasivo Global (GPA), como una agencia de inteligencia estatal, puede monitorear simultáneamente los puntos de entrada y salida de la red Tor, puede realizar un ataque de correlación de tiempo. Al hacer coincidir el tamaño exacto y el tiempo de un paquete que ingresa a la red con un paquete que sale de ella, pueden desanonimizar al usuario.
 
-Como criptógrafo de sistemas distribuidos, presento **NYM Mixnet**, una arquitectura de próxima generación diseñada específicamente para derrotar los ataques de correlación de tiempo.
+La **NYM Mixnet** es una arquitectura de próxima generación diseñada específicamente para derrotar los ataques de correlación de tiempo.
 
 ---
 

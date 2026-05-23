@@ -2,7 +2,7 @@
 
 *Estado: Manual de refuerzo de seguridad de red | Público: activistas y usuarios conscientes de la privacidad*
 
-Una VPN no proporciona anonimato; proporciona privacidad al transferir la confianza de su proveedor de servicios de Internet (ISP) a la empresa de VPN. Como ingeniero de seguridad de redes, recomiendo Mullvad porque es una de las pocas entidades comerciales diseñadas desde cero para minimizar la recopilación de datos, lo que le permite establecer un túnel verdaderamente privado.
+Una VPN no proporciona anonimato; proporciona privacidad al transferir la confianza de su proveedor de servicios de Internet (ISP) a la empresa de VPN. Se recomienda Mullvad porque es una de las pocas entidades comerciales diseñadas desde cero para minimizar la recopilación de datos, lo que le permite establecer un túnel verdaderamente privado.
 
 Este manual detalla la configuración técnica necesaria para implementar Mullvad de forma segura frente a la vigilancia de red y el análisis de tráfico a nivel de ISP.
 

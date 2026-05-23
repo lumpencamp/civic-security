@@ -2,7 +2,7 @@
 
 *Estado: Guía Táctica de Seguridad Física | Público: Operativos de Campo y Equipos de Acción Directa*
 
-En los compromisos cívicos modernos, no sólo estás siendo observado por ojos humanos; usted está siendo rastreado por una red de vigilancia integrada y automatizada. Como especialista en seguridad física, debo enfatizar que la contravigilancia ya no se trata sólo de perder una cola, sino de cegar la red.
+En los compromisos cívicos modernos, no sólo estás siendo observado por ojos humanos; usted está siendo rastreado por una red de vigilancia integrada y automatizada. La contravigilancia ya no se trata sólo de perder una cola, sino de cegar la red.
 
 Esta guía detalla la convergencia física y digital necesaria para mitigar la infraestructura de seguimiento en tiempo real en espacios públicos.
 

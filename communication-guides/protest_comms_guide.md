@@ -4,7 +4,7 @@
 
 During high-friction civic actions, you must assume the cellular grid will fail. Whether due to natural crowd congestion, intentional localized throttling, or deployment of cellular jammers/IMSI-catchers by state actors, your communication architecture must be resilient.
 
-As a tactical signals intelligence (SIGINT) defense instructor, I mandate that no operation commences without a predefined, multi-tiered communications architecture.
+No operation commences without a predefined, multi-tiered communications architecture.
 
 ---
 
