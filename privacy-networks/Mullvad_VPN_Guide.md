@@ -1,65 +1,60 @@
-# A Guide to Mullvad VPN: Hardening Your Internet Connection
+# Mullvad VPN: Commercial Optimization and Kill-Switch Implementation
 
-## Tor vs. VPN: A Critical Distinction
+*Status: Network Security Hardening Manual | Audience: Activists and Privacy-Conscious Users*
 
-**A VPN is NOT for anonymity.** A VPN shifts trust from your Internet Service Provider (ISP) to the VPN company. It hides your traffic from your local network and changes your IP address, but the VPN provider *could* log your activity.
+A VPN does not provide anonymity; it provides privacy by shifting trust from your Internet Service Provider (ISP) to the VPN company. As a network security engineer, I recommend Mullvad because it is one of the few commercial entities architected from the ground up to minimize data collection, allowing you to establish a truly private tunnel.
 
-If your threat model requires true anonymity (e.g., whistleblowing against a state actor), **use the Tor Browser, not a VPN.** Use Mullvad for general privacy, securing your connection on public Wi-Fi, and bypassing basic geo-restrictions.
+This manual details the technical configuration required to deploy Mullvad securely against ISP-level dragnet surveillance and traffic analysis.
 
-## What is a VPN and Why Mullvad?
-
-A Virtual Private Network (VPN) creates a secure, encrypted "tunnel" for your internet traffic. When you use a VPN, your traffic is routed through one of the VPN provider's servers before it goes to the website you're visiting. This does two important things:
-
-1.  **It hides your IP address:** The website sees the IP address of the VPN server, not your real one, protecting your location and identity.
-2.  **It encrypts your traffic:** It prevents your Internet Service Provider (ISP) from seeing what you're doing online.
-
-Mullvad is widely regarded as one of the best VPNs for privacy-conscious users. They have a strict no-logging policy, allow for anonymous account creation (no email required), and are pioneers in security and transparency.
-
-**Proven No-Logs Policy (The 2023 Raid):** In April 2023, Swedish police raided Mullvad's headquarters with a search warrant to seize customer data. Because Mullvad genuinely keeps no logs, the police left completely empty-handed. This is the ultimate real-world stress test of a VPN's privacy claims.
-
-## Setting Up Mullvad for Maximum Security
-
-After you've downloaded and installed the Mullvad app, follow these steps to enable its most powerful security features.
-
-1.  **Open Settings:** Click the gear icon (⚙️) in the top-right corner of the app.
-2.  **Go to VPN Settings:** Select "VPN settings" from the left-hand menu.
-
-Now, let's configure the crucial options:
-
-### Enable the Kill Switch (Lockdown Mode)
-
-This is the single most important setting. A kill switch blocks all internet traffic if the VPN connection ever drops. This prevents your real IP address from accidentally leaking.
-
-*   **Find "Lockdown mode" and turn it on.**
-
-When Lockdown mode is enabled, your computer **cannot access the internet at all** unless it is connected to a Mullvad server. This is the strongest form of a kill switch.
-
-### Configure DNS Settings
-
-DNS (Domain Name System) is like the internet's phonebook; it translates website names (like `google.com`) into IP addresses. It's important that these requests are also sent through the VPN tunnel.
-
-*   **Go to `Advanced` settings.**
-*   **Ensure `Use custom DNS server` is turned OFF.**
-
-When this is off, Mullvad automatically uses its own private, no-logging DNS servers, which is the most secure option.
-
-## Understanding DAITA: A Shield Against Traffic Analysis
-
-In your settings, you may see an option for **DAITA**. This stands for **Defense Against AI-guided Traffic Analysis**. This is an advanced, experimental feature that goes beyond what most VPNs offer.
-
-*   **What it is:** Even when your traffic is encrypted, a sophisticated adversary can sometimes analyze the *patterns* of the traffic (the size and timing of data packets) to guess what you're doing online. DAITA works by adding "noise" to your traffic—inserting random, fake data packets. This makes it much harder for anyone to analyze your activity patterns.
-
-*   **Should you use it?** For most users, DAITA is not strictly necessary, but it provides an extra layer of protection against very advanced threats. You can enable it by connecting to a server that supports it (clearly marked in the server list).
-
-## How to Verify Your VPN is Working
-
-Once you're connected with Lockdown mode enabled, you can verify everything is working correctly:
-
-1.  **Check Your IP:** Open your web browser and go to [mullvad.net/check](https://mullvad.net/check). The site should show that you are connected to Mullvad and that there are no leaks.
-2.  **Test the Kill Switch:** While connected, turn off your Wi-Fi or unplug your ethernet cable. Try to visit any website. Your browser should show an error and be unable to connect. Reconnect your internet, and the VPN should automatically re-establish its connection.
+*For a deep dive into the threats posed by mass surveillance, read Mullvad's [Total Surveillance Manifesto (PDF)](https://mullvad.net/pdfs/Total_surveillance.pdf).*
 
 ---
 
-By using Mullvad with Lockdown mode enabled, you create a powerful defense for your everyday internet activity. You ensure that your data is encrypted and your identity is protected, even if the connection is unstable.
+## 1. Anonymous Account Generation and Funding
+
+Most VPN providers demand your email address, billing name, and credit card, immediately linking your real identity to your VPN traffic.
+
+*   **The Mullvad System:** Mullvad requires zero personal data. When you sign up, the system generates a random 16-digit account number. That number *is* your account. There are no passwords or emails to hack or subpoena.
+*   **Funding (The OPSEC Protocol):**
+    *   *Standard Security:* Pay via an anonymized, prepaid gift card or Monero (XMR). Do not use Bitcoin, PayPal, or your personal credit card.
+    *   *Maximum Security:* Write your 16-digit account number on a piece of paper, place physical cash in an envelope, and mail it directly to Mullvad headquarters in Sweden. This creates a complete disconnect between your financial identity and your network traffic.
+
+## 2. WireGuard Deployment and Kill-Switches
+
+OpenVPN is robust, but WireGuard is the modern standard—it is faster, uses less battery, and has a significantly smaller cryptographic attack surface.
+
+### Protocol Configuration
+1.  Open the Mullvad app. Navigate to **Settings > VPN settings**.
+2.  Change the **Tunnel protocol** from Automatic to **WireGuard**.
+
+### The Hard-Coded Kill-Switch (Lockdown Mode)
+A kill-switch is useless if it only activates *after* the VPN app crashes, allowing your real IP to leak for several seconds. You must enforce a hard kill-switch at the OS level.
+
+*   **Desktop Configuration:** In Mullvad Settings, enable **Lockdown mode**. This alters your system's firewall rules so that your computer *cannot* connect to the internet unless the Mullvad tunnel is active.
+*   **Android Configuration:**
+    1.  Go to your Android **Settings > Network & internet > VPN**.
+    2.  Tap the gear icon next to Mullvad VPN.
+    3.  Toggle **Always-on VPN** and **Block connections without VPN** to **ON**. This enforces a strict OS-level block against any non-tunneled traffic.
+
+## 3. Multi-Hop Routing and Traffic Analysis Defense
+
+Advanced adversaries monitor the size and timing of data packets entering a VPN server and leaving it, attempting to correlate the traffic and identify the user (Traffic Analysis).
+
+### Configuring Multi-Hop
+Routing your traffic through two separate VPN servers in different jurisdictions significantly complicates traffic analysis.
+
+1.  In the Mullvad app, go to **Settings > VPN settings > WireGuard settings**.
+2.  Enable **Enable multihop**.
+3.  Choose an Entry Server (e.g., in Switzerland) and an Exit Server (e.g., in Iceland). Your traffic is encrypted twice: your ISP only sees a connection to Switzerland, and the destination website only sees traffic originating from Iceland.
+
+*(Note: Multi-hop increases latency and reduces speed. Use only when necessary for elevated operational security).*
+
+## 4. Private DNS Resolver Integration
+
+Your ISP monitors every website you visit by logging your DNS (Domain Name System) requests. By routing DNS queries through Mullvad's encrypted resolvers, you blind your ISP.
+
+1.  Navigate to **Settings > VPN settings > DNS filtering**.
+2.  Enable **Block trackers**, **Block ads**, and **Block malware**.
+3.  **The Advantage:** Mullvad uses its own DNS servers over the encrypted WireGuard tunnel. This prevents your ISP from harvesting your browsing history and blocks connections to known state-sponsored blocklists and telemetry trackers at the network level, before they even reach your browser.
 
 _Last Updated: 2026_

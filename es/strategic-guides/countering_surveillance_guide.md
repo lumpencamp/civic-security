@@ -56,9 +56,9 @@ La policía local (T2) despliega rastreadores de RF móviles en las zonas de pro
 ### Identificación de IMSI-Catchers (rayas)
 Las mantarrayas imitan las torres de telefonía móvil, lo que obliga a su teléfono a conectarse a ellas para recopilar su número IMSI y rastrear su ubicación.
 * **Firmas de un ataque:**
-    *   Sudden, unexplained drop from 5G/4G down to 2G (EDGE) networks. (Stingrays often force phones onto older, unencrypted 2G protocols to intercept data).
-    *   Unusually rapid battery drain.
-    *   Failure of calls/texts to transmit despite showing "full bars" of signal.
+    * Caída repentina e inexplicable de las redes 5G/4G a 2G (EDGE). (Las mantarrayas a menudo fuerzan a los teléfonos a utilizar protocolos 2G más antiguos y no cifrados para interceptar datos).
+    * Descarga de batería inusualmente rápida.
+    * Fallo en la transmisión de llamadas/mensajes de texto a pesar de mostrar "barras completas" de señal.
 * **Contramedida:** En Android (específicamente en sistemas operativos reforzados como GrapheneOS), navegue hasta Configuración de red y **Desactive 2G**. Esto anula los ataques de degradación más comunes. Si sospecha que hay un Stingray activo, apague el dispositivo por completo y colóquelo en una bolsa de Faraday.
 
 ---

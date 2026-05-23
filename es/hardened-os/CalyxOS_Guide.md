@@ -33,7 +33,7 @@ Cuando MicroG está completamente habilitado, su dispositivo registra un identif
 1. Abra la aplicación **Configuración MicroG**.
 2. **Registro del dispositivo:** Desactívelo a menos que sea absolutamente necesario. Si están deshabilitadas, las aplicaciones no pueden usar los servidores de Google para notificaciones automáticas. (Nota: las aplicaciones seguras como Signal usan sus propias conexiones WebSocket y *no* necesitan MicroG para recibir mensajes).
 3. **Mensajería en la nube:** Si *debe* usar una aplicación propietaria que requiere notificaciones automáticas (por ejemplo, un cliente de correo electrónico seguro específico o una aplicación bancaria), habilite la mensajería en la nube.
-    *   *Mitigation:* Tap the three dots (menu) in Cloud Messaging and go to **Advanced**. Increase the "Ping interval" to reduce how often your device talks to the server.
+    * *Mitigación:* Toca los tres puntos (menú) en Mensajería en la nube y ve a **Avanzado**. Aumenta el "Intervalo de ping" para reducir la frecuencia con la que tu dispositivo se comunica con el servidor.
 4. **Google SafetyNet:** Asegúrese de que esté **Desactivado**. Es un servicio de certificación remota que envía perfiles de hardware del dispositivo a Google.
 5. **Módulos de ubicación:** Deshabilite el backend del "Servicio de ubicación de Google". Confíe únicamente en el Servicio de ubicación de Mozilla (MLS) o DejaVu para realizar búsquedas de ubicación de torres de telefonía móvil o Wi-Fi sin conexión y que respeten la privacidad.
 
@@ -51,8 +51,8 @@ Debes configurar el Botón de Pánico *antes* de una acción. No espere hasta qu
 1. Abra la aplicación **Botón de pánico** desde el cajón de aplicaciones.
 2. **Establezca el disparador:** Configure el mecanismo del disparador (por ejemplo, presionando rápidamente el botón de encendido 5 veces o presionando una combinación específica de botones de volumen).
 3. **Asigne las acciones:** Seleccione exactamente qué hará el botón de pánico cuando se active.
-    *   *T2 Threat Level (Protest/Crowd Control):* Map the button to **Uninstall Specific Apps** (e.g., instantly wipe Signal, Element, or your password manager) and **Hide Selected Apps**.
-    *   *T3/T4 Threat Level (Targeted Seizure):* Map the button to **Send Emergency SMS** (notifying your jail support contact with your coordinates) followed immediately by a **Device Shutdown**.
+    * *Nivel de amenaza T2 (Protesta/Control de multitudes):* Mapee el botón para **Desinstalar aplicaciones específicas** (por ejemplo, borrar instantáneamente Signal, Element o su administrador de contraseñas) y **Ocultar aplicaciones seleccionadas**.
+    * *Nivel de amenaza T3/T4 (Incautación dirigida):* Asigne el botón para **Enviar SMS de emergencia** (notificando a su contacto de apoyo en la cárcel sus coordenadas) seguido inmediatamente de un **Apagado del dispositivo**.
 4. **¿Por qué apagar?** Un apagado completo del dispositivo obliga al teléfono a volver al estado altamente seguro Antes del primer desbloqueo (BFU), cifrando sus claves de datos y bloqueando herramientas de extracción forense como Cellebrite.
 
 ### **Dispositivos compatibles**
