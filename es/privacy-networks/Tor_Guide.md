@@ -1,37 +1,19 @@
-# Una guía para el navegador Tor: su puerta de entrada al anonimato
+# Navegador Tor: anonimato profundo y configuración Edge-Case
 
-## ¿Qué es el navegador Tor?
+*Estado: Arquitectura de red de anonimato | Público: denunciantes, investigadores de OSINT y objetivos de alto riesgo*
 
-El Navegador Tor es un navegador web gratuito y de código abierto diseñado para proteger su anonimato en línea.Es su herramienta más poderosa para navegar por Internet sin revelar su verdadera ubicación o identidad.Es desarrollado y mantenido por Tor Project, una organización sin fines de lucro dedicada a promover los derechos humanos y las libertades mediante la creación e implementación de tecnologías de privacidad y anonimato gratuitas y de código abierto.
+El Navegador Tor no proporciona "privacidad", sino **anonimato**. La privacidad es decidir *qué* le muestras al mundo; El anonimato es garantizar que el mundo no sepa *quién* eres. Como investigador de seguridad web, debo enfatizar que si bien el enrutamiento cebolla subyacente de Tor es criptográficamente robusto, la mayoría de los ataques de desanonimización tienen éxito porque los usuarios cometen errores de comportamiento o de configuración en los puntos finales.
 
-Cuando utiliza un navegador normal (como Chrome, Firefox o Safari), su tráfico de Internet viaja directamente desde su dispositivo al sitio web que está visitando.Esto significa que el sitio web, su proveedor de servicios de Internet (ISP) y cualquier observador de la red pueden ver quién es usted y qué está mirando.El Navegador Tor cambia esta dinámica por completo.
+Esta guía detalla los estrictos protocolos de implementación necesarios para sobrevivir a la inspección profunda de paquetes (DPI) y a la toma de huellas digitales avanzada del navegador.
 
-## ¿Cómo funciona?La magia del enrutamiento de cebollas
-
-Tor te protege utilizando una técnica llamada "enrutamiento cebolla".Es un proceso inteligente que es más fácil de entender con una analogía.
-
-Imagina que quieres enviar un mensaje secreto a un amigo.En lugar de enviarlo directamente, haces lo siguiente:
-
-1. Tomas tu mensaje, lo pones en un cuadro pequeño y escribes en él la dirección de tu amigo.
-2. Luego colocas esa pequeña caja dentro de una caja un poco más grande y la diriges a una persona al azar, llamémosla Persona A.
-3. Luego colocas *esa* caja dentro de una caja aún más grande y la diriges a otra persona al azar, la Persona B.
-
-Cuando la Persona B recibe la caja más grande, la abre y encuentra la caja dirigida a la Persona A. La reenvía.La persona A recibe su caja, la abre y encuentra la última caja dirigida a su amigo.Lo envían a su destino final.
-
-Así es como funciona Tor.Su tráfico de Internet está envuelto en múltiples capas de cifrado, como las capas de una cebolla:
-
-* **Nodo de entrada:** Su tráfico primero va a una computadora aleatoria en la red Tor (el Nodo de entrada).Este nodo sabe quién es usted, pero no adónde se dirige en última instancia.
-* **Nodo intermedio:** Luego, el tráfico se envía a al menos otra computadora aleatoria (el nodo intermedio).Este nodo sólo sabe que el tráfico proviene del nodo de entrada y se dirige al nodo de salida.No sabe nada sobre ti ni sobre tu destino final.
-* **Nodo de salida:** Finalmente, su tráfico va a una tercera computadora aleatoria (el nodo de salida).Este nodo envía su tráfico al sitio web real que desea visitar.Conoce el destino final pero no tiene idea de quién eres.
-
-Esta ruta aleatoria de múltiples capas hace que sea extremadamente difícil para cualquiera rastrear su actividad en Internet hasta usted.
+---
 
 ```mermaid
 graph TD
-    A["You (Tor Browser)"] -->|Encrypted| B("Entry Node")
-    B -->|Encrypted| C("Middle Node")
-    C -->|Encrypted| D("Exit Node")
-    D -->|Decrypted or HTTPS| E{"Website"}
+    A["Tú (Navegador Tor)"] -->|Cifrado| B("Nodo de entrada")
+    B -->|Cifrado| C("Nodo medio")
+    C -->|Cifrado| D("Nodo de salida")
+    D -->|Descifrado o HTTPS| E{"Sitio web"}
     style A fill:#4CAF50,color:white
     style B fill:#2196F3,color:white
     style C fill:#2196F3,color:white
@@ -39,41 +21,47 @@ graph TD
     style E fill:#9E9E9E,color:white
 ```
 
-## ¿Cuándo debería utilizar el navegador Tor?
+## 1. Tor frente a VPN: una distinción fundamental
 
-* **Para proteger su identidad:** Cuando necesita investigar temas delicados sin vincular esa actividad a su identidad en el mundo real.
-* **Para evitar la censura:** Si vives o viajas por un país que bloquea ciertos sitios web o servicios, Tor puede ayudarte a acceder a Internet abierto.
-* **Para privacidad general:** Para evitar que los anunciantes, su ISP y los sitios web creen un perfil suyo en función de sus hábitos de navegación.
+Los activistas suelen confundir las VPN y Tor. Tienen propósitos completamente diferentes:
 
-## Limitaciones críticas: lo que Tor NO hace
+* **VPN (red privada virtual):** Transfiere la confianza de su proveedor de servicios de Internet (ISP) a una empresa de VPN corporativa. Oculta su tráfico de su red local y cambia su dirección IP, pero el proveedor de VPN *podría* registrar su actividad. **Una VPN NO te hace anónimo.** Si las autoridades citan una VPN (y registran datos), tu identidad se ve comprometida.
+* **Navegador Tor:** Diseñado específicamente para el **anonimato**. El cifrado de múltiples capas hace que sea matemáticamente inviable para *cualquiera* (incluidos los nodos individuales en la red Tor) vincular su carga útil de tráfico a su dirección IP.
 
-Comprender las limitaciones de Tor es esencial para utilizarlo de forma segura.
+## 2. Eludir la censura: transportes y puentes conectables
 
-1. **El nodo de salida es un punto débil:** El tráfico que sale de la computadora final (el nodo de salida) y va al sitio web **ya no está cifrado por Tor**.Si el sitio web que está visitando no utiliza HTTPS (el pequeño icono de candado en la barra de direcciones), entonces la persona que ejecuta el nodo de salida puede ver su tráfico.**Asegúrese siempre de conectarse a sitios web HTTPS cuando utilice Tor.**
+En entornos hostiles (regímenes autoritarios, redes corporativas, Wi-Fi universitario), los adversarios implementan la inspección profunda de paquetes (DPI) para identificar la firma criptográfica del tráfico Tor y bloquearla. Para anular el DPI, debes utilizar un transporte conectable (un puente).
 
-2. **Tor no te hace invencible:** Tor anonimiza tu conexión, pero no te protege de tus propias acciones.Si inicias sesión en una cuenta (como Facebook o tu correo electrónico) usando Tor, acabas de decirle a ese servicio exactamente quién eres.Para un verdadero anonimato, no inicie sesión en cuentas personales.
+Un Puente es un Nodo de Entrada no listado que disfraza su tráfico Tor para que parezca tráfico web estándar y benigno.
 
-3. **Puede ser lento:** Debido a que su tráfico rebota en todo el mundo, usar Tor es notablemente más lento que un navegador normal.No es ideal para transmitir videos o descargar archivos grandes.
+* **`obfs4` (Ofuscación 4):** La defensa estándar. Envuelve el tráfico de Tor en una capa de ofuscación, haciéndolo parecer un ruido aleatorio e irreconocible. Utilízalo si tu ISP simplemente bloquea los nodos Tor conocidos.
+* **`Snowflake`:** Un transporte entre pares altamente resistente. Enruta su conexión inicial a través de servidores proxy temporales administrados por voluntarios en países sin censura que utilizan WebRTC, lo que hace que su tráfico parezca una videollamada estándar. Úselo contra cortafuegos nacionales altamente sofisticados.
+* **`meek_azure`:** Dirige su tráfico a través de la infraestructura de nube Azure de Microsoft. El censor ve que te conectas a Microsoft, no a Tor. Para bloquear esto es necesario bloquear Azure por completo (Domain Fronting), algo que los censores son reacios a hacer debido al daño económico.
 
-4. **No protege toda tu computadora:** El navegador Tor solo protege el tráfico que pasa por el navegador.No anonimiza la actividad de otras aplicaciones en su computadora.
+**Configuración:** Si Tor no logra conectarse, navegue hasta **Configuración > Conexión > Puentes** y seleccione un puente integrado o solicite uno directamente desde el Proyecto Tor.
 
-## Tor frente a VPN: ¿Cuál es la diferencia?
+## 3. Protocolos de comportamiento estrictos (venciendo las huellas dactilares)
 
-Los activistas suelen confundir las VPN y Tor.Tienen propósitos completamente diferentes:
+Cuando usas Tor, tu objetivo es integrarte con todos los demás usuarios de Tor. Cualquier desviación del perfil predeterminado lo hace único, lo que permite a los rastreadores construir una "huella digital del navegador" y desanonimizarlo.
 
-* **VPN (red privada virtual):** Transfiere la confianza de su proveedor de servicios de Internet (ISP) a la empresa de VPN.Oculta su tráfico de su red local y de su ISP, y cambia su dirección IP.**Una VPN NO te hace anónimo.** Si las autoridades citan a una VPN (y la VPN registra datos), tu identidad se ve comprometida.Utilice una VPN para privacidad general, descarga de torrents o acceso a contenido bloqueado geográficamente.
-* **Navegador Tor:** Diseñado específicamente para el **anonimato**.El cifrado de múltiples capas (enrutamiento cebolla) hace que sea increíblemente difícil para *cualquiera* (incluidos los nodos de la red Tor) vincular su tráfico con su identidad.Utilice Tor para realizar investigaciones de alto riesgo, comunicarse con periodistas o denunciar irregularidades.
+### 1. Maximice el control deslizante de seguridad
+De forma predeterminada, Tor permite la ejecución de scripts web estándar para garantizar que los sitios web no fallen. Para la seguridad operativa, esto es inaceptable.
+* Haga clic en el **Icono de escudo** en la barra de URL.
+* Seleccione **Configuración de seguridad avanzada**.
+* Cambie el nivel a **Más seguro**. Esto deshabilita completamente JavaScript (JS) a nivel mundial. Malicious JS es el vector principal utilizado por los adversarios a nivel estatal para explotar los navegadores y ejecutar malware de anonimización. Si un sitio exige que JS funcione, busque otro sitio.
 
-## ¿Qué pasa si Tor está bloqueado?(Usando puentes)
+### 2. Nunca cambie el tamaño de la ventana del navegador
+Cuando maximiza una ventana del navegador, el sitio web solicita las dimensiones exactas en píxeles de su pantalla. Esto crea una "huella digital de lienzo" matemática muy exclusiva basada en el tamaño específico del monitor y la representación de gráficos.
+* **Regla:** Deje la ventana del Navegador Tor exactamente en el tamaño predeterminado en el que se abre. No haga clic en maximizar.
 
-En algunos países o en redes altamente restrictivas (como Wi-Fi corporativa o universitaria), la red pública Tor puede estar bloqueada.
+### 3. La regla de la red clara de tolerancia cero
+El error más catastrófico que puede cometer un activista es "tender puentes".
+* **Regla:** Nunca inicies sesión en una cuenta personal con nombre real (Facebook, Gmail personal, cuenta bancaria) mientras utilizas el navegador Tor.
+* *Mecánica:* Si inicias sesión en tu Facebook personal a través de Tor, acabas de vincular permanentemente tu circuito de nodo de salida anónimo de Tor directamente a tu verdadera identidad en la base de datos de Facebook. Si luego visita un foro de activistas en otra pestaña dentro de la misma sesión, los rastreadores pueden unir esas identidades.
 
-Para evitar esta censura, Tor utiliza **Bridges**.Los puentes son nodos de entrada de Tor no listados que son mucho más difíciles de identificar y bloquear para los censores.
+## 4. Manejo operativo de archivos
 
-* **Cómo usar:** Cuando abres el Navegador Tor y no se puede conectar, ve a Configuración de Red Tor.Seleccione "Usar un puente" y elija uno de los puentes integrados (como `obfs4`), o solicite un nuevo puente directamente desde el Proyecto Tor dentro de la configuración.
-
----
-
-El navegador Tor es la piedra angular de la privacidad digital.Si comprende cómo funciona y sus limitaciones, podrá utilizarlo de forma eficaz para proteger su identidad y explorar Internet con confianza.
+* **No abra descargas mientras esté en línea:** Si descarga un documento (PDF, Word) a través de Tor, no lo abra mientras esté conectado a Internet. Muchos formatos de documentos contienen rastreadores o macros integrados diseñados para "llamar a casa" a un servidor en el momento en que se abren, evitando Tor y revelando su verdadera dirección IP.
+* **Mitigación:** Desconéctese completamente de Internet antes de abrir cualquier archivo descargado, o ábralo exclusivamente dentro de un `DispVM` aislado en Qubes OS o en un entorno Tails OS sin acceso a la red.
 
 _Última actualización: 2026_
