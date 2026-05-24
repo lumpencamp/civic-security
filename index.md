@@ -3,6 +3,7 @@
 Welcome to the Lumpen Guide to Civic Security. This is a comprehensive, community-sourced resource providing detailed, practical information on digital security, physical safety, and legal rights.
 
 [**Leer en Español (Read in Spanish)**](./es/index.md)
+[**한국어로 읽기 (Read in Korean)**](./ko/index.md)
 
 ---
 
