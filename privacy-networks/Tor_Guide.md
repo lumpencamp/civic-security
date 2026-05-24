@@ -14,11 +14,11 @@ graph TD
     B -->|Encrypted| C("Middle Node")
     C -->|Encrypted| D("Exit Node")
     D -->|Decrypted or HTTPS| E{"Website"}
-    style A fill:#4CAF50,color:white
-    style B fill:#2196F3,color:white
-    style C fill:#2196F3,color:white
-    style D fill:#F44336,color:white
-    style E fill:#9E9E9E,color:white
+    style A fill:#4CAF50,color:#ffffff
+    style B fill:#2196F3,color:#ffffff
+    style C fill:#2196F3,color:#ffffff
+    style D fill:#F44336,color:#ffffff
+    style E fill:#9E9E9E,color:#ffffff
 ```
 
 ## 1. Tor vs. VPN: A Critical Distinction
