@@ -65,3 +65,5 @@ El error más catastrófico que puede cometer un activista es "tender puentes".
 * **Mitigación:** Desconéctese completamente de Internet antes de abrir cualquier archivo descargado, o ábralo exclusivamente dentro de un `DispVM` aislado en Qubes OS o en un entorno Tails OS sin acceso a la red.
 
 _Última actualización: 2026_
+
+{% include mermaid.html %}

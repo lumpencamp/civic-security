@@ -65,3 +65,5 @@ The most catastrophic error an activist can make is "bridge building."
 *   **Mitigation:** Disconnect from the internet completely before opening any downloaded file, or open them exclusively within an air-gapped `DispVM` on Qubes OS or a Tails OS environment without network access.
 
 _Last Updated: 2026_
+
+{% include mermaid.html %}
