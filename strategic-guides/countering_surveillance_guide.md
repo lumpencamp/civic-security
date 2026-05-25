@@ -82,3 +82,5 @@ If you must break digital surveillance (e.g., they are tracking your phone's loc
 **Directive:** The most successful counter-surveillance operation is one where the adversary returns to base believing you are simply a boring, uninteresting target who went shopping and went home.
 
 _Last Updated: 2026_
+
+{% include mermaid.html %}

@@ -82,3 +82,5 @@ Si debe romper la vigilancia digital (por ejemplo, están rastreando la ubicaci�
 **Directiva:** La operación de contravigilancia más exitosa es aquella en la que el adversario regresa a la base creyendo que eres simplemente un objetivo aburrido y poco interesante que fue de compras y se fue a casa.
 
 _Última actualización: 2026_
+
+{% include mermaid.html %}
