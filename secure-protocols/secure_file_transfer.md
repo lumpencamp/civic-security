@@ -1,61 +1,273 @@
-# Secure File Transfer: Exfiltration and Ingestion Infrastructure
+# Secure File Transfer: Sharing Sensitive Documents Safely
 
-*Status: Infrastructure Administrative Manual | Audience: Source Handlers, Journalists, and Technical Operators*
+*Status: Level 2 | Audience: Organizers, journalists, and anyone sharing sensitive documents*
 
-The exfiltration and ingestion of highly sensitive documents (leaks, evidence, raw footage) is the most perilous phase of any operation. Standard cloud services (Google Drive, Dropbox) are completely compromised by centralized metadata logging and subpoena compliance.
-
-All file transfers occur over decentralized or physically isolated architectures designed to eliminate IP footprints and sender/receiver correlation.
+Sharing files securely is one of the most common operational security challenges. Email attachments are unencrypted by default, cloud storage services cooperate with law enforcement, and even "secure" platforms like WhatsApp can leak metadata. This guide covers the full toolkit for secure file transfer, from simple one-to-one sharing to anonymous source protection.
 
 ---
 
-## 1. Local, Offline Sharing (For Protests & Crowds)
+## 1. Threat Assessment for File Transfer
 
-**Use Case:** You are at a protest or action. Cell service is jammed, shut down, or you suspect police are using Stingrays (IMSI catchers) to monitor the network. You need to quickly share a photo, video, or document with an affinity group member standing next to you.
+Before choosing a method, understand what you are protecting against:
 
-**How it Works:** You use tools that rely on local device-to-device connections (Bluetooth or creating a temporary Wi-Fi hotspot) to transfer the file without ever touching the internet.
-
-*   **LocalSend (Highly Recommended):** LocalSend is a free, open-source app available for iOS, Android, macOS, Windows, and Linux. It requires no internet connection and no account. Both devices must be on the same local Wi-Fi network (one device can create a mobile hotspot, and the other connects to it, without cellular data turned on). It is fast and secure.
-*   **Briar:** While primarily a messaging app, Briar can also transfer files peer-to-peer over Bluetooth. It is slower than LocalSend but requires no Wi-Fi setup.
-*   **A Warning on AirDrop / Nearby Share:** Apple's AirDrop and Android's Nearby Share are convenient but have known privacy flaws (they broadcast device names and sometimes phone numbers/Apple IDs to nearby scanners). If you use them, set them to "Contacts Only" and turn them completely off immediately after the transfer is complete. Never leave them on "Everyone."
-
----
-
-## 2. OnionShare: Ephemeral P2P Routing
-
-**Use Case:** Direct, one-to-one transfer across geographic distances where neither party wishes to reveal their IP address, and no intermediary server is trusted.
-
-**The Mechanics:** OnionShare temporarily spins up a localized web server on your machine and binds it to a Tor V3 Onion Service. The file never leaves your computer until the recipient downloads it directly via the Tor network.
-
-### Operational Execution
-1.  **Deployment:** Open OnionShare and select **Share Files**. Load the operational assets.
-2.  **Configuration:** Ensure **Stop sharing after files have been sent** is checked. This ensures the service self-destructs the moment the transfer is complete, preventing replay or discovery attacks.
-3.  **Address Generation:** OnionShare will generate a randomized `.onion` address and an authentication private key.
-4.  **Out-of-Band (OOB) Verification:** The `.onion` link and password must **never** be sent over the same channel that negotiated the transfer. If you agreed to the transfer via Signal, send the OnionShare link via a PGP-encrypted email or a secure Matrix channel. This prevents an adversary compromising one channel from intercepting both the intent and the payload.
-5.  **Termination:** Once the recipient confirms receipt, shut down OnionShare. The `.onion` address ceases to exist.
+| Threat | Concern | Appropriate Method |
+|--------|---------|-------------------|
+| ISP or network observer seeing file contents | Email, cloud sync | End-to-end encrypted transfer |
+| Server operator reading stored files | Cloud services, email servers | Zero-knowledge encryption |
+| Law enforcement subpoena to a service provider | Signal, cloud | Services with no content logs + warrant canary |
+| Metadata revealing who sent what to whom | Signal (non-sealed), email | OnionShare, Magic Wormhole, sealed sender |
+| File contents containing identifying metadata (EXIF, author info) | Photos, documents | Metadata stripping before transfer |
+| Recipient identity | Normal channels | Anonymous transfer methods |
 
 ---
 
-## 3. SecureDrop: Institutional Ingestion Architecture
+## 2. Signal for File Transfer
 
-**Use Case:** An organization (NGO, newsroom, civic defense group) needs a persistent, highly secure method to receive anonymous leaks without compromising the source or infecting the organization's internal network.
+Signal is appropriate for most day-to-day sensitive file sharing within your trusted contact network.
 
-**The Mechanics:** SecureDrop is not a single app; it is a complex, hardware-isolated network architecture running over Tor. It physically separates the network ingestion phase from the viewing phase to defeat zero-day malware embedded in submitted documents.
+**What Signal protects:**
+- File contents (end-to-end encrypted)
+- Metadata between you and Signal's servers (with sealed sender)
 
-### The Four-Tier Hardware Isolation Rule
+**Limitations:**
+- Files stored on both sender and recipient devices until deleted
+- Signal can see (and has historically been required to disclose) account metadata (when you registered, last connection time)
+- Not suitable for anonymous transfer — Signal requires a phone number
 
-To safely ingest anonymous files, the organization must deploy the following physical architecture:
+**Best practices:**
+- Enable disappearing messages so shared files are automatically deleted
+- Confirm safety numbers with recipients before sharing highly sensitive documents
+- Send files from airplane mode over Wi-Fi to avoid cellular network metadata
 
-1.  **The Application Server (The Landing Page):**
-    *   *Function:* This server faces the Tor network. It hosts the `.onion` site where the source uploads the document. It generates a unique cryptographic "codename" for the source to allow for secure two-way communication.
-    *   *Security:* It immediately encrypts incoming documents with the organization's public PGP key. It does not possess the private key to decrypt them.
-2.  **The Monitor Server:**
-    *   *Function:* Continuously monitors the Application Server for intrusion attempts or unusual behavior.
-3.  **The Secure Viewing Station (SVS) - [Air-Gapped]:**
-    *   *Function:* This is a dedicated, physically air-gapped laptop running Tails OS from a read-only USB drive. It possesses the private PGP key necessary to decrypt the documents. It **never** connects to the internet.
-    *   *Protocol:* A technical operator downloads the encrypted files from the Application Server onto an encrypted "Transfer USB." They physically carry the Transfer USB to the SVS. The files are decrypted and viewed on the SVS. If the files contain zero-day malware designed to phone home or exfiltrate data, it fails because the SVS has no network hardware.
-4.  **The Export Station:**
-    *   *Function:* If a document is verified as safe and necessary for publication, it is heavily scrubbed of metadata (using tools like MAT2 or Dangerzone) on the SVS, moved to a clean Export USB, and transferred to a standard operational machine.
+---
 
-*Directive: Bypassing the air-gap protocol by downloading and decrypting SecureDrop submissions on an internet-connected workstation is a terminal violation of organizational security.*
+## 3. OnionShare
 
-_Last Updated: 2026_
+**OnionShare** is a free, open-source tool that creates a temporary .onion address on the Tor network and allows you to share files through it. The sender runs a local Tor Hidden Service directly on their machine — there is no intermediary server, no account, and no log.
+
+**Capabilities:**
+- Share files: recipients download directly from your machine over Tor
+- Receive files: create an anonymous drop box for others to upload to you
+- Host a temporary chat room: ephemeral, no accounts, no logs
+- Host a website: temporary Tor-hosted site
+
+**Why it's powerful:**
+- **No server logs:** Files transfer directly between machines via Tor; no intermediary records the transaction
+- **No account required:** Neither sender nor recipient needs an account
+- **Anonymous for both parties:** Both sender and recipient are anonymized by Tor
+- **No file size limit** (in practice, limited by connection speed and Tor bandwidth)
+
+### 3.1 OnionShare Setup and Usage
+
+**Installation:**
+- Download from onionshare.org — verify the PGP signature
+- Available for Windows, macOS, Linux (as a .deb or .rpm), and as an F-Droid package for Android
+
+**Sharing files:**
+1. Open OnionShare → *Share Files* tab
+2. Drag files or folders into the window
+3. Configure options:
+   - *Stop sharing after files have been sent* (one-time share — recommended)
+   - *Auto-start timer* (optional — share becomes available at a specific time)
+4. Click *Start sharing* — OnionShare generates a .onion URL and a password (key)
+5. Share the .onion address AND the key with your recipient via a secure channel (Signal)
+6. The recipient opens Tor Browser, enters the .onion URL and key, and downloads the file
+7. OnionShare shows real-time download status; close when complete
+
+**Receiving files (drop box):**
+1. OnionShare → *Receive Files* tab
+2. Start the service — generate a .onion URL
+3. Share this URL with people who need to send you files (e.g., journalist creating a source intake drop)
+4. Files upload directly to a folder on your machine; you see uploads in real time
+
+**Security note:** The recipient needs Tor Browser or Orbot to access .onion addresses. This limits the audience. Plan accordingly.
+
+### 3.2 OnionShare for Source Protection (Journalists)
+
+SecureDrop (below) is the industry standard for source intake, but OnionShare offers a simpler, lighter-weight alternative for individual journalists or smaller organizations:
+
+- Use the "Receive Files" mode to create an anonymous drop box
+- Share the .onion address publicly or selectively
+- No account, no authentication required from the source
+- Files arrive directly on your machine — no cloud intermediary
+
+---
+
+## 4. SecureDrop
+
+SecureDrop is the gold standard for anonymous source-to-journalist communication, developed by Freedom of the Press Foundation (FPF). It is designed specifically to protect vulnerable sources sharing sensitive documents with news organizations.
+
+**How it works:**
+- Newsroom runs SecureDrop on a dedicated, air-gapped server
+- Sources access it only via Tor Browser, receiving a random code name
+- Journalists access SecureDrop only from a dedicated, air-gapped computer running Tails OS
+- No account, no email, no identifying information required
+
+**Which newsrooms have SecureDrop:**
+The Freedom of the Press Foundation maintains a directory at freedom.press/news/directory
+
+**For sources:** If you have sensitive information for a news organization, use their SecureDrop address — find it in the FPF directory. Access it only from Tor Browser on a trusted, private device.
+
+**For organizations:** Setting up SecureDrop requires significant technical infrastructure. FPF provides support — contact them at freedom.press.
+
+---
+
+## 5. Magic Wormhole
+
+Magic Wormhole is a command-line tool for fast, encrypted, one-time file transfer between two machines. It generates a simple code phrase that connects sender and receiver directly, with end-to-end encryption.
+
+**Why use it:**
+- Simpler than OnionShare when both parties are technical users comfortable with the command line
+- Fast: Direct transfer, no Tor bandwidth limitation
+- No account, no intermediary server (though it uses a relay server to initiate the connection)
+- One-time code: each transfer uses a unique code that expires
+
+**Limitation:** Does not provide anonymity — your IP is visible to the relay server and potentially to your peer. Use OnionShare if anonymity is required.
+
+**Installation:**
+```
+pip install magic-wormhole
+# or: brew install magic-wormhole (macOS)
+# or: apt install magic-wormhole (Debian/Ubuntu)
+```
+
+**Usage:**
+```
+# Sender:
+wormhole send /path/to/file.pdf
+# Outputs: wormhole receive 7-crossword-galaxy (example code)
+
+# Receiver (on different machine):
+wormhole receive 7-crossword-galaxy
+```
+
+---
+
+## 6. Encrypted Email (PGP)
+
+PGP (Pretty Good Privacy) email encryption is the traditional method for encrypted file transfer via email. It is powerful but technically demanding, and most activists find Signal or OnionShare more practical for daily use.
+
+**When PGP email makes sense:**
+- Communicating with someone who only has email (no Signal)
+- Archiving encrypted records that need to be stored long-term with verifiable authorship
+- Signing documents to prove they have not been tampered with
+
+### 6.1 PGP Basics
+
+PGP uses asymmetric encryption:
+- You have a **public key** you share widely — others use it to encrypt messages for you
+- You have a **private key** you keep secret — you use it to decrypt messages sent to you
+- You can **sign** messages with your private key to prove authorship
+
+**Key concepts:**
+- A signed document proves it came from you and has not been modified
+- An encrypted file can only be read by whoever has the corresponding private key
+
+### 6.2 PGP Tools
+
+- **GPG (GNU Privacy Guard):** Command-line PGP implementation, available on all platforms. The foundational tool.
+- **Kleopatra (Windows/Mac):** GUI front-end for GPG
+- **GPG Suite (Mac):** Integrates PGP into macOS Mail and Finder
+- **Enigmail (Thunderbird):** Thunderbird email client has built-in OpenPGP support
+
+**Basic workflow:**
+1. Generate a key pair: `gpg --full-generate-key`
+2. Export your public key: `gpg --export --armor your@email.com > publickey.asc`
+3. Share your public key with contacts
+4. Encrypt a file for a recipient: `gpg --encrypt --recipient recipient@email.com file.pdf`
+5. Send the encrypted file (safe to send over unencrypted email)
+6. Recipient decrypts: `gpg --decrypt file.pdf.gpg`
+
+### 6.3 PGP Limitations
+
+- **Metadata:** PGP encrypts the message content but not the metadata — who sent what to whom, when, is visible to your email provider
+- **Key management:** You must verify that the public key you encrypt to actually belongs to your intended recipient (otherwise you encrypt to an attacker's key). Use key signing parties, Signal to verify fingerprints out-of-band.
+- **Complexity:** PGP is famously difficult to use correctly. For most activists, Signal and OnionShare are more practical and less error-prone.
+
+---
+
+## 7. Metadata Stripping
+
+Even after using a secure transfer method, files often contain embedded metadata that can identify you.
+
+### 7.1 Document Metadata
+
+**Microsoft Office files (.docx, .xlsx, .pptx):** Contain author name (from Windows/Office account), organization, computer name, creation date, edit history, and sometimes revision history showing deleted content.
+
+**Stripping in LibreOffice:**
+1. *File → Properties → General → Reset Properties* (removes some metadata)
+2. *File → Export → Export as PDF* then use PDF metadata stripping tool (more thorough)
+
+**Stripping with ExifTool (command line):**
+```
+exiftool -all= document.docx
+```
+
+**PDF files:** Contain author, creation software, creation date, and sometimes GPS coordinates if created on mobile.
+```
+exiftool -all= document.pdf
+```
+
+### 7.2 Photo/Image EXIF Data
+
+Photos contain extensive EXIF metadata:
+- GPS coordinates (exact location where photo was taken, often accurate to meters)
+- Device make and model
+- Date and time
+- Camera settings
+- Sometimes: serial number of the camera
+
+**Tools:**
+- **ExifTool (all platforms):** The definitive tool
+  ```
+  exiftool -all= photo.jpg          # Remove all metadata
+  exiftool -GPS= photo.jpg          # Remove only GPS data
+  exiftool -j photo.jpg             # View all metadata
+  ```
+- **Scrambled EXIF (Android):** Share photos with metadata stripped via this app's share sheet
+- **Image Scrubber (browser):** imgscrubber.com — drag and drop, strips EXIF in browser
+- **Dangerzone:** For documents — converts them to PDFs in a sandboxed container, strips all metadata
+
+### 7.3 Operational Rule
+
+**Before sharing any photo or document from an action or sensitive context:**
+1. Strip all metadata with ExifTool or equivalent
+2. Verify the metadata is gone: `exiftool photo.jpg` should show no EXIF data
+3. Then share via a secure channel
+
+This should be a non-negotiable step in your information workflow.
+
+---
+
+## 8. Secure File Storage and Sharing for Teams
+
+### 8.1 Proton Drive
+
+**Proton Drive** (from the makers of Proton Mail) provides zero-knowledge encrypted cloud storage:
+- Files are encrypted on your device before upload — Proton cannot read them
+- Encrypted sharing links with expiration dates and passwords
+- Based in Switzerland, subject to Swiss privacy law (stronger than U.S.)
+
+**Use for:** Sharing sensitive organizational documents with team members; storing encrypted archives
+
+### 8.2 Cryptomator
+
+**Cryptomator** is an open-source tool that creates an encrypted "vault" on top of any cloud storage provider (Dropbox, Google Drive, iCloud, etc.):
+- Files are encrypted locally before syncing to cloud
+- The cloud provider sees only encrypted, unreadable files
+- Works across Windows, macOS, Linux, iOS, Android
+
+**Use for:** Adding zero-knowledge encryption to your existing cloud storage without switching providers.
+
+### 8.3 Keybase Teams
+
+**Keybase** provides end-to-end encrypted team file sharing:
+- Files shared in Teams are encrypted and only readable by team members
+- Integrates with encrypted chat, so file sharing and communication are in one place
+- Account creation requires some identifying information; consider this in your threat model
+
+---
+
+*This guide does not constitute legal advice. Laws vary by jurisdiction.*
+
+[← Back to Index](../index.md)

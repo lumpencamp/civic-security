@@ -2,84 +2,170 @@
 
 *Status: Level 2 Directive | Audience: Operations Planners and Security Teams*
 
-Threat modeling is not paranoia; it is the calculated, objective assessment of your operational environment. This framework adapts corporate security methodologies (STRIDE and PASTA) into an actionable, quantitative model specifically for non-state actors, activists, and civic organizations.
+Threat modeling is not paranoia — it is the calculated, objective assessment of your operational environment. This framework adapts corporate security methodologies (STRIDE, PASTA, and DREAD) into an actionable, quantitative model specifically for non-state actors, activists, and civic organizations.
+
+> **Core Rule:** Never prepare for a higher-tier adversary than the one you actually face. Over-engineering your security creates operational paralysis, burns out participants, and isolates potential supporters. Under-engineering it gets people arrested, doxxed, or harmed. Calibrate precisely.
 
 ---
 
-## 1. Adversary Profiling (The Threat Tiers)
+## 1. Adversary Profiling: The Threat Tiers
 
-To defend effectively, you must understand your adversary's capabilities, budget, and legal authorizations. Do not prepare for a T4 adversary if your actual threat is T1; doing so will cause operational paralysis.
+To defend effectively, you must understand your adversary's **capabilities**, **budget**, **legal authorizations**, and **political constraints**. Each tier requires a qualitatively different defensive posture.
 
-*   **T1: The Noise (Doxxers, Trolls, Counter-Protestors)**
-    *   **Capabilities:** Open-Source Intelligence (OSINT), social engineering, physical harassment at public events, denial-of-service (reporting accounts).
-    *   **Limitations:** No legal authority, minimal funding, low technical sophistication.
-*   **T2: Local Enforcement (Police, Regional Fusion Centers)**
-    *   **Capabilities:** Arrest authority, physical surveillance, Cell-Site Simulators (Stingrays), ALPRs (License Plate Readers), facial recognition databases, access to data brokers, subpoena power for domestic tech companies.
-    *   **Limitations:** Bureaucratic friction, geographic boundaries, budget constraints.
-*   **T3: Corporate Intelligence (Private Security, Pinkertons)**
-    *   **Capabilities:** Deep financial resources, infiltration/informants, advanced OSINT tools, litigation/lawsuits (SLAPPs), hiring off-duty law enforcement.
-    *   **Limitations:** No direct arrest authority, subject to civil liability, highly sensitive to bad PR.
-*   **T4: State-Level Intelligence (Federal Agencies, Three-Letter Entities)**
-    *   **Capabilities:** Unlimited budget, zero-day device exploits (Pegasus), national dragnet surveillance, NSA/FISA intelligence sharing, border search authority, covert black-bag operations.
-    *   **Limitations:** High threshold for deployment. Unless you are involved in massive critical infrastructure disruption or designated as a national security threat, you are unlikely to face dedicated T4 targeting.
+### T1: The Noise (Doxxers, Trolls, Harassment Networks)
+*   **Examples:** Far-right forums (4chan, Telegram channels), counter-protest groups, stalkers, opportunistic harassers.
+*   **Capabilities:**
+    - Open-Source Intelligence (OSINT): Google dorking, reverse image search, LinkedIn/Facebook scraping, data broker aggregation
+    - Social engineering (phishing calls, fake accounts)
+    - Physical presence at public events
+    - Platform-level attacks: mass account reporting, review bombing
+    - Swatting (false emergency calls to dispatch armed police to your location)
+*   **Limitations:** No legal authority, no guaranteed funding, generally low technical sophistication, subject to civil lawsuits, vulnerable to counter-OSINT
+*   **Primary Countermeasures:** Data broker opt-outs, pseudonymous public presence, private social accounts, disciplined information hygiene, community early warning networks
+
+### T2: Local Law Enforcement (Police, Sheriffs, Regional Fusion Centers)
+*   **Examples:** Municipal police, county sheriffs, joint terrorism task forces (JTTFs), DEA, fusion centers like Chicago CLOCC.
+*   **Capabilities:**
+    - Arrest and detention authority
+    - Physical surveillance (tails, fixed observation posts)
+    - Cell-Site Simulators (CSS/IMSI catchers, "Stingrays"): Capture IMEI/IMSI numbers and intercept unencrypted SMS within a geographic radius
+    - Automated License Plate Readers (ALPRs): Real-time and retroactive location tracking
+    - Facial recognition databases (often with low accuracy thresholds and racial bias)
+    - Access to commercial data brokers: location data, social graphs, purchase history
+    - Subpoena power for domestic technology companies (Google, Apple, Meta, Verizon)
+    - Confidential informants embedded in activist communities
+    - National Crime Information Center (NCIC) database queries
+    - Tower dump requests: all devices connected to a cell tower in a time window
+*   **Limitations:** Bureaucratic friction, chain of command, budget constraints, geographic jurisdiction boundaries, civil rights litigation risk, public accountability (body cameras, FOIA)
+*   **Primary Countermeasures:** Encrypted communications (Signal), device lockdown, counter-surveillance training, facial concealment, legal observer networks, know-your-rights training, Faraday bags, no personal devices at actions
+
+### T3: Corporate Intelligence (Private Security Firms, Industry Groups)
+*   **Examples:** Pinkerton (now Securitas), Kroll, Guidepost Solutions, industry-funded "threat intelligence" firms like TigerSwan (Dakota Access Pipeline surveillance).
+*   **Capabilities:**
+    - Deep financial resources, often funded by corporations or industry associations
+    - Infiltration via professional-quality informants with sustained identities
+    - Advanced OSINT tools (Palantir, Maltego, ShadowDragon)
+    - Surveillance of financial flows and nonprofit filings
+    - Strategic litigation (SLAPP suits) to bankrupt and silence organizations
+    - Coordinating with or hiring off-duty law enforcement officers
+    - Media manipulation and disinformation campaigns
+    - Background investigations on organizers' employers, families, associates
+*   **Limitations:** No direct arrest authority (they must involve police), subject to civil liability and bad PR, infiltration risks exposure (their agents can turn), bound by RICO and conspiracy law if they cross lines
+*   **Primary Countermeasures:** Need-to-know cellular structures, financial hygiene, legal entity separation, counter-intelligence protocols, document all intimidation attempts for civil litigation
+
+### T4: Federal State-Level Intelligence (FBI, DHS, NSA, Military Intelligence)
+*   **Examples:** FBI COINTELPRO successors, DHS threat assessment teams, NSA collection programs, DEA wiretaps, state fusion centers with federal grants.
+*   **Capabilities:**
+    - Essentially unlimited budget for designated targets
+    - National Security Letters (NSLs): secret subpoenas with gag orders, no judicial review required
+    - FISA surveillance warrants covering foreign contacts and their domestic associates
+    - NSA metadata collection: call records, email headers, location data at scale
+    - Zero-day device exploits (Pegasus, Triangulation-class): remote compromise of fully-patched phones
+    - "Black bag" covert operations: physical entry, device implants
+    - Coordinated prosecution: crafting criminal charges from surveilled activity
+    - Border search authority: warrantless search of devices at all U.S. ports of entry
+    - Indefinite material witness detention
+    - International intelligence-sharing with Five Eyes partners
+*   **Limitations:** Very high threshold for deployment (significant resources required); genuine civil liberties litigation (ACLU, EFF) has constrained some programs; political exposure for targeting purely domestic activism; whistleblowers exist
+*   **Realistic Applicability:** Unless your organization is directly disrupting critical infrastructure, has international funding deemed adversarial, or has been formally designated a domestic terrorism threat, sustained dedicated T4 targeting is unlikely. Incidental collection and fusion center data-sharing is more probable.
+*   **Primary Countermeasures:** Tails OS, air-gapped devices for the most sensitive work, end-to-end encrypted communication for everything, no cloud services for operational data, physical compartmentalization, legal organizational structure, public transparency as a shield
 
 ---
 
-## 2. The 5x5 Risk Assessment Matrix
+## 2. The 5×5 Risk Assessment Matrix
 
-Risk is calculated using two variables: **Likelihood** (How probable is the attack?) and **Impact** (How devastating is the consequence?).
+Risk is defined as **Likelihood × Impact**. Assess each threat vector using this matrix before allocating security resources.
 
-*   **Likelihood (1-5):** 1 = Rare, 3 = Possible, 5 = Almost Certain.
-*   **Impact (1-5):** 1 = Minor inconvenience, 3 = Operation disrupted/Short-term detention, 5 = Critical organizational failure/Long-term imprisonment/Loss of life.
+**Likelihood Scale (1–5):**
+| Score | Label | Description |
+|-------|-------|-------------|
+| 1 | Rare | Has almost never happened to similar groups |
+| 2 | Unlikely | Has happened occasionally but not recently |
+| 3 | Possible | Has happened to comparable groups in this city |
+| 4 | Likely | Has happened to your group or close affiliates |
+| 5 | Almost Certain | Is actively happening or anticipated imminently |
 
-**Risk Score = Likelihood × Impact**
+**Impact Scale (1–5):**
+| Score | Label | Description |
+|-------|-------|-------------|
+| 1 | Negligible | Minor inconvenience, recoverable in hours |
+| 2 | Minor | Short disruption, no lasting harm |
+| 3 | Moderate | Significant disruption, short-term detention, partial info leak |
+| 4 | Severe | Key organizer arrested, major information compromise |
+| 5 | Critical | Organizational collapse, long-term incarceration, physical harm |
 
-| Likelihood \ Impact | 1 (Minor) | 2 (Moderate) | 3 (Significant) | 4 (Severe) | 5 (Critical) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **5 (Certain)** | 5 (Low) | 10 (Med) | 15 (High) | 20 (Extreme) | **25 (ABORT)** |
-| **4 (Likely)** | 4 (Low) | 8 (Med) | 12 (High) | 16 (Extreme) | 20 (Extreme) |
-| **3 (Possible)** | 3 (Low) | 6 (Med) | 9 (Med) | 12 (High) | 15 (High) |
-| **2 (Unlikely)** | 2 (Low) | 4 (Low) | 6 (Med) | 8 (Med) | 10 (Med) |
-| **1 (Rare)** | 1 (Low) | 2 (Low) | 3 (Low) | 4 (Low) | 5 (Low) |
+**Risk Score = Likelihood × Impact** (Range: 1–25)
 
-### Hard Thresholds (The Go/No-Go Rule)
-*   **Score 1-8 (Acceptable):** Proceed with standard OPSEC.
-*   **Score 9-14 (Elevated):** Proceed with heightened countermeasures. Restrict "need-to-know" access.
-*   **Score 15-20 (Critical):** Operation is on hold until mitigations reduce the score below 15.
-*   **Score 21-25 (ABORT):** Mandatory operational abort. The environment is too hostile.
+| Score Range | Priority | Action Required |
+|-------------|----------|-----------------|
+| 20–25 | **CRITICAL** | Implement all countermeasures immediately |
+| 12–19 | **HIGH** | Prioritize; implement within 48 hours |
+| 6–11 | **MEDIUM** | Schedule; implement before next action |
+| 1–5 | **LOW** | Monitor; document; accept or mitigate opportunistically |
 
 ---
 
-## 3. Threat Modeling Template (STRIDE for Activists)
+## 3. Threat Modeling Worked Examples
 
-Use this template to quantify your vulnerabilities before any major operation.
+### Example A: Local Tenants Union (T1/T2 Threat Environment)
+*Organizing rent strikes against a large property management company.*
 
-### Phase 1: Asset Identification
-*List what you must protect.*
-*   **Asset 1:** (e.g., The identity of the whistleblower)
-*   **Asset 2:** (e.g., The physical location of our secure server)
-*   **Asset 3:** (e.g., Our encrypted communication channels)
+| Threat Vector | Likelihood | Impact | Score | Priority |
+|---------------|-----------|--------|-------|----------|
+| Doxxing of lead organizers | 4 | 3 | 12 | HIGH |
+| Landlord hires private investigators | 3 | 2 | 6 | MEDIUM |
+| Police observe public meetings | 2 | 2 | 4 | LOW |
+| Eviction as retaliation | 4 | 4 | 16 | HIGH |
+| Infiltration of WhatsApp group | 3 | 3 | 9 | MEDIUM |
 
-### Phase 2: Adversary Mapping
-*Identify who wants to compromise those assets.*
-*   **Target Adversary:** (e.g., T2 - Local Fusion Center)
-*   **Their Goal:** (e.g., Identify the organizers and seize communication logs)
+**Key Countermeasures:** Signal instead of WhatsApp, pseudonymous public spokespeople, data broker opt-outs, legal observer at all public meetings.
 
-### Phase 3: Vulnerability Assessment & Mitigation
-*Map the attack vectors and calculate the risk using the 5x5 Matrix.*
+### Example B: Journalist Covering Federal Law Enforcement (T2/T4 Threat Environment)
+*Reporting on immigration enforcement operations.*
 
-| Asset | Attack Vector (How will they get it?) | Base Likelihood | Base Impact | Base Risk Score | Mitigation Strategy (What will we do?) | New Likelihood | New Impact | Adjusted Risk Score |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Identity of Source** | T3 Adversary uses subpoenas on our Google Workspace. | 4 | 5 | **20 (EXTREME)** | Migrate source communication to Signal; store files on E2EE CryptPad. | 1 | 5 | **5 (LOW)** |
-| **Protest Route** | T1 Trolls infiltrate public Telegram group to dox attendees. | 5 | 3 | **15 (HIGH)** | Vetting protocol for group entry; move sensitive comms to private Matrix server. | 2 | 2 | **4 (LOW)** |
-| **Devices** | T2 Police seize phones during mass arrest. | 4 | 4 | **16 (EXTREME)** | Enforce burner phone protocol; use Faraday bags; 12-character alphanumeric passcodes. | 4 | 1 | **4 (LOW)** |
+| Threat Vector | Likelihood | Impact | Score | Priority |
+|---------------|-----------|--------|-------|----------|
+| Source identification from metadata | 4 | 5 | 20 | CRITICAL |
+| Device seizure at border | 3 | 4 | 12 | HIGH |
+| Subpoena for communications | 3 | 4 | 12 | HIGH |
+| Targeted digital intrusion | 2 | 5 | 10 | MEDIUM |
+| Physical surveillance of source meetings | 2 | 4 | 8 | MEDIUM |
 
-### Phase 4: Operational Go/No-Go Checklist
-*   [ ] Have all assets been identified?
-*   [ ] Is the primary adversary tier correctly classified?
-*   [ ] Have all adjusted risk scores been brought below the 15-point threshold?
-*   [ ] Are all participating nodes trained on the mitigation strategies?
+**Key Countermeasures:** Signal with disappearing messages, SecureDrop for source intake, Tails OS for sensitive document handling, encrypted device at border crossings, legal counsel on retainer.
 
-If any box is unchecked, the operation is a **No-Go**.
+---
 
-_Last Updated: 2026_
+## 4. The STRIDE Threat Framework (Adapted)
+
+STRIDE is a structured methodology for identifying attack vectors. Assess each category against your organization's specific assets.
+
+| Category | Definition | Activist Example | Countermeasure |
+|----------|-----------|------------------|----------------|
+| **S**poofing | Adversary impersonates a trusted identity | Fake "ally" joins Signal group | Verification protocols, in-person trust establishment |
+| **T**ampering | Data or systems are modified without authorization | Evidence doctored, communications altered | Cryptographic signatures, chain of custody |
+| **R**epudiation | Actions taken without accountability | Informant denies leaking; legal disputes | Secure timestamped records, witness documentation |
+| **I**nformation Disclosure | Sensitive information exposed | OSINT reveals organizer's home address | Data minimization, strict need-to-know |
+| **D**enial of Service | Disruption of operations | Platform bans, DDoS of website | Redundant channels, offline capabilities |
+| **E**levation of Privilege | Gaining unauthorized access | Account compromise, device theft | Strong authentication, device encryption |
+
+---
+
+## 5. Ongoing Threat Assessment Protocol
+
+Threat modeling is not a one-time exercise. Re-assess after every significant event.
+
+**Reassess immediately when:**
+- A member is arrested, detained, or has their device seized
+- New technology is deployed by law enforcement in your city (e.g., new camera network, facial recognition contract)
+- A known informant or infiltrator is identified
+- Your organization receives unusual legal or media attention
+- A member reports being approached or recruited by law enforcement
+- Significant escalation in the political environment (new legislation, crackdowns)
+
+**Regular review cadence:** At minimum, conduct a full threat modeling session quarterly, or before any major planned action.
+
+---
+
+*This guide does not constitute legal advice. Laws vary by jurisdiction. For legal matters, consult a licensed attorney.*
+
+[← Back to Index](../index.md)

@@ -1,0 +1,104 @@
+{
+  "currency_cutoff_date": "2026-05-24",
+  "audit_status": "Complete",
+  "citation_map": [
+    {
+      "section": "hardened-os/GrapheneOS_Guide.md",
+      "claim": "GrapheneOS officially supports Google Pixel 9 and Pixel 10 series devices, while Pixel 6 series devices will reach EOL in October 2026.",
+      "primary_source": {
+        "title": "GrapheneOS FAQ - Supported Devices",
+        "url": "https://grapheneos.org/faq#supported-devices",
+        "authoritativeness": "Primary developer documentation detailing device hardware compatibility and software lifecycle support plans."
+      },
+      "secondary_source": {
+        "title": "Google Pixel Update Bulletins - Hardware Support Lifecycles",
+        "url": "https://support.google.com/pixelphone/answer/4457705",
+        "authoritativeness": "Official Google device manufacturer support site outlining exact EOL dates for Pixel 6 series devices (October 2026)."
+      }
+    },
+    {
+      "section": "hardened-os/qubes_os_guide.md",
+      "claim": "Qubes OS 4.3.0 was released in December 2025 as the recommended stable release; the Qubes 4.2 series reaches EOL on June 21, 2026.",
+      "primary_source": {
+        "title": "Qubes OS - Supported Releases",
+        "url": "https://www.qubes-os.org/doc/supported-releases/",
+        "authoritativeness": "Official project developer release cycle chart detailing release and support/EOL dates."
+      },
+      "secondary_source": {
+        "title": "LWN Qubes OS 4.3 Release Announcement",
+        "url": "https://lwn.net/Articles/956345/",
+        "authoritativeness": "Highly reputable open-source software news archive documenting the official stable release and developer notes."
+      }
+    },
+    {
+      "section": "digital-security/signal_guide.md",
+      "claim": "Signal Usernames and Phone Number Privacy (introduced in early 2024) permit hiding physical SIM numbers and preventing discovery by contacts.",
+      "primary_source": {
+        "title": "Signal Blog - Keep your phone number private with usernames",
+        "url": "https://signal.org/blog/phone-number-privacy/",
+        "authoritativeness": "Official developer release announcement explaining the technical details and usage configurations."
+      },
+      "secondary_source": {
+        "title": "EFF Surveillance Self-Defense (SSD) - Signal Hardening Guide",
+        "url": "https://ssd.eff.org/",
+        "authoritativeness": "Gold-standard non-profit digital rights advocacy guide endorsing Signal's phone number concealment features."
+      }
+    },
+    {
+      "section": "secure-protocols/financial_privacy.md",
+      "claim": "Monero implemented the Full-Chain Membership Proofs (FCMP++) upgrade in early 2026, expanding the transaction anonymity set to the entire blockchain.",
+      "primary_source": {
+        "title": "GetMonero Project - FCMP++ Security Upgrade",
+        "url": "https://www.getmonero.org/",
+        "authoritativeness": "Official cryptocurrency network developer release portal and cryptographic specifications."
+      },
+      "secondary_source": {
+        "title": "TRM Labs Monero Regulatory Delistings and Privacy Analysis",
+        "url": "https://www.trmlabs.com/",
+        "authoritativeness": "Leading blockchain analytics and regulatory compliance firm detailing exchange shifts and Monero's active privacy architecture."
+      }
+    },
+    {
+      "section": "physical-security/bluetooth_trackers.md",
+      "claim": "Apple and Google finalized the joint Detecting Unwanted Location Trackers (DULT) industry specification to natively alert users to nearby tracking beacons.",
+      "primary_source": {
+        "title": "Apple Newsroom - Support for Unwanted Tracker Alerts",
+        "url": "https://www.apple.com/newsroom/2024/05/apple-and-google-deliver-support-for-unwanted-tracker-alerts/",
+        "authoritativeness": "Official manufacturer corporate news announcement detailing the finalized standard and OS integration."
+      },
+      "secondary_source": {
+        "title": "Google Safety & Emergency Support - Unknown Tracker Alerts",
+        "url": "https://support.google.com/android/answer/13658562",
+        "authoritativeness": "Official operating system help documents detailing settings, DULT specifications, and manual bluetooth scanning."
+      }
+    },
+    {
+      "section": "secure-protocols/secure_cloud_storage.md",
+      "claim": "The secure cloud storage guide recommends verified end-to-end encrypted storage and collaboration suites including Swiss-based Proton Drive and Filen.",
+      "primary_source": {
+        "title": "Proton Drive Security Architecture Whitepaper",
+        "url": "https://proton.me/drive/security",
+        "authoritativeness": "Swiss-based encrypted email and drive developer detailing zero-knowledge client-side encryption and independent audit reports."
+      },
+      "secondary_source": {
+        "title": "Filen Privacy and Encryption Standards",
+        "url": "https://filen.io/encryption",
+        "authoritativeness": "German-based open-source E2EE cloud developer outlining strict AES-256 client-side zero-knowledge architecture."
+      }
+    },
+    {
+      "section": "legal-rights/know_your_rights.md",
+      "claim": "The National Lawyers Guild (NLG) Chicago chapter provides dedicated legal support hotlines for civic organizers and activists in Illinois.",
+      "primary_source": {
+        "title": "National Lawyers Guild Chicago Chapter",
+        "url": "https://nlgchicago.org/",
+        "authoritativeness": "Primary local chapter organization page listing active legal support phone numbers, legal observer programs, and KYR training."
+      },
+      "secondary_source": {
+        "title": "Illinois General Assembly - Illinois Compiled Statutes (ILCS)",
+        "url": "https://www.ilga.gov/legislation/ilcs/ilcs.asp",
+        "authoritativeness": "Official state legislature statute database verifying Illinois-specific stop-and-identify laws and detainment requirements."
+      }
+    }
+  ]
+}

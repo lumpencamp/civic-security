@@ -1,69 +1,199 @@
-# Navegador Tor: anonimato profundo y configuración Edge-Case
+# Navegador Tor: Navegación Anónima y Servicios Onion
 
-*Estado: Arquitectura de red de anonimato | Público: denunciantes, investigadores de OSINT y objetivos de alto riesgo*
+*Estado: Nivel 2 | Audiencia: Organizadores que manejan investigación sensible, periodistas y usuarios de alto riesgo*
 
-El Navegador Tor no proporciona "privacidad", sino **anonimato**. La privacidad es decidir *qué* le muestras al mundo; El anonimato es garantizar que el mundo no sepa *quién* eres. Si bien el enrutamiento cebolla subyacente de Tor es criptográficamente robusto, la mayoría de los ataques de desanonimización tienen éxito porque los usuarios cometen errores de comportamiento o de configuración en los puntos finales.
+Tor (The Onion Router) es una red de anonimato gratuita y de código abierto que enruta su tráfico de Internet a través de tres nodos (relés) operados por voluntarios, cifrándolo en cada salto. Originalmente fue desarrollado por el Laboratorio de Investigación Naval de EE. UU. y ahora es mantenido por Tor Project, una organización sin fines de lucro. Tor es utilizado por periodistas, activistas, trabajadores de derechos humanos, denunciantes, fuerzas del orden y millones de personas comunes en todo el mundo.
 
-Esta guía detalla los estrictos protocolos de implementación necesarios para sobrevivir a la inspección profunda de paquetes (DPI) y a la toma de huellas digitales avanzada del navegador.
+> **Tor no es una VPN.** Una VPN reemplaza a su ISP como la entidad que puede ver su tráfico y su dirección IP real. Tor proporciona un anonimato mucho más fuerte al garantizar que ningún nodo único sepa a la vez quién es usted y a qué está accediendo. Ningún nodo en la red Tor conoce el panorama completo.
 
 ---
 
-```mermaid
-graph TD
-    A["Tú (Navegador Tor)"] -->|Cifrado| B("Nodo de entrada")
-    B -->|Cifrado| C("Nodo medio")
-    C -->|Cifrado| D("Nodo de salida")
-    D -->|Descifrado o HTTPS| E{"Sitio web"}
-    style A fill:#4CAF50,color:#ffffff
-    style B fill:#2196F3,color:#ffffff
-    style C fill:#2196F3,color:#ffffff
-    style D fill:#F44336,color:#ffffff
-    style E fill:#9E9E9E,color:#ffffff
-```
+## 1. Cómo Funciona Tor
 
-## 1. Tor frente a VPN: una distinción fundamental
+### 1.1 El Circuito de Tres Saltos
 
-Los activistas suelen confundir las VPN y Tor. Tienen propósitos completamente diferentes:
+Cuando usa Tor, su tráfico es:
 
-* **VPN (red privada virtual):** Transfiere la confianza de su proveedor de servicios de Internet (ISP) a una empresa de VPN corporativa. Oculta su tráfico de su red local y cambia su dirección IP, pero el proveedor de VPN *podría* registrar su actividad. **Una VPN NO te hace anónimo.** Si las autoridades citan una VPN (y registran datos), tu identidad se ve comprometida.
-* **Navegador Tor:** Diseñado específicamente para el **anonimato**. El cifrado de múltiples capas hace que sea matemáticamente inviable para *cualquiera* (incluidos los nodos individuales en la red Tor) vincular su carga útil de tráfico a su dirección IP.
+1. **Cifrado en tres capas** en su dispositivo
+2. **Enviado al nodo Guardia/Entrada (Guard/Entry):** Conoce su dirección IP real pero no su destino
+3. **Reenviado al nodo Medio (Middle):** No conoce ni su IP ni su destino
+4. **Reenviado al nodo de Salida (Exit):** Conoce su destino pero no su dirección IP real
+5. **Enviado al sitio web de destino**
 
-## 2. Eludir la censura: transportes y puentes conectables
+Ningún nodo tiene el panorama completo. Un adversario necesitaría controlar simultáneamente su nodo de entrada y observar su tráfico de destino para desanonimizarlo — este es el "ataque de correlación de tráfico" y representa la principal limitación práctica de Tor.
 
-En entornos hostiles (regímenes autoritarios, redes corporativas, Wi-Fi universitario), los adversarios implementan la inspección profunda de paquetes (DPI) para identificar la firma criptográfica del tráfico Tor y bloquearla. Para anular el DPI, debes utilizar un transporte conectable (un puente).
+### 1.2 Contra Qué Protege Tor
 
-Un Puente es un Nodo de Entrada no listado que disfraza su tráfico Tor para que parezca tráfico web estándar y benigno.
+- **Su ISP** viendo qué sitios web visita
+- **Sitios web** viendo su dirección IP real y ubicación
+- **Observadores a nivel de red** (en Wi-Fi público, la red de su empleador) viendo sus destinos
+- **Vigilancia de nivel T1–T2** que depende de la identificación basada en IP
 
-* **`obfs4` (Ofuscación 4):** La defensa estándar. Envuelve el tráfico de Tor en una capa de ofuscación, haciéndolo parecer un ruido aleatorio e irreconocible. Utilízalo si tu ISP simplemente bloquea los nodos Tor conocidos.
-* **`Snowflake`:** Un transporte entre pares altamente resistente. Enruta su conexión inicial a través de servidores proxy temporales administrados por voluntarios en países sin censura que utilizan WebRTC, lo que hace que su tráfico parezca una videollamada estándar. Úselo contra cortafuegos nacionales altamente sofisticados.
-* **`meek_azure`:** Dirige su tráfico a través de la infraestructura de nube Azure de Microsoft. El censor ve que te conectas a Microsoft, no a Tor. Para bloquear esto es necesario bloquear Azure por completo (Domain Fronting), algo que los censores son reacios a hacer debido al daño económico.
+### 1.3 Contra Qué NO Protege Tor
 
-**Configuración:** Si Tor no logra conectarse, navegue hasta **Configuración > Conexión > Puentes** y seleccione un puente integrado o solicite uno directamente desde el Proyecto Tor.
+- **Correlación de tráfico por un adversario global:** La NSA y agencias similares tienen la capacidad de observar el tráfico en los nodos de entrada y salida simultáneamente y realizar correlaciones estadísticas para desanonimizar a los usuarios. Esta es la limitación práctica más grave.
+- **Malware en su dispositivo:** Si su dispositivo está comprometido, Tor no lo protege
+- **Desanonimización a través de su comportamiento:** Iniciar sesión en su Gmail personal en el Navegador Tor desanonimiza inmediatamente su sesión
+- **Intercepción del nodo de salida del tráfico no cifrado:** El nodo de salida puede ver el tráfico HTTP no cifrado. Utilice siempre HTTPS cuando utilice Tor.
+- **Huella digital del navegador (browser fingerprinting) si modifica el Navegador Tor:** El Navegador Tor está diseñado específicamente para hacer que todos los usuarios se vean idénticos. Agregar extensiones, cambiar configuraciones o habilitar JavaScript en sitios sensibles reduce esta protección.
 
-## 3. Protocolos de comportamiento estrictos (venciendo las huellas dactilares)
+---
 
-Cuando usas Tor, tu objetivo es integrarte con todos los demás usuarios de Tor. Cualquier desviación del perfil predeterminado lo hace único, lo que permite a los rastreadores construir una "huella digital del navegador" y desanonimizarlo.
+## 2. Instalación y Uso del Navegador Tor
 
-### 1. Maximice el control deslizante de seguridad
-De forma predeterminada, Tor permite la ejecución de scripts web estándar para garantizar que los sitios web no fallen. Para la seguridad operativa, esto es inaceptable.
-* Haga clic en el **Icono de escudo** en la barra de URL.
-* Seleccione **Configuración de seguridad avanzada**.
-* Cambie el nivel a **Más seguro**. Esto deshabilita completamente JavaScript (JS) a nivel mundial. Malicious JS es el vector principal utilizado por los adversarios a nivel estatal para explotar los navegadores y ejecutar malware de anonimización. Si un sitio exige que JS funcione, busque otro sitio.
+### 2.1 Descarga y Verificación
 
-### 2. Nunca cambie el tamaño de la ventana del navegador
-Cuando maximiza una ventana del navegador, el sitio web solicita las dimensiones exactas en píxeles de su pantalla. Esto crea una "huella digital de lienzo" matemática muy exclusiva basada en el tamaño específico del monitor y la representación de gráficos.
-* **Regla:** Deje la ventana del Navegador Tor exactamente en el tamaño predeterminado en el que se abre. No haga clic en maximizar.
+**Crítico:** Solo descargue el Navegador Tor (Tor Browser) desde el sitio web oficial del Tor Project: **torproject.org**
 
-### 3. La regla de la red clara de tolerancia cero
-El error más catastrófico que puede cometer un activista es "tender puentes".
-* **Regla:** Nunca inicies sesión en una cuenta personal con nombre real (Facebook, Gmail personal, cuenta bancaria) mientras utilizas el navegador Tor.
-* *Mecánica:* Si inicias sesión en tu Facebook personal a través de Tor, acabas de vincular permanentemente tu circuito de nodo de salida anónimo de Tor directamente a tu verdadera identidad en la base de datos de Facebook. Si luego visita un foro de activistas en otra pestaña dentro de la misma sesión, los rastreadores pueden unir esas identidades.
+Verifique la firma de descarga:
+1. Descargue el paquete del navegador y el archivo de firma .asc correspondiente desde torproject.org/download
+2. Importe la clave de firma de Tor Project: `gpg --keyserver keys.openpgp.org --search-keys "Tor Browser Developers"`
+3. Verifique: `gpg --verify tor-browser-linux64-XX_en-US.tar.xz.asc tor-browser-linux64-XX_en-US.tar.xz`
+4. La salida debe mostrar "Good signature from Tor Browser Developers" (Firma correcta de Tor Browser Developers)
 
-## 4. Manejo operativo de archivos
+Si no puede verificar las firmas, considere usar un método de descarga alternativo, como el Navegador Tor en Tails OS (donde está preinstalado y preverificado).
 
-* **No abra descargas mientras esté en línea:** Si descarga un documento (PDF, Word) a través de Tor, no lo abra mientras esté conectado a Internet. Muchos formatos de documentos contienen rastreadores o macros integrados diseñados para "llamar a casa" a un servidor en el momento en que se abren, evitando Tor y revelando su verdadera dirección IP.
-* **Mitigación:** Desconéctese completamente de Internet antes de abrir cualquier archivo descargado, o ábralo exclusivamente dentro de un `DispVM` aislado en Qubes OS o en un entorno Tails OS sin acceso a la red.
+### 2.2 Configuración del Nivel de Seguridad
 
-_Última actualización: 2026_
+El Navegador Tor incluye una configuración de "Nivel de Seguridad" que controla la cantidad de JavaScript y contenido activo que se permite. Más alto = más seguro pero potencialmente rompe algunos sitios web.
 
-{% include mermaid.html %}
+*En Navegador Tor → Icono de Escudo (arriba a la derecha) → Ajustes de Seguridad Avanzados*
+
+| Nivel | JavaScript | Caso de Uso |
+|-------|-----------|----------|
+| Estándar | Activado | Navegación general donde el anonimato es un objetivo pero no es crítico |
+| Más Seguro (Safer) | Parcialmente desactivado | Investigación, periodismo, comunicaciones activistas |
+| El Más Seguro (Safest) | Desactivado | Acceso a documentos sensibles, denuncias de irregularidades (whistleblowing), investigación de alto riesgo |
+
+**Recomendación para uso de alto riesgo:** Establézcalo en El Más Seguro (Safest). Si un sitio requiere JavaScript, evalúe si necesita acceder a él y si existe una alternativa más segura.
+
+### 2.3 Reglas Operativas Críticas
+
+**Nunca haga lo siguiente en el Navegador Tor:**
+- Iniciar sesión en cuentas personales (Google, Facebook, su correo electrónico real) — esto desanonimiza inmediatamente su sesión
+- Abrir documentos descargados a través de Tor en otras aplicaciones (especialmente archivos PDF y .docx) — estos pueden realizar solicitudes de red que eluden Tor
+- Usar BitTorrent a través de Tor — anula las protecciones de Tor y daña la red para otros
+- Instalar extensiones de navegador adicionales — cambian su huella digital y pueden introducir vulnerabilidades
+- Cambiar el tamaño de la ventana del navegador — el tamaño de la ventana es parte de la huella digital del navegador; el Navegador Tor se abre en un tamaño estándar por esta razón
+
+**Siempre haga lo siguiente:**
+- Use HTTPS — busque el ícono del candado. El Navegador Tor incluye HTTPS Everywhere por defecto.
+- Cierre el navegador cuando termine — esto borra todos los datos de la sesión
+- Conéctese a la red Tor antes de iniciar — si necesita usar Tor y está bloqueado en su país, configure un puente (bridge) primero (consulte la Sección 4)
+- Genere un nuevo circuito para tareas importantes: *Icono de Tor en la barra de URL → Nuevo Circuito para Este Sitio (New Circuit for This Site)*
+
+---
+
+## 3. Servicios .Onion
+
+Los servicios .Onion (también llamados "servicios ocultos") son sitios web accesibles solo a través de Tor que tienen su propio anonimato: la ubicación del servidor está oculta, al igual que la ubicación del usuario.
+
+### 3.1 Por qué Usar Servicios .Onion
+
+- **Ambas partes son anónimas:** A diferencia de los sitios web habituales a los que se accede a través de Tor, los servicios .onion ocultan la IP del servidor además de su IP
+- **Cifrado de extremo a extremo:** El tráfico entre usted y el servicio .onion está cifrado dentro de la red Tor, sin un nodo de salida que pueda observarlo
+- **Resistencia a la censura:** Los servicios .onion no pueden ser bloqueados por el filtro de Internet de un país (aunque el acceso a Tor en sí puede estar restringido)
+
+### 3.2 Servicios .Onion Clave
+
+**Periodismo seguro y denuncias:**
+- **SecureDrop:** La plataforma estándar para la comunicación segura con organizaciones de medios. La mayoría de los principales medios de comunicación tienen una dirección .onion de SecureDrop. Acceda a través de sus sitios web públicos.
+- **DDoSecrets** (Distributed Denial of Secrets): Archivo de documentos filtrados de gobiernos y corporaciones — ddosecretspzwfy7bk6vmvyxky5xxlhqo4mfn2dzdmxktvgjzovqd.onion
+
+**Búsqueda y referencia:**
+- **DuckDuckGo Onion:** duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion
+- **Ahmia:** Motor de búsqueda para sitios .onion — ahmia.fi (clearnet) o a través de DuckDuckGo .onion
+
+**Comunicaciones:**
+- **Proton Mail (Onion):** protonmailrmez3lotccipshtkleegetolb73fuirgj7r4o4vfu7ozyd.onion
+
+### 3.3 Seguridad de Direcciones .Onion
+
+No todos los sitios .onion son legítimos. Verifique las direcciones .onion a través de los sitios web oficiales en la red pública (clearnet) de organizaciones confiables: no use direcciones .onion encontradas a través de búsquedas aleatorias o fuentes no verificadas.
+
+---
+
+## 4. Puentes Tor (Bridges): Eludiendo la Censura
+
+Si Tor está bloqueado en su país o red, los puentes (bridges) son relés de Tor no publicados que eluden los bloqueos.
+
+**Obtener puentes:**
+1. En torproject.org/bridges
+2. Enviando un correo electrónico a bridges@torproject.org (desde una dirección de Gmail o Riseup)
+3. A través del Navegador Tor: *Ajustes de Conexión → Usar un puente → Solicitar un puente de Tor Project (Connection Settings → Use a bridge → Request a bridge from Tor Project)*
+
+**Tipos de puentes:**
+- **obfs4:** El estándar actual; ofusca el tráfico para que no se parezca a Tor
+- **Snowflake:** Enruta el tráfico a través de WebRTC, haciendo que parezca tráfico de videoconferencia
+- **meek-azure:** Enruta el tráfico a través de Microsoft Azure, haciendo que parezca tráfico legítimo de la nube
+
+---
+
+## 5. Tor en Dispositivos Móviles
+
+### 5.1 Orbot (Android)
+
+Orbot es la aplicación oficial de Tor para Android (del Guardian Project). Puede:
+- Proporcionar un proxy Tor para todas las aplicaciones en el dispositivo (con modo VPN)
+- Enrutar aplicaciones específicas a través de Tor (enrutamiento selectivo)
+- Integrarse directamente con Signal para proteger los metadatos
+
+**Configuración:**
+1. Instale Orbot desde Google Play o F-Droid (Se prefiere F-Droid para usuarios conscientes de la seguridad)
+2. Toque *Iniciar (Start)* para conectarse a Tor
+3. Habilite el *Modo VPN (VPN Mode)* para enrutar todo el tráfico del dispositivo a través de Tor (consume mucha batería, pero es exhaustivo)
+4. O, use *Aplicaciones habilitadas para Tor (Tor-Enabled Apps)* para enrutar solo aplicaciones específicas
+
+**Signal + Orbot:**
+En Signal: *Ajustes → Privacidad → Avanzado → Usar proxy → Proxy SOCKS → 127.0.0.1:9050*
+
+Esto enruta el tráfico de Signal a través de Tor, ocultándole a su ISP que está usando Signal en absoluto.
+
+### 5.2 Navegador Tor para Android
+
+La aplicación oficial del Navegador Tor (Tor Browser) está disponible para Android desde la Play Store o desde torproject.org. Proporciona las mismas protecciones que la versión de escritorio.
+
+### 5.3 Limitaciones en iOS
+
+Las políticas de la App Store de Apple impiden que cualquier aplicación enrute todo el tráfico del sistema a través de Tor (el equivalente al modo VPN). En iOS:
+- **Onion Browser** (de Mike Tigas, respaldado por Tor Project): Un navegador conectado a Tor. Similar al Navegador Tor para Android.
+- Limitación: Solo se anonimiza el tráfico del navegador; otras aplicaciones no se enrutan a través de Tor
+
+---
+
+## 6. Combinaciones de Tor + VPN
+
+### 6.1 VPN → Tor (VPN y luego Tor)
+
+Conéctese a la VPN primero, luego use Tor.
+
+**Ventajas:**
+- Su ISP ve el tráfico VPN, no el tráfico Tor — oculta a su ISP que está usando Tor
+- Protege contra nodos de entrada maliciosos (la IP de su VPN es la entrada, no su IP real)
+
+**Desventajas:**
+- Su proveedor de VPN puede ver que está usando Tor (pero no lo que está haciendo en Tor)
+- Debe confiar en su proveedor de VPN
+
+**Mejor para:** Situaciones en las que necesita ocultar el uso de Tor de su ISP mientras mantiene un fuerte anonimato en el extremo de destino.
+
+### 6.2 Tor → VPN (Tor y luego VPN)
+
+Use Tor para conectarse a una VPN, para que la VPN aparezca como su IP de salida.
+
+**Ventajas:**
+- Su destino ve una IP de VPN, no una IP de nodo de salida de Tor (algunos sitios bloquean los nodos de salida de Tor)
+- Evita el análisis de tráfico del nodo de salida
+
+**Desventajas:**
+- Complejo de configurar correctamente
+- El proveedor de VPN puede ver su tráfico (ven el tráfico descifrado de la salida de Tor)
+- Derrota gran parte del propósito de Tor al centralizar la confianza en la VPN
+
+**Generalmente no recomendado** a menos que tenga una razón específica para necesitar una IP de VPN en el destino.
+
+---
+
+*Esta guía no constituye asesoramiento legal. El uso de Tor es legal en la mayoría de los países, pero puede atraer la atención en algunas jurisdicciones. Conozca su contexto legal local.*
+
+[← Volver al Índice](../index.md)

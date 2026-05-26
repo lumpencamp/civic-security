@@ -1,69 +1,58 @@
 # Creative & Direct Action Tactics (From the 'Colors' Zine)
 
-This guide is a transcription of content from a protest zine. It details a range of creative, and in some cases confrontational, protest tactics. This content is provided for informational purposes and represents a different tactical approach from the defensive security guides elsewhere in this project.
+> [!CAUTION]
+> **OPERATIONAL SECURITY & LEGAL NOTICE**
+> This guide is a historical transcription of content from an underground protest zine. It details a range of creative, disruptive, and in some cases confrontational protest tactics used globally. **This content is provided for informational and historical purposes only.** Many of these tactics involve property destruction, vandalism, or assault, which carry severe felony legal consequences. The authors of this repository do not endorse illegal acts.
+> - **Always** consult local legal defense networks (e.g., National Lawyers Guild) for jurisdiction-specific advice before engaging in direct action.
+
+This guide represents a different tactical approach from the defensive cybersecurity guides elsewhere in this project, focusing on physical disruption and symbolic messaging.
 
 ---
 
-## Protesting with Banknotes
+## 1. Currency as a Medium: Protesting with Banknotes
 
-*   **Write:** Write slogans like "Free Palestine" on currency that circulates across borders.
-*   **Stamp:** Use stamps to print messages on banknotes, like Alexei Navalny's campaign to stamp "United Russia is a party of crooks and thieves" on rubles.
-*   **Print:** Print infographics directly onto currency, like the Occupy George project, which printed wealth inequality stats on dollar bills.
+Because currency circulates widely and crosses borders, it has historically been used as a vector for uncensorable political messaging.
 
----
-
-## Other Ways to Protest Using Money
-
-*   **Move It:** Organize mass account closures from commercial banks, moving money to member-owned credit unions.
-*   **Make Change:** Pay fines or debts in inconvenient forms, like the man who paid a $150,000 settlement in 3.6 tonnes of coins.
-*   **Print Your Own:** When a small Italian town was forced to merge, it protested by declaring independence and creating its own currency, the Fiorito.
-*   **Burn It:** Publicly burn money to protest economic inequality, like the Swedish Feminist Initiative barbecuing 100,000 krona to represent the gender wage gap.
+*   **Political Sloganeering:** Write short, high-impact slogans (e.g., "Free Palestine", "Abolish ICE") on currency that circulates heavily in urban centers.
+*   **The Stamping Campaign:** Use custom rubber stamps to print messages cleanly on banknotes. A famous example is Alexei Navalny's campaign in Russia to stamp "United Russia is a party of crooks and thieves" on rubles. Because banks often recirculate stamped money rather than destroying it, the message persists.
+*   **Infographic Printing:** Print data directly onto currency. The *Occupy George* project printed wealth inequality statistics on dollar bills using precise templates, turning the money itself into an educational flyer.
+*   **Economic Disruption (Mass Movement):** Organize mass account closures from large commercial banks that fund fossil fuels or military contractors, moving money en masse to local, member-owned credit unions on a specific coordinated date.
+*   **Malicious Compliance:** Pay unjust fines, court fees, or predatory debts in highly inconvenient forms. (e.g., Paying a large settlement entirely in pennies or loose coins, forcing the institution to process it).
 
 ---
 
-## How to Attack Surveillance Cameras ('Camover')
+## 2. Anti-Surveillance Tactics ('Camover')
 
-*These tactics describe property destruction and may carry serious legal consequences.*
+*Note: These tactics describe property destruction and carry serious legal consequences (felony destruction of government property).*
 
-*   **Beat It:** Use a long, strong stick to knock cameras off their posts or break them.
-*   **Snare It:** Use a rope with a heavy weight to throw over a camera, form a noose, and yank it down.
-*   **Tape It Over:** Apply opaque tape to the lens of low-hanging cameras.
-*   **Bag It, Blind It:** Glue a plastic bag over a camera. Paint is also effective for blinding the lens.
-*   **Cut the Power:** Use a sharp hand axe or garden shears to cut a camera's power cables. Wear heavy-duty gloves.
-*   **Laser Dazzling:** Powerful laser pointers can temporarily blind CCTV cameras from a distance.
-*   **Block Drop:** Climb to the roof above a camera and drop heavy weights on it.
+In response to the proliferation of CCTV, activists in Europe initiated the "Camover" movement, turning camera destruction into a competitive game.
 
----
-
-## Homemade Weapons & Defense
-
-*These tactics describe the creation and use of weapons and armor, which may be illegal and dangerous.*
-
-*   **Branded Mortars:** Use homemade mortars adorned with political slogans.
-*   **Bomb Slingshot:** Use giant slingshots to launch projectiles.
-*   **Wheelbarrow Cannon:** Construct a cannon from pipes and a wheelbarrow.
-*   **Glitter Bomb:** Use an air horn and a test tube to create a glitter bomb for non-violent disruption.
-*   **Mattress Shield:** Use mattress foam and corkboard to create a soft shield.
-*   **Garbage Armor:** Create armor from motorbike helmets, PVC piping, and plastic garbage containers.
-*   **Book Blocs:** Use large book covers made of foam and cardboard as shields.
-*   **Inflatable Buffer:** Use car-tire inner tubes covered in tape as a buffer against police lines.
+*   **The Snare:** Use a rope with a heavy weight (like a large bolt) tied to the end. Throw the weight over the camera arm to form a loop, and yank downward with body weight to snap the mounting bracket.
+*   **Blinding:** Apply opaque tape, spray paint, or heavy industrial stickers over the lens of low-hanging cameras.
+*   **The Plastic Bag:** Cover a camera with a heavy-duty plastic garbage bag and secure it tightly with zip-ties or duct tape at the base, blinding the lens without necessarily destroying the hardware.
+*   **Power Severance:** Use insulated, heavy-duty garden shears or bolt cutters to sever the external power and data cables leading to the camera housing. (High risk of electrocution if not properly insulated).
+*   **Laser Dazzling (Non-Destructive):** Powerful, high-wattage laser pointers can temporarily blind CCTV camera sensors from a significant distance, providing cover for activists moving through a choke point. Prolonged exposure can permanently burn the camera's CMOS sensor.
 
 ---
 
-## Sextremist Stunts (Femen Tactics)
+## 3. Homemade Shields & Defense
 
-*   **Plan for Media:** Actions are designed to create media-friendly images. Be able to strip fast enough to be photographed before security arrives.
-*   **Use Props:** Use props like dildos, fake blood, or costumes to make a clear, shocking statement.
-*   **Decorate Your Body:** Use your body as a canvas for your protest message.
-*   **Symbolic Actions:** Set a Barbie on fire to protest gender stereotypes.
+During intense riot control situations, activists have developed DIY armor to protect against rubber bullets, baton strikes, and tear gas canisters.
+
+*   **Book Blocs:** Used heavily in student protests. Activists use large, thick pieces of foam or corkboard, paint them to look like the covers of famous radical books, and interlock them to create a soft, highly visible shield wall.
+*   **The Inflatable Buffer:** Use large car-tire inner tubes or inflatable pool rafts, covered in heavy duct tape, as a bouncy buffer against police lines or mounted units.
+*   **Mattress Shields:** Cut standard memory foam mattresses into shield-sized rectangles and reinforce the back with plywood or rigid plastic. Excellent for absorbing kinetic impact munitions (rubber bullets).
+*   **Traffic Cone Snuffers:** When tear gas canisters are deployed, heavy traffic cones can be placed directly over the canister. Water is then poured through the hole in the top of the cone to extinguish the chemical reaction safely.
 
 ---
 
-## Other Ways to Protest with Your Body
+## 4. Disruption and Body-Protest
 
-*   **Show Your Ass:** Moon surveillance cameras or symbols of authority.
-*   **Lie Down (Planking):** Block intersections or public spaces by planking.
-*   **Bury Yourself:** Bury yourself up to the neck to protest delays in government action.
-*   **Dance:** Use coordinated dance routines (like "Gangnam Style") to protest for unpaid wages.
+Using the human body itself to disrupt infrastructure or convey a message.
 
-_Last Updated: 2026_
+*   **Sextremism (Femen Tactics):** Made famous by the Femen group. Plan for rapid deployment. Actions are designed to create shocking, media-friendly images that force publication. The goal is to strip fast enough to be photographed by press before security can cover the activists. Body paint is used to turn the torso into a billboard.
+*   **Planking / Die-Ins:** Mass coordinated lying down to completely block intersections, shopping malls, or transit hubs. Often used to symbolize casualties of state violence.
+*   **Lock-Ons:** Using PVC pipe, chicken wire, and carabiners to lock activists' arms together or to heavy infrastructure (gates, trains, construction equipment). This forces authorities to bring in specialized cutting teams, delaying evictions or resource extraction by hours or days.
+*   **The Glitter Bomb:** A non-violent but highly disruptive tactic used against politicians or corporate executives. Using a small tube of fine glitter (often biodegradable) to ruin a press conference or public appearance, creating a visually embarrassing spectacle that dominates news cycles.
+
+[← Back to Index](../index.md)
